@@ -1,6 +1,21 @@
 # Benchmark theory and exact metrics
 
-This is the measurement layer behind the catalog. It explains what a score actually counts, what assumptions turn that count into a capability claim, and where the claim breaks.
+This page explains what a legal benchmark score counts, which assumptions turn that count into a capability claim, and where the claim breaks.
+
+[Catalog index](catalog.md) · [Selection guide](selection-guide.md) · [Methodology](methodology.md) · [Back to README](../README.md)
+
+## Contents
+
+- [The benchmark is not the dataset](#the-benchmark-is-not-the-dataset)
+- [Four validity questions](#four-validity-questions)
+- [Classification and extraction](#classification-and-extraction)
+- [Ranking and retrieval](#ranking-and-retrieval)
+- [Generation and translation](#generation-and-translation)
+- [LLM judges and rubric scoring](#llm-judges-and-rubric-scoring)
+- [Benchmark-specific composite scores](#benchmark-specific-composite-scores)
+- [Contamination and leakage](#contamination-and-leakage)
+- [Reliability and uncertainty](#reliability-and-uncertainty)
+- [Minimum honest result card](#minimum-honest-result-card)
 
 ## The benchmark is not the dataset
 
@@ -325,4 +340,4 @@ Every published legal benchmark result should identify:
 9. license/access constraints and any items excluded from reproduction;
 10. concrete examples of legally material failures.
 
-That result card is the bridge between “a number was produced” and “the number supports the capability claim.”
+Without those fields, another reader cannot reproduce the run or judge whether the number supports the claimed capability.

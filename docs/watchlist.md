@@ -1,6 +1,8 @@
 # Watchlist
 
-These are plausible legal-evaluation artifacts that were **not promoted into the canonical catalog** at the 2026-08-03 research snapshot. Being on this page is not a rejection; it means that recency, missing artifacts, unstable versions, internal inconsistencies, gating, or incomplete scoring instructions prevent a stronger reproducibility label today.
+These legal-evaluation projects were plausible but not ready for the canonical catalog at the 2026-08-03 snapshot. Each one is missing a stable identity, version, scorer, license, accessible artifact, or enough detail for a stronger reproducibility judgment.
+
+[Catalog index](catalog.md) · [Methodology](methodology.md) · [Contributing](../CONTRIBUTING.md) · [Back to README](../README.md)
 
 | Candidate | Why it matters | Why it remains on the watchlist | Primary artifacts |
 |---|---|---|---|

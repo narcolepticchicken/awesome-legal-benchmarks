@@ -1,8 +1,10 @@
 # Selection guide
 
-There is no defensible single “best legal benchmark.” Select a portfolio whose jurisdiction, legal materials, interface, scoring rule, and failure costs match the system you intend to deploy. A benchmark that measures multiple-choice recall is not evidence of reliable legal drafting, retrieval, citation, or tool use.
+Start with the legal job, not the benchmark name. Match the jurisdiction, legal materials, interface, scoring rule, and failure cost to the system you plan to use. Multiple-choice recall does not establish reliable drafting, retrieval, citation, or tool use.
 
-## Comparative recommendation matrix
+[Catalog index](catalog.md) · [Methodology](methodology.md) · [Metric field guide](metric-theory.md) · [Back to README](../README.md)
+
+## Use-case matrix
 
 | Use case | Primary public benchmark(s) | Lead metric | Pair with / hold out | Main limitation |
 |---|---|---|---|---|
@@ -26,12 +28,19 @@ There is no defensible single “best legal benchmark.” Select a portfolio who
 | Legal translation | [SwiLTra-Bench](https://github.com/JoelNiklaus/SwissLegalTranslations), [MILPaC](https://github.com/Law-AI/MILPaC), [JUST-NLP 2025](https://www.codabench.org/competitions/10351/) | Named automatic metrics plus legal-expert ratings | Terminology, omission, and enforceability error analysis | BLEU/chrF++ similarity does not establish legally faithful translation. |
 | Current US legal answers and citations | [Open Legal-Answer Benchmark](https://github.com/Vaquill-AI/open-legal-answer-benchmark) | Must-include, citation support/in-range, forbidden-claim cleanliness, authority retrieval | Independent, time-stamped questions with blind grading | Sponsor-maintained, self-run, public, and only 54 canonical questions. |
 
-## Recommended evaluation design
+## Build a useful evaluation portfolio
 
-1. Use one established public benchmark for comparability, one task-specific benchmark for construct fit, and one fresh private holdout for decision evidence.
-2. Freeze benchmark, dataset, scorer, prompt, judge, and dependency revisions before running models.
-3. Report per-task, language, jurisdiction, and subgroup results with item counts and uncertainty. Do not replace them with a single rank.
-4. Separate retrieval, generation, citation, process, cost, and latency. A correct answer reached with missing authority is a different failure from a correct retrieval followed by an unsupported answer.
-5. Record all previous exposure to public tasks and use document-, entity-, and time-grouped splits where possible.
+The catalog recommendation is to use three layers:
+
+1. One established public benchmark for comparison with published work.
+2. One task-specific benchmark that matches the legal job and interface.
+3. One fresh, matter-specific holdout for the actual decision.
+
+Then lock down the run:
+
+1. Freeze benchmark, dataset, scorer, prompt, judge, and dependency revisions before running models.
+2. Report per-task, language, jurisdiction, and subgroup results with item counts and uncertainty. Do not replace them with a single rank.
+3. Separate retrieval, generation, citation, process, cost, and latency. A correct answer reached with missing authority is a different failure from a correct retrieval followed by an unsupported answer.
+4. Record all previous exposure to public tasks and use document-, entity-, and time-grouped splits where possible.
 
 The exact formulas and interpretation limits are documented in [metric theory](metric-theory.md).

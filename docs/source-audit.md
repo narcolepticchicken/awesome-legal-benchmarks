@@ -1,6 +1,10 @@
 # Audit of the original 22 README bullets
 
-The source README contained 22 bullets but only 21 canonical identities: bullets 3 and 20 both refer to the Massive Legal Embedding Benchmark (MLEB). “Verified” below means a primary paper, official repository, official dataset card, or official competition page supports the identity; it does not endorse the benchmark's validity.
+The source README had 22 bullets and 21 canonical identities. Bullets 3 and 20 both point to the Massive Legal Embedding Benchmark (MLEB).
+
+“Verified” means a primary paper, official repository, official dataset card, or official competition page supports the identity. It is not an endorsement of the benchmark's validity.
+
+[Catalog index](catalog.md) · [Methodology](methodology.md) · [Back to README](../README.md)
 
 | # | README identity | Canonical classification and status | Audit correction / key caveat | Primary artifacts |
 |---:|---|---|---|---|

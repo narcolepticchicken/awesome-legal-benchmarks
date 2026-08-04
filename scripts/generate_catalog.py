@@ -13,31 +13,45 @@ CATALOG_PATH = ROOT / "catalog" / "benchmarks.json"
 
 SECTIONS = [
     (
+        "reasoning-education",
         "General legal reasoning and education",
+        "Broad suites, legal language understanding, professional exams, and jurisdiction-specific knowledge tests.",
         ["legalbench", "lawbench", "lexglue", "lextreme", "lexam", "lexeval", "arablegaleval", "il-tur", "kcl"],
     ),
     (
+        "retrieval-rag-citation",
         "Retrieval, RAG, and citation",
+        "Authority retrieval, exact-support retrieval, case similarity, citation grounding, and end-to-end legal RAG.",
         ["mleb", "legalbench-rag", "bsard", "lleqa", "clerc", "reglab-reasoning-focused-retrieval", "lecardv2", "coliee", "legal-rag-bench", "canlegalragbench"],
     ),
     (
+        "contracts-deal-work",
         "Contracts and deal work",
+        "Clause extraction, provision classification, entailment, retrieval, merger agreements, and redlining.",
         ["cuad", "ledgar", "contractnli", "maud", "acord", "contracteval", "redlinebench"],
     ),
     (
+        "prediction-fairness-rules",
         "Prediction, fairness, and structured reasoning",
+        "Outcome prediction, subgroup performance, holding selection, deontic rules, and structured legal analysis.",
         ["ecthr", "fairlex", "casehold", "deonticbench", "alarb", "mslr", "maslegalbench"],
     ),
     (
+        "agents-workflows",
         "Agents and legal workflows",
+        "Tool use, process compliance, simulated legal work, and long-horizon professional tasks.",
         ["legalagentbench", "ready-jurist-one", "harvey-lab", "apex-agents-corporate-law"],
     ),
     (
+        "translation",
         "Legal translation",
+        "Shared tasks and multilingual corpora with automatic and legal-expert translation scoring.",
         ["just-nlp-2025-legal-mt", "swiltra-bench", "milpac"],
     ),
     (
+        "related-evaluators",
         "Evaluators, private tests, and related resources",
+        "Artifacts worth tracking that are not comparable public benchmarks, including frameworks, private tests, and resource lists.",
         ["legaleval-q", "lrage", "prinzbench", "open-legal-answer-benchmark", "awesome-legal-nlp"],
     ),
 ]
@@ -45,22 +59,22 @@ SECTIONS = [
 TIER_LABELS = {
     "recommended": "recommended",
     "specialist": "specialist",
-    "evaluate-carefully": "evaluate carefully",
-    "related": "related—not a comparable public benchmark",
+    "evaluate-carefully": "check before use",
+    "related": "related artifact",
 }
 
 QUICK_PICKS = [
-    ("Broad English legal NLU", "LexGLUE + LegalBench", "lexglue", "Use per-task scores; do not trust one blended rank."),
-    ("Broad Chinese evaluation", "LawBench + LexEval", "lawbench", "Public exam data have high contamination risk."),
-    ("Multilingual European law", "LEXTREME", "lextreme", "Harmonic aggregation punishes weak languages/tasks."),
-    ("Multilingual Indian law", "IL-TUR", "il-tur", "Eight tasks are uneven in size and language coverage."),
-    ("Contract extraction", "CUAD + ContractNLI + MAUD", "cuad", "Split by document family and check memorization."),
-    ("Contract clause retrieval", "ACORD", "acord", "Strong graded expert qrels; only 114 queries."),
-    ("Legal retrieval / RAG", "LegalBench-RAG + BSARD + RegLab", "legalbench-rag", "Pair retrieval metrics with answer-grounding checks."),
-    ("Agentic legal work", "J1Bench + LAB + APEX legal slice", "ready-jurist-one", "Harness, judge, and environment are part of the model."),
-    ("Rule/deontic reasoning", "DeonticBench", "deonticbench", "Pin the post-audit Prolog revision."),
-    ("Fairness / subgroup robustness", "FairLex", "fairlex", "Report group sizes and uncertainty with worst-group scores."),
-    ("Legal translation", "SwiLTra-Bench + MILPaC", "swiltra-bench", "Automatic MT metrics do not establish legal fidelity."),
+    ("Broad English legal NLU", [("LexGLUE", "lexglue"), ("LegalBench", "legalbench")], "Use per-task scores; a blended rank hides task differences."),
+    ("Broad Chinese evaluation", [("LawBench", "lawbench"), ("LexEval", "lexeval")], "Public exam data have high contamination risk."),
+    ("Multilingual European law", [("LEXTREME", "lextreme")], "Harmonic aggregation makes weak language/task performance matter."),
+    ("Multilingual Indian law", [("IL-TUR", "il-tur")], "Task size and language coverage vary across the suite."),
+    ("Contract extraction", [("CUAD", "cuad"), ("ContractNLI", "contractnli"), ("MAUD", "maud")], "Use document-family splits and check near-duplicate exposure."),
+    ("Contract clause retrieval", [("ACORD", "acord")], "Expert graded qrels are useful; the benchmark has 114 queries."),
+    ("Legal retrieval / RAG", [("LegalBench-RAG", "legalbench-rag"), ("BSARD", "bsard"), ("RegLab", "reglab-reasoning-focused-retrieval")], "Report retrieval and answer grounding separately."),
+    ("Agentic legal work", [("J1Bench", "ready-jurist-one"), ("LAB", "harvey-lab"), ("APEX legal slice", "apex-agents-corporate-law")], "The environment, tools, and judge are part of the instrument."),
+    ("Rule/deontic reasoning", [("DeonticBench", "deonticbench")], "Pin the post-audit Prolog and test revision."),
+    ("Fairness / subgroup performance", [("FairLex", "fairlex")], "Report group sizes, uncertainty, worst-group scores, and gaps."),
+    ("Legal translation", [("SwiLTra-Bench", "swiltra-bench"), ("MILPaC", "milpac")], "Automatic MT metrics do not establish legal fidelity."),
 ]
 
 
@@ -68,21 +82,24 @@ def load_catalog() -> dict:
     return json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
 
 
-def md_links(entry: dict) -> str:
-    labels = {
-        "github": "GitHub",
-        "huggingface": "Hugging Face",
-        "papers": "paper",
-        "leaderboards": "leaderboard",
-        "project": "project",
-    }
-    links: list[str] = []
-    for kind, label in labels.items():
-        urls = entry["resources"][kind]
-        for index, url in enumerate(urls, start=1):
-            suffix = f" {index}" if len(urls) > 1 else ""
-            links.append(f"[{label}{suffix}]({url})")
-    return " · ".join(links)
+def section_for(entry_id: str) -> tuple[str, str, str, list[str]]:
+    for section in SECTIONS:
+        if entry_id in section[3]:
+            return section
+    raise KeyError(f"entry is not assigned to a catalog section: {entry_id}")
+
+
+def profile_href(entry_id: str, *, from_root: bool) -> str:
+    slug, _, _, _ = section_for(entry_id)
+    prefix = "docs/benchmarks" if from_root else "benchmarks"
+    return f"{prefix}/{slug}.md#{entry_id}"
+
+
+def quick_pick_links(items: list[tuple[str, str]]) -> str:
+    return " + ".join(
+        f"[{label}]({profile_href(entry_id, from_root=True)})"
+        for label, entry_id in items
+    )
 
 
 def resource_lines(resources: dict) -> list[str]:
@@ -110,7 +127,7 @@ def generate_readme(catalog: dict) -> str:
     unique_resource_count = len(
         {url for entry in catalog["entries"] for urls in entry["resources"].values() for url in urls}
     )
-    covered = [entry_id for _, section_ids in SECTIONS for entry_id in section_ids]
+    covered = [entry_id for _, _, _, section_ids in SECTIONS for entry_id in section_ids]
     missing = sorted(set(entries) - set(covered))
     duplicates = sorted({entry_id for entry_id in covered if covered.count(entry_id) > 1})
     unknown = sorted(set(covered) - set(entries))
@@ -120,68 +137,94 @@ def generate_readme(catalog: dict) -> str:
     lines = [
         "# Awesome Legal Benchmarks",
         "",
-        "A curated, evidence-first guide to benchmarks for legal language models, retrieval systems, and agents.",
+        "<!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->",
         "",
-        f"**Research snapshot:** {catalog['as_of']} · **Canonical entries:** {len(entries)} · **Original list audited:** all 22 bullets (21 identities; MLEB was duplicated)",
+        "[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Validate catalog](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg)](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml)",
         "",
-        f"**Resource inventory:** [{unique_resource_count} unique canonical URLs checked](catalog/resource-snapshot.json) · {resource_counts['github']} GitHub · {resource_counts['huggingface']} Hugging Face · {resource_counts['papers']} papers · {resource_counts['leaderboards']} leaderboards/competitions · {resource_counts['project']} project pages",
+        "Use this catalog to pick a legal benchmark and see what its score can actually support. Each entry records the task, jurisdiction, language, data, input/output contract, scorer, access terms, primary sources, and the biggest validity problem.",
         "",
-        "> A benchmark score is evidence about a defined task under a defined protocol—not proof that a system is legally correct, safe, current, fair, or ready for unsupervised practice.",
+        f"**Snapshot {catalog['as_of']}:** {len(entries)} canonical entries · [all 22 source bullets audited](docs/source-audit.md) (21 identities; MLEB appeared twice) · [{unique_resource_count} canonical URLs checked](catalog/resource-snapshot.json)",
         "",
-        "This repository links to canonical artifacts instead of redistributing datasets. Every entry records its legal construct, exact scoring protocol, jurisdiction/language, data provenance, access and license, reproducibility limits, and leakage risk. See the [full catalog](docs/catalog.md), [metric theory](docs/metric-theory.md), [selection guide](docs/selection-guide.md), and [source audit](docs/source-audit.md).",
+        "> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.",
         "",
-        "## Pick by use case",
+        "## Contents",
         "",
-        "| Use case | Start with | Why / caution |",
+        "- [Choose a benchmark](#choose-a-benchmark)",
+        "- [Browse the catalog](#browse-the-catalog)",
+        "- [Read a score](#read-a-score)",
+        "- [Use the data](#use-the-data)",
+        "- [Contribute](#contribute)",
+        "",
+        "## Choose a benchmark",
+        "",
+        "1. Name the legal task, jurisdiction, language, and as-of date.",
+        "2. Match the benchmark interface to the system: closed-book QA, retrieval, drafting, translation, or tool use.",
+        "3. Inspect the split, scorer, judge, and public-label exposure before comparing models.",
+        "4. Pair public comparison data with a fresh, matter-specific holdout when the decision matters.",
+        "",
+        "The [selection guide](docs/selection-guide.md) has the full recommendation matrix. These are the fastest starting points:",
+        "",
+        "| Use case | Start with | Main caution |",
         "|---|---|---|",
     ]
-    for use_case, label, entry_id, note in QUICK_PICKS:
-        lines.append(f"| {use_case} | [{label}](docs/catalog.md#{entry_id}) | {note} |")
+    for use_case, picks, note in QUICK_PICKS:
+        lines.append(f"| {use_case} | {quick_pick_links(picks)} | {note} |")
     lines += [
         "",
-        "## Curation labels",
+        "## Browse the catalog",
         "",
-        "- **recommended** — unusually useful combination of clear task contract, primary-source artifacts, and reproducibility.",
-        "- **specialist** — legitimate and useful for a narrower jurisdiction, task, or protocol.",
-        "- **evaluate carefully** — real artifact with material judge, vendor, split, licensing, or validity caveats.",
-        "- **related** — dataset, framework, protocol, private test, or resource list; retained so it is not mistaken for a comparable public benchmark.",
+        "Dumping 45 full profiles into one README is hard to use. This rebuild leads with the practical choice. The category pages keep claims tied to primary sources and expose the validity and contamination limits.",
         "",
-        "## Curated list",
-        "",
+        "| Area | What is inside | Entries |",
+        "|---|---|---:|",
     ]
-    for title, section_ids in SECTIONS:
-        lines += [f"### {title}", ""]
-        for entry_id in section_ids:
-            entry = entries[entry_id]
-            metrics = "; ".join(metric["name"] for metric in entry["metrics"])
-            jurisdictions = ", ".join(entry["jurisdictions"])
-            languages = ", ".join(entry["languages"])
-            lines.append(
-                f"- **[{entry['name']}](docs/catalog.md#{entry_id})** "
-                f"— {entry['capability']} **{TIER_LABELS[entry['tier']]}** · "
-                f"{entry['kind']} · {jurisdictions} · {languages}. "
-                f"**Data:** {entry['data']['size']}. **Metrics:** {metrics}. {md_links(entry)}"
-            )
-            lines.append(f"  - **Key caveat:** {entry['risks'][0]}")
-        lines.append("")
-
+    for slug, title, description, section_ids in SECTIONS:
+        lines.append(f"| [{title}](docs/benchmarks/{slug}.md) | {description} | {len(section_ids)} |")
     lines += [
-        "## What counts as legitimate here",
         "",
-        "An entry needs a primary or official source that identifies the artifact and defines its task and score. We then label—rather than hide—missing code, missing HF data, gates, private tests, vendor ownership, changing judges, mixed licenses, public-label contamination, and unresolved count conflicts. The [watchlist](docs/watchlist.md) contains promising releases that need more validation or maturity.",
+        "See the [compact 45-entry index](docs/catalog.md), or filter the machine-readable [JSON](catalog/benchmarks.json) and [CSV](catalog/benchmarks.csv).",
         "",
-        "## Repository map",
+        "A catalog label is a curation judgment, not a leaderboard rank:",
         "",
-        "- [`catalog/benchmarks.json`](catalog/benchmarks.json) — source of truth.",
-        "- [`catalog/benchmarks.csv`](catalog/benchmarks.csv) — spreadsheet-friendly flat view.",
-        "- [`catalog/resources.csv`](catalog/resources.csv) — every canonical GitHub, HF, paper, project, and leaderboard URL.",
-        "- [`catalog/resource-snapshot.json`](catalog/resource-snapshot.json) — live verification of every canonical repository, dataset, paper, leaderboard, competition, and project URL.",
-        "- [`docs/catalog.md`](docs/catalog.md) — full human-readable benchmark profiles.",
-        "- [`docs/metric-theory.md`](docs/metric-theory.md) — formulas, what each metric rewards, and where it fails.",
-        "- [`docs/source-audit.md`](docs/source-audit.md) — reconstruction of the 22-bullet source list, including duplicate and stale links.",
-        "- [`awesome-legal-benchmarks.xlsx`](outputs/awesome-legal-benchmarks.xlsx) — formatted workbook generated from the same catalog.",
+        "| Label | Meaning |",
+        "|---|---|",
+        "| **recommended** | Clear task contract, primary artifacts, and comparatively strong reproducibility for its class. |",
+        "| **specialist** | Useful within a narrower task, jurisdiction, language, or protocol. |",
+        "| **check before use** | Real artifact with a material judge, vendor, split, license, access, or validity issue. |",
+        "| **related artifact** | Dataset, framework, protocol, private test, or resource list. It is included so it is not mistaken for a comparable public benchmark. |",
         "",
-        "## Validate and regenerate",
+        "Artifact type is tracked separately. A dataset is not automatically a benchmark, and an evaluation framework does not define a fixed test. The [methodology](docs/methodology.md) explains the inclusion rule and evidence labels.",
+        "",
+        "## Read a score",
+        "",
+        "Before repeating a benchmark number, answer five questions:",
+        "",
+        "1. What capability does success require, and what shortcut could produce the same score?",
+        "2. Which jurisdiction, language, source population, and time period does the sample cover?",
+        "3. What did the model receive, and what exact output did the scorer parse?",
+        "4. How are item scores aggregated? What uncertainty, subgroup, abstention, and failure counts are missing?",
+        "5. Were the questions, answers, documents, rubrics, or judge outputs exposed during training or development?",
+        "",
+        "The [metric field guide](docs/metric-theory.md) gives the formulas and failure modes for accuracy, F-scores, retrieval metrics, overlap metrics, LLM judges, rubric scores, and benchmark-specific composites. It also breaks down LawBench's 20-task score map, LEXTREME's hierarchical harmonic mean, JUST-NLP AutoRank, KCL essay scoring, DeonticBench bootstrapping, and Ready Jurist One's dual scoring.",
+        "",
+        "## Use the data",
+        "",
+        "| Need | File |",
+        "|---|---|",
+        "| Canonical source of truth | [`catalog/benchmarks.json`](catalog/benchmarks.json) |",
+        "| Flat spreadsheet view | [`catalog/benchmarks.csv`](catalog/benchmarks.csv) |",
+        "| Every GitHub, Hugging Face, paper, project, and leaderboard URL | [`catalog/resources.csv`](catalog/resources.csv) |",
+        "| URL verification result | [`catalog/resource-snapshot.json`](catalog/resource-snapshot.json) |",
+        "| Original 22-bullet reconstruction | [`docs/source-audit.md`](docs/source-audit.md) |",
+        "| Releases that need more evidence | [`docs/watchlist.md`](docs/watchlist.md) |",
+        "| Formatted workbook | [`outputs/awesome-legal-benchmarks.xlsx`](outputs/awesome-legal-benchmarks.xlsx) |",
+        "",
+        "Resource counts in this snapshot: "
+        f"{resource_counts['github']} GitHub · {resource_counts['huggingface']} Hugging Face · "
+        f"{resource_counts['papers']} papers · {resource_counts['leaderboards']} leaderboards or competitions · "
+        f"{resource_counts['project']} project pages.",
+        "",
+        "Validate or regenerate the derived files:",
         "",
         "```bash",
         "python scripts/validate_catalog.py",
@@ -190,13 +233,13 @@ def generate_readme(catalog: dict) -> str:
         "python scripts/check_resources.py --check-snapshot",
         "```",
         "",
-        "## Contributing",
+        "## Contribute",
         "",
-        "Read [CONTRIBUTING.md](CONTRIBUTING.md). A new entry needs direct primary links, a defined evaluation contract, data provenance, access/license terms, and a concrete contamination or validity analysis. Marketing pages alone are not enough.",
+        "Read [CONTRIBUTING.md](CONTRIBUTING.md). A proposed entry needs direct primary links, a defined evaluation contract, data provenance, access and license terms, and a concrete leakage or validity analysis. A marketing page by itself does not clear that bar.",
         "",
         "## License",
         "",
-        "Catalog prose and structured metadata are released under [CC BY 4.0](LICENSE); validation and generation code are released under [MIT](LICENSE-CODE). Linked datasets and repositories retain their own licenses.",
+        "Catalog prose and structured metadata use [CC BY 4.0](LICENSE). Validation and generation code use [MIT](LICENSE-CODE). Linked datasets and repositories keep their own licenses.",
         "",
     ]
     return "\n".join(lines)
@@ -204,23 +247,86 @@ def generate_readme(catalog: dict) -> str:
 
 def generate_catalog_doc(catalog: dict) -> str:
     entries = {entry["id"]: entry for entry in catalog["entries"]}
-    ordered_ids = [entry_id for _, ids in SECTIONS for entry_id in ids]
     lines = [
-        "# Full benchmark catalog",
+        "# Legal benchmark catalog",
         "",
-        f"Research snapshot: **{catalog['as_of']}**. Verified facts are sourced by each entry's direct resource links; inferences and unresolved ambiguities are labeled separately.",
+        "<!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->",
         "",
-        "Back to [README](../README.md).",
+        f"Snapshot: **{catalog['as_of']}**. This is the compact index for all {len(entries)} canonical entries. Each name links to a full profile with the evaluation contract, direct artifacts, reproducibility notes, verified facts, inference, and unresolved ambiguity.",
+        "",
+        "[Choose a benchmark](selection-guide.md) · [Read the methodology](methodology.md) · [Understand the metrics](metric-theory.md) · [Back to README](../README.md)",
+        "",
+        "## Areas",
+        "",
+        "| Area | Scope | Entries |",
+        "|---|---|---:|",
+    ]
+    for slug, title, description, section_ids in SECTIONS:
+        lines.append(f"| [{title}](benchmarks/{slug}.md) | {description} | {len(section_ids)} |")
+    lines += [
+        "",
+        "## All entries",
+        "",
+        "The `kind` field distinguishes benchmarks, datasets, shared tasks, frameworks, protocols, private tests, and resource lists. The `label` field is the catalog's reproducibility and usefulness judgment. They answer different questions.",
         "",
     ]
-    for entry_id in ordered_ids:
+    for slug, title, description, section_ids in SECTIONS:
+        lines += [
+            f"### {title}",
+            "",
+            description,
+            "",
+            "| Entry | Kind | Label | Jurisdiction / language | Measures |",
+            "|---|---|---|---|---|",
+        ]
+        for entry_id in section_ids:
+            entry = entries[entry_id]
+            coverage = f"{', '.join(entry['jurisdictions'])}; {', '.join(entry['languages'])}"
+            href = profile_href(entry_id, from_root=False)
+            lines.append(
+                f"| [{entry['name']}]({href}) | {entry['kind']} | {TIER_LABELS[entry['tier']]} | "
+                f"{coverage} | {entry['capability']} |"
+            )
+        lines.append("")
+    return "\n".join(lines)
+
+
+def generate_category_doc(
+    catalog: dict,
+    slug: str,
+    title: str,
+    description: str,
+    section_ids: list[str],
+) -> str:
+    entries = {entry["id"]: entry for entry in catalog["entries"]}
+    lines = [
+        f"# {title}",
+        "",
+        "<!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->",
+        "",
+        description,
+        "",
+        f"Snapshot: **{catalog['as_of']}** · {len(section_ids)} entries",
+        "",
+        "[Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)",
+        "",
+        "## On this page",
+        "",
+    ]
+    lines += [f"- [{entries[entry_id]['name']}](#{entry_id})" for entry_id in section_ids]
+    lines.append("")
+
+    for entry_id in section_ids:
         entry = entries[entry_id]
         lines += [
+            f'<a id="{entry_id}"></a>',
             f"## {entry['name']}",
             "",
             f"`{entry['id']}` · **{entry['kind']}** · **{TIER_LABELS[entry['tier']]}** · {entry['status']}",
             "",
             entry["capability"],
+            "",
+            "### Evaluation contract",
             "",
             "| Field | Detail |",
             "|---|---|",
@@ -243,7 +349,7 @@ def generate_catalog_doc(catalog: dict) -> str:
         for metric in entry["metrics"]:
             judge = f" Judge: {metric['judge']}." if metric.get("judge") else ""
             primary = " **Primary.**" if metric.get("primary") else ""
-            lines.append(f"- **{metric['name']}** — {metric['protocol']}{judge}{primary}")
+            lines.append(f"- **{metric['name']}:** {metric['protocol']}{judge}{primary}")
         lines += ["", "### Resources", "", "| Resource | Direct URL |", "|---|---|"]
         lines += resource_lines(entry["resources"])
         lines += ["", "### Validity and evidence", ""]
@@ -256,7 +362,7 @@ def generate_catalog_doc(catalog: dict) -> str:
         lines += ["", "**Unresolved ambiguity**"]
         lines += [f"- {item}" for item in entry["evidence"]["ambiguities"]] or ["- None recorded."]
         source = ", ".join(f"#{number}" for number in entry["source_readme_bullets"])
-        lines += ["", f"Original README bullet(s): {source or 'Curated addition.'}", ""]
+        lines += ["", f"Original source bullet(s): {source or 'Curated addition.'}", "", "[Back to page index](#on-this-page)", ""]
     return "\n".join(lines)
 
 
@@ -320,6 +426,7 @@ def update(path: Path, content: str, check: bool) -> bool:
         return False
     if check:
         raise SystemExit(f"generated file is stale: {path.relative_to(ROOT)}")
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
     print(f"wrote {path.relative_to(ROOT)}")
     return True
@@ -335,6 +442,12 @@ def main() -> int:
     resource_headers, resource_rows = resources_csv(catalog)
     update(ROOT / "README.md", generate_readme(catalog), args.check)
     update(ROOT / "docs" / "catalog.md", generate_catalog_doc(catalog), args.check)
+    for slug, title, description, section_ids in SECTIONS:
+        update(
+            ROOT / "docs" / "benchmarks" / f"{slug}.md",
+            generate_category_doc(catalog, slug, title, description, section_ids),
+            args.check,
+        )
     update(ROOT / "catalog" / "benchmarks.csv", render_csv(headers, rows), args.check)
     update(ROOT / "catalog" / "resources.csv", render_csv(resource_headers, resource_rows), args.check)
     return 0

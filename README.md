@@ -1,167 +1,100 @@
 # Awesome Legal Benchmarks
 
-A curated, evidence-first guide to benchmarks for legal language models, retrieval systems, and agents.
+<!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->
 
-**Research snapshot:** 2026-08-03 · **Canonical entries:** 45 · **Original list audited:** all 22 bullets (21 identities; MLEB was duplicated)
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Validate catalog](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg)](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml)
 
-**Resource inventory:** [147 unique canonical URLs checked](catalog/resource-snapshot.json) · 39 GitHub · 33 Hugging Face · 48 papers · 13 leaderboards/competitions · 17 project pages
+Use this catalog to pick a legal benchmark and see what its score can actually support. Each entry records the task, jurisdiction, language, data, input/output contract, scorer, access terms, primary sources, and the biggest validity problem.
 
-> A benchmark score is evidence about a defined task under a defined protocol—not proof that a system is legally correct, safe, current, fair, or ready for unsupervised practice.
+**Snapshot 2026-08-03:** 45 canonical entries · [all 22 source bullets audited](docs/source-audit.md) (21 identities; MLEB appeared twice) · [147 canonical URLs checked](catalog/resource-snapshot.json)
 
-This repository links to canonical artifacts instead of redistributing datasets. Every entry records its legal construct, exact scoring protocol, jurisdiction/language, data provenance, access and license, reproducibility limits, and leakage risk. See the [full catalog](docs/catalog.md), [metric theory](docs/metric-theory.md), [selection guide](docs/selection-guide.md), and [source audit](docs/source-audit.md).
+> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.
 
-## Pick by use case
+## Contents
 
-| Use case | Start with | Why / caution |
+- [Choose a benchmark](#choose-a-benchmark)
+- [Browse the catalog](#browse-the-catalog)
+- [Read a score](#read-a-score)
+- [Use the data](#use-the-data)
+- [Contribute](#contribute)
+
+## Choose a benchmark
+
+1. Name the legal task, jurisdiction, language, and as-of date.
+2. Match the benchmark interface to the system: closed-book QA, retrieval, drafting, translation, or tool use.
+3. Inspect the split, scorer, judge, and public-label exposure before comparing models.
+4. Pair public comparison data with a fresh, matter-specific holdout when the decision matters.
+
+The [selection guide](docs/selection-guide.md) has the full recommendation matrix. These are the fastest starting points:
+
+| Use case | Start with | Main caution |
 |---|---|---|
-| Broad English legal NLU | [LexGLUE + LegalBench](docs/catalog.md#lexglue) | Use per-task scores; do not trust one blended rank. |
-| Broad Chinese evaluation | [LawBench + LexEval](docs/catalog.md#lawbench) | Public exam data have high contamination risk. |
-| Multilingual European law | [LEXTREME](docs/catalog.md#lextreme) | Harmonic aggregation punishes weak languages/tasks. |
-| Multilingual Indian law | [IL-TUR](docs/catalog.md#il-tur) | Eight tasks are uneven in size and language coverage. |
-| Contract extraction | [CUAD + ContractNLI + MAUD](docs/catalog.md#cuad) | Split by document family and check memorization. |
-| Contract clause retrieval | [ACORD](docs/catalog.md#acord) | Strong graded expert qrels; only 114 queries. |
-| Legal retrieval / RAG | [LegalBench-RAG + BSARD + RegLab](docs/catalog.md#legalbench-rag) | Pair retrieval metrics with answer-grounding checks. |
-| Agentic legal work | [J1Bench + LAB + APEX legal slice](docs/catalog.md#ready-jurist-one) | Harness, judge, and environment are part of the model. |
-| Rule/deontic reasoning | [DeonticBench](docs/catalog.md#deonticbench) | Pin the post-audit Prolog revision. |
-| Fairness / subgroup robustness | [FairLex](docs/catalog.md#fairlex) | Report group sizes and uncertainty with worst-group scores. |
-| Legal translation | [SwiLTra-Bench + MILPaC](docs/catalog.md#swiltra-bench) | Automatic MT metrics do not establish legal fidelity. |
+| Broad English legal NLU | [LexGLUE](docs/benchmarks/reasoning-education.md#lexglue) + [LegalBench](docs/benchmarks/reasoning-education.md#legalbench) | Use per-task scores; a blended rank hides task differences. |
+| Broad Chinese evaluation | [LawBench](docs/benchmarks/reasoning-education.md#lawbench) + [LexEval](docs/benchmarks/reasoning-education.md#lexeval) | Public exam data have high contamination risk. |
+| Multilingual European law | [LEXTREME](docs/benchmarks/reasoning-education.md#lextreme) | Harmonic aggregation makes weak language/task performance matter. |
+| Multilingual Indian law | [IL-TUR](docs/benchmarks/reasoning-education.md#il-tur) | Task size and language coverage vary across the suite. |
+| Contract extraction | [CUAD](docs/benchmarks/contracts-deal-work.md#cuad) + [ContractNLI](docs/benchmarks/contracts-deal-work.md#contractnli) + [MAUD](docs/benchmarks/contracts-deal-work.md#maud) | Use document-family splits and check near-duplicate exposure. |
+| Contract clause retrieval | [ACORD](docs/benchmarks/contracts-deal-work.md#acord) | Expert graded qrels are useful; the benchmark has 114 queries. |
+| Legal retrieval / RAG | [LegalBench-RAG](docs/benchmarks/retrieval-rag-citation.md#legalbench-rag) + [BSARD](docs/benchmarks/retrieval-rag-citation.md#bsard) + [RegLab](docs/benchmarks/retrieval-rag-citation.md#reglab-reasoning-focused-retrieval) | Report retrieval and answer grounding separately. |
+| Agentic legal work | [J1Bench](docs/benchmarks/agents-workflows.md#ready-jurist-one) + [LAB](docs/benchmarks/agents-workflows.md#harvey-lab) + [APEX legal slice](docs/benchmarks/agents-workflows.md#apex-agents-corporate-law) | The environment, tools, and judge are part of the instrument. |
+| Rule/deontic reasoning | [DeonticBench](docs/benchmarks/prediction-fairness-rules.md#deonticbench) | Pin the post-audit Prolog and test revision. |
+| Fairness / subgroup performance | [FairLex](docs/benchmarks/prediction-fairness-rules.md#fairlex) | Report group sizes, uncertainty, worst-group scores, and gaps. |
+| Legal translation | [SwiLTra-Bench](docs/benchmarks/translation.md#swiltra-bench) + [MILPaC](docs/benchmarks/translation.md#milpac) | Automatic MT metrics do not establish legal fidelity. |
 
-## Curation labels
+## Browse the catalog
 
-- **recommended** — unusually useful combination of clear task contract, primary-source artifacts, and reproducibility.
-- **specialist** — legitimate and useful for a narrower jurisdiction, task, or protocol.
-- **evaluate carefully** — real artifact with material judge, vendor, split, licensing, or validity caveats.
-- **related** — dataset, framework, protocol, private test, or resource list; retained so it is not mistaken for a comparable public benchmark.
+Dumping 45 full profiles into one README is hard to use. This rebuild leads with the practical choice. The category pages keep claims tied to primary sources and expose the validity and contamination limits.
 
-## Curated list
+| Area | What is inside | Entries |
+|---|---|---:|
+| [General legal reasoning and education](docs/benchmarks/reasoning-education.md) | Broad suites, legal language understanding, professional exams, and jurisdiction-specific knowledge tests. | 9 |
+| [Retrieval, RAG, and citation](docs/benchmarks/retrieval-rag-citation.md) | Authority retrieval, exact-support retrieval, case similarity, citation grounding, and end-to-end legal RAG. | 10 |
+| [Contracts and deal work](docs/benchmarks/contracts-deal-work.md) | Clause extraction, provision classification, entailment, retrieval, merger agreements, and redlining. | 7 |
+| [Prediction, fairness, and structured reasoning](docs/benchmarks/prediction-fairness-rules.md) | Outcome prediction, subgroup performance, holding selection, deontic rules, and structured legal analysis. | 7 |
+| [Agents and legal workflows](docs/benchmarks/agents-workflows.md) | Tool use, process compliance, simulated legal work, and long-horizon professional tasks. | 4 |
+| [Legal translation](docs/benchmarks/translation.md) | Shared tasks and multilingual corpora with automatic and legal-expert translation scoring. | 3 |
+| [Evaluators, private tests, and related resources](docs/benchmarks/related-evaluators.md) | Artifacts worth tracking that are not comparable public benchmarks, including frameworks, private tests, and resource lists. | 5 |
 
-### General legal reasoning and education
+See the [compact 45-entry index](docs/catalog.md), or filter the machine-readable [JSON](catalog/benchmarks.json) and [CSV](catalog/benchmarks.csv).
 
-- **[LegalBench](docs/catalog.md#legalbench)** — Task-specific legal reasoning across classification, extraction, question answering, and generation. **recommended** · benchmark-suite · United States, mixed/common-law · English. **Data:** 162 tasks; per-task instance counts vary. **Metrics:** Task-defined exact match / accuracy / F1 / generation scores. [GitHub](https://github.com/HazyResearch/legalbench) · [Hugging Face](https://huggingface.co/datasets/nguha/legalbench) · [paper](https://arxiv.org/abs/2308.11462) · [leaderboard](https://www.vals.ai/benchmarks/legal_bench) · [project](https://legalbench.ai/)
-  - **Key caveat:** Public prompts and gold labels create direct contamination and overfitting risk.
-- **[LawBench](docs/catalog.md#lawbench)** — Chinese legal memorization, understanding, and application across 20 tasks. **recommended** · benchmark-suite · China · Chinese. **Data:** 10,000 examples: 20 tasks × 500. **Metrics:** Official 20-task metric map; Normalized log-distance (3-4/3-5); Abstention rate. [GitHub](https://github.com/open-compass/LawBench) · [Hugging Face](https://huggingface.co/datasets/doolayer/LawBench) · [paper](https://arxiv.org/abs/2309.16289) · [leaderboard](https://lawbench.opencompass.org.cn/)
-  - **Key caveat:** Public exam and CAIL-derived answers create high contamination risk.
-- **[LexGLUE](docs/catalog.md#lexglue)** — Standardized English legal language understanding across seven classification and judgment tasks. **recommended** · benchmark-suite · Council of Europe, European Union, United States, mixed contracts/terms · English. **Data:** Seven constituent datasets. **Metrics:** Macro-F1 and micro-F1 / task accuracy. [GitHub](https://github.com/coastalcph/lex-glue) · [Hugging Face](https://huggingface.co/datasets/coastalcph/lex_glue) · [paper 1](https://arxiv.org/abs/2110.00976) · [paper 2](https://aclanthology.org/2022.acl-long.297/)
-  - **Key caveat:** All constituent test labels are public and likely present in model-development workflows.
-- **[LEXTREME](docs/catalog.md#lextreme)** — Multilingual European legal classification and named-entity recognition across 24 languages. **recommended** · benchmark-suite · European Union, Council of Europe, European national jurisdictions · 24 European languages. **Data:** 11 datasets covering 24 languages. **Metrics:** Macro-F1; Hierarchical harmonic-mean LEXTREME score. [GitHub](https://github.com/JoelNiklaus/LEXTREME) · [Hugging Face](https://huggingface.co/datasets/joelniklaus/lextreme) · [paper](https://arxiv.org/abs/2301.13126) · [leaderboard](https://wandb.ai/lextreme/paper_results)
-  - **Key caveat:** Missing language-task cells and very different dataset scales complicate interpretation.
-- **[LEXam](docs/catalog.md#lexam)** — Answer bilingual law-school multiple-choice and open-answer examination questions. **recommended** · benchmark · Germany, United States / English-language courses, mixed law-school curricula · English, German. **Data:** 7,537 questions from 340 exams and 116 courses: 2,841 open-answer and 4,696 MCQ. **Metrics:** MCQ accuracy; Open-answer judge ensemble. [GitHub](https://github.com/LEXam-Benchmark/LEXam) · [Hugging Face](https://huggingface.co/datasets/LEXam-Benchmark/LEXam) · [paper](https://arxiv.org/abs/2505.12864) · [project](https://lexam-benchmark.github.io/)
-  - **Key caveat:** Public exams and answers are contamination-prone.
-- **[LexEval](docs/catalog.md#lexeval)** — Chinese legal knowledge, inference, generation, discrimination, and ethics across 23 tasks. **specialist** · benchmark-suite · China · Chinese. **Data:** 14,150 questions across 23 tasks and six ability groups. **Metrics:** Accuracy; ROUGE-L. [GitHub](https://github.com/CSHaitao/LexEval) · [Hugging Face](https://huggingface.co/datasets/CSHaitao/LexEval) · [paper](https://arxiv.org/abs/2409.20288)
-  - **Key caveat:** Public exams and answers are highly contamination-prone.
-- **[ArabLegalEval](docs/catalog.md#arablegaleval)** — Arabic legal knowledge, classification, question answering, and translation, with substantial Saudi-law coverage. **evaluate carefully** · benchmark-suite · Saudi Arabia, Arab jurisdictions / translated sources · Arabic, English. **Data:** HF card exposes about 15.3k ArLegalBench rows, 11.6k MCQs, and 79 QA rows. **Metrics:** Accuracy / F1 / ROUGE; LLM and human ratings. [GitHub](https://github.com/Thiqah/ArabLegalEval) · [Hugging Face](https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval) · [paper](https://arxiv.org/abs/2408.07983)
-  - **Key caveat:** Synthetic GPT-4/Claude items and translated tasks can introduce generator artifacts.
-- **[IL-TUR](docs/catalog.md#il-tur)** — Indian legal named entities, rhetorical roles, judgment/explanation, bail, statute identification, precedent retrieval, summarization, and translation. **recommended** · benchmark-suite · India · English, Hindi, Bengali, Gujarati, Marathi, Malayalam, Odia, Punjabi, Tamil, Telugu. **Data:** Eight tasks; examples include 105 NER opinions, 21,184 rhetorical-role sentences, and 34k+ judgment documents. **Metrics:** Strict macro-F1 / macro-F1 / micro-F1@k; ROUGE-L / BERTScore / BLEU / GLEU / chrF++. [GitHub](https://github.com/Exploration-Lab/IL-TUR) · [Hugging Face](https://huggingface.co/datasets/Exploration-Lab/IL-TUR) · [paper 1](https://arxiv.org/abs/2407.05399) · [paper 2](https://aclanthology.org/2024.acl-long.618/) · [leaderboard](https://exploration-lab.github.io/IL-TUR/) · [project](https://exploration-lab.github.io/IL-TUR/)
-  - **Key caveat:** The suite re-bundles existing datasets, so results are not independent evidence from those components.
-- **[Korean Canonical Legal Benchmark](docs/catalog.md#kcl)** — Answer Korean bar-exam MCQs and essays with question-aligned supporting precedents. **recommended** · benchmark-suite · South Korea · Korean. **Data:** KCL-MCQA: 283 questions and 1,103 precedents; KCL-Essay: 169 questions, 550 precedents, 2,739 rubrics. **Metrics:** MCQ accuracy; Weighted rubric percentage. [GitHub](https://github.com/lbox-kr/kcl) · [Hugging Face](https://huggingface.co/datasets/lbox/kcl) · [paper 1](https://arxiv.org/abs/2512.24572) · [paper 2](https://aclanthology.org/2026.eacl-short.17/)
-  - **Key caveat:** The essay judge helped generate rubric sets, creating model-family dependence despite attorney review.
+A catalog label is a curation judgment, not a leaderboard rank:
 
-### Retrieval, RAG, and citation
+| Label | Meaning |
+|---|---|
+| **recommended** | Clear task contract, primary artifacts, and comparatively strong reproducibility for its class. |
+| **specialist** | Useful within a narrower task, jurisdiction, language, or protocol. |
+| **check before use** | Real artifact with a material judge, vendor, split, license, access, or validity issue. |
+| **related artifact** | Dataset, framework, protocol, private test, or resource list. It is included so it is not mistaken for a comparable public benchmark. |
 
-- **[Massive Legal Embedding Benchmark](docs/catalog.md#mleb)** — Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot classification tasks. **specialist** · benchmark-suite · United States, United Kingdom, European Union, Australia, Ireland, Singapore · English. **Data:** 10 constituent datasets. **Metrics:** nDCG@10. [GitHub](https://github.com/isaacus-dev/mleb) · [Hugging Face](https://huggingface.co/isaacus/datasets) · [paper](https://arxiv.org/abs/2510.19365) · [leaderboard](https://isaacus.com/mleb)
-  - **Key caveat:** All public queries and labels permit benchmark-targeted optimization.
-- **[LegalBench-RAG](docs/catalog.md#legalbench-rag)** — Retrieve exact supporting spans from long legal and policy documents. **recommended** · benchmark · United States, mixed contracts and policies · English. **Data:** 714 documents, more than 79M characters; 6,858 queries in abstract versus 6,889 in a paper table. **Metrics:** Character precision and recall. [GitHub](https://github.com/zeroentropy-ai/legalbenchrag) · [paper](https://arxiv.org/abs/2408.10343) · [project](https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0)
-  - **Key caveat:** No hidden split; queries, corpus, and spans are public.
-- **[Belgian Statutory Article Retrieval Dataset](docs/catalog.md#bsard)** — Retrieve Belgian statutory articles relevant to a legal question. **recommended** · benchmark · Belgium · French. **Data:** 1,108 legal questions and 22,633 statutory articles. **Metrics:** Recall@k; MAP / MRR. [GitHub](https://github.com/maastrichtlawtech/bsard) · [Hugging Face](https://huggingface.co/datasets/maastrichtlawtech/bsard) · [paper 1](https://arxiv.org/abs/2108.11792) · [paper 2](https://aclanthology.org/2022.acl-long.468/)
-  - **Key caveat:** Static statutes can become temporally stale.
-- **[LLeQA](docs/catalog.md#lleqa)** — Retrieve Belgian legal authorities and generate long-form answers to practitioner-style questions. **specialist** · benchmark · Belgium · French. **Data:** 1,868 questions with expert answers/references and 27,941 legal articles. **Metrics:** Recall@k / MRR; ROUGE / METEOR / BERTScore. [GitHub](https://github.com/maastrichtlawtech/lleqa) · [Hugging Face](https://huggingface.co/datasets/maastrichtlawtech/lleqa) · [paper](https://arxiv.org/abs/2309.17050)
-  - **Key caveat:** Reference overlap under-rewards legally equivalent answers and can reward unsupported paraphrase.
-- **[CLERC](docs/catalog.md#clerc)** — Retrieve US case-law evidence and generate citation-grounded legal text. **specialist** · benchmark · United States · English. **Data:** Large US case-law corpus with citation-linked retrieval and generation examples. **Metrics:** Recall@k (including Recall@1000); ROUGE and citation/hallucination metrics. [GitHub](https://github.com/bohanhou14/CLERC) · [Hugging Face](https://huggingface.co/datasets/jhu-clsp/CLERC) · [paper](https://arxiv.org/abs/2406.17186)
-  - **Key caveat:** Citation links are not identical to relevance and may encode court-writing conventions.
-- **[Reasoning-Focused Legal Retrieval Benchmark](docs/catalog.md#reglab-reasoning-focused-retrieval)** — Retrieve controlling text for legal questions whose answer has low lexical overlap with the relevant source. **recommended** · benchmark-suite · United States · English. **Data:** BarExam QA: 1,195 historical plus 1,815 Barbri questions over about 856,835 passages; Housing QA: 6,853 queries over about 1,837,403 passages. **Metrics:** Recall@k / MRR@10; Downstream QA accuracy. [Hugging Face 1](https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5) · [Hugging Face 2](https://huggingface.co/datasets/reglab/barexam_qa) · [Hugging Face 3](https://huggingface.co/datasets/reglab/housing_qa) · [paper](https://arxiv.org/abs/2505.03970) · [project](https://reglab.github.io/legal-rag-benchmarks/)
-  - **Key caveat:** Bar exam questions and source law are public and contamination-prone.
-- **[LeCaRDv2](docs/catalog.md#lecardv2)** — Retrieve legally similar Chinese criminal cases using graded relevance across characterization, penalty, and procedure. **recommended** · benchmark · China · Chinese. **Data:** 800 query cases, 55,192 judged candidates sampled from 4.3M criminal cases. **Metrics:** Recall@100/200/500/1000; nDCG / precision at k. [GitHub](https://github.com/THUIR/LeCaRDv2) · [paper](https://arxiv.org/abs/2310.17609)
-  - **Key caveat:** Judged candidate pooling can miss relevant cases outside the pool.
-- **[Competition on Legal Information Extraction/Entailment](docs/catalog.md#coliee)** — Retrieve and recognize entailment among Canadian cases and Japanese civil-code provisions. **recommended** · shared-task · Canada, Japan · English, Japanese. **Data:** Annual task packages; counts change by year. **Metrics:** Precision / recall / F1; Accuracy. [leaderboard](https://coliee.org/COLIEE2025/submission) · [project](https://coliee.org/COLIEE2025/overview)
-  - **Key caveat:** Task definitions, corpora, and metrics change between annual editions.
-- **[Legal RAG Bench](docs/catalog.md#legal-rag-bench)** — Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval versus generation. **evaluate carefully** · benchmark · Victoria, Australia / criminal law and procedure · English. **Data:** 4,876 passages and 100 expert-crafted questions. **Metrics:** Retrieval accuracy; Correctness / groundedness. [GitHub](https://github.com/isaacus-dev/legal-rag-bench) · [Hugging Face](https://huggingface.co/datasets/isaacus/legal-rag-bench) · [paper](https://arxiv.org/abs/2603.01710) · [project](https://huggingface.co/blog/isaacus/legal-rag-bench)
-  - **Key caveat:** Benchmark owner sells one evaluated legal embedder and reports it as strongest.
-- **[CanLegalRAGBench](docs/catalog.md#canlegalragbench)** — Retrieve Canadian case law for realistic layperson and legal-professional queries and generate grounded answers. **specialist** · benchmark · Canada, Ontario, British Columbia, Alberta, other Canadian provinces/federal courts · English, some French passages. **Data:** 532 queries, 3,193 gold query-document pairs, 588 unique gold documents; released corpus currently has 1,649 rows. **Metrics:** Macro Recall@10 / nDCG@10; Claim accuracy / groundedness. [GitHub](https://github.com/NLP-UBC/CanLegalRAGBench) · [Hugging Face](https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench) · [paper](https://arxiv.org/abs/2605.30497)
-  - **Key caveat:** Expert rejudging found relevant documents outside the gold set, so automatic retrieval scores undercount some valid retrievals.
+Artifact type is tracked separately. A dataset is not automatically a benchmark, and an evaluation framework does not define a fixed test. The [methodology](docs/methodology.md) explains the inclusion rule and evidence labels.
 
-### Contracts and deal work
+## Read a score
 
-- **[Contract Understanding Atticus Dataset](docs/catalog.md#cuad)** — Locate 41 categories of commercially important clauses in long contracts. **recommended** · benchmark · United States / SEC filings · English. **Data:** 510 contracts; 13,000+ expert labels; common QA release has 22,450 train and 4,182 test rows. **Metrics:** Token intersection-over-union (Jaccard); AUPR. [GitHub](https://github.com/The-Atticus-Project/cuad) · [Hugging Face](https://huggingface.co/datasets/theatticusproject/cuad-qa) · [paper](https://arxiv.org/abs/2103.06268) · [project](https://www.atticusprojectai.org/cuad)
-  - **Key caveat:** Public contracts and gold spans are heavily reused and contamination-prone.
-- **[LEDGAR](docs/catalog.md#ledgar)** — Classify contract provisions into clause/topic labels. **specialist** · dataset · United States / SEC filings · English. **Data:** Original corpus: about 846,274 provisions, 12,608 labels, 60,540 contracts; LexGLUE subset: 60k/10k/10k over 100 labels. **Metrics:** Micro-F1 and macro-F1. [GitHub 1](https://github.com/dtuggener/LEDGAR_provision_classification) · [GitHub 2](https://github.com/coastalcph/lex-glue) · [Hugging Face](https://huggingface.co/datasets/coastalcph/lex_glue) · [paper](https://aclanthology.org/2020.lrec-1.155/)
-  - **Key caveat:** SEC boilerplate enables document-family leakage and near-duplicate memorization.
-- **[ContractNLI](docs/catalog.md#contractnli)** — Determine whether a non-disclosure agreement entails, contradicts, or does not mention a fixed legal hypothesis and identify supporting evidence. **recommended** · benchmark · Commercial NDAs / primarily United States practice · English. **Data:** 607 NDAs and 17 fixed hypotheses. **Metrics:** Micro/macro F1 for NLI; Evidence identification F1. [GitHub](https://github.com/stanfordnlp/contract-nli) · [paper](https://arxiv.org/abs/2110.01799) · [project](https://stanfordnlp.github.io/contract-nli/)
-  - **Key caveat:** Only 17 fixed hypotheses invite template-specific learning.
-- **[Merger Agreement Understanding Dataset](docs/catalog.md#maud)** — Answer fine-grained questions about merger-agreement provisions. **recommended** · benchmark · United States / public-company M&A · English. **Data:** 152 merger agreements, more than 39,000 examples, more than 47,000 expert annotations, 92 question types. **Metrics:** Micro-F1 and macro-F1. [GitHub](https://github.com/TheAtticusProject/maud) · [Hugging Face](https://huggingface.co/datasets/theatticusproject/maud) · [paper 1](https://arxiv.org/abs/2301.00876) · [paper 2](https://aclanthology.org/2023.emnlp-main.1019/) · [project](https://www.atticusprojectai.org/maud)
-  - **Key caveat:** Only 152 agreements can produce agreement-family leakage across poorly grouped splits.
-- **[Atticus Clause Retrieval Dataset](docs/catalog.md#acord)** — Rank precedent contract clauses for an attorney-written drafting need. **recommended** · benchmark · United States / commercial contracts · English. **Data:** 114 queries and 126,662+ explicitly rated query-clause pairs across nine clause categories. **Metrics:** nDCG@5 and nDCG@10; 3/4/5-star precision@5. [GitHub](https://github.com/TheAtticusProject/acord) · [Hugging Face](https://huggingface.co/datasets/theatticusproject/acord) · [paper 1](https://arxiv.org/abs/2501.06582) · [paper 2](https://aclanthology.org/2025.acl-long.1206/) · [project](https://www.atticusprojectai.org/acord/)
-  - **Key caveat:** Only 114 queries make per-category estimates sensitive to individual queries.
-- **[ContractEval](docs/catalog.md#contracteval)** — Evaluate long-context LLM clause-risk extraction on the public CUAD test set. **related—not a comparable public benchmark** · evaluation-protocol · United States / SEC filings · English. **Data:** CUAD test set, about 4,182 QA rows over 41 categories. **Metrics:** F1 / F2 / Jaccard; False no-related-clause rate. [Hugging Face](https://huggingface.co/datasets/theatticusproject/cuad-qa) · [paper](https://arxiv.org/abs/2508.03080)
-  - **Key caveat:** It is not a new dataset and should not be counted as independent evidence from CUAD.
-- **[RedlineBench](docs/catalog.md#redlinebench)** — Negotiate commercial contracts over four turns by producing native Word tracked changes and comments. **evaluate carefully** · benchmark · United States / commercial contracting · English. **Data:** 140 runnable Harbor tasks across three synthetic MSA scenarios and four turns. **Metrics:** Redline overall (0–100); Five dimension scores. [GitHub](https://github.com/crosbylegal/redline-bench) · [Hugging Face](https://huggingface.co/datasets/crosbylegal/RedlineBench) · [leaderboard](https://huggingface.co/datasets/crosbylegal/RedlineBench) · [project](https://intelligence.crosby.ai/benchmark)
-  - **Key caveat:** Only three negotiation scenarios limit external validity.
+Before repeating a benchmark number, answer five questions:
 
-### Prediction, fairness, and structured reasoning
+1. What capability does success require, and what shortcut could produce the same score?
+2. Which jurisdiction, language, source population, and time period does the sample cover?
+3. What did the model receive, and what exact output did the scorer parse?
+4. How are item scores aggregated? What uncertainty, subgroup, abstention, and failure counts are missing?
+5. Were the questions, answers, documents, rubrics, or judge outputs exposed during training or development?
 
-- **[ECtHR Tasks A/B](docs/catalog.md#ecthr)** — Predict European Convention articles alleged (Task A) or found violated (Task B) from case facts. **recommended** · benchmark · European Court of Human Rights / Council of Europe · English. **Data:** Roughly 11,000 cases per LexGLUE Task A/B configuration. **Metrics:** Micro-F1 and macro-F1. [GitHub](https://github.com/coastalcph/lex-glue) · [Hugging Face](https://huggingface.co/datasets/coastalcph/lex_glue) · [paper 1](https://arxiv.org/abs/1906.02059) · [paper 2](https://arxiv.org/abs/2110.00976)
-  - **Key caveat:** Judgments and labels are public and likely represented in pretraining corpora.
-- **[FairLex](docs/catalog.md#fairlex)** — Evaluate legal prediction performance and group robustness across sensitive or legally salient subpopulations. **recommended** · benchmark-suite · Council of Europe, United States, Switzerland, China · English, German, French, Italian, Chinese. **Data:** Four legal datasets. **Metrics:** All-group macro-F1; Worst-group macro-F1 / group disparity. [GitHub](https://github.com/coastalcph/fairlex) · [Hugging Face](https://huggingface.co/datasets/coastalcph/fairlex) · [paper](https://aclanthology.org/2022.acl-long.301/)
-  - **Key caveat:** Observed metadata are imperfect proxies for legally meaningful disadvantage.
-- **[CaseHOLD](docs/catalog.md#casehold)** — Select the correct holding that completes an excerpt from a US judicial opinion. **specialist** · benchmark · United States · English. **Data:** More than 53,000 five-choice questions. **Metrics:** Accuracy. [GitHub 1](https://github.com/neelguha/legal-ml-datasets) · [GitHub 2](https://github.com/coastalcph/lex-glue) · [Hugging Face](https://huggingface.co/datasets/coastalcph/lex_glue) · [paper](https://arxiv.org/abs/2104.08671)
-  - **Key caveat:** Public US opinions and fixed distractors are contamination-prone.
-- **[DeonticBench](docs/catalog.md#deonticbench)** — Reason about obligations, permissions, prohibitions, eligibility, and amounts under long legal/policy rules, directly or through executable Prolog. **recommended** · benchmark-suite · United States federal tax, United States immigration, United States state housing, Airline policies · English, Prolog. **Data:** 6,232 whole-set tasks: SARA Numeric 100, SARA Binary 276, Airline 300, Housing 5,314, USCIS-AAO 242. **Metrics:** Bootstrapped accuracy with 95% CI; Abstention and wrong rate. [GitHub](https://github.com/guangyaodou/DeonticBench) · [Hugging Face](https://huggingface.co/datasets/gydou/DeonticBench) · [paper](https://arxiv.org/abs/2604.04443) · [project](https://guangyaodou.github.io/DeonticBench/)
-  - **Key caveat:** The hard split is a subset of the public whole set, so benchmark-targeted training is possible.
-- **[ALARB](docs/catalog.md#alarb)** — Reason over Saudi commercial-law cases, complete arguments, and identify governing statutory articles. **evaluate carefully** · dataset · Saudi Arabia · Arabic. **Data:** 13,344 cases linked to eight statutes; reported experiments use 1,329 cases and 1,159 MCQs per article task. **Metrics:** Correct / partial / incorrect judge score; MCQ accuracy. [Hugging Face](https://huggingface.co/datasets/THIQAH-RD/ALARB) · [paper](https://arxiv.org/abs/2510.00694)
-  - **Key caveat:** LLM-assisted restructuring and mapping can propagate annotation errors.
-- **[MSLR-Bench](docs/catalog.md#mslr)** — Extract structured facts and produce IRAC-style reasoning for Chinese insider-trading cases. **evaluate carefully** · benchmark · China · Chinese. **Data:** 1,389 cases from 2005–2024 with 59,771 fields. **Metrics:** Field accuracy / FCR; IRAC Recall and judge score. [GitHub](https://github.com/yuwenhan07/MSLR-Bench) · [Hugging Face](https://huggingface.co/datasets/Yuwh07/MSLR-Bench) · [paper](https://arxiv.org/abs/2511.07979)
-  - **Key caveat:** One visible split allows accidental train/evaluation overlap.
-- **[MASLegalBench](docs/catalog.md#maslegalbench)** — Multi-agent deductive reasoning about GDPR enforcement facts, rules, application, common sense, and conclusions. **evaluate carefully** · benchmark · United Kingdom / GDPR enforcement · English. **Data:** 950 MCQs from 15 UK enforcement reports: 647 yes/no and 303 four-choice. **Metrics:** Accuracy / refusal rate; Retrieval@1/3/5 and Cohen's kappa. [GitHub](https://github.com/HKUST-KnowComp/MASLegalBench) · [paper](https://arxiv.org/abs/2509.24922)
-  - **Key caveat:** Only 15 source reports sharply limit source diversity.
+The [metric field guide](docs/metric-theory.md) gives the formulas and failure modes for accuracy, F-scores, retrieval metrics, overlap metrics, LLM judges, rubric scores, and benchmark-specific composites. It also breaks down LawBench's 20-task score map, LEXTREME's hierarchical harmonic mean, JUST-NLP AutoRank, KCL essay scoring, DeonticBench bootstrapping, and Ready Jurist One's dual scoring.
 
-### Agents and legal workflows
+## Use the data
 
-- **[LegalAgentBench](docs/catalog.md#legalagentbench)** — Chinese legal tool use, multi-hop information gathering, and legal writing. **specialist** · benchmark · China · Chinese. **Data:** 17 corpora, 37 tools, 300 tasks. **Metrics:** Keyword success rate / progress rate; BERTScore. [GitHub](https://github.com/CSHaitao/LegalAgentBench) · [paper](https://arxiv.org/abs/2412.17259)
-  - **Key caveat:** Keyword graders can be gamed without producing a legally adequate result.
-- **[Ready Jurist One](docs/catalog.md#ready-jurist-one)** — Operate interactively in Chinese legal consultation, drafting, civil-court, and criminal-court environments. **specialist** · benchmark · China · Chinese. **Data:** Paper reports 508 environments across six scenarios and three levels. **Metrics:** Outcome-oriented scores; Process-oriented scores. [GitHub](https://github.com/FudanDISC/J1Bench) · [Hugging Face](https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset) · [paper 1](https://arxiv.org/abs/2507.04037) · [paper 2](https://aclanthology.org/2026.acl-long.471/) · [leaderboard](https://hub.opencompass.org.cn/dataset-detail/J1Bench) · [project](https://j1bench.github.io/)
-  - **Key caveat:** LLM-driven roles and judges can create correlated simulator/evaluator bias.
-- **[Legal Agent Benchmark](docs/catalog.md#harvey-lab)** — Complete long-horizon legal matters using files, research, analysis, drafting, and validation tools. **evaluate carefully** · benchmark · United States / commercial legal practice, mixed practice areas · English. **Data:** Evolving public release; launch materials describe 1,200+ tasks, 24 practice areas, and 75,000+ rubric criteria, with later contracting extensions. **Metrics:** All-pass rate; Rubric pass rate. [GitHub](https://github.com/harveyai/harvey-labs) · [project 1](https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark) · [project 2](https://www.harvey.ai/blog/legal-agent-benchmark-initial-results)
-  - **Key caveat:** Benchmark owner is a legal-AI vendor and publishes results on a private mirror holdout.
-- **[APEX-Agents — Corporate Lawyer](docs/catalog.md#apex-agents-corporate-law)** — Complete realistic long-horizon corporate-law tasks across applications, files, and professional work environments. **evaluate carefully** · benchmark · Corporate-law practice / mixed · English. **Data:** 480 total APEX tasks, including 160 corporate-law tasks across 12 worlds. **Metrics:** Pass@1. [GitHub](https://github.com/Mercor-Intelligence/archipelago) · [Hugging Face](https://huggingface.co/datasets/mercor/apex-agents) · [paper](https://arxiv.org/abs/2601.14242) · [leaderboard](https://www.mercor.com/apex/apex-agents-leaderboard/corporate-lawyer-agent/)
-  - **Key caveat:** Only one third of APEX is legal; aggregate APEX scores are not legal scores.
+| Need | File |
+|---|---|
+| Canonical source of truth | [`catalog/benchmarks.json`](catalog/benchmarks.json) |
+| Flat spreadsheet view | [`catalog/benchmarks.csv`](catalog/benchmarks.csv) |
+| Every GitHub, Hugging Face, paper, project, and leaderboard URL | [`catalog/resources.csv`](catalog/resources.csv) |
+| URL verification result | [`catalog/resource-snapshot.json`](catalog/resource-snapshot.json) |
+| Original 22-bullet reconstruction | [`docs/source-audit.md`](docs/source-audit.md) |
+| Releases that need more evidence | [`docs/watchlist.md`](docs/watchlist.md) |
+| Formatted workbook | [`outputs/awesome-legal-benchmarks.xlsx`](outputs/awesome-legal-benchmarks.xlsx) |
 
-### Legal translation
+Resource counts in this snapshot: 39 GitHub · 33 Hugging Face · 48 papers · 13 leaderboards or competitions · 17 project pages.
 
-- **[JUST-NLP 2025 Legal MT Shared Task](docs/catalog.md#just-nlp-2025-legal-mt)** — Translate legal text from English to Hindi. **specialist** · shared-task · India · English, Hindi. **Data:** InLMT: 50,000 train, 5,000 validation, 5,000 hidden test sentences. **Metrics:** AutoRank; BLEU / METEOR / TER / chrF++ / BERTScore / COMET. [paper](https://aclanthology.org/2025.justnlp-main.3/) · [leaderboard 1](https://www.codabench.org/competitions/10351/) · [leaderboard 2](https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf) · [project](https://exploration-lab.github.io/JUST-NLP/)
-  - **Key caveat:** Automatic overlap metrics can reward fluent mistranslations or penalize legally equivalent wording.
-- **[SwiLTra-Bench](docs/catalog.md#swiltra-bench)** — Translate Swiss laws, court headnotes, and press releases among official Swiss languages and English. **recommended** · benchmark-suite · Switzerland · German, French, Italian, Romansh, English. **Data:** More than 180,000 aligned translation pairs across three document families. **Metrics:** XCOMET / BLEURT / GEMBA-MQM; SwiLTra-Judge / expert rating. [GitHub](https://github.com/JoelNiklaus/SwissLegalTranslations) · [Hugging Face 1](https://huggingface.co/collections/joelniklaus/swiltra-bench) · [Hugging Face 2](https://huggingface.co/datasets/joelniklaus/SwissLawTranslations) · [Hugging Face 3](https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations) · [Hugging Face 4](https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations) · [paper 1](https://arxiv.org/abs/2503.01372) · [paper 2](https://aclanthology.org/2025.acl-long.725/)
-  - **Key caveat:** Machine metrics correlate imperfectly with legal-expert judgments.
-- **[Multilingual Indian Legal Parallel Corpus](docs/catalog.md#milpac)** — Translate verified Indian legal text from English into nine Indian languages. **recommended** · benchmark-suite · India · English, Hindi, Bengali, Marathi, Tamil, Gujarati, Telugu, Malayalam, Punjabi, Odia. **Data:** 17,853 aligned pairs across three datasets. **Metrics:** BLEU / GLEU / chrF++; POM / SLU / FLY human ratings. [GitHub](https://github.com/Law-AI/MILPaC) · [paper 1](https://arxiv.org/abs/2310.09765) · [paper 2](https://doi.org/10.1145/3748313)
-  - **Key caveat:** Automatic metrics show low correlation with legal-human scores for several languages/datasets.
-
-### Evaluators, private tests, and related resources
-
-- **[LegalEval-Q](docs/catalog.md#legaleval-q)** — Predict the quality of Chinese LLM-generated legal answers. **related—not a comparable public benchmark** · evaluation-framework · China · Chinese. **Data:** About 10k source queries; 946 annotated items, about 9,460 model-output annotations, and 60 validation items. **Metrics:** Dimension regression / AdjScore. [GitHub](https://github.com/lyxx3rd/LegalEval-Q) · [paper](https://arxiv.org/abs/2505.24826)
-  - **Key caveat:** Training an evaluator on AI-assisted annotations can create circular model-family bias.
-- **[LRAGE](docs/catalog.md#lrage)** — Configure legal RAG evaluations across retrievers, rerankers, agents, judges, and custom corpora. **related—not a comparable public benchmark** · evaluation-framework · Global / configuration-dependent · Multiple / configuration-dependent. **Data:** No fixed dataset. **Metrics:** Inherited task/retrieval/judge metrics. [GitHub](https://github.com/hoorangyee/LRAGE) · [Hugging Face](https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25) · [paper](https://arxiv.org/abs/2504.01840)
-  - **Key caveat:** Cross-run comparisons are invalid when configurations differ.
-- **[prinzbench](docs/catalog.md#prinzbench)** — Answer obscure US legal-research and general information-search questions. **related—not a comparable public benchmark** · private-benchmark · United States · English. **Data:** 33 withheld questions: 25 legal research and 8 search; three runs each (99 evaluations). **Metrics:** Human pass/fail and pass@1. [GitHub](https://github.com/prinz-ai/prinzbench) · [leaderboard](https://github.com/prinz-ai/prinzbench)
-  - **Key caveat:** Hidden questions reduce contamination but also block auditability and independent scoring.
-- **[Open Legal-Answer Benchmark](docs/catalog.md#open-legal-answer-benchmark)** — Produce current US legal answers with relevant, supported, and correctly ranged citations. **evaluate carefully** · benchmark · United States · English. **Data:** 54 base questions (29 hard, 25 controls) plus 8 adversarial variants; 62 JSONL rows. **Metrics:** Must-include / must-not / authority retrieval; Citation support and in-range. [GitHub](https://github.com/Vaquill-AI/open-legal-answer-benchmark) · [leaderboard](https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md)
-  - **Key caveat:** Fully public questions permit direct optimization.
-- **[awesome-legal-nlp](docs/catalog.md#awesome-legal-nlp)** — Discovery index for legal NLP datasets, models, papers, surveys, books, and events. **related—not a comparable public benchmark** · resource-list · Global / mixed · Multiple. **Data:** No benchmark instances. **Metrics:** Not applicable. [GitHub](https://github.com/maastrichtlawtech/awesome-legal-nlp)
-  - **Key caveat:** Treating a resource list as a benchmark confuses discovery coverage with measured capability.
-
-## What counts as legitimate here
-
-An entry needs a primary or official source that identifies the artifact and defines its task and score. We then label—rather than hide—missing code, missing HF data, gates, private tests, vendor ownership, changing judges, mixed licenses, public-label contamination, and unresolved count conflicts. The [watchlist](docs/watchlist.md) contains promising releases that need more validation or maturity.
-
-## Repository map
-
-- [`catalog/benchmarks.json`](catalog/benchmarks.json) — source of truth.
-- [`catalog/benchmarks.csv`](catalog/benchmarks.csv) — spreadsheet-friendly flat view.
-- [`catalog/resources.csv`](catalog/resources.csv) — every canonical GitHub, HF, paper, project, and leaderboard URL.
-- [`catalog/resource-snapshot.json`](catalog/resource-snapshot.json) — live verification of every canonical repository, dataset, paper, leaderboard, competition, and project URL.
-- [`docs/catalog.md`](docs/catalog.md) — full human-readable benchmark profiles.
-- [`docs/metric-theory.md`](docs/metric-theory.md) — formulas, what each metric rewards, and where it fails.
-- [`docs/source-audit.md`](docs/source-audit.md) — reconstruction of the 22-bullet source list, including duplicate and stale links.
-- [`awesome-legal-benchmarks.xlsx`](outputs/awesome-legal-benchmarks.xlsx) — formatted workbook generated from the same catalog.
-
-## Validate and regenerate
+Validate or regenerate the derived files:
 
 ```bash
 python scripts/validate_catalog.py
@@ -170,10 +103,10 @@ python scripts/generate_catalog.py --check
 python scripts/check_resources.py --check-snapshot
 ```
 
-## Contributing
+## Contribute
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md). A new entry needs direct primary links, a defined evaluation contract, data provenance, access/license terms, and a concrete contamination or validity analysis. Marketing pages alone are not enough.
+Read [CONTRIBUTING.md](CONTRIBUTING.md). A proposed entry needs direct primary links, a defined evaluation contract, data provenance, access and license terms, and a concrete leakage or validity analysis. A marketing page by itself does not clear that bar.
 
 ## License
 
-Catalog prose and structured metadata are released under [CC BY 4.0](LICENSE); validation and generation code are released under [MIT](LICENSE-CODE). Linked datasets and repositories retain their own licenses.
+Catalog prose and structured metadata use [CC BY 4.0](LICENSE). Validation and generation code use [MIT](LICENSE-CODE). Linked datasets and repositories keep their own licenses.

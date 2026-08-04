@@ -73,7 +73,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_relative_markdown_links_resolve(self):
         link_pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-        for markdown_path in [ROOT / "README.md", *(ROOT / "docs").glob("*.md")]:
+        for markdown_path in [ROOT / "README.md", *(ROOT / "docs").rglob("*.md")]:
             text = markdown_path.read_text(encoding="utf-8")
             for target in link_pattern.findall(text):
                 if target.startswith(("https://", "http://", "mailto:", "#")):
@@ -83,6 +83,38 @@ class CatalogTests(unittest.TestCase):
                 self.assertTrue(
                     resolved.exists(),
                     f"broken local link in {markdown_path.relative_to(ROOT)}: {target}",
+                )
+
+    def test_category_profiles_cover_every_entry_once(self):
+        profile_paths = sorted((ROOT / "docs" / "benchmarks").glob("*.md"))
+        self.assertEqual(7, len(profile_paths))
+        profile_text = "\n".join(path.read_text(encoding="utf-8") for path in profile_paths)
+        for entry in self.catalog["entries"]:
+            anchor = f'<a id="{entry["id"]}"></a>'
+            self.assertEqual(1, profile_text.count(anchor), entry["id"])
+
+    def test_relative_markdown_fragments_resolve(self):
+        link_pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+
+        def heading_slugs(text):
+            slugs = set()
+            for heading in re.findall(r"^#{1,6}\s+(.+?)\s*$", text, flags=re.MULTILINE):
+                clean = re.sub(r"<[^>]+>", "", heading).lower()
+                clean = re.sub(r"[^\w\- ]", "", clean)
+                slugs.add(re.sub(r"\s+", "-", clean.strip()))
+            return slugs
+
+        for markdown_path in [ROOT / "README.md", *(ROOT / "docs").rglob("*.md")]:
+            for target in link_pattern.findall(markdown_path.read_text(encoding="utf-8")):
+                if target.startswith(("https://", "http://", "mailto:")) or "#" not in target:
+                    continue
+                relative_path, fragment = target.split("#", 1)
+                target_path = (markdown_path.parent / relative_path).resolve() if relative_path else markdown_path
+                target_text = target_path.read_text(encoding="utf-8")
+                explicit = re.search(rf'<a\s+id=["\']{re.escape(fragment)}["\']', target_text)
+                self.assertTrue(
+                    explicit or fragment in heading_slugs(target_text),
+                    f"broken fragment in {markdown_path.relative_to(ROOT)}: {target}",
                 )
 
     def test_workbook_integrity_and_counts(self):
