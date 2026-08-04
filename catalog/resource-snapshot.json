@@ -1,0 +1,3357 @@
+{
+  "schema_version": 2,
+  "catalog_as_of": "2026-08-03",
+  "checked_at": "2026-08-04T03:54:24+00:00",
+  "scope": "Every canonical GitHub repository, Hugging Face artifact, paper, leaderboard, competition, and project URL in the catalog. API/HTTP availability verifies identity and access status, not scientific validity.",
+  "summary": {
+    "total": 147,
+    "ok": 147,
+    "available": 147,
+    "access_limited": 0,
+    "failed": 0,
+    "by_family": {
+      "github": {
+        "total": 39,
+        "available": 39,
+        "access_limited": 0,
+        "failed": 0
+      },
+      "huggingface": {
+        "total": 33,
+        "available": 33,
+        "access_limited": 0,
+        "failed": 0
+      },
+      "papers": {
+        "total": 48,
+        "available": 48,
+        "access_limited": 0,
+        "failed": 0
+      },
+      "leaderboards": {
+        "total": 13,
+        "available": 13,
+        "access_limited": 0,
+        "failed": 0
+      },
+      "project": {
+        "total": 17,
+        "available": 17,
+        "access_limited": 0,
+        "failed": 0
+      }
+    }
+  },
+  "resources": [
+    {
+      "url": "https://github.com/CSHaitao/LegalAgentBench",
+      "kind": "github",
+      "benchmark_ids": [
+        "legalagentbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/CSHaitao/LegalAgentBench",
+      "api_url": "https://api.github.com/repos/CSHaitao/LegalAgentBench",
+      "metadata": {
+        "full_name": "CSHaitao/LegalAgentBench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-04-10T10:03:56Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/CSHaitao/LexEval",
+      "kind": "github",
+      "benchmark_ids": [
+        "lexeval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/CSHaitao/LexEval",
+      "api_url": "https://api.github.com/repos/CSHaitao/LexEval",
+      "metadata": {
+        "full_name": "CSHaitao/LexEval",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2024-10-30T14:34:34Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/Exploration-Lab/IL-TUR",
+      "kind": "github",
+      "benchmark_ids": [
+        "il-tur"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/Exploration-Lab/IL-TUR",
+      "api_url": "https://api.github.com/repos/Exploration-Lab/IL-TUR",
+      "metadata": {
+        "full_name": "Exploration-Lab/IL-TUR",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-06-07T09:40:27Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/FudanDISC/J1Bench",
+      "kind": "github",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/FudanDISC/J1Bench",
+      "api_url": "https://api.github.com/repos/FudanDISC/J1Bench",
+      "metadata": {
+        "full_name": "FudanDISC/J1Bench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-04-07T12:29:48Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/HKUST-KnowComp/MASLegalBench",
+      "kind": "github",
+      "benchmark_ids": [
+        "maslegalbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/HKUST-KnowComp/MASLegalBench",
+      "api_url": "https://api.github.com/repos/HKUST-KnowComp/MASLegalBench",
+      "metadata": {
+        "full_name": "HKUST-KnowComp/MASLegalBench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-09-30T13:56:23Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/HazyResearch/legalbench",
+      "kind": "github",
+      "benchmark_ids": [
+        "legalbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/HazyResearch/legalbench",
+      "api_url": "https://api.github.com/repos/HazyResearch/legalbench",
+      "metadata": {
+        "full_name": "HazyResearch/legalbench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-03-30T05:23:35Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/JoelNiklaus/LEXTREME",
+      "kind": "github",
+      "benchmark_ids": [
+        "lextreme"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/JoelNiklaus/LEXTREME",
+      "api_url": "https://api.github.com/repos/JoelNiklaus/LEXTREME",
+      "metadata": {
+        "full_name": "JoelNiklaus/LEXTREME",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2023-12-28T19:23:11Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/JoelNiklaus/SwissLegalTranslations",
+      "kind": "github",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/JoelNiklaus/SwissLegalTranslations",
+      "api_url": "https://api.github.com/repos/JoelNiklaus/SwissLegalTranslations",
+      "metadata": {
+        "full_name": "JoelNiklaus/SwissLegalTranslations",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-03-04T08:37:34Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/LEXam-Benchmark/LEXam",
+      "kind": "github",
+      "benchmark_ids": [
+        "lexam"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/LEXam-Benchmark/LEXam",
+      "api_url": "https://api.github.com/repos/LEXam-Benchmark/LEXam",
+      "metadata": {
+        "full_name": "LEXam-Benchmark/LEXam",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-01-30T11:40:24Z",
+        "license_spdx": "Apache-2.0"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/Law-AI/MILPaC",
+      "kind": "github",
+      "benchmark_ids": [
+        "milpac"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/Law-AI/MILPaC",
+      "api_url": "https://api.github.com/repos/Law-AI/MILPaC",
+      "metadata": {
+        "full_name": "Law-AI/MILPaC",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-07-13T10:21:58Z",
+        "license_spdx": "NOASSERTION"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/Mercor-Intelligence/archipelago",
+      "kind": "github",
+      "benchmark_ids": [
+        "apex-agents-corporate-law"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/Mercor-Intelligence/archipelago",
+      "api_url": "https://api.github.com/repos/Mercor-Intelligence/archipelago",
+      "metadata": {
+        "full_name": "Mercor-Intelligence/archipelago",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-08-03T21:57:47Z",
+        "license_spdx": "Apache-2.0"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/NLP-UBC/CanLegalRAGBench",
+      "kind": "github",
+      "benchmark_ids": [
+        "canlegalragbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/NLP-UBC/CanLegalRAGBench",
+      "api_url": "https://api.github.com/repos/NLP-UBC/CanLegalRAGBench",
+      "metadata": {
+        "full_name": "NLP-UBC/CanLegalRAGBench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-07-20T07:00:34Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/THUIR/LeCaRDv2",
+      "kind": "github",
+      "benchmark_ids": [
+        "lecardv2"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/THUIR/LeCaRDv2",
+      "api_url": "https://api.github.com/repos/THUIR/LeCaRDv2",
+      "metadata": {
+        "full_name": "THUIR/LeCaRDv2",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2024-12-29T16:32:37Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/The-Atticus-Project/cuad",
+      "kind": "github",
+      "benchmark_ids": [
+        "cuad"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/The-Atticus-Project/cuad",
+      "api_url": "https://api.github.com/repos/The-Atticus-Project/cuad",
+      "metadata": {
+        "full_name": "The-Atticus-Project/cuad",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2023-07-13T07:38:23Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/TheAtticusProject/acord",
+      "kind": "github",
+      "benchmark_ids": [
+        "acord"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/The-Atticus-Project/acord",
+      "api_url": "https://api.github.com/repos/TheAtticusProject/acord",
+      "metadata": {
+        "full_name": "The-Atticus-Project/acord",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-01-15T03:05:06Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/TheAtticusProject/maud",
+      "kind": "github",
+      "benchmark_ids": [
+        "maud"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/The-Atticus-Project/maud",
+      "api_url": "https://api.github.com/repos/TheAtticusProject/maud",
+      "metadata": {
+        "full_name": "The-Atticus-Project/maud",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2023-02-15T11:05:06Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/Thiqah/ArabLegalEval",
+      "kind": "github",
+      "benchmark_ids": [
+        "arablegaleval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/Thiqah/ArabLegalEval",
+      "api_url": "https://api.github.com/repos/Thiqah/ArabLegalEval",
+      "metadata": {
+        "full_name": "Thiqah/ArabLegalEval",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-05-21T17:40:41Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/Vaquill-AI/open-legal-answer-benchmark",
+      "kind": "github",
+      "benchmark_ids": [
+        "open-legal-answer-benchmark"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/Vaquill-AI/open-legal-answer-benchmark",
+      "api_url": "https://api.github.com/repos/Vaquill-AI/open-legal-answer-benchmark",
+      "metadata": {
+        "full_name": "Vaquill-AI/open-legal-answer-benchmark",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-07-18T06:00:09Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/bohanhou14/CLERC",
+      "kind": "github",
+      "benchmark_ids": [
+        "clerc"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/abehou/CLERC",
+      "api_url": "https://api.github.com/repos/bohanhou14/CLERC",
+      "metadata": {
+        "full_name": "abehou/CLERC",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-01-28T19:27:33Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/coastalcph/fairlex",
+      "kind": "github",
+      "benchmark_ids": [
+        "fairlex"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/coastalcph/fairlex",
+      "api_url": "https://api.github.com/repos/coastalcph/fairlex",
+      "metadata": {
+        "full_name": "coastalcph/fairlex",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2023-07-25T14:26:28Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/coastalcph/lex-glue",
+      "kind": "github",
+      "benchmark_ids": [
+        "casehold",
+        "ecthr",
+        "ledgar",
+        "lexglue"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/coastalcph/lex-glue",
+      "api_url": "https://api.github.com/repos/coastalcph/lex-glue",
+      "metadata": {
+        "full_name": "coastalcph/lex-glue",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2025-07-23T07:39:34Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/crosbylegal/redline-bench",
+      "kind": "github",
+      "benchmark_ids": [
+        "redlinebench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/crosbylegal/redline-bench",
+      "api_url": "https://api.github.com/repos/crosbylegal/redline-bench",
+      "metadata": {
+        "full_name": "crosbylegal/redline-bench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-06-26T17:32:50Z",
+        "license_spdx": "NOASSERTION"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/dtuggener/LEDGAR_provision_classification",
+      "kind": "github",
+      "benchmark_ids": [
+        "ledgar"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/dtuggener/LEDGAR_provision_classification",
+      "api_url": "https://api.github.com/repos/dtuggener/LEDGAR_provision_classification",
+      "metadata": {
+        "full_name": "dtuggener/LEDGAR_provision_classification",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2020-10-19T08:26:48Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/guangyaodou/DeonticBench",
+      "kind": "github",
+      "benchmark_ids": [
+        "deonticbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/guangyaodou/DeonticBench",
+      "api_url": "https://api.github.com/repos/guangyaodou/DeonticBench",
+      "metadata": {
+        "full_name": "guangyaodou/DeonticBench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-06-04T17:19:47Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/harveyai/harvey-labs",
+      "kind": "github",
+      "benchmark_ids": [
+        "harvey-lab"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/harveyai/harvey-labs",
+      "api_url": "https://api.github.com/repos/harveyai/harvey-labs",
+      "metadata": {
+        "full_name": "harveyai/harvey-labs",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-08-03T17:19:30Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/hoorangyee/LRAGE",
+      "kind": "github",
+      "benchmark_ids": [
+        "lrage"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/hoorangyee/LRAGE",
+      "api_url": "https://api.github.com/repos/hoorangyee/LRAGE",
+      "metadata": {
+        "full_name": "hoorangyee/LRAGE",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-07-03T07:19:55Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/isaacus-dev/legal-rag-bench",
+      "kind": "github",
+      "benchmark_ids": [
+        "legal-rag-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/isaacus-dev/legal-rag-bench",
+      "api_url": "https://api.github.com/repos/isaacus-dev/legal-rag-bench",
+      "metadata": {
+        "full_name": "isaacus-dev/legal-rag-bench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-03-03T04:55:20Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/isaacus-dev/mleb",
+      "kind": "github",
+      "benchmark_ids": [
+        "mleb"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/isaacus-dev/mleb",
+      "api_url": "https://api.github.com/repos/isaacus-dev/mleb",
+      "metadata": {
+        "full_name": "isaacus-dev/mleb",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-02-24T00:06:07Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/lbox-kr/kcl",
+      "kind": "github",
+      "benchmark_ids": [
+        "kcl"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/lbox-kr/kcl",
+      "api_url": "https://api.github.com/repos/lbox-kr/kcl",
+      "metadata": {
+        "full_name": "lbox-kr/kcl",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-01-23T03:20:46Z",
+        "license_spdx": "NOASSERTION"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/lyxx3rd/LegalEval-Q",
+      "kind": "github",
+      "benchmark_ids": [
+        "legaleval-q"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/lyxx3rd/LegalEval-Q",
+      "api_url": "https://api.github.com/repos/lyxx3rd/LegalEval-Q",
+      "metadata": {
+        "full_name": "lyxx3rd/LegalEval-Q",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-02-26T07:37:04Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/maastrichtlawtech/awesome-legal-nlp",
+      "kind": "github",
+      "benchmark_ids": [
+        "awesome-legal-nlp"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/maastrichtlawtech/awesome-legal-nlp",
+      "api_url": "https://api.github.com/repos/maastrichtlawtech/awesome-legal-nlp",
+      "metadata": {
+        "full_name": "maastrichtlawtech/awesome-legal-nlp",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "master",
+        "pushed_at": "2025-10-14T08:56:41Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/maastrichtlawtech/bsard",
+      "kind": "github",
+      "benchmark_ids": [
+        "bsard"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/maastrichtlawtech/bsard",
+      "api_url": "https://api.github.com/repos/maastrichtlawtech/bsard",
+      "metadata": {
+        "full_name": "maastrichtlawtech/bsard",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "master",
+        "pushed_at": "2023-09-26T12:41:14Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/maastrichtlawtech/lleqa",
+      "kind": "github",
+      "benchmark_ids": [
+        "lleqa"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/maastrichtlawtech/lleqa",
+      "api_url": "https://api.github.com/repos/maastrichtlawtech/lleqa",
+      "metadata": {
+        "full_name": "maastrichtlawtech/lleqa",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2024-02-28T11:48:49Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/neelguha/legal-ml-datasets",
+      "kind": "github",
+      "benchmark_ids": [
+        "casehold"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/neelguha/legal-ml-datasets",
+      "api_url": "https://api.github.com/repos/neelguha/legal-ml-datasets",
+      "metadata": {
+        "full_name": "neelguha/legal-ml-datasets",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "master",
+        "pushed_at": "2026-04-19T13:49:09Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/open-compass/LawBench",
+      "kind": "github",
+      "benchmark_ids": [
+        "lawbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/open-compass/LawBench",
+      "api_url": "https://api.github.com/repos/open-compass/LawBench",
+      "metadata": {
+        "full_name": "open-compass/LawBench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2023-11-13T06:42:45Z",
+        "license_spdx": "Apache-2.0"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/prinz-ai/prinzbench",
+      "kind": "github",
+      "benchmark_ids": [
+        "prinzbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/prinz-ai/prinzbench",
+      "api_url": "https://api.github.com/repos/prinz-ai/prinzbench",
+      "metadata": {
+        "full_name": "prinz-ai/prinzbench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "pushed_at": "2026-07-18T22:14:04Z",
+        "license_spdx": null
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github",
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://github.com/stanfordnlp/contract-nli",
+      "kind": "github",
+      "benchmark_ids": [
+        "contractnli"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/stanfordnlp/contract-nli",
+      "api_url": "https://api.github.com/repos/stanfordnlp/contract-nli",
+      "metadata": {
+        "full_name": "stanfordnlp/contract-nli",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "gh-pages",
+        "pushed_at": "2022-02-11T23:16:21Z",
+        "license_spdx": "CC-BY-4.0"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/yuwenhan07/MSLR-Bench",
+      "kind": "github",
+      "benchmark_ids": [
+        "mslr"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/yuwenhan07/MSLR-Bench",
+      "api_url": "https://api.github.com/repos/yuwenhan07/MSLR-Bench",
+      "metadata": {
+        "full_name": "yuwenhan07/MSLR-Bench",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "master",
+        "pushed_at": "2026-06-29T13:11:12Z",
+        "license_spdx": "Apache-2.0"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://github.com/zeroentropy-ai/legalbenchrag",
+      "kind": "github",
+      "benchmark_ids": [
+        "legalbench-rag"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://github.com/zeroentropy-ai/legalbenchrag",
+      "api_url": "https://api.github.com/repos/zeroentropy-ai/legalbenchrag",
+      "metadata": {
+        "full_name": "zeroentropy-ai/legalbenchrag",
+        "private": false,
+        "archived": false,
+        "disabled": false,
+        "default_branch": "master",
+        "pushed_at": "2025-05-30T22:34:54Z",
+        "license_spdx": "MIT"
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "github-api",
+      "families": [
+        "github"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/collections/joelniklaus/swiltra-bench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/collections/joelniklaus/swiltra-bench",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "reglab-reasoning-focused-retrieval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/CSHaitao/LexEval",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lexeval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/CSHaitao/LexEval",
+      "api_url": "https://huggingface.co/api/datasets/CSHaitao/LexEval",
+      "metadata": {
+        "id": "CSHaitao/LexEval",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2024-10-30T15:07:07.000Z",
+        "downloads": 157,
+        "likes": 0,
+        "licenses": [
+          "mit"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset",
+      "api_url": "https://huggingface.co/api/datasets/CimoInkPool/J1-Eval_Dataset",
+      "metadata": {
+        "id": "CimoInkPool/J1-Eval_Dataset",
+        "private": false,
+        "gated": "auto",
+        "disabled": false,
+        "last_modified": "2025-07-10T10:43:35.000Z",
+        "downloads": 28,
+        "likes": 2,
+        "licenses": [
+          "apache-2.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/Exploration-Lab/IL-TUR",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "il-tur"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/Exploration-Lab/IL-TUR",
+      "api_url": "https://huggingface.co/api/datasets/Exploration-Lab/IL-TUR",
+      "metadata": {
+        "id": "Exploration-Lab/IL-TUR",
+        "private": false,
+        "gated": "auto",
+        "disabled": false,
+        "last_modified": "2025-04-01T12:09:02.000Z",
+        "downloads": 469,
+        "likes": 21,
+        "licenses": [
+          "cc-by-nc-sa-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/LEXam-Benchmark/LEXam",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lexam"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/LEXam-Benchmark/LEXam",
+      "api_url": "https://huggingface.co/api/datasets/LEXam-Benchmark/LEXam",
+      "metadata": {
+        "id": "LEXam-Benchmark/LEXam",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-05-21T14:40:51.000Z",
+        "downloads": 1649,
+        "likes": 46,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/THIQAH-RD/ALARB",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "alarb"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/THIQAH-RD/ALARB",
+      "api_url": "https://huggingface.co/api/datasets/THIQAH-RD/ALARB",
+      "metadata": {
+        "id": "THIQAH-RD/ALARB",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-10-15T16:23:32.000Z",
+        "downloads": 128,
+        "likes": 6,
+        "licenses": [
+          "apache-2.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "arablegaleval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval",
+      "api_url": "https://huggingface.co/api/datasets/THIQAH-RD/ArabLegalEval",
+      "metadata": {
+        "id": "THIQAH-RD/ArabLegalEval",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-01-02T12:09:44.000Z",
+        "downloads": 23,
+        "likes": 4,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "canlegalragbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench",
+      "api_url": "https://huggingface.co/api/datasets/UBC-VL/CanLegalRAGBench",
+      "metadata": {
+        "id": "UBC-VL/CanLegalRAGBench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-05-29T01:01:41.000Z",
+        "downloads": 154,
+        "likes": 0,
+        "licenses": [
+          "mit"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/Yuwh07/MSLR-Bench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "mslr"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/Yuwh07/MSLR-Bench",
+      "api_url": "https://huggingface.co/api/datasets/Yuwh07/MSLR-Bench",
+      "metadata": {
+        "id": "Yuwh07/MSLR-Bench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-06-29T13:10:30.000Z",
+        "downloads": 129,
+        "likes": 0,
+        "licenses": [
+          "mit"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/coastalcph/fairlex",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "fairlex"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/coastalcph/fairlex",
+      "api_url": "https://huggingface.co/api/datasets/coastalcph/fairlex",
+      "metadata": {
+        "id": "coastalcph/fairlex",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2023-07-27T12:43:39.000Z",
+        "downloads": 448,
+        "likes": 9,
+        "licenses": [
+          "cc-by-nc-sa-4.0",
+          [
+            "cc-by-nc-sa-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/coastalcph/lex_glue",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "casehold",
+        "ecthr",
+        "ledgar",
+        "lexglue"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/coastalcph/lex_glue",
+      "api_url": "https://huggingface.co/api/datasets/coastalcph/lex_glue",
+      "metadata": {
+        "id": "coastalcph/lex_glue",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2024-01-04T14:25:27.000Z",
+        "downloads": 25422,
+        "likes": 81,
+        "licenses": [
+          "cc-by-4.0",
+          [
+            "cc-by-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/crosbylegal/RedlineBench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "redlinebench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/crosbylegal/RedlineBench",
+      "api_url": "https://huggingface.co/api/datasets/crosbylegal/RedlineBench",
+      "metadata": {
+        "id": "crosbylegal/RedlineBench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-06-18T14:40:28.000Z",
+        "downloads": 1298,
+        "likes": 14,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface",
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/doolayer/LawBench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lawbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/doolayer/LawBench",
+      "api_url": "https://huggingface.co/api/datasets/doolayer/LawBench",
+      "metadata": {
+        "id": "doolayer/LawBench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-07T10:53:37.000Z",
+        "downloads": 998,
+        "likes": 2,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/gydou/DeonticBench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "deonticbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/gydou/DeonticBench",
+      "api_url": "https://huggingface.co/api/datasets/gydou/DeonticBench",
+      "metadata": {
+        "id": "gydou/DeonticBench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-06-04T17:27:28.000Z",
+        "downloads": 521,
+        "likes": 8,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lrage"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25",
+      "api_url": "https://huggingface.co/api/datasets/hoorangyee/pile-of-law-bm25",
+      "metadata": {
+        "id": "hoorangyee/pile-of-law-bm25",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-04-13T06:28:01.000Z",
+        "downloads": 47,
+        "likes": 0,
+        "licenses": [
+          "mit"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/isaacus/legal-rag-bench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "legal-rag-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/isaacus/legal-rag-bench",
+      "api_url": "https://huggingface.co/api/datasets/isaacus/legal-rag-bench",
+      "metadata": {
+        "id": "isaacus/legal-rag-bench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-03-08T02:54:26.000Z",
+        "downloads": 765,
+        "likes": 23,
+        "licenses": [
+          "cc-by-nc-sa-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/jhu-clsp/CLERC",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "clerc"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/jhu-clsp/CLERC",
+      "api_url": "https://huggingface.co/api/datasets/jhu-clsp/CLERC",
+      "metadata": {
+        "id": "jhu-clsp/CLERC",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2024-06-02T14:44:46.000Z",
+        "downloads": 392,
+        "likes": 11,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations",
+      "api_url": "https://huggingface.co/api/datasets/joelniklaus/SwissDecisionSummaryTranslations",
+      "metadata": {
+        "id": "joelniklaus/SwissDecisionSummaryTranslations",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-04T08:46:59.000Z",
+        "downloads": 99,
+        "likes": 0,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/joelniklaus/SwissLawTranslations",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/joelniklaus/SwissLawTranslations",
+      "api_url": "https://huggingface.co/api/datasets/joelniklaus/SwissLawTranslations",
+      "metadata": {
+        "id": "joelniklaus/SwissLawTranslations",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-04T08:44:30.000Z",
+        "downloads": 301,
+        "likes": 0,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations",
+      "api_url": "https://huggingface.co/api/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations",
+      "metadata": {
+        "id": "joelniklaus/SwissSupremeCourtPressReleaseTranslations",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-04T08:47:05.000Z",
+        "downloads": 95,
+        "likes": 0,
+        "licenses": []
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/joelniklaus/lextreme",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lextreme"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/joelniklaus/lextreme",
+      "api_url": "https://huggingface.co/api/datasets/joelniklaus/lextreme",
+      "metadata": {
+        "id": "joelniklaus/lextreme",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-05-20T08:43:46.000Z",
+        "downloads": 332,
+        "likes": 22,
+        "licenses": [
+          "cc-by-4.0",
+          [
+            "cc-by-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/lbox/kcl",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "kcl"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/lbox/kcl",
+      "api_url": "https://huggingface.co/api/datasets/lbox/kcl",
+      "metadata": {
+        "id": "lbox/kcl",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-01-12T01:54:30.000Z",
+        "downloads": 399,
+        "likes": 0,
+        "licenses": [
+          "cc-by-nc-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/maastrichtlawtech/bsard",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "bsard"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/maastrichtlawtech/bsard",
+      "api_url": "https://huggingface.co/api/datasets/maastrichtlawtech/bsard",
+      "metadata": {
+        "id": "maastrichtlawtech/bsard",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2024-05-31T15:10:38.000Z",
+        "downloads": 713,
+        "likes": 18,
+        "licenses": [
+          "cc-by-nc-sa-4.0",
+          [
+            "cc-by-nc-sa-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/maastrichtlawtech/lleqa",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "lleqa"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/maastrichtlawtech/lleqa",
+      "api_url": "https://huggingface.co/api/datasets/maastrichtlawtech/lleqa",
+      "metadata": {
+        "id": "maastrichtlawtech/lleqa",
+        "private": false,
+        "gated": "manual",
+        "disabled": false,
+        "last_modified": "2024-09-03T07:18:59.000Z",
+        "downloads": 161,
+        "likes": 16,
+        "licenses": [
+          "cc-by-nc-sa-4.0",
+          [
+            "cc-by-nc-sa-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/mercor/apex-agents",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "apex-agents-corporate-law"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/mercor/apex-agents",
+      "api_url": "https://huggingface.co/api/datasets/mercor/apex-agents",
+      "metadata": {
+        "id": "mercor/apex-agents",
+        "private": false,
+        "gated": "auto",
+        "disabled": false,
+        "last_modified": "2026-06-11T16:50:00.000Z",
+        "downloads": 42974,
+        "likes": 155,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/nguha/legalbench",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "legalbench"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/nguha/legalbench",
+      "api_url": "https://huggingface.co/api/datasets/nguha/legalbench",
+      "metadata": {
+        "id": "nguha/legalbench",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2026-03-30T05:17:01.000Z",
+        "downloads": 13887,
+        "likes": 186,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/reglab/barexam_qa",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "reglab-reasoning-focused-retrieval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/reglab/barexam_qa",
+      "api_url": "https://huggingface.co/api/datasets/reglab/barexam_qa",
+      "metadata": {
+        "id": "reglab/barexam_qa",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-10T05:24:32.000Z",
+        "downloads": 279,
+        "likes": 5,
+        "licenses": [
+          "cc-by-sa-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/reglab/housing_qa",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "reglab-reasoning-focused-retrieval"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/reglab/housing_qa",
+      "api_url": "https://huggingface.co/api/datasets/reglab/housing_qa",
+      "metadata": {
+        "id": "reglab/housing_qa",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-03-10T05:23:15.000Z",
+        "downloads": 290,
+        "likes": 2,
+        "licenses": [
+          "cc-by-sa-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/theatticusproject/acord",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "acord"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/theatticusproject/acord",
+      "api_url": "https://huggingface.co/api/datasets/theatticusproject/acord",
+      "metadata": {
+        "id": "theatticusproject/acord",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2025-01-15T03:11:50.000Z",
+        "downloads": 282,
+        "likes": 9,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/theatticusproject/cuad-qa",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "contracteval",
+        "cuad"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/theatticusproject/cuad-qa",
+      "api_url": "https://huggingface.co/api/datasets/theatticusproject/cuad-qa",
+      "metadata": {
+        "id": "theatticusproject/cuad-qa",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2024-05-23T07:02:26.000Z",
+        "downloads": 2598,
+        "likes": 67,
+        "licenses": [
+          "cc-by-4.0",
+          [
+            "cc-by-4.0"
+          ]
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/datasets/theatticusproject/maud",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "maud"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/datasets/theatticusproject/maud",
+      "api_url": "https://huggingface.co/api/datasets/theatticusproject/maud",
+      "metadata": {
+        "id": "theatticusproject/maud",
+        "private": false,
+        "gated": false,
+        "disabled": false,
+        "last_modified": "2023-01-02T22:50:04.000Z",
+        "downloads": 1058,
+        "likes": 3,
+        "licenses": [
+          "cc-by-4.0"
+        ]
+      },
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "huggingface-api",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/isaacus/datasets",
+      "kind": "huggingface",
+      "benchmark_ids": [
+        "mleb"
+      ],
+      "ok": true,
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/isaacus/datasets",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "families": [
+        "huggingface"
+      ]
+    },
+    {
+      "url": "https://coliee.org/COLIEE2025/submission",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "coliee"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://coliee.org/COLIEE2025/submission",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://exploration-lab.github.io/IL-TUR/",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "il-tur"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://exploration-lab.github.io/IL-TUR/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards",
+        "project"
+      ]
+    },
+    {
+      "url": "https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf",
+      "kind": "leaderboards",
+      "families": [
+        "leaderboards"
+      ],
+      "benchmark_ids": [
+        "just-nlp-2025-legal-mt"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf",
+      "api_url": null,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "url": "https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "open-legal-answer-benchmark"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://hub.opencompass.org.cn/dataset-detail/J1Bench",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://hub.opencompass.org.cn/dataset-detail/J1Bench",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://isaacus.com/mleb",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "mleb"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://isaacus.com/mleb",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://lawbench.opencompass.org.cn/",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "lawbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://lawbench.opencompass.org.cn/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://wandb.ai/lextreme/paper_results",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "lextreme"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://wandb.ai/lextreme/paper_results",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://www.codabench.org/competitions/10351/",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "just-nlp-2025-legal-mt"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.codabench.org/competitions/10351/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://www.mercor.com/apex/apex-agents-leaderboard/corporate-lawyer-agent/",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "apex-agents-corporate-law"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.mercor.com/apex/apex-agents-leaderboard/corporate-lawyer-agent/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://www.vals.ai/benchmarks/legal_bench",
+      "kind": "leaderboards",
+      "benchmark_ids": [
+        "legalbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.vals.ai/benchmarks/legal_bench",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "leaderboards"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2020.lrec-1.155/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "ledgar"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2020.lrec-1.155/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2022.acl-long.297/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lexglue"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2022.acl-long.297/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2022.acl-long.301/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "fairlex"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2022.acl-long.301/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2022.acl-long.468/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "bsard"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2022.acl-long.468/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2023.emnlp-main.1019/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "maud"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2023.emnlp-main.1019/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2024.acl-long.618/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "il-tur"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2024.acl-long.618/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.acl-long.1206/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "acord"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2025.acl-long.1206/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.acl-long.725/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2025.acl-long.725/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.justnlp-main.3/",
+      "kind": "papers",
+      "families": [
+        "papers"
+      ],
+      "benchmark_ids": [
+        "just-nlp-2025-legal-mt"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2025.justnlp-main.3/",
+      "api_url": null,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.471/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2026.acl-long.471/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.eacl-short.17/",
+      "kind": "papers",
+      "benchmark_ids": [
+        "kcl"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://aclanthology.org/2026.eacl-short.17/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1906.02059",
+      "kind": "papers",
+      "benchmark_ids": [
+        "ecthr"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/1906.02059",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.06268",
+      "kind": "papers",
+      "benchmark_ids": [
+        "cuad"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2103.06268",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2104.08671",
+      "kind": "papers",
+      "benchmark_ids": [
+        "casehold"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2104.08671",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.11792",
+      "kind": "papers",
+      "benchmark_ids": [
+        "bsard"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2108.11792",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2110.00976",
+      "kind": "papers",
+      "benchmark_ids": [
+        "ecthr",
+        "lexglue"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2110.00976",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2110.01799",
+      "kind": "papers",
+      "benchmark_ids": [
+        "contractnli"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2110.01799",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2301.00876",
+      "kind": "papers",
+      "benchmark_ids": [
+        "maud"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2301.00876",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2301.13126",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lextreme"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2301.13126",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.11462",
+      "kind": "papers",
+      "benchmark_ids": [
+        "legalbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2308.11462",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.16289",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lawbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2309.16289",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.17050",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lleqa"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2309.17050",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.09765",
+      "kind": "papers",
+      "benchmark_ids": [
+        "milpac"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2310.09765",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.17609",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lecardv2"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2310.17609",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.17186",
+      "kind": "papers",
+      "benchmark_ids": [
+        "clerc"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2406.17186",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.05399",
+      "kind": "papers",
+      "benchmark_ids": [
+        "il-tur"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2407.05399",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.07983",
+      "kind": "papers",
+      "benchmark_ids": [
+        "arablegaleval"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2408.07983",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.10343",
+      "kind": "papers",
+      "benchmark_ids": [
+        "legalbench-rag"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2408.10343",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.20288",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lexeval"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2409.20288",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.17259",
+      "kind": "papers",
+      "benchmark_ids": [
+        "legalagentbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2412.17259",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.06582",
+      "kind": "papers",
+      "benchmark_ids": [
+        "acord"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2501.06582",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.01372",
+      "kind": "papers",
+      "benchmark_ids": [
+        "swiltra-bench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2503.01372",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.01840",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lrage"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2504.01840",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.03970",
+      "kind": "papers",
+      "benchmark_ids": [
+        "reglab-reasoning-focused-retrieval"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2505.03970",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.12864",
+      "kind": "papers",
+      "benchmark_ids": [
+        "lexam"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2505.12864",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.24826",
+      "kind": "papers",
+      "benchmark_ids": [
+        "legaleval-q"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2505.24826",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.04037",
+      "kind": "papers",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2507.04037",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.03080",
+      "kind": "papers",
+      "benchmark_ids": [
+        "contracteval"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2508.03080",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.24922",
+      "kind": "papers",
+      "benchmark_ids": [
+        "maslegalbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2509.24922",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.00694",
+      "kind": "papers",
+      "benchmark_ids": [
+        "alarb"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2510.00694",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.19365",
+      "kind": "papers",
+      "benchmark_ids": [
+        "mleb"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2510.19365",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.07979",
+      "kind": "papers",
+      "benchmark_ids": [
+        "mslr"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2511.07979",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.24572",
+      "kind": "papers",
+      "benchmark_ids": [
+        "kcl"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2512.24572",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.14242",
+      "kind": "papers",
+      "benchmark_ids": [
+        "apex-agents-corporate-law"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2601.14242",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.01710",
+      "kind": "papers",
+      "benchmark_ids": [
+        "legal-rag-bench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2603.01710",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.04443",
+      "kind": "papers",
+      "benchmark_ids": [
+        "deonticbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2604.04443",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.30497",
+      "kind": "papers",
+      "benchmark_ids": [
+        "canlegalragbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://arxiv.org/abs/2605.30497",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3748313",
+      "kind": "papers",
+      "benchmark_ids": [
+        "milpac"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "crossref-api",
+      "http_status": 200,
+      "canonical_url": "https://doi.org/10.1145/3748313",
+      "api_url": "https://api.crossref.org/works/10.1145%2F3748313",
+      "metadata": {
+        "doi": "10.1145/3748313",
+        "title": "MILPaC: A Novel Benchmark for Evaluating Translation of Legal Text to Indian Languages",
+        "publisher": "Association for Computing Machinery (ACM)",
+        "work_type": "journal-article"
+      },
+      "error": null,
+      "families": [
+        "papers"
+      ]
+    },
+    {
+      "url": "https://coliee.org/COLIEE2025/overview",
+      "kind": "project",
+      "benchmark_ids": [
+        "coliee"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://coliee.org/COLIEE2025/overview",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://exploration-lab.github.io/JUST-NLP/",
+      "kind": "project",
+      "families": [
+        "project"
+      ],
+      "benchmark_ids": [
+        "just-nlp-2025-legal-mt"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://exploration-lab.github.io/JUST-NLP/",
+      "api_url": null,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "url": "https://guangyaodou.github.io/DeonticBench/",
+      "kind": "project",
+      "benchmark_ids": [
+        "deonticbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://guangyaodou.github.io/DeonticBench/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/blog/isaacus/legal-rag-bench",
+      "kind": "project",
+      "benchmark_ids": [
+        "legal-rag-bench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://huggingface.co/blog/isaacus/legal-rag-bench",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://intelligence.crosby.ai/benchmark",
+      "kind": "project",
+      "benchmark_ids": [
+        "redlinebench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://intelligence.crosby.ai/benchmark/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://j1bench.github.io/",
+      "kind": "project",
+      "benchmark_ids": [
+        "ready-jurist-one"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://j1bench.github.io/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://legalbench.ai/",
+      "kind": "project",
+      "benchmark_ids": [
+        "legalbench"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://legalbench.ai/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://lexam-benchmark.github.io/",
+      "kind": "project",
+      "benchmark_ids": [
+        "lexam"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://lexam-benchmark.github.io/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://reglab.github.io/legal-rag-benchmarks/",
+      "kind": "project",
+      "benchmark_ids": [
+        "reglab-reasoning-focused-retrieval"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://reglab.github.io/legal-rag-benchmarks/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://stanfordnlp.github.io/contract-nli/",
+      "kind": "project",
+      "benchmark_ids": [
+        "contractnli"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://stanfordnlp.github.io/contract-nli/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.atticusprojectai.org/acord/",
+      "kind": "project",
+      "benchmark_ids": [
+        "acord"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.atticusprojectai.org/acord/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.atticusprojectai.org/cuad",
+      "kind": "project",
+      "benchmark_ids": [
+        "cuad"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.atticusprojectai.org/cuad/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.atticusprojectai.org/maud",
+      "kind": "project",
+      "benchmark_ids": [
+        "maud"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.atticusprojectai.org/maud/",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0",
+      "kind": "project",
+      "benchmark_ids": [
+        "legalbench-rag"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark",
+      "kind": "project",
+      "benchmark_ids": [
+        "harvey-lab"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    },
+    {
+      "url": "https://www.harvey.ai/blog/legal-agent-benchmark-initial-results",
+      "kind": "project",
+      "benchmark_ids": [
+        "harvey-lab"
+      ],
+      "ok": true,
+      "verification_status": "available",
+      "verification_method": "http-get",
+      "http_status": 200,
+      "canonical_url": "https://www.harvey.ai/blog/legal-agent-benchmark-initial-results",
+      "api_url": null,
+      "metadata": {},
+      "error": null,
+      "families": [
+        "project"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Selection guide
+
+There is no defensible single “best legal benchmark.” Select a portfolio whose jurisdiction, legal materials, interface, scoring rule, and failure costs match the system you intend to deploy. A benchmark that measures multiple-choice recall is not evidence of reliable legal drafting, retrieval, citation, or tool use.
+
+## Comparative recommendation matrix
+
+| Use case | Primary public benchmark(s) | Lead metric | Pair with / hold out | Main limitation |
+|---|---|---|---|---|
+| Broad English legal NLU | [LexGLUE](https://github.com/coastalcph/lex-glue), [LegalBench](https://github.com/HazyResearch/legalbench) | Per-task macro/micro-F1 or task scorer; never only a blended mean | A fresh, matter-specific private set | Public labels and heavy reuse make contamination likely. |
+| Broad Chinese legal ability | [LawBench](https://github.com/open-compass/LawBench), [LexEval](https://github.com/CSHaitao/LexEval) | Accuracy/F1 by task; ROUGE-L only for the named generation tasks | Time-held-out current-law questions | Public examinations and CAIL-derived data are highly contamination-prone. |
+| Multilingual European legal NLU | [LEXTREME](https://github.com/JoelNiklaus/LEXTREME) | Per-language/task macro-F1 plus the hierarchical harmonic score | [FairLex](https://github.com/coastalcph/fairlex) for subgroup robustness | Missing language-task cells and unequal dataset scales complicate one-number comparisons. |
+| Multilingual Indian legal work | [IL-TUR](https://github.com/Exploration-Lab/IL-TUR) | Official task metric; report every language separately | [MILPaC](https://github.com/Law-AI/MILPaC) for practitioner-rated translation | Eight tasks have different sample sizes and language coverage. |
+| Korean professional exams | [KCL](https://github.com/lbox-kr/kcl) | MCQ accuracy; 2,905-point weighted essay percentage | Fresh bar-style questions reviewed by Korean counsel | Gemini 2.5 Flash judges essays and helped generate rubric candidates. |
+| Arabic / Saudi legal tasks | [ArabLegalEval](https://github.com/Thiqah/ArabLegalEval), [ALARB](https://huggingface.co/datasets/THIQAH-RD/ALARB) | Accuracy/F1 by natural versus synthetic subset | A human-authored jurisdiction-specific holdout | Translation, synthetic generation, and model judging weaken construct validity. |
+| Contract clause extraction | [CUAD](https://github.com/The-Atticus-Project/cuad), [ContractNLI](https://github.com/stanfordnlp/contract-nli), [MAUD](https://github.com/TheAtticusProject/maud) | AUPR/Jaccard; NLI and evidence F1; macro/micro-F1 | Document-family-held-out contracts from the target practice | Boilerplate and public SEC agreements make near-duplicate leakage a central risk. |
+| Contract clause retrieval | [ACORD](https://github.com/TheAtticusProject/acord) | nDCG@5/10 and graded precision@5 | New attorney-authored requests and unseen clause families | Only 114 queries; a few queries can move category-level results materially. |
+| Redlining / negotiation | [RedlineBench](https://github.com/crosbylegal/redline-bench) | Official 12-cell weighted rubric score and dimension scores | Blind attorney review on unseen playbooks | Rubrics and judge protocol are part of the instrument; public scenarios invite tuning. |
+| Exact-support retrieval | [LegalBench-RAG](https://github.com/zeroentropy-ai/legalbenchrag) | Character precision and recall | Document-level Recall@k and latency/cost | Gold spans may not exhaust all legally sufficient support, and all labels are public. |
+| Statutory retrieval | [BSARD](https://github.com/maastrichtlawtech/bsard), [RegLab](https://reglab.github.io/legal-rag-benchmarks/) | Recall@k, MRR/MAP, downstream QA accuracy | Current-law, time-stamped holdout | Static statutes and public bar questions can be stale or memorized. |
+| Case retrieval | [LeCaRDv2](https://github.com/THUIR/LeCaRDv2), [COLIEE](https://coliee.org/COLIEE2025/overview), [CanLegalRAGBench](https://github.com/NLP-UBC/CanLegalRAGBench) | nDCG/Recall@k; report pool depth | Expert rejudging of unjudged top results | Incomplete qrels can mark a valid authority as irrelevant. |
+| End-to-end legal RAG | [Legal RAG Bench](https://github.com/isaacus-dev/legal-rag-bench), [CanLegalRAGBench](https://github.com/NLP-UBC/CanLegalRAGBench), [LLeQA](https://github.com/maastrichtlawtech/lleqa) | Retrieval success plus claim correctness and groundedness | Independent legal review for omitted, current, and controlling authority | Model judges mostly score precision, not completeness or professional adequacy. |
+| Judgment / outcome prediction | [ECtHR Task](https://huggingface.co/datasets/coastalcph/lex_glue), [CaseHOLD](https://github.com/neelguha/legal-ml-datasets) | Macro/micro-F1 or MCQ accuracy | Strict chronology and pre-outcome input audit | Later judgment language, headnotes, and citation patterns can leak outcomes. |
+| Fairness and subgroup robustness | [FairLex](https://github.com/coastalcph/fairlex) | Overall, per-group, worst-group, gap, and confidence intervals | Domain-specific harm review | Group parity metrics do not themselves define legal or normative fairness. |
+| Deontic / rule reasoning | [DeonticBench](https://github.com/guangyaodou/DeonticBench) | Accuracy with the official 1,000-replicate bootstrap interval and abstention rate | Adversarial rule variants and a private split | Pin the post-audit Prolog/test revision; public generated cases allow direct optimization. |
+| Legal agents and tools | [J1Bench](https://github.com/FudanDISC/J1Bench), [LegalAgentBench](https://github.com/CSHaitao/LegalAgentBench), [APEX-Agents](https://github.com/Mercor-Intelligence/archipelago) | Process and outcome metrics, Pass@1/all-pass, tool-failure rate | Repeated runs, human review, and an unseen environment | Harness, tools, simulator, and judge are part of the benchmark and add variance. |
+| Legal translation | [SwiLTra-Bench](https://github.com/JoelNiklaus/SwissLegalTranslations), [MILPaC](https://github.com/Law-AI/MILPaC), [JUST-NLP 2025](https://www.codabench.org/competitions/10351/) | Named automatic metrics plus legal-expert ratings | Terminology, omission, and enforceability error analysis | BLEU/chrF++ similarity does not establish legally faithful translation. |
+| Current US legal answers and citations | [Open Legal-Answer Benchmark](https://github.com/Vaquill-AI/open-legal-answer-benchmark) | Must-include, citation support/in-range, forbidden-claim cleanliness, authority retrieval | Independent, time-stamped questions with blind grading | Sponsor-maintained, self-run, public, and only 54 canonical questions. |
+
+## Recommended evaluation design
+
+1. Use one established public benchmark for comparability, one task-specific benchmark for construct fit, and one fresh private holdout for decision evidence.
+2. Freeze benchmark, dataset, scorer, prompt, judge, and dependency revisions before running models.
+3. Report per-task, language, jurisdiction, and subgroup results with item counts and uncertainty. Do not replace them with a single rank.
+4. Separate retrieval, generation, citation, process, cost, and latency. A correct answer reached with missing authority is a different failure from a correct retrieval followed by an unsupported answer.
+5. Record all previous exposure to public tasks and use document-, entity-, and time-grouped splits where possible.
+
+The exact formulas and interpretation limits are documented in [metric theory](metric-theory.md).

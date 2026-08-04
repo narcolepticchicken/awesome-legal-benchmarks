@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If this catalog helped your evaluation design, cite this repository and the primary benchmark papers you used."
+title: "Awesome Legal Benchmarks"
+type: dataset
+authors:
+  - family-names: "M."
+    given-names: "Aaron"
+repository-code: "https://github.com/narcolepticchicken/awesome-legal-benchmarks"
+url: "https://github.com/narcolepticchicken/awesome-legal-benchmarks"
+license: CC-BY-4.0
+version: "2026.08.03"
+date-released: 2026-08-03
+keywords:
+  - legal AI
+  - benchmarks
+  - evaluation
+  - legal NLP
+  - retrieval
+  - agents

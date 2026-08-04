@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/narcolepticchicken/awesome-legal-benchmarks/blob/main/catalog/schema.json",
+  "title": "Awesome Legal Benchmarks catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "as_of", "selection_policy", "entries"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "as_of": {"type": "string", "format": "date"},
+    "selection_policy": {"type": "string", "minLength": 20},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entry"}
+    }
+  },
+  "$defs": {
+    "urlList": {
+      "type": "array",
+      "items": {"type": "string", "format": "uri", "pattern": "^https://"},
+      "uniqueItems": true
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "protocol"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "protocol": {"type": "string", "minLength": 4},
+        "judge": {"type": ["string", "null"]},
+        "primary": {"type": "boolean", "default": false}
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "aliases", "kind", "tier", "status", "categories",
+        "capability", "construct", "jurisdictions", "languages", "data",
+        "metrics", "baselines", "resources", "access", "maintenance",
+        "reproducibility", "risks", "evidence", "source_readme_bullets",
+        "curated_addition"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "name": {"type": "string", "minLength": 2},
+        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "kind": {"enum": ["benchmark", "dataset", "benchmark-suite", "shared-task", "evaluation-framework", "evaluation-protocol", "private-benchmark", "resource-list"]},
+        "tier": {"enum": ["recommended", "specialist", "evaluate-carefully", "related"]},
+        "status": {"enum": ["active", "fixed-release", "annual", "completed", "private", "stale", "unclear"]},
+        "categories": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "capability": {"type": "string", "minLength": 8},
+        "construct": {"type": "string", "minLength": 20},
+        "jurisdictions": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "languages": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["size", "splits", "source", "input", "output"],
+          "properties": {
+            "size": {"type": "string", "minLength": 2},
+            "splits": {"type": "string", "minLength": 2},
+            "source": {"type": "string", "minLength": 2},
+            "input": {"type": "string", "minLength": 2},
+            "output": {"type": "string", "minLength": 2}
+          }
+        },
+        "metrics": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/metric"}},
+        "baselines": {"type": "string", "minLength": 2},
+        "resources": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["github", "huggingface", "papers", "leaderboards", "project"],
+          "properties": {
+            "github": {"$ref": "#/$defs/urlList"},
+            "huggingface": {"$ref": "#/$defs/urlList"},
+            "papers": {"$ref": "#/$defs/urlList"},
+            "leaderboards": {"$ref": "#/$defs/urlList"},
+            "project": {"$ref": "#/$defs/urlList"}
+          }
+        },
+        "access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["dataset", "license", "gating"],
+          "properties": {
+            "dataset": {"type": "string", "minLength": 2},
+            "license": {"type": "string", "minLength": 2},
+            "gating": {"type": "string", "minLength": 2}
+          }
+        },
+        "maintenance": {"type": "string", "minLength": 4},
+        "reproducibility": {"type": "string", "minLength": 8},
+        "risks": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 8}},
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verified", "inference", "ambiguities"],
+          "properties": {
+            "verified": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+            "inference": {"type": "array", "items": {"type": "string"}},
+            "ambiguities": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "source_readme_bullets": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 22}, "uniqueItems": true},
+        "curated_addition": {"type": "boolean"}
+      }
+    }
+  }
+}

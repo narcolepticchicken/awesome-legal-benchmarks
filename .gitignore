@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+node_modules
+previews/
+__pycache__/
+*.pyc
+.venv/
+*.inspect.ndjson
+outputs/019fc9c8-2e3e-7113-b4b4-7e04d9e8cc1e/
