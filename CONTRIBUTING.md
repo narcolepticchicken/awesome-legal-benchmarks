@@ -22,9 +22,10 @@ A dataset, framework, private test, vendor report, or resource list may be usefu
 1. Add or edit the canonical record in [`catalog/benchmarks.json`](catalog/benchmarks.json). Do not hand-edit generated `README.md`, `docs/catalog.md`, `docs/benchmarks/*.md`, or CSV files.
 2. Prefer official repositories, official Hugging Face namespaces, publisher/ACL/arXiv papers, and official competition pages. Label mirrors and secondary leaderboards.
 3. Check the item count, task protocol, scorer, and evaluation population before carrying over a project claim. A marketing page by itself is not evidence.
-4. Record dataset construction, splits, provenance, input/output, exact metrics/aggregation, judge model, baseline/leaderboard, license/access, maintenance, contamination risk, and reproducibility.
-5. Put uncertainty in `evidence.ambiguities` and interpretation in `evidence.inference`; do not silently resolve conflicting sources.
-6. Run:
+4. Record owner and commercial interest; first-documented and latest-update dates with basis and direct source; access level, label visibility, and runnability; dataset construction, splits, provenance, input/output, exact metrics/aggregation, judge model, baseline/leaderboard, license/access, maintenance, contamination risk, and reproducibility.
+5. Add one to three concrete `possible_uses` naming the legal task, material, and decision the score can inform. Do not use generic claims such as “evaluate model performance.”
+6. Put uncertainty in `evidence.ambiguities` and interpretation in `evidence.inference`; do not silently resolve conflicting sources.
+7. Run:
 
    ```bash
    python scripts/validate_catalog.py
@@ -33,7 +34,7 @@ A dataset, framework, private test, vendor report, or resource list may be usefu
    python -m unittest discover -s tests -v
    ```
 
-7. If URLs change, regenerate `catalog/resource-snapshot.json` with `python scripts/check_resources.py` and include the date. A successful HTTP response establishes availability on that date. It does not establish ownership, licensing, scientific validity, or reproducibility.
+8. If URLs change, regenerate `catalog/resource-snapshot.json` with `python scripts/check_resources.py` and include the date. A successful HTTP response establishes availability on that date. It does not establish ownership, licensing, scientific validity, or reproducibility.
 
 ## Curation decisions
 

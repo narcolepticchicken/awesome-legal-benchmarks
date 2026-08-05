@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "as_of", "selection_policy", "entries"],
   "properties": {
-    "schema_version": {"const": 1},
+    "schema_version": {"const": 2},
     "as_of": {"type": "string", "format": "date"},
     "selection_policy": {"type": "string", "minLength": 20},
     "entries": {
@@ -32,11 +32,43 @@
         "primary": {"type": "boolean", "default": false}
       }
     },
+    "dateRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "precision", "basis", "source"],
+      "properties": {
+        "date": {"type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"},
+        "precision": {"enum": ["year", "month", "day"]},
+        "basis": {"type": "string", "minLength": 4},
+        "source": {"type": "string", "format": "uri", "pattern": "^https://"}
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "commercial_interest"],
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "type": {"enum": ["academic", "company", "nonprofit", "competition", "community", "mixed", "individual", "government", "unknown"]},
+        "commercial_interest": {"enum": ["yes", "no", "unclear"]}
+      }
+    },
+    "accessProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "test_labels", "runnable"],
+      "properties": {
+        "level": {"enum": ["open", "gated", "partial", "private", "not-applicable"]},
+        "test_labels": {"enum": ["public", "hidden", "mixed", "not-applicable", "unclear"]},
+        "runnable": {"enum": ["yes", "partial", "no", "not-applicable", "unclear"]}
+      }
+    },
     "entry": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "id", "name", "aliases", "kind", "tier", "status", "categories",
+        "id", "name", "aliases", "kind", "tier", "status", "owner", "dates",
+        "access_profile", "possible_uses", "related", "categories",
         "capability", "construct", "jurisdictions", "languages", "data",
         "metrics", "baselines", "resources", "access", "maintenance",
         "reproducibility", "risks", "evidence", "source_readme_bullets",
@@ -48,7 +80,35 @@
         "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "kind": {"enum": ["benchmark", "dataset", "benchmark-suite", "shared-task", "evaluation-framework", "evaluation-protocol", "private-benchmark", "resource-list"]},
         "tier": {"enum": ["recommended", "specialist", "evaluate-carefully", "related"]},
-        "status": {"enum": ["active", "fixed-release", "annual", "completed", "private", "stale", "unclear"]},
+        "status": {"enum": ["active", "fixed-release", "annual", "completed", "private", "archived", "stale", "unclear"]},
+        "owner": {"$ref": "#/$defs/owner"},
+        "dates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["created", "last_updated"],
+          "properties": {
+            "created": {"$ref": "#/$defs/dateRecord"},
+            "last_updated": {
+              "oneOf": [
+                {"$ref": "#/$defs/dateRecord"},
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "access_profile": {"$ref": "#/$defs/accessProfile"},
+        "possible_uses": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {"type": "string", "minLength": 12},
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "uniqueItems": true
+        },
         "categories": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
         "capability": {"type": "string", "minLength": 8},
         "construct": {"type": "string", "minLength": 20},

@@ -25,7 +25,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual([], VALIDATOR.validate(self.catalog))
 
     def test_snapshot_size_and_identity_count(self):
-        self.assertEqual(45, len(self.catalog["entries"]))
+        self.assertEqual(69, len(self.catalog["entries"]))
         originals = [
             entry for entry in self.catalog["entries"] if entry["source_readme_bullets"]
         ]
@@ -61,10 +61,20 @@ class CatalogTests(unittest.TestCase):
         }
         actual = {item["url"] for item in snapshot["resources"]}
         self.assertEqual(expected, actual)
-        self.assertEqual(147, len(actual))
+        self.assertEqual(snapshot["summary"]["total"], len(actual))
         self.assertTrue(all(item["ok"] for item in snapshot["resources"]))
+        expected_family_totals = {
+            family: len(
+                {
+                    url
+                    for entry in self.catalog["entries"]
+                    for url in entry["resources"][family]
+                }
+            )
+            for family in ("github", "huggingface", "papers", "leaderboards", "project")
+        }
         self.assertEqual(
-            {"github": 39, "huggingface": 33, "papers": 48, "leaderboards": 13, "project": 17},
+            expected_family_totals,
             {
                 family: values["total"]
                 for family, values in snapshot["summary"]["by_family"].items()
@@ -119,6 +129,9 @@ class CatalogTests(unittest.TestCase):
 
     def test_workbook_integrity_and_counts(self):
         workbook_path = ROOT / "outputs" / "awesome-legal-benchmarks.xlsx"
+        snapshot = json.loads(
+            (ROOT / "catalog" / "resource-snapshot.json").read_text()
+        )
         self.assertTrue(workbook_path.is_file())
         self.assertTrue(zipfile.is_zipfile(workbook_path))
 
@@ -133,6 +146,7 @@ class CatalogTests(unittest.TestCase):
             "Source Audit",
             "Resource Check",
             "Watchlist",
+            "Not Separate",
         ]
 
         with zipfile.ZipFile(workbook_path) as archive:
@@ -148,18 +162,35 @@ class CatalogTests(unittest.TestCase):
                 cell.attrib["r"]: cell.findtext("x:v", namespaces=spreadsheet_ns)
                 for cell in summary.findall(".//x:c", spreadsheet_ns)
             }
-            self.assertEqual("45", cells["B4"])
+            self.assertEqual(str(len(self.catalog["entries"])), cells["B4"])
             self.assertEqual("22", cells["B5"])
             self.assertEqual("21", cells["B6"])
-            self.assertEqual("24", cells["B7"])
-            self.assertEqual("21", cells["B8"])
-            self.assertEqual("147", cells["B11"])
+            self.assertEqual(
+                str(sum(not entry["source_readme_bullets"] for entry in self.catalog["entries"])),
+                cells["B7"],
+            )
+            self.assertEqual(
+                str(sum(entry["tier"] == "recommended" for entry in self.catalog["entries"])),
+                cells["B8"],
+            )
+            self.assertEqual(
+                str(sum(entry["access_profile"]["level"] == "open" for entry in self.catalog["entries"])),
+                cells["B9"],
+            )
+            self.assertEqual(
+                str(sum(entry["owner"]["commercial_interest"] == "yes" for entry in self.catalog["entries"])),
+                cells["B10"],
+            )
+            self.assertEqual(str(snapshot["summary"]["ok"]), cells["B11"])
 
             expected_last_rows = {
-                "xl/worksheets/sheet2.xml": 49,
-                "xl/worksheets/sheet4.xml": 31,
+                "xl/worksheets/sheet2.xml": 4 + len(self.catalog["entries"]),
+                "xl/worksheets/sheet3.xml": 21,
+                "xl/worksheets/sheet4.xml": 41,
                 "xl/worksheets/sheet5.xml": 26,
-                "xl/worksheets/sheet6.xml": 151,
+                "xl/worksheets/sheet6.xml": 4 + len(snapshot["resources"]),
+                "xl/worksheets/sheet7.xml": 23,
+                "xl/worksheets/sheet8.xml": 11,
             }
             for sheet_path, expected_last_row in expected_last_rows.items():
                 worksheet = ET.fromstring(archive.read(sheet_path))

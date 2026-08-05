@@ -1,159 +1,231 @@
 benchmark_id,benchmark_name,resource_type,url,as_of
-legalagentbench,LegalAgentBench,github,https://github.com/CSHaitao/LegalAgentBench,2026-08-03
-lexeval,LexEval,github,https://github.com/CSHaitao/LexEval,2026-08-03
-il-tur,IL-TUR,github,https://github.com/Exploration-Lab/IL-TUR,2026-08-03
-ready-jurist-one,Ready Jurist One,github,https://github.com/FudanDISC/J1Bench,2026-08-03
-maslegalbench,MASLegalBench,github,https://github.com/HKUST-KnowComp/MASLegalBench,2026-08-03
-legalbench,LegalBench,github,https://github.com/HazyResearch/legalbench,2026-08-03
-lextreme,LEXTREME,github,https://github.com/JoelNiklaus/LEXTREME,2026-08-03
-swiltra-bench,SwiLTra-Bench,github,https://github.com/JoelNiklaus/SwissLegalTranslations,2026-08-03
-lexam,LEXam,github,https://github.com/LEXam-Benchmark/LEXam,2026-08-03
-milpac,Multilingual Indian Legal Parallel Corpus,github,https://github.com/Law-AI/MILPaC,2026-08-03
-apex-agents-corporate-law,APEX-Agents — Corporate Lawyer,github,https://github.com/Mercor-Intelligence/archipelago,2026-08-03
-canlegalragbench,CanLegalRAGBench,github,https://github.com/NLP-UBC/CanLegalRAGBench,2026-08-03
-lecardv2,LeCaRDv2,github,https://github.com/THUIR/LeCaRDv2,2026-08-03
-cuad,Contract Understanding Atticus Dataset,github,https://github.com/The-Atticus-Project/cuad,2026-08-03
-acord,Atticus Clause Retrieval Dataset,github,https://github.com/TheAtticusProject/acord,2026-08-03
-maud,Merger Agreement Understanding Dataset,github,https://github.com/TheAtticusProject/maud,2026-08-03
-arablegaleval,ArabLegalEval,github,https://github.com/Thiqah/ArabLegalEval,2026-08-03
-open-legal-answer-benchmark,Open Legal-Answer Benchmark,github,https://github.com/Vaquill-AI/open-legal-answer-benchmark,2026-08-03
-clerc,CLERC,github,https://github.com/bohanhou14/CLERC,2026-08-03
-fairlex,FairLex,github,https://github.com/coastalcph/fairlex,2026-08-03
-casehold,CaseHOLD,github,https://github.com/coastalcph/lex-glue,2026-08-03
-ecthr,ECtHR Tasks A/B,github,https://github.com/coastalcph/lex-glue,2026-08-03
-ledgar,LEDGAR,github,https://github.com/coastalcph/lex-glue,2026-08-03
-lexglue,LexGLUE,github,https://github.com/coastalcph/lex-glue,2026-08-03
-redlinebench,RedlineBench,github,https://github.com/crosbylegal/redline-bench,2026-08-03
-ledgar,LEDGAR,github,https://github.com/dtuggener/LEDGAR_provision_classification,2026-08-03
-deonticbench,DeonticBench,github,https://github.com/guangyaodou/DeonticBench,2026-08-03
-harvey-lab,Legal Agent Benchmark,github,https://github.com/harveyai/harvey-labs,2026-08-03
-lrage,LRAGE,github,https://github.com/hoorangyee/LRAGE,2026-08-03
-legal-rag-bench,Legal RAG Bench,github,https://github.com/isaacus-dev/legal-rag-bench,2026-08-03
-mleb,Massive Legal Embedding Benchmark,github,https://github.com/isaacus-dev/mleb,2026-08-03
-kcl,Korean Canonical Legal Benchmark,github,https://github.com/lbox-kr/kcl,2026-08-03
-legaleval-q,LegalEval-Q,github,https://github.com/lyxx3rd/LegalEval-Q,2026-08-03
-awesome-legal-nlp,awesome-legal-nlp,github,https://github.com/maastrichtlawtech/awesome-legal-nlp,2026-08-03
-bsard,Belgian Statutory Article Retrieval Dataset,github,https://github.com/maastrichtlawtech/bsard,2026-08-03
-lleqa,LLeQA,github,https://github.com/maastrichtlawtech/lleqa,2026-08-03
-casehold,CaseHOLD,github,https://github.com/neelguha/legal-ml-datasets,2026-08-03
-lawbench,LawBench,github,https://github.com/open-compass/LawBench,2026-08-03
-prinzbench,prinzbench,github,https://github.com/prinz-ai/prinzbench,2026-08-03
-contractnli,ContractNLI,github,https://github.com/stanfordnlp/contract-nli,2026-08-03
-mslr,MSLR-Bench,github,https://github.com/yuwenhan07/MSLR-Bench,2026-08-03
-legalbench-rag,LegalBench-RAG,github,https://github.com/zeroentropy-ai/legalbenchrag,2026-08-03
-swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/collections/joelniklaus/swiltra-bench,2026-08-03
-reglab-reasoning-focused-retrieval,Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5,2026-08-03
-lexeval,LexEval,huggingface,https://huggingface.co/datasets/CSHaitao/LexEval,2026-08-03
-ready-jurist-one,Ready Jurist One,huggingface,https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset,2026-08-03
-il-tur,IL-TUR,huggingface,https://huggingface.co/datasets/Exploration-Lab/IL-TUR,2026-08-03
-lexam,LEXam,huggingface,https://huggingface.co/datasets/LEXam-Benchmark/LEXam,2026-08-03
-alarb,ALARB,huggingface,https://huggingface.co/datasets/THIQAH-RD/ALARB,2026-08-03
-arablegaleval,ArabLegalEval,huggingface,https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval,2026-08-03
-canlegalragbench,CanLegalRAGBench,huggingface,https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench,2026-08-03
-mslr,MSLR-Bench,huggingface,https://huggingface.co/datasets/Yuwh07/MSLR-Bench,2026-08-03
-fairlex,FairLex,huggingface,https://huggingface.co/datasets/coastalcph/fairlex,2026-08-03
-casehold,CaseHOLD,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-03
-ecthr,ECtHR Tasks A/B,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-03
-ledgar,LEDGAR,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-03
-lexglue,LexGLUE,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-03
-redlinebench,RedlineBench,huggingface,https://huggingface.co/datasets/crosbylegal/RedlineBench,2026-08-03
-lawbench,LawBench,huggingface,https://huggingface.co/datasets/doolayer/LawBench,2026-08-03
-deonticbench,DeonticBench,huggingface,https://huggingface.co/datasets/gydou/DeonticBench,2026-08-03
-lrage,LRAGE,huggingface,https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25,2026-08-03
-legal-rag-bench,Legal RAG Bench,huggingface,https://huggingface.co/datasets/isaacus/legal-rag-bench,2026-08-03
-clerc,CLERC,huggingface,https://huggingface.co/datasets/jhu-clsp/CLERC,2026-08-03
-swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations,2026-08-03
-swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissLawTranslations,2026-08-03
-swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations,2026-08-03
-lextreme,LEXTREME,huggingface,https://huggingface.co/datasets/joelniklaus/lextreme,2026-08-03
-kcl,Korean Canonical Legal Benchmark,huggingface,https://huggingface.co/datasets/lbox/kcl,2026-08-03
-bsard,Belgian Statutory Article Retrieval Dataset,huggingface,https://huggingface.co/datasets/maastrichtlawtech/bsard,2026-08-03
-lleqa,LLeQA,huggingface,https://huggingface.co/datasets/maastrichtlawtech/lleqa,2026-08-03
-apex-agents-corporate-law,APEX-Agents — Corporate Lawyer,huggingface,https://huggingface.co/datasets/mercor/apex-agents,2026-08-03
-legalbench,LegalBench,huggingface,https://huggingface.co/datasets/nguha/legalbench,2026-08-03
-reglab-reasoning-focused-retrieval,Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/datasets/reglab/barexam_qa,2026-08-03
-reglab-reasoning-focused-retrieval,Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/datasets/reglab/housing_qa,2026-08-03
-acord,Atticus Clause Retrieval Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/acord,2026-08-03
-contracteval,ContractEval,huggingface,https://huggingface.co/datasets/theatticusproject/cuad-qa,2026-08-03
-cuad,Contract Understanding Atticus Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/cuad-qa,2026-08-03
-maud,Merger Agreement Understanding Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/maud,2026-08-03
-mleb,Massive Legal Embedding Benchmark,huggingface,https://huggingface.co/isaacus/datasets,2026-08-03
-coliee,Competition on Legal Information Extraction/Entailment,leaderboards,https://coliee.org/COLIEE2025/submission,2026-08-03
-il-tur,IL-TUR,leaderboards,https://exploration-lab.github.io/IL-TUR/,2026-08-03
-just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,leaderboards,https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf,2026-08-03
-open-legal-answer-benchmark,Open Legal-Answer Benchmark,leaderboards,https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md,2026-08-03
-prinzbench,prinzbench,leaderboards,https://github.com/prinz-ai/prinzbench,2026-08-03
-ready-jurist-one,Ready Jurist One,leaderboards,https://hub.opencompass.org.cn/dataset-detail/J1Bench,2026-08-03
-redlinebench,RedlineBench,leaderboards,https://huggingface.co/datasets/crosbylegal/RedlineBench,2026-08-03
-mleb,Massive Legal Embedding Benchmark,leaderboards,https://isaacus.com/mleb,2026-08-03
-lawbench,LawBench,leaderboards,https://lawbench.opencompass.org.cn/,2026-08-03
-lextreme,LEXTREME,leaderboards,https://wandb.ai/lextreme/paper_results,2026-08-03
-just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,leaderboards,https://www.codabench.org/competitions/10351/,2026-08-03
-apex-agents-corporate-law,APEX-Agents — Corporate Lawyer,leaderboards,https://www.mercor.com/apex/apex-agents-leaderboard/corporate-lawyer-agent/,2026-08-03
-legalbench,LegalBench,leaderboards,https://www.vals.ai/benchmarks/legal_bench,2026-08-03
-ledgar,LEDGAR,papers,https://aclanthology.org/2020.lrec-1.155/,2026-08-03
-lexglue,LexGLUE,papers,https://aclanthology.org/2022.acl-long.297/,2026-08-03
-fairlex,FairLex,papers,https://aclanthology.org/2022.acl-long.301/,2026-08-03
-bsard,Belgian Statutory Article Retrieval Dataset,papers,https://aclanthology.org/2022.acl-long.468/,2026-08-03
-maud,Merger Agreement Understanding Dataset,papers,https://aclanthology.org/2023.emnlp-main.1019/,2026-08-03
-il-tur,IL-TUR,papers,https://aclanthology.org/2024.acl-long.618/,2026-08-03
-acord,Atticus Clause Retrieval Dataset,papers,https://aclanthology.org/2025.acl-long.1206/,2026-08-03
-swiltra-bench,SwiLTra-Bench,papers,https://aclanthology.org/2025.acl-long.725/,2026-08-03
-just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,papers,https://aclanthology.org/2025.justnlp-main.3/,2026-08-03
-ready-jurist-one,Ready Jurist One,papers,https://aclanthology.org/2026.acl-long.471/,2026-08-03
-kcl,Korean Canonical Legal Benchmark,papers,https://aclanthology.org/2026.eacl-short.17/,2026-08-03
-ecthr,ECtHR Tasks A/B,papers,https://arxiv.org/abs/1906.02059,2026-08-03
-cuad,Contract Understanding Atticus Dataset,papers,https://arxiv.org/abs/2103.06268,2026-08-03
-casehold,CaseHOLD,papers,https://arxiv.org/abs/2104.08671,2026-08-03
-bsard,Belgian Statutory Article Retrieval Dataset,papers,https://arxiv.org/abs/2108.11792,2026-08-03
-ecthr,ECtHR Tasks A/B,papers,https://arxiv.org/abs/2110.00976,2026-08-03
-lexglue,LexGLUE,papers,https://arxiv.org/abs/2110.00976,2026-08-03
-contractnli,ContractNLI,papers,https://arxiv.org/abs/2110.01799,2026-08-03
-maud,Merger Agreement Understanding Dataset,papers,https://arxiv.org/abs/2301.00876,2026-08-03
-lextreme,LEXTREME,papers,https://arxiv.org/abs/2301.13126,2026-08-03
-legalbench,LegalBench,papers,https://arxiv.org/abs/2308.11462,2026-08-03
-lawbench,LawBench,papers,https://arxiv.org/abs/2309.16289,2026-08-03
-lleqa,LLeQA,papers,https://arxiv.org/abs/2309.17050,2026-08-03
-milpac,Multilingual Indian Legal Parallel Corpus,papers,https://arxiv.org/abs/2310.09765,2026-08-03
-lecardv2,LeCaRDv2,papers,https://arxiv.org/abs/2310.17609,2026-08-03
-clerc,CLERC,papers,https://arxiv.org/abs/2406.17186,2026-08-03
-il-tur,IL-TUR,papers,https://arxiv.org/abs/2407.05399,2026-08-03
-arablegaleval,ArabLegalEval,papers,https://arxiv.org/abs/2408.07983,2026-08-03
-legalbench-rag,LegalBench-RAG,papers,https://arxiv.org/abs/2408.10343,2026-08-03
-lexeval,LexEval,papers,https://arxiv.org/abs/2409.20288,2026-08-03
-legalagentbench,LegalAgentBench,papers,https://arxiv.org/abs/2412.17259,2026-08-03
-acord,Atticus Clause Retrieval Dataset,papers,https://arxiv.org/abs/2501.06582,2026-08-03
-swiltra-bench,SwiLTra-Bench,papers,https://arxiv.org/abs/2503.01372,2026-08-03
-lrage,LRAGE,papers,https://arxiv.org/abs/2504.01840,2026-08-03
-reglab-reasoning-focused-retrieval,Reasoning-Focused Legal Retrieval Benchmark,papers,https://arxiv.org/abs/2505.03970,2026-08-03
-lexam,LEXam,papers,https://arxiv.org/abs/2505.12864,2026-08-03
-legaleval-q,LegalEval-Q,papers,https://arxiv.org/abs/2505.24826,2026-08-03
-ready-jurist-one,Ready Jurist One,papers,https://arxiv.org/abs/2507.04037,2026-08-03
-contracteval,ContractEval,papers,https://arxiv.org/abs/2508.03080,2026-08-03
-maslegalbench,MASLegalBench,papers,https://arxiv.org/abs/2509.24922,2026-08-03
-alarb,ALARB,papers,https://arxiv.org/abs/2510.00694,2026-08-03
-mleb,Massive Legal Embedding Benchmark,papers,https://arxiv.org/abs/2510.19365,2026-08-03
-mslr,MSLR-Bench,papers,https://arxiv.org/abs/2511.07979,2026-08-03
-kcl,Korean Canonical Legal Benchmark,papers,https://arxiv.org/abs/2512.24572,2026-08-03
-apex-agents-corporate-law,APEX-Agents — Corporate Lawyer,papers,https://arxiv.org/abs/2601.14242,2026-08-03
-legal-rag-bench,Legal RAG Bench,papers,https://arxiv.org/abs/2603.01710,2026-08-03
-deonticbench,DeonticBench,papers,https://arxiv.org/abs/2604.04443,2026-08-03
-canlegalragbench,CanLegalRAGBench,papers,https://arxiv.org/abs/2605.30497,2026-08-03
-milpac,Multilingual Indian Legal Parallel Corpus,papers,https://doi.org/10.1145/3748313,2026-08-03
-coliee,Competition on Legal Information Extraction/Entailment,project,https://coliee.org/COLIEE2025/overview,2026-08-03
-il-tur,IL-TUR,project,https://exploration-lab.github.io/IL-TUR/,2026-08-03
-just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,project,https://exploration-lab.github.io/JUST-NLP/,2026-08-03
-deonticbench,DeonticBench,project,https://guangyaodou.github.io/DeonticBench/,2026-08-03
-legal-rag-bench,Legal RAG Bench,project,https://huggingface.co/blog/isaacus/legal-rag-bench,2026-08-03
-redlinebench,RedlineBench,project,https://intelligence.crosby.ai/benchmark,2026-08-03
-ready-jurist-one,Ready Jurist One,project,https://j1bench.github.io/,2026-08-03
-legalbench,LegalBench,project,https://legalbench.ai/,2026-08-03
-lexam,LEXam,project,https://lexam-benchmark.github.io/,2026-08-03
-reglab-reasoning-focused-retrieval,Reasoning-Focused Legal Retrieval Benchmark,project,https://reglab.github.io/legal-rag-benchmarks/,2026-08-03
-contractnli,ContractNLI,project,https://stanfordnlp.github.io/contract-nli/,2026-08-03
-acord,Atticus Clause Retrieval Dataset,project,https://www.atticusprojectai.org/acord/,2026-08-03
-cuad,Contract Understanding Atticus Dataset,project,https://www.atticusprojectai.org/cuad,2026-08-03
-maud,Merger Agreement Understanding Dataset,project,https://www.atticusprojectai.org/maud,2026-08-03
-legalbench-rag,LegalBench-RAG,project,https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0,2026-08-03
-harvey-lab,Legal Agent Benchmark,project,https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark,2026-08-03
-harvey-lab,Legal Agent Benchmark,project,https://www.harvey.ai/blog/legal-agent-benchmark-initial-results,2026-08-03
+mozip,MoZIP,github,https://github.com/AI-for-Science/MoZi,2026-08-04
+legalagentbench,LegalAgentBench,github,https://github.com/CSHaitao/LegalAgentBench,2026-08-04
+lexeval,LexEval,github,https://github.com/CSHaitao/LexEval,2026-08-04
+il-tur,IL-TUR,github,https://github.com/Exploration-Lab/IL-TUR,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),github,https://github.com/FudanDISC/J1Bench,2026-08-04
+gc-ai-in-house-legal-bench,GC AI In-House Legal Bench,github,https://github.com/GC-AI-Inc/in-house-legal-bench,2026-08-04
+maslegalbench,MASLegalBench,github,https://github.com/HKUST-KnowComp/MASLegalBench,2026-08-04
+legalbench,LegalBench,github,https://github.com/HazyResearch/legalbench,2026-08-04
+lextreme,LEXTREME,github,https://github.com/JoelNiklaus/LEXTREME,2026-08-04
+swiltra-bench,SwiLTra-Bench,github,https://github.com/JoelNiklaus/SwissLegalTranslations,2026-08-04
+lexam,LEXam,github,https://github.com/LEXam-Benchmark/LEXam,2026-08-04
+milpac,Multilingual Indian Legal Parallel Corpus,github,https://github.com/Law-AI/MILPaC,2026-08-04
+ilsic,ILSIC,github,https://github.com/Law-AI/ilsic,2026-08-04
+apex-agents-corporate-law,Mercor APEX-Agents — Corporate Lawyer,github,https://github.com/Mercor-Intelligence/archipelago,2026-08-04
+canlegalragbench,CanLegalRAGBench,github,https://github.com/NLP-UBC/CanLegalRAGBench,2026-08-04
+lexgenius,LexGenius,github,https://github.com/QwenQKing/LexGenius,2026-08-04
+dlawbench,DLawBench,github,https://github.com/SKYLENAGE-AI/DLawBench,2026-08-04
+plawbench,PLawBench,github,https://github.com/SKYLENAGE-AI/PLawBench,2026-08-04
+legalcitebench,LegalCiteBench,github,https://github.com/Sijia711/LegalCiteBench,2026-08-04
+lecardv2,LeCaRDv2,github,https://github.com/THUIR/LeCaRDv2,2026-08-04
+pilot-bench,PILOT-Bench,github,https://github.com/TeamLab/pilot-bench,2026-08-04
+cuad,Contract Understanding Atticus Dataset,github,https://github.com/The-Atticus-Project/cuad,2026-08-04
+acord,Atticus Clause Retrieval Dataset,github,https://github.com/TheAtticusProject/acord,2026-08-04
+maud,Merger Agreement Understanding Dataset,github,https://github.com/TheAtticusProject/maud,2026-08-04
+arablegaleval,ArabLegalEval,github,https://github.com/Thiqah/ArabLegalEval,2026-08-04
+open-legal-answer-benchmark,Vaquill Open Legal-Answer Benchmark,github,https://github.com/Vaquill-AI/open-legal-answer-benchmark,2026-08-04
+clerc,CLERC,github,https://github.com/bohanhou14/CLERC,2026-08-04
+fairlex,FairLex,github,https://github.com/coastalcph/fairlex,2026-08-04
+casehold,CaseHOLD,github,https://github.com/coastalcph/lex-glue,2026-08-04
+ecthr,ECtHR Tasks A/B,github,https://github.com/coastalcph/lex-glue,2026-08-04
+ledgar,LEDGAR,github,https://github.com/coastalcph/lex-glue,2026-08-04
+lexglue,LexGLUE,github,https://github.com/coastalcph/lex-glue,2026-08-04
+redlinebench,RedlineBench,github,https://github.com/crosbylegal/redline-bench,2026-08-04
+ledgar,LEDGAR,github,https://github.com/dtuggener/LEDGAR_provision_classification,2026-08-04
+deonticbench,DeonticBench,github,https://github.com/guangyaodou/DeonticBench,2026-08-04
+harvey-biglaw-bench,Harvey BigLaw Bench,github,https://github.com/harveyai/biglaw-bench,2026-08-04
+harvey-lab,Harvey Legal Agent Benchmark (LAB),github,https://github.com/harveyai/harvey-labs,2026-08-04
+lrage,LRAGE,github,https://github.com/hoorangyee/LRAGE,2026-08-04
+legal-rag-bench,Legal RAG Bench,github,https://github.com/isaacus-dev/legal-rag-bench,2026-08-04
+mleb,Massive Legal Embedding Benchmark,github,https://github.com/isaacus-dev/mleb,2026-08-04
+kcl,Korean Canonical Legal Benchmark,github,https://github.com/lbox-kr/kcl,2026-08-04
+legora-bar,Legora Benchmark for Agentic Reasoning (BAR),github,https://github.com/legora-oss/legora-bar-tax-case,2026-08-04
+legaleval-q,LegalEval-Q,github,https://github.com/lyxx3rd/LegalEval-Q,2026-08-04
+awesome-legal-nlp,awesome-legal-nlp,github,https://github.com/maastrichtlawtech/awesome-legal-nlp,2026-08-04
+bsard,Belgian Statutory Article Retrieval Dataset,github,https://github.com/maastrichtlawtech/bsard,2026-08-04
+lleqa,LLeQA,github,https://github.com/maastrichtlawtech/lleqa,2026-08-04
+casehold,CaseHOLD,github,https://github.com/neelguha/legal-ml-datasets,2026-08-04
+blleqa,bLLeQA,github,https://github.com/nikolay-banar/blleqa,2026-08-04
+lawbench,LawBench,github,https://github.com/open-compass/LawBench,2026-08-04
+legal-phantom-citation,Legal Phantom Citation,github,https://github.com/princeton-polaris-lab/legal-hallucination-agent,2026-08-04
+prinzbench,prinzbench,github,https://github.com/prinz-ai/prinzbench,2026-08-04
+reglab-legal-hallucinations,Large Legal Fictions,github,https://github.com/reglab/legal_hallucinations,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),github,https://github.com/scaleapi/PRBench,2026-08-04
+openexempt,OpenExempt,github,https://github.com/servantez/OpenExempt,2026-08-04
+contractnli,ContractNLI,github,https://github.com/stanfordnlp/contract-nli,2026-08-04
+rod-tal,RoD-TAL,github,https://github.com/vladman-25/RoD-TAL,2026-08-04
+mslr,MSLR-Bench,github,https://github.com/yuwenhan07/MSLR-Bench,2026-08-04
+legalbench-rag,LegalBench-RAG,github,https://github.com/zeroentropy-ai/legalbenchrag,2026-08-04
+swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/collections/joelniklaus/swiltra-bench,2026-08-04
+reglab-reasoning-focused-retrieval,RegLab Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5,2026-08-04
+mozip,MoZIP,huggingface,https://huggingface.co/datasets/BNNT/IPQA,2026-08-04
+mozip,MoZIP,huggingface,https://huggingface.co/datasets/BNNT/IPQuiz,2026-08-04
+mozip,MoZIP,huggingface,https://huggingface.co/datasets/BNNT/PatentMatch,2026-08-04
+lexeval,LexEval,huggingface,https://huggingface.co/datasets/CSHaitao/LexEval,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),huggingface,https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset,2026-08-04
+il-tur,IL-TUR,huggingface,https://huggingface.co/datasets/Exploration-Lab/IL-TUR,2026-08-04
+rod-tal,RoD-TAL,huggingface,https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL,2026-08-04
+lexam,LEXam,huggingface,https://huggingface.co/datasets/LEXam-Benchmark/LEXam,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),huggingface,https://huggingface.co/datasets/ScaleAI/PRBench,2026-08-04
+openexempt,OpenExempt,huggingface,https://huggingface.co/datasets/SergioServantez/OpenExempt,2026-08-04
+alarb,Arabic Legal Argument Reasoning Benchmark (ALARB),huggingface,https://huggingface.co/datasets/THIQAH-RD/ALARB,2026-08-04
+arablegaleval,ArabLegalEval,huggingface,https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval,2026-08-04
+canlegalragbench,CanLegalRAGBench,huggingface,https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench,2026-08-04
+pilot-bench,PILOT-Bench,huggingface,https://huggingface.co/datasets/Yehoon/pilot-bench,2026-08-04
+mslr,MSLR-Bench,huggingface,https://huggingface.co/datasets/Yuwh07/MSLR-Bench,2026-08-04
+legal-phantom-citation,Legal Phantom Citation,huggingface,https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation,2026-08-04
+blleqa,bLLeQA,huggingface,https://huggingface.co/datasets/clips/bLLeQA,2026-08-04
+fairlex,FairLex,huggingface,https://huggingface.co/datasets/coastalcph/fairlex,2026-08-04
+casehold,CaseHOLD,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-04
+ecthr,ECtHR Tasks A/B,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-04
+ledgar,LEDGAR,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-04
+lexglue,LexGLUE,huggingface,https://huggingface.co/datasets/coastalcph/lex_glue,2026-08-04
+redlinebench,RedlineBench,huggingface,https://huggingface.co/datasets/crosbylegal/RedlineBench,2026-08-04
+lawbench,LawBench,huggingface,https://huggingface.co/datasets/doolayer/LawBench,2026-08-04
+deonticbench,DeonticBench,huggingface,https://huggingface.co/datasets/gydou/DeonticBench,2026-08-04
+lrage,LRAGE,huggingface,https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25,2026-08-04
+legal-rag-bench,Legal RAG Bench,huggingface,https://huggingface.co/datasets/isaacus/legal-rag-bench,2026-08-04
+clerc,CLERC,huggingface,https://huggingface.co/datasets/jhu-clsp/CLERC,2026-08-04
+swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations,2026-08-04
+swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissLawTranslations,2026-08-04
+swiltra-bench,SwiLTra-Bench,huggingface,https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations,2026-08-04
+lextreme,LEXTREME,huggingface,https://huggingface.co/datasets/joelniklaus/lextreme,2026-08-04
+jurifindit,JuriFindIT,huggingface,https://huggingface.co/datasets/jurifindit/JuriFindIT,2026-08-04
+kcl,Korean Canonical Legal Benchmark,huggingface,https://huggingface.co/datasets/lbox/kcl,2026-08-04
+legalcitebench,LegalCiteBench,huggingface,https://huggingface.co/datasets/legalcitebench/LegalCiteBench,2026-08-04
+bsard,Belgian Statutory Article Retrieval Dataset,huggingface,https://huggingface.co/datasets/maastrichtlawtech/bsard,2026-08-04
+lleqa,LLeQA,huggingface,https://huggingface.co/datasets/maastrichtlawtech/lleqa,2026-08-04
+apex-agents-corporate-law,Mercor APEX-Agents — Corporate Lawyer,huggingface,https://huggingface.co/datasets/mercor/apex-agents,2026-08-04
+legalbench,LegalBench,huggingface,https://huggingface.co/datasets/nguha/legalbench,2026-08-04
+reglab-reasoning-focused-retrieval,RegLab Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/datasets/reglab/barexam_qa,2026-08-04
+reglab-reasoning-focused-retrieval,RegLab Reasoning-Focused Legal Retrieval Benchmark,huggingface,https://huggingface.co/datasets/reglab/housing_qa,2026-08-04
+reglab-legal-hallucinations,Large Legal Fictions,huggingface,https://huggingface.co/datasets/reglab/legal_hallucinations,2026-08-04
+reglab-legal-rag-hallucinations,Hallucination-Free? Legal Research Tool Study,huggingface,https://huggingface.co/datasets/reglab/legal_rag_hallucinations,2026-08-04
+acord,Atticus Clause Retrieval Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/acord,2026-08-04
+contracteval,ContractEval,huggingface,https://huggingface.co/datasets/theatticusproject/cuad-qa,2026-08-04
+cuad,Contract Understanding Atticus Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/cuad-qa,2026-08-04
+maud,Merger Agreement Understanding Dataset,huggingface,https://huggingface.co/datasets/theatticusproject/maud,2026-08-04
+mleb,Massive Legal Embedding Benchmark,huggingface,https://huggingface.co/isaacus/datasets,2026-08-04
+coliee,Competition on Legal Information Extraction/Entailment,leaderboards,https://coliee.org/COLIEE2025/submission,2026-08-04
+il-tur,IL-TUR,leaderboards,https://exploration-lab.github.io/IL-TUR/,2026-08-04
+just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,leaderboards,https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf,2026-08-04
+open-legal-answer-benchmark,Vaquill Open Legal-Answer Benchmark,leaderboards,https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md,2026-08-04
+prinzbench,prinzbench,leaderboards,https://github.com/prinz-ai/prinzbench,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),leaderboards,https://hub.opencompass.org.cn/dataset-detail/J1Bench,2026-08-04
+redlinebench,RedlineBench,leaderboards,https://huggingface.co/datasets/crosbylegal/RedlineBench,2026-08-04
+mleb,Massive Legal Embedding Benchmark,leaderboards,https://isaacus.com/mleb,2026-08-04
+lawbench,LawBench,leaderboards,https://lawbench.opencompass.org.cn/,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),leaderboards,https://scale.com/leaderboard/prbench-finance,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),leaderboards,https://scale.com/leaderboard/prbench-legal,2026-08-04
+lextreme,LEXTREME,leaderboards,https://wandb.ai/lextreme/paper_results,2026-08-04
+just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,leaderboards,https://www.codabench.org/competitions/10351/,2026-08-04
+legalbenchmarks-ai,legalbenchmarks.ai,leaderboards,https://www.legalbenchmarks.ai/leaderboard,2026-08-04
+apex-agents-corporate-law,Mercor APEX-Agents — Corporate Lawyer,leaderboards,https://www.mercor.com/apex/apex-agents-leaderboard/corporate-lawyer-agent/,2026-08-04
+vals-caselaw-v2,Vals CaseLaw v2,leaderboards,https://www.vals.ai/benchmarks/case_law_v2,2026-08-04
+legalbench,LegalBench,leaderboards,https://www.vals.ai/benchmarks/legal_bench,2026-08-04
+vals-legal-research-bench,Vals Legal Research Benchmark,leaderboards,https://www.vals.ai/benchmarks/legal_research,2026-08-04
+ledgar,LEDGAR,papers,https://aclanthology.org/2020.lrec-1.155/,2026-08-04
+lexglue,LexGLUE,papers,https://aclanthology.org/2022.acl-long.297/,2026-08-04
+fairlex,FairLex,papers,https://aclanthology.org/2022.acl-long.301/,2026-08-04
+bsard,Belgian Statutory Article Retrieval Dataset,papers,https://aclanthology.org/2022.acl-long.468/,2026-08-04
+maud,Merger Agreement Understanding Dataset,papers,https://aclanthology.org/2023.emnlp-main.1019/,2026-08-04
+il-tur,IL-TUR,papers,https://aclanthology.org/2024.acl-long.618/,2026-08-04
+mozip,MoZIP,papers,https://aclanthology.org/2024.lrec-main.1018/,2026-08-04
+acord,Atticus Clause Retrieval Dataset,papers,https://aclanthology.org/2025.acl-long.1206/,2026-08-04
+swiltra-bench,SwiLTra-Bench,papers,https://aclanthology.org/2025.acl-long.725/,2026-08-04
+just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,papers,https://aclanthology.org/2025.justnlp-main.3/,2026-08-04
+pilot-bench,PILOT-Bench,papers,https://aclanthology.org/2025.nllp-1.17/,2026-08-04
+plawbench,PLawBench,papers,https://aclanthology.org/2026.acl-long.458/,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),papers,https://aclanthology.org/2026.acl-long.471/,2026-08-04
+kcl,Korean Canonical Legal Benchmark,papers,https://aclanthology.org/2026.eacl-short.17/,2026-08-04
+openexempt,OpenExempt,papers,https://aclanthology.org/2026.findings-acl.1328/,2026-08-04
+lexgenius,LexGenius,papers,https://aclanthology.org/2026.findings-acl.926/,2026-08-04
+jurifindit,JuriFindIT,papers,https://aclanthology.org/2026.findings-eacl.221/,2026-08-04
+rod-tal,RoD-TAL,papers,https://aclanthology.org/2026.findings-eacl.295/,2026-08-04
+blleqa,bLLeQA,papers,https://aclanthology.org/2026.knowfm-1.4.pdf,2026-08-04
+ecthr,ECtHR Tasks A/B,papers,https://arxiv.org/abs/1906.02059,2026-08-04
+cuad,Contract Understanding Atticus Dataset,papers,https://arxiv.org/abs/2103.06268,2026-08-04
+casehold,CaseHOLD,papers,https://arxiv.org/abs/2104.08671,2026-08-04
+bsard,Belgian Statutory Article Retrieval Dataset,papers,https://arxiv.org/abs/2108.11792,2026-08-04
+ecthr,ECtHR Tasks A/B,papers,https://arxiv.org/abs/2110.00976,2026-08-04
+lexglue,LexGLUE,papers,https://arxiv.org/abs/2110.00976,2026-08-04
+contractnli,ContractNLI,papers,https://arxiv.org/abs/2110.01799,2026-08-04
+maud,Merger Agreement Understanding Dataset,papers,https://arxiv.org/abs/2301.00876,2026-08-04
+lextreme,LEXTREME,papers,https://arxiv.org/abs/2301.13126,2026-08-04
+legalbench,LegalBench,papers,https://arxiv.org/abs/2308.11462,2026-08-04
+lawbench,LawBench,papers,https://arxiv.org/abs/2309.16289,2026-08-04
+lleqa,LLeQA,papers,https://arxiv.org/abs/2309.17050,2026-08-04
+milpac,Multilingual Indian Legal Parallel Corpus,papers,https://arxiv.org/abs/2310.09765,2026-08-04
+lecardv2,LeCaRDv2,papers,https://arxiv.org/abs/2310.17609,2026-08-04
+reglab-legal-hallucinations,Large Legal Fictions,papers,https://arxiv.org/abs/2401.01301,2026-08-04
+mozip,MoZIP,papers,https://arxiv.org/abs/2402.16389,2026-08-04
+reglab-legal-rag-hallucinations,Hallucination-Free? Legal Research Tool Study,papers,https://arxiv.org/abs/2405.20362,2026-08-04
+clerc,CLERC,papers,https://arxiv.org/abs/2406.17186,2026-08-04
+il-tur,IL-TUR,papers,https://arxiv.org/abs/2407.05399,2026-08-04
+arablegaleval,ArabLegalEval,papers,https://arxiv.org/abs/2408.07983,2026-08-04
+legalbench-rag,LegalBench-RAG,papers,https://arxiv.org/abs/2408.10343,2026-08-04
+lexeval,LexEval,papers,https://arxiv.org/abs/2409.20288,2026-08-04
+legalagentbench,LegalAgentBench,papers,https://arxiv.org/abs/2412.17259,2026-08-04
+acord,Atticus Clause Retrieval Dataset,papers,https://arxiv.org/abs/2501.06582,2026-08-04
+swiltra-bench,SwiLTra-Bench,papers,https://arxiv.org/abs/2503.01372,2026-08-04
+lrage,LRAGE,papers,https://arxiv.org/abs/2504.01840,2026-08-04
+reglab-reasoning-focused-retrieval,RegLab Reasoning-Focused Legal Retrieval Benchmark,papers,https://arxiv.org/abs/2505.03970,2026-08-04
+lexam,LEXam,papers,https://arxiv.org/abs/2505.12864,2026-08-04
+legaleval-q,LegalEval-Q,papers,https://arxiv.org/abs/2505.24826,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),papers,https://arxiv.org/abs/2507.04037,2026-08-04
+rod-tal,RoD-TAL,papers,https://arxiv.org/abs/2507.19666,2026-08-04
+contracteval,ContractEval,papers,https://arxiv.org/abs/2508.03080,2026-08-04
+maslegalbench,MASLegalBench,papers,https://arxiv.org/abs/2509.24922,2026-08-04
+alarb,Arabic Legal Argument Reasoning Benchmark (ALARB),papers,https://arxiv.org/abs/2510.00694,2026-08-04
+mleb,Massive Legal Embedding Benchmark,papers,https://arxiv.org/abs/2510.19365,2026-08-04
+mslr,MSLR-Bench,papers,https://arxiv.org/abs/2511.07979,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),papers,https://arxiv.org/abs/2511.11562,2026-08-04
+lexgenius,LexGenius,papers,https://arxiv.org/abs/2512.04578,2026-08-04
+kcl,Korean Canonical Legal Benchmark,papers,https://arxiv.org/abs/2512.24572,2026-08-04
+pilot-bench,PILOT-Bench,papers,https://arxiv.org/abs/2601.04758,2026-08-04
+openexempt,OpenExempt,papers,https://arxiv.org/abs/2601.13183,2026-08-04
+apex-agents-corporate-law,Mercor APEX-Agents — Corporate Lawyer,papers,https://arxiv.org/abs/2601.14242,2026-08-04
+ilsic,ILSIC,papers,https://arxiv.org/abs/2602.00881,2026-08-04
+legal-rag-bench,Legal RAG Bench,papers,https://arxiv.org/abs/2603.01710,2026-08-04
+deonticbench,DeonticBench,papers,https://arxiv.org/abs/2604.04443,2026-08-04
+legalcitebench,LegalCiteBench,papers,https://arxiv.org/abs/2605.10186,2026-08-04
+canlegalragbench,CanLegalRAGBench,papers,https://arxiv.org/abs/2605.30497,2026-08-04
+dlawbench,DLawBench,papers,https://arxiv.org/abs/2606.13931,2026-08-04
+legal-phantom-citation,Legal Phantom Citation,papers,https://arxiv.org/abs/2606.21155,2026-08-04
+milpac,Multilingual Indian Legal Parallel Corpus,papers,https://doi.org/10.1145/3748313,2026-08-04
+plawbench,PLawBench,project,https://anonymous.4open.science/r/PLawbench-B524/,2026-08-04
+coliee,Competition on Legal Information Extraction/Entailment,project,https://coliee.org/COLIEE2025/overview,2026-08-04
+ilsic,ILSIC,project,https://drive.google.com/drive/folders/1m_tU6Cb55Q5mVQEImFUp-cUSVZzoHzfd,2026-08-04
+il-tur,IL-TUR,project,https://exploration-lab.github.io/IL-TUR/,2026-08-04
+just-nlp-2025-legal-mt,JUST-NLP 2025 Legal MT Shared Task,project,https://exploration-lab.github.io/JUST-NLP/,2026-08-04
+gc-ai-in-house-legal-bench,GC AI In-House Legal Bench,project,https://gc.ai/blog/in-house-legal-bench-evaluating-ai-assistants-for-in-house-legal-work,2026-08-04
+harvey-lab,Harvey Legal Agent Benchmark (LAB),project,https://github.com/harveyai/harvey-labs/blob/main/docs/eval-strategies.md,2026-08-04
+harvey-lab,Harvey Legal Agent Benchmark (LAB),project,https://github.com/harveyai/harvey-labs/tree/v1.0,2026-08-04
+deonticbench,DeonticBench,project,https://guangyaodou.github.io/DeonticBench/,2026-08-04
+legal-rag-bench,Legal RAG Bench,project,https://huggingface.co/blog/isaacus/legal-rag-bench,2026-08-04
+redlinebench,RedlineBench,project,https://intelligence.crosby.ai/benchmark,2026-08-04
+ready-jurist-one,Ready Jurist One (J1Bench),project,https://j1bench.github.io/,2026-08-04
+legalbench,LegalBench,project,https://legalbench.ai/,2026-08-04
+legora-bar,Legora Benchmark for Agentic Reasoning (BAR),project,https://legora.com/bar,2026-08-04
+lexam,LEXam,project,https://lexam-benchmark.github.io/,2026-08-04
+legal-phantom-citation,Legal Phantom Citation,project,https://princeton-polaris-lab.github.io/legal-hallucination-webpage/,2026-08-04
+reglab-reasoning-focused-retrieval,RegLab Reasoning-Focused Legal Retrieval Benchmark,project,https://reglab.github.io/legal-rag-benchmarks/,2026-08-04
+reglab-legal-rag-hallucinations,Hallucination-Free? Legal Research Tool Study,project,https://reglab.stanford.edu/publications/hallucination-free-assessing-the-reliability-of-leading-ai-legal-research-tools/,2026-08-04
+contractnli,ContractNLI,project,https://stanfordnlp.github.io/contract-nli/,2026-08-04
+acord,Atticus Clause Retrieval Dataset,project,https://www.atticusprojectai.org/acord/,2026-08-04
+cuad,Contract Understanding Atticus Dataset,project,https://www.atticusprojectai.org/cuad,2026-08-04
+maud,Merger Agreement Understanding Dataset,project,https://www.atticusprojectai.org/maud,2026-08-04
+legalbench-rag,LegalBench-RAG,project,https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0,2026-08-04
+harvey-biglaw-bench,Harvey BigLaw Bench,project,https://www.harvey.ai/blog/expanding-big-law-bench,2026-08-04
+harvey-biglaw-bench,Harvey BigLaw Bench,project,https://www.harvey.ai/blog/introducing-big-law-bench-global,2026-08-04
+harvey-biglaw-bench,Harvey BigLaw Bench,project,https://www.harvey.ai/blog/introducing-big-law-bench-research,2026-08-04
+harvey-biglaw-bench,Harvey BigLaw Bench,project,https://www.harvey.ai/blog/introducing-biglaw-bench,2026-08-04
+harvey-lab,Harvey Legal Agent Benchmark (LAB),project,https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark,2026-08-04
+harvey-lab,Harvey Legal Agent Benchmark (LAB),project,https://www.harvey.ai/blog/legal-agent-benchmark-initial-results,2026-08-04
+ivo-contract-review-study,Ivo Contract Review Comparison,project,https://www.ivo.ai/news/ivo-outperforms-claude-for-word-in-independent-contract-review-benchmark,2026-08-04
+prbench,Professional Reasoning Benchmark (PRBench),project,https://www.justicebench.org/dataset/prbench,2026-08-04
+legalbenchmarks-ai,legalbenchmarks.ai,project,https://www.legalbenchmarks.ai/,2026-08-04
+legalon-contract-review-2026,LegalOn Contract Review Benchmark 2026,project,https://www.legalontech.com/post/the-contract-review-benchmark-2026,2026-08-04
+thomson-reuters-cocobench,Thomson Reuters CoCoBench,project,https://www.thomsonreuters.com/en-us/posts/innovation/the-next-phase-of-professional-ai-is-here/,2026-08-04
+thomson-reuters-cocobench,Thomson Reuters CoCoBench,project,https://www.thomsonreuters.com/en-us/posts/innovation/why-legal-ai-needs-a-new-standard-inside-thomson-reuters-cocobench/,2026-08-04

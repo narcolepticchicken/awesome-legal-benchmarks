@@ -4,16 +4,15 @@
 
 Artifacts worth tracking that are not comparable public benchmarks, including frameworks, private tests, and resource lists.
 
-Snapshot: **2026-08-03** · 5 entries
+Snapshot: **2026-08-04** · 4 entries
 
-[Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
+[Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
 ## On this page
 
 - [LegalEval-Q](#legaleval-q)
 - [LRAGE](#lrage)
 - [prinzbench](#prinzbench)
-- [Open Legal-Answer Benchmark](#open-legal-answer-benchmark)
 - [awesome-legal-nlp](#awesome-legal-nlp)
 
 <a id="legaleval-q"></a>
@@ -22,6 +21,22 @@ Snapshot: **2026-08-03** · 5 entries
 `legaleval-q` · **evaluation-framework** · **related artifact** · fixed-release
 
 Predict the quality of Chinese LLM-generated legal answers.
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LegalEval-Q authors (academic) |
+| First documented | [2025-05-30](https://arxiv.org/abs/2505.24826) — arXiv v1 submission |
+| Latest verified update | [2026-02-26](https://github.com/lyxx3rd/LegalEval-Q) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Scorer research: study a learned evaluator of Chinese legal answer quality and its agreement with human labels.
+- Protocol inspiration for multi-dimension answer-quality rubrics in Chinese-language legal products.
 
 ### Evaluation contract
 
@@ -32,7 +47,7 @@ Predict the quality of Chinese LLM-generated legal answers.
 | Languages | Chinese |
 | Size | About 10k source queries; 946 annotated items, about 9,460 model-output annotations, and 60 validation items |
 | Splits | Evaluator-training and small validation subsets |
-| Source | Legal queries, model responses, and AI-assisted/human quality annotations |
+| Source material | Legal queries, model responses, and AI-assisted/human quality annotations |
 | Input | Question and generated legal answer |
 | Output | Five dimension scores and adjusted aggregate |
 | Baselines / leaderboard context | Paper compares evaluator models and correlation/agreement with annotations. |
@@ -51,10 +66,7 @@ Predict the quality of Chinese LLM-generated legal answers.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/lyxx3rd/LegalEval-Q](https://github.com/lyxx3rd/LegalEval-Q) |
-| Hugging Face | None |
 | Paper / arXiv | [https://arxiv.org/abs/2505.24826](https://arxiv.org/abs/2505.24826) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -64,9 +76,6 @@ Predict the quality of Chinese LLM-generated legal answers.
 
 **Verified facts**
 - Official paper/repository define it as an answer-quality evaluator.
-
-**Inference**
-- None recorded.
 
 **Unresolved ambiguity**
 - Public license and complete artifact accessibility remain unresolved.
@@ -82,6 +91,23 @@ Original source bullet(s): #18
 
 Configure legal RAG evaluations across retrievers, rerankers, agents, judges, and custom corpora.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LRAGE authors (academic) |
+| First documented | [2025-04-02](https://arxiv.org/abs/2504.01840) — arXiv v1 submission |
+| Latest verified update | [2026-07-03](https://github.com/hoorangyee/LRAGE) — GitHub repository push |
+| Access level | open |
+| Test labels | not-applicable |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Assemble a custom legal RAG evaluation by configuring retrievers, rerankers, judges, and corpora in one harness.
+- Run an internal holdout corpus through a frozen, reproducible evaluation configuration.
+- Protocol reference for reporting retrieval, judge, and corpus versions together.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -91,7 +117,7 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 | Languages | Multiple / configuration-dependent |
 | Size | No fixed dataset |
 | Splits | Uses LegalBench, LawBench, KBL, Pile-of-Law, PLAT, bar-exam QA, housing QA, or custom JSON |
-| Source | User-selected public/custom corpora |
+| Source material | User-selected public/custom corpora |
 | Input | Configured corpus, queries, and pipeline |
 | Output | Retrieval, reranking, answer, and optional judge results |
 | Baselines / leaderboard context | Paper demonstrates multiple legal RAG configurations; there is no one unified leaderboard. |
@@ -112,8 +138,6 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 | GitHub | [https://github.com/hoorangyee/LRAGE](https://github.com/hoorangyee/LRAGE) |
 | Hugging Face | [https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25](https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25) |
 | Paper / arXiv | [https://arxiv.org/abs/2504.01840](https://arxiv.org/abs/2504.01840) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -123,12 +147,6 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 
 **Verified facts**
 - Official paper/repository describe a configurable framework rather than a fixed benchmark.
-
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- None recorded.
 
 Original source bullet(s): #19
 
@@ -141,6 +159,22 @@ Original source bullet(s): #19
 
 Answer obscure US legal-research and general information-search questions.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | prinz.ai (company; commercial interest) |
+| First documented | [2026-01-19](https://github.com/prinz-ai/prinzbench) — GitHub repository creation |
+| Latest verified update | [2026-07-18](https://github.com/prinz-ai/prinzbench) — GitHub repository push |
+| Access level | private |
+| Test labels | hidden |
+| Independently runnable | no |
+
+### Possible use cases
+
+- Read as one practitioner's longitudinal signal on obscure US legal-research questions across model generations.
+- Protocol inspiration for building a withheld internal research-question set with pass/fail grading.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -150,7 +184,7 @@ Answer obscure US legal-research and general information-search questions.
 | Languages | English |
 | Size | 33 withheld questions: 25 legal research and 8 search; three runs each (99 evaluations) |
 | Splits | Private question set |
-| Source | Author-created withheld questions |
+| Source material | Author-created withheld questions |
 | Input | Free-form research question |
 | Output | Free-form answer and sources |
 | Baselines / leaderboard context | Repository reports selected model results; outsiders cannot rerun the same questions. |
@@ -169,10 +203,7 @@ Answer obscure US legal-research and general information-search questions.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/prinz-ai/prinzbench](https://github.com/prinz-ai/prinzbench) |
-| Hugging Face | None |
-| Paper / arXiv | None |
 | Leaderboard / competition | [https://github.com/prinz-ai/prinzbench](https://github.com/prinz-ai/prinzbench) |
-| Project | None |
 
 ### Validity and evidence
 
@@ -183,73 +214,10 @@ Answer obscure US legal-research and general information-search questions.
 **Verified facts**
 - Public repository describes 33 private questions and 99 runs.
 
-**Inference**
-- None recorded.
-
 **Unresolved ambiguity**
 - Question contents, rubric detail, and license are unavailable.
 
 Original source bullet(s): #21
-
-[Back to page index](#on-this-page)
-
-<a id="open-legal-answer-benchmark"></a>
-## Open Legal-Answer Benchmark
-
-`open-legal-answer-benchmark` · **benchmark** · **check before use** · active
-
-Produce current US legal answers with relevant, supported, and correctly ranged citations.
-
-### Evaluation contract
-
-| Field | Detail |
-|---|---|
-| Construct / theory | Checklist and citation metrics separate substantive required points, forbidden claims, authority retrieval, and citation entailment/range instead of collapsing answer quality into one judge score. |
-| Jurisdiction | United States |
-| Languages | English |
-| Size | 54 base questions (29 hard, 25 controls) plus 8 adversarial variants; 62 JSONL rows |
-| Splits | Public versioned evaluation set |
-| Source | Sponsor-authored current-law questions and cited authorities |
-| Input | Legal question |
-| Output | Answer with cited sources |
-| Baselines / leaderboard context | Sponsor-maintained self-runs are recorded in the repository leaderboard. |
-| Dataset access | Public |
-| License | CC BY 4.0 data; MIT code |
-| Gating | None |
-| Maintenance | Active sponsor-maintained benchmark; versioning matters for current-law questions. |
-| Reproducibility | Public data and scorer support reruns; browser/search availability and current sources can change outcomes. |
-
-### Metrics
-
-- **Must-include / must-not / authority retrieval:** Rule/checklist scoring of required propositions, prohibited errors, and retrieval of the right authority. **Primary.**
-- **Citation support and in-range:** Check whether citations support the associated claim and point to the relevant passage; optional LLM judging is separate. Judge: Optional/configurable. **Primary.**
-
-### Resources
-
-| Resource | Direct URL |
-|---|---|
-| GitHub | [https://github.com/Vaquill-AI/open-legal-answer-benchmark](https://github.com/Vaquill-AI/open-legal-answer-benchmark) |
-| Hugging Face | None |
-| Paper / arXiv | None |
-| Leaderboard / competition | [https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md](https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md) |
-| Project | None |
-
-### Validity and evidence
-
-**Risks / caveats**
-- Fully public questions permit direct optimization.
-- Sponsor-run results are not an independent third-party audit.
-
-**Verified facts**
-- Official repository exposes the 62-row JSONL and leaderboard.
-
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- Temporal legal changes can make older gold expectations stale.
-
-Original source bullet(s): #22
 
 [Back to page index](#on-this-page)
 
@@ -260,6 +228,21 @@ Original source bullet(s): #22
 
 Discovery index for legal NLP datasets, models, papers, surveys, books, and events.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | Maastricht Law & Tech Lab (community) |
+| First documented | [2020-09-16](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository creation |
+| Latest verified update | [2025-10-14](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository push |
+| Access level | not-applicable |
+| Test labels | not-applicable |
+| Independently runnable | not-applicable |
+
+### Possible use cases
+
+- Discovery: locate legal NLP datasets, models, papers, surveys, and events beyond this catalog.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -269,7 +252,7 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 | Languages | Multiple |
 | Size | No benchmark instances |
 | Splits | None |
-| Source | Community-curated links |
+| Source material | Community-curated links |
 | Input | Not applicable |
 | Output | Not applicable |
 | Baselines / leaderboard context | None. |
@@ -288,10 +271,6 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/maastrichtlawtech/awesome-legal-nlp](https://github.com/maastrichtlawtech/awesome-legal-nlp) |
-| Hugging Face | None |
-| Paper / arXiv | None |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -300,12 +279,6 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 
 **Verified facts**
 - Repository contents are links and prose rather than instances, gold labels, or graders.
-
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- None recorded.
 
 Original source bullet(s): #7
 

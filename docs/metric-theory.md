@@ -46,23 +46,23 @@ Let `TP`, `FP`, `FN`, and `TN` be true positives, false positives, false negativ
 
 ### Accuracy and exact match
 
-\[
+$$
 \text{Accuracy} = \frac{\text{number of exactly correct items}}{N}
-\]
+$$
 
 Accuracy is appropriate for balanced single-label or multiple-choice tasks. It hides class imbalance and gives no partial credit. Exact match is stricter still: a structurally or semantically correct output can score zero after a formatting mismatch unless normalization is part of the scorer.
 
 ### Precision, recall, and F-score
 
-\[
+$$
 P = \frac{TP}{TP+FP}, \qquad
 R = \frac{TP}{TP+FN}
-\]
+$$
 
-\[
+$$
 F_1 = \frac{2PR}{P+R}, \qquad
 F_\beta = (1+\beta^2)\frac{PR}{\beta^2P+R}
-\]
+$$
 
 `F2` uses `β=2`, making recall four times as influential as precision in the weighted harmonic mean. ContractEval uses F2 because missing a relevant clause is treated as more costly than returning some extra text ([paper](https://arxiv.org/abs/2508.03080)).
 
@@ -79,9 +79,9 @@ FairLex reports overall and group-robustness views across four jurisdictions; su
 
 For predicted token or character set `A` and gold set `B`:
 
-\[
+$$
 J(A,B) = \frac{|A \cap B|}{|A \cup B|}
-\]
+$$
 
 CUAD uses token-overlap/Jaccard-style evaluation alongside precision, recall, and AUPR ([paper](https://arxiv.org/abs/2103.06268)). It gives partial credit for overlapping the right clause but cannot determine whether the returned fragment preserves all legal qualifiers.
 
@@ -95,10 +95,10 @@ For query `q`, cutoff `k`, retrieved list `R_k`, and known relevant set `G`:
 
 ### Precision@k and Recall@k
 
-\[
+$$
 P@k = \frac{|R_k \cap G|}{k}, \qquad
 R@k = \frac{|R_k \cap G|}{|G|}
-\]
+$$
 
 `Recall@k` answers “did the context window contain the needed authorities?” It does not reward ranking within the top `k` and assumes `G` is complete. CanLegalRAGBench's expert rejudging found relevant Canadian cases outside the initial gold set, demonstrating pooling bias directly ([paper](https://arxiv.org/abs/2605.30497), [repository](https://github.com/NLP-UBC/CanLegalRAGBench)).
 
@@ -106,22 +106,22 @@ R@k = \frac{|R_k \cap G|}{|G|}
 
 If the first relevant result is at rank `r_q`:
 
-\[
+$$
 RR_q = \frac{1}{r_q}, \qquad
 MRR = \frac{1}{|Q|}\sum_{q \in Q} RR_q
-\]
+$$
 
 MRR strongly rewards the first relevant result and ignores every relevant result after it. It fits “find one authority” tasks better than “collect all controlling authorities” tasks.
 
 ### Average precision and MAP
 
-\[
+$$
 AP_q = \frac{1}{|G_q|}\sum_{i=1}^{n} P@i \cdot \mathbf{1}[d_i \in G_q]
-\]
+$$
 
-\[
+$$
 MAP = \frac{1}{|Q|}\sum_{q \in Q} AP_q
-\]
+$$
 
 MAP rewards ranking all known relevant documents early. Again, an incomplete `G_q` makes valid unseen authorities look wrong.
 
@@ -129,13 +129,13 @@ MAP rewards ranking all known relevant documents early. Again, an incomplete `G_
 
 For graded relevance `rel_i` at rank `i`:
 
-\[
+$$
 DCG@k = \sum_{i=1}^{k}\frac{2^{rel_i}-1}{\log_2(i+1)}
-\]
+$$
 
-\[
+$$
 nDCG@k = \frac{DCG@k}{IDCG@k}
-\]
+$$
 
 `IDCG` is the score of the ideal ranking for that query. The exponential gain makes high-grade items disproportionately valuable; the logarithmic discount penalizes placing them late. ACORD's attorney ratings (1–5 stars, encoded 0–4) make nDCG a natural primary metric ([official repository](https://github.com/TheAtticusProject/acord)). MLEB principally uses nDCG@10 through MTEB-compatible task definitions ([repository](https://github.com/isaacus-dev/mleb)).
 
@@ -149,16 +149,16 @@ LegalBench-RAG represents support as character intervals and computes precision/
 
 For modified n-gram precisions `p_n`, weights `w_n`, candidate length `c`, and reference length `r`:
 
-\[
+$$
 BP = \begin{cases}
 1 & c > r \\
 e^{1-r/c} & c \le r
 \end{cases}
-\]
+$$
 
-\[
+$$
 BLEU = BP \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n\right)
-\]
+$$
 
 BLEU rewards reference n-gram precision with a brevity penalty ([original paper](https://aclanthology.org/P02-1040/)). Tokenizer, smoothing, case, and corpus versus sentence aggregation materially change it; record a SacreBLEU signature when available. MILPaC does this explicitly ([article](https://doi.org/10.1145/3748313)).
 
@@ -173,10 +173,10 @@ Both remain reference-overlap metrics: a legally wrong translation can share voc
 
 Given longest common subsequence length `LCS`:
 
-\[
+$$
 P_{LCS}=\frac{LCS}{|candidate|}, \qquad
 R_{LCS}=\frac{LCS}{|reference|}
-\]
+$$
 
 ROUGE-L combines these with an F-measure. It rewards retained sequence structure, not legal entailment or authority.
 
@@ -199,18 +199,18 @@ An LLM judge is not “the ground truth.” It is a measurement model. A reprodu
 
 For criterion verdict `v_i ∈ {0,1}` and positive weight `w_i`:
 
-\[
+$$
 \text{WeightedPass} = \frac{\sum_i w_i v_i}{\sum_i w_i}
-\]
+$$
 
 Some benchmarks add negative penalties. RedlineBench's exact task reward is:
 
-\[
+$$
 \text{task reward}=\operatorname{clamp}_{[0,1]}\left(
 \frac{\text{earned positive weight}-\text{penalty weight}}
 {\text{total positive weight}}
 \right)
-\]
+$$
 
 It averages identical-input rubric variants within input groups, then equally averages the 12 scenario × turn cells; the released headline is 0–100 ([HF card](https://huggingface.co/datasets/crosbylegal/RedlineBench), [code](https://github.com/crosbylegal/redline-bench)).
 
@@ -218,17 +218,17 @@ It averages identical-input rubric variants within input groups, then equally av
 
 For `m` required criteria:
 
-\[
+$$
 \text{AllPass(task)} = \prod_{i=1}^{m}\mathbf{1}[criterion_i\ passes]
-\]
+$$
 
 The benchmark score is the mean across tasks. This models conjunctive reliability: one missed required issue fails the entire matter. It is strict, useful for high-stakes autonomy claims, and highly sensitive to rubric count and judge false-negative rate. Harvey LAB publishes both all-pass and rubric pass rate ([repository](https://github.com/harveyai/harvey-labs), [results](https://www.harvey.ai/blog/legal-agent-benchmark-initial-results)).
 
 ### Pass@1
 
-\[
+$$
 Pass@1 = \frac{\text{tasks passed on one evaluated trajectory}}{N}
-\]
+$$
 
 APEX-Agents uses Pass@1 for long-horizon professional tasks ([paper](https://arxiv.org/abs/2601.14242)). It reflects one-shot reliability only when the run policy, environment, and grader are fixed.
 
@@ -236,10 +236,10 @@ APEX-Agents uses Pass@1 for long-horizon professional tasks ([paper](https://arx
 
 CanLegalRAGBench decomposes a generated answer into atomic claims. A generated claim is counted correct when at least one gold-answer claim entails it; groundedness instead checks support from the retrieved evidence set. If `A(ŷ_q)` is the generated claim set and `E` the relevant evidence set:
 
-\[
+$$
 Score(\hat y_q,E)=\frac{1}{|A(\hat y_q)|}\sum_{a\in A(\hat y_q)}
 \mathbf{1}\left[\max_{e\in E} Support(a,e)=1\right]
-\]
+$$
 
 The difference between answer-claim evidence and retrieved-document evidence separates reference agreement from context grounding ([paper](https://arxiv.org/abs/2605.30497)). It measures precision of generated claims, not omitted necessary claims, unless a complementary recall/completeness check is added.
 
@@ -259,9 +259,9 @@ LawBench does **not** use one common scoring rule. Its official task map is ([RE
 
 For prison-term prediction, let `g` and `p` be gold and parsed predicted months. The released evaluator computes:
 
-\[
+$$
 \text{NLD}=1-\frac{\frac{1}{N}\sum_i |\ln(g_i+1)-\ln(p_i+1)|}{\ln(216)}
-\]
+$$
 
 The parser takes the first number followed by “month,” otherwise the first number followed by “year” times 12. An unparsed prediction receives distance `ln(216)`, which contributes zero after normalization; gold death-penalty and life-imprisonment rows are skipped. This is a multiplicative-error-oriented score: equal ratios produce similar log distances, so an error from 1 to 2 months matters more than the same one-month absolute error at a long sentence. The code does not clamp the result, so sufficiently extreme predictions can make it negative ([official implementation](https://github.com/open-compass/LawBench/blob/main/evaluation/evaluation_functions/ljp_imprison.py)).
 
@@ -271,9 +271,9 @@ LawBench also reports a parser-defined abstention rate per task ([evaluation REA
 
 For positive component scores `x_1…x_n`:
 
-\[
+$$
 H(x_1,\ldots,x_n)=\frac{n}{\sum_i 1/x_i}
-\]
+$$
 
 LEXTREME computes a dataset-oriented aggregate and a language-oriented aggregate using hierarchical harmonic means, then takes the harmonic mean of those two views ([paper, §4](https://arxiv.org/abs/2301.13126)). A single near-zero component can collapse the total; that is intentional robustness pressure.
 
@@ -281,9 +281,9 @@ LEXTREME computes a dataset-oriented aggregate and a language-oriented aggregate
 
 The English-to-Hindi legal-MT shared task normalizes six metrics to a 0–100 higher-is-better scale, inverting TER, and then applies equal arithmetic weight:
 
-\[
+$$
 \text{AutoRank}=\frac{1}{6}\sum_{i=1}^{6}M_{i,\mathrm{norm}}
-\]
+$$
 
 The six components are BLEU, METEOR, TER, chrF++, BERTScore, and COMET ([official findings paper, §3.1](https://aclanthology.org/2025.justnlp-main.3/)). Equal weighting is transparent but does not make the components independent or turn their average into legal-fidelity evidence. The paper also contains an unresolved reporting conflict: its abstract says the top AutoRank was 72.1, while Table 2 and the [official result sheet](https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf) report Team-SVNIT first at 61.62.
 
@@ -298,6 +298,63 @@ DeonticBench resamples cases with replacement for 1,000 replicates and samples o
 ### Ready Jurist One dual scoring
 
 J1-EVAL combines outcome metrics (binary/open answer, document, judgment, charge, and penalty scores) with process metrics (format order, procedural stage completion, reasoning, and cited-law precision). Exact match, normalized log-distance, and model-based scoring are selected per scenario; the public paper's Table 2 is the authoritative map ([paper](https://aclanthology.org/2026.acl-long.471/), [code](https://github.com/FudanDISC/J1Bench)). Do not compare its overall score to a static QA accuracy.
+
+### PRBench weighted professional rubrics
+
+PRBench gives each open-response task 10–30 binary criteria weighted from −10 to +10. The released evaluator reports rubric-weighted and minimum-normalized views; law and finance are separate slices and should not be collapsed when the claim concerns legal reasoning ([JusticeBench dataset page](https://www.justicebench.org/dataset/prbench), [repository](https://github.com/scaleapi/PRBench), [paper](https://arxiv.org/abs/2511.11562)). The public sources currently disagree on criterion count—JusticeBench reports 19,356 and the [Hugging Face card](https://huggingface.co/datasets/ScaleAI/PRBench) reports 18,692—so any result needs a pinned dataset revision and official scorer output.
+
+The theory is a weighted checklist of professional requirements, not a psychometric scale. Negative criteria encode prohibited failures, while positive weights encode author judgment about relative importance. Changing the rubric or weight distribution changes the instrument.
+
+### DLawBench consultation scoring
+
+DLawBench separates **Fact Coverage**, **Inquiry**, **Elicitation**, **Fact Resolution**, **Issue Resolution**, **Resolution**, and **Fidelity**. Scores are aggregated at the session level and then equally averaged across available jurisdictions ([paper](https://arxiv.org/abs/2606.13931), [repository](https://github.com/SKYLENAGE-AI/DLawBench)). That decomposition tests whether an agent asks for legally material facts before resolving issues, rather than grading only the final memorandum. Because the evaluator is supplied through `--eval-model`, the judge model is part of every reported result.
+
+### Harvey LAB single- and dual-judge all-pass
+
+Harvey LAB's default evaluator checks each equally weighted binary criterion independently with Claude Sonnet 4.6 at temperature 0. A task all-passes only when every criterion passes. The optional dual profile grades the same saved trajectory with Claude Sonnet 4.6 and GPT-5.5, averages their per-judge task values, and reports strict all-pass separately when both judges agree; criterion pass rate is available as both a macro task mean and a pooled criterion fraction ([official evaluation methodology](https://github.com/harveyai/harvey-labs/blob/main/docs/eval-strategies.md)).
+
+This is a reliability theory: a matter with one material omission is treated as failed. It is also mechanically sensitive to rubric length. Even if every criterion independently passed with probability `p`, an `m`-criterion task would all-pass with probability `p^m`; cross-task comparisons therefore need rubric-count distributions and judge error analysis.
+
+### Harvey BigLaw Bench answer and source scores
+
+BigLaw Bench uses positive and negative weighted criteria. Its **Answer Score** is the points earned on satisfied positive criteria plus negative-criterion penalties, divided by the total available positive points. A separate **Source Score** measures support from the supplied or retrieved sources ([official launch](https://www.harvey.ai/blog/introducing-biglaw-bench), [repository](https://github.com/harveyai/biglaw-bench)). Keeping the two scores separate prevents fluent unsupported text from receiving the same interpretation as sourced legal analysis. The full task set is private, so published vendor scores are not independently reproducible.
+
+### Legora BAR weighted quality rubrics
+
+Legora BAR uses binary expert-authored criteria with high, medium, and low weights and runs each case three times. Criteria cover facts, analysis, citations, and recommendations; an LLM judge evaluates the work product ([official BAR page](https://legora.com/bar), [public synthetic example](https://github.com/legora-oss/legora-bar-tax-case)). The exact judge model, prompt, calibration, weighting formula, and full aggregation are not public. It is therefore accurate to describe BAR as a weighted rubric benchmark, but not to reconstruct a supposedly exact score formula or merge it with Harvey LAB.
+
+### MoZIP task-specific scoring
+
+MoZIP is three instruments, not one score ([paper](https://aclanthology.org/2024.lrec-main.1018/), [repository](https://github.com/AI-for-Science/MoZi)):
+
+- **IPQuiz:** exact answer accuracy after a regular-expression parser extracts one or more option letters; the paper says parsing was manually verified. Multi-answer items therefore require the complete letter set, not partial credit.
+- **IPQA:** humans compare answers pairwise and report win, tie, or loss. The agreement audit gives 1 point when two evaluators agree, 0.5 when one says tie and the other picks a winner, and 0 for opposite winners; the reported mean was 81%. This agreement number describes the judges, not model quality, and the benchmark publishes no scalar formula that turns all pairwise outcomes into a universal rank.
+- **PatentMatch:** exact four-way choice accuracy, reported separately for 500 Chinese and 500 English items.
+
+The construct changes by task: recalled IP knowledge, preferred open-answer quality, and semantic patent similarity. A mean across the three would combine unlike scales and would overweight whatever language/task aggregation the analyst chose. PatentMatch distractors were retrieved with BM25 and `text-embedding-ada-002` through Pinecone before human verification; a model can therefore exploit distractor-selection artifacts without demonstrating patentability, claim construction, or infringement analysis.
+
+### LegalOn reversed-order preference and Elo
+
+LegalOn's 2026 contract-review study judges each answer pair twice with order reversed. A model records a win only if the same answer is preferred in both orders; inconsistent preferences become a tie. Those outcomes feed an Elo rating with 95% confidence intervals ([official methodology/results](https://www.legalontech.com/post/the-contract-review-benchmark-2026)).
+
+For a standard Elo update, expected score and rating update take the form:
+
+$$
+E_A = \frac{1}{1 + 10^{(R_B-R_A)/400}}, \qquad
+R'_A = R_A + K(S_A-E_A)
+$$
+
+where `S_A` is 1, 0.5, or 0 for win, tie, or loss. The exact implementation, `K`, pairing schedule, private items, and judge model must come from the study code to reproduce a leaderboard; those details are not all public. Elo ranks systems inside that comparison pool and does not define an absolute contract-review scale.
+
+### legalbenchmarks.ai and Vals conjunctive reliability
+
+legalbenchmarks.ai defines **Reliability** as the share of tasks on which every criterion passes and reports a separate 1–3 **Usefulness** score for clarity, length, and structure. The July 2026 page identifies Claude Sonnet 4.6 as the reliability judge and Claude Sonnet 4.6 plus Gemini 3.1 Pro for usefulness ([official leaderboard](https://www.legalbenchmarks.ai/leaderboard)).
+
+Vals Legal Research similarly reports an all-pass task rate and a weighted partial-credit score across rubrics containing 1–31 items. Its August 3, 2026 page identifies GPT-5.4 as the judge and discloses a 5-public / 200-licensed-validation / 208-hidden-test split ([official benchmark page](https://www.vals.ai/benchmarks/legal_research)). In both instruments, all-pass depends on rubric length; partial credit is diagnostic, and private tasks prevent a fully independent audit.
+
+### LegalCiteBench citation metrics
+
+LegalCiteBench reports task-specific 0–100 scores built from mean average recall for ranked citation retrieval, citation precision/recall/F1 for generated citation components, and correct-response rate for response or abstention decisions ([paper](https://arxiv.org/abs/2605.10186), [repository](https://github.com/Sijia711/LegalCiteBench)). GPT-4o-mini is used for response scoring, while the paper separately analyzes abstention with Qwen3-32B. Citation-form correctness and retrieval do not establish that the cited case is controlling, current, or sufficient for the proposition; those require a legal relevance and support review.
 
 ## Contamination and leakage
 
@@ -319,9 +376,9 @@ At minimum, report the number of items and repeated runs. For a simple mean over
 
 When humans or judges rate outputs, report agreement as well as mean score. Cohen's kappa adjusts two-rater categorical agreement for chance:
 
-\[
+$$
 \kappa = \frac{p_o-p_e}{1-p_e}
-\]
+$$
 
 For continuous multi-rater scores, choose and name the exact intraclass-correlation form; different ICC models answer different reliability questions.
 

@@ -4,9 +4,9 @@
 
 Shared tasks and multilingual corpora with automatic and legal-expert translation scoring.
 
-Snapshot: **2026-08-03** · 3 entries
+Snapshot: **2026-08-04** · 3 entries
 
-[Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
+[Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
 ## On this page
 
@@ -21,6 +21,25 @@ Snapshot: **2026-08-03** · 3 entries
 
 Translate legal text from English to Hindi.
 
+**Also known as:** LegalLens Shared Task
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | JUST-NLP shared-task organizers (competition) |
+| First documented | [2025-12](https://aclanthology.org/2025.justnlp-main.3/) — ACL Anthology publication month |
+| Latest verified update | No later update verified |
+| Access level | gated |
+| Test labels | hidden |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Compare English-to-Hindi legal translation systems against the 2025 shared-task field on the six AutoRank component metrics.
+- Train or validate Indian legal MT systems on the 50k-pair InLMT corpus.
+- Protocol reference for multi-metric legal MT reporting with hidden-reference scoring.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -30,7 +49,7 @@ Translate legal text from English to Hindi.
 | Languages | English, Hindi |
 | Size | InLMT: 50,000 train, 5,000 validation, 5,000 hidden test sentences |
 | Splits | Train/validation plus hidden Codabench test references |
-| Source | Indian legal parallel text released for the shared task |
+| Source material | Indian legal parallel text released for the shared task |
 | Input | XLSX rows containing English legal sentences and IDs |
 | Output | CSV with ID and Hindi translation |
 | Baselines / leaderboard context | The findings paper's Table 2 ranks Team-SVNIT first at AutoRank 61.62; the abstract instead says the highest AutoRank was 72.1, an unresolved internal conflict. |
@@ -49,8 +68,6 @@ Translate legal text from English to Hindi.
 
 | Resource | Direct URL |
 |---|---|
-| GitHub | None |
-| Hugging Face | None |
 | Paper / arXiv | [https://aclanthology.org/2025.justnlp-main.3/](https://aclanthology.org/2025.justnlp-main.3/) |
 | Leaderboard / competition | [https://www.codabench.org/competitions/10351/](https://www.codabench.org/competitions/10351/)<br>[https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf](https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf) |
 | Project | [https://exploration-lab.github.io/JUST-NLP/](https://exploration-lab.github.io/JUST-NLP/) |
@@ -63,9 +80,6 @@ Translate legal text from English to Hindi.
 
 **Verified facts**
 - The official findings paper and competition materials define the 50k/5k/5k splits, six AutoRank components, normalization direction, and equal-weight aggregation.
-
-**Inference**
-- None recorded.
 
 **Unresolved ambiguity**
 - A clear dataset license was not located.
@@ -82,6 +96,23 @@ Original source bullet(s): #8
 
 Translate Swiss laws, court headnotes, and press releases among official Swiss languages and English.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | SwiLTra authors (academic) |
+| First documented | [2025-03-03](https://arxiv.org/abs/2503.01372) — arXiv v1 submission |
+| Latest verified update | [2025-05-30](https://arxiv.org/abs/2503.01372) — arXiv revision |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Compare statute, headnote, and press-release translation among German, French, Italian, Romansh, and English.
+- Select legal MT systems using SwiLTra-Judge, which is calibrated against legal-expert ratings.
+- Fine-tune and evaluate smaller translation models on 180,000+ aligned Swiss legal pairs.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -91,7 +122,7 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 | Languages | German, French, Italian, Romansh, English |
 | Size | More than 180,000 aligned translation pairs across three document families |
 | Splits | Dataset-specific train/test evaluation sets |
-| Source | Swiss laws, decision summaries/headnotes, and Supreme Court press releases |
+| Source material | Swiss laws, decision summaries/headnotes, and Supreme Court press releases |
 | Input | Legal text in one source language |
 | Output | Translation in a target language |
 | Baselines / leaderboard context | Paper evaluates frontier LLMs, specialized MT systems, and fine-tuned smaller models. |
@@ -113,8 +144,6 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 | GitHub | [https://github.com/JoelNiklaus/SwissLegalTranslations](https://github.com/JoelNiklaus/SwissLegalTranslations) |
 | Hugging Face | [https://huggingface.co/collections/joelniklaus/swiltra-bench](https://huggingface.co/collections/joelniklaus/swiltra-bench)<br>[https://huggingface.co/datasets/joelniklaus/SwissLawTranslations](https://huggingface.co/datasets/joelniklaus/SwissLawTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations](https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations](https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations) |
 | Paper / arXiv | [https://arxiv.org/abs/2503.01372](https://arxiv.org/abs/2503.01372)<br>[https://aclanthology.org/2025.acl-long.725/](https://aclanthology.org/2025.acl-long.725/) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -125,13 +154,8 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 **Verified facts**
 - Official paper/GitHub/HF collection define the corpus families and evaluator set.
 
-**Inference**
-- None recorded.
-
 **Unresolved ambiguity**
 - There is no single HF dataset; the canonical resource is a three-dataset collection.
-
-Original source bullet(s): Curated addition.
 
 [Back to page index](#on-this-page)
 
@@ -142,6 +166,25 @@ Original source bullet(s): Curated addition.
 
 Translate verified Indian legal text from English into nine Indian languages.
 
+**Also known as:** MILPaC
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | Law-AI (academic) |
+| First documented | [2023-10-15](https://arxiv.org/abs/2310.09765) — arXiv v1 submission |
+| Latest verified update | [2025-07-13](https://github.com/Law-AI/MILPaC) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Compare English-to-nine-Indian-language legal translation against practitioner-rated references.
+- Research the gap between automatic MT metrics and law-practitioner ratings of meaning, legal suitability, and fluency.
+- Regression-test Indic legal translation with the recorded tokenizer and SacreBLEU signatures.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -151,7 +194,7 @@ Translate verified Indian legal text from English into nine Indian languages.
 | Languages | English, Hindi, Bengali, Marathi, Tamil, Gujarati, Telugu, Malayalam, Punjabi, Odia |
 | Size | 17,853 aligned pairs across three datasets |
 | Splits | Corpus/dataset-specific evaluation files |
-| Source | Verified IP primers, Indian statutes/acts, and legal FAQ materials ratified by legal experts |
+| Source material | Verified IP primers, Indian statutes/acts, and legal FAQ materials ratified by legal experts |
 | Input | English legal text unit |
 | Output | Translation in one of nine Indian languages |
 | Baselines / leaderboard context | Paper compares commercial MT, academic systems, open models, and LLMs. |
@@ -171,10 +214,7 @@ Translate verified Indian legal text from English into nine Indian languages.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/Law-AI/MILPaC](https://github.com/Law-AI/MILPaC) |
-| Hugging Face | None |
 | Paper / arXiv | [https://arxiv.org/abs/2310.09765](https://arxiv.org/abs/2310.09765)<br>[https://doi.org/10.1145/3748313](https://doi.org/10.1145/3748313) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -184,13 +224,5 @@ Translate verified Indian legal text from English into nine Indian languages.
 
 **Verified facts**
 - Official GitHub, arXiv, and ACM article define 17,853 pairs, nine target languages, and exact automatic/human metrics.
-
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- None recorded.
-
-Original source bullet(s): Curated addition.
 
 [Back to page index](#on-this-page)

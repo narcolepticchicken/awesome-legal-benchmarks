@@ -6,7 +6,9 @@ from __future__ import annotations
 import json
 import re
 import sys
+from calendar import monthrange
 from collections import Counter, defaultdict
+from datetime import date as calendar_date
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -16,6 +18,7 @@ CATALOG = ROOT / "catalog" / "benchmarks.json"
 
 ENTRY_KEYS = {
     "id", "name", "aliases", "kind", "tier", "status", "categories",
+    "owner", "dates", "access_profile", "possible_uses", "related",
     "capability", "construct", "jurisdictions", "languages", "data",
     "metrics", "baselines", "resources", "access", "maintenance",
     "reproducibility", "risks", "evidence", "source_readme_bullets",
@@ -27,12 +30,23 @@ KINDS = {
     "resource-list",
 }
 TIERS = {"recommended", "specialist", "evaluate-carefully", "related"}
-STATUSES = {"active", "fixed-release", "annual", "completed", "private", "stale", "unclear"}
+STATUSES = {"active", "fixed-release", "annual", "completed", "private", "archived", "stale", "unclear"}
 RESOURCE_KEYS = {"github", "huggingface", "papers", "leaderboards", "project"}
 DATA_KEYS = {"size", "splits", "source", "input", "output"}
 EVIDENCE_KEYS = {"verified", "inference", "ambiguities"}
 ACCESS_KEYS = {"dataset", "license", "gating"}
+OWNER_KEYS = {"name", "type", "commercial_interest"}
+OWNER_TYPES = {"academic", "company", "nonprofit", "competition", "community", "mixed", "individual", "government", "unknown"}
+COMMERCIAL_INTEREST = {"yes", "no", "unclear"}
+DATES_KEYS = {"created", "last_updated"}
+DATE_KEYS = {"date", "precision", "basis", "source"}
+DATE_PRECISIONS = {"year", "month", "day"}
+ACCESS_PROFILE_KEYS = {"level", "test_labels", "runnable"}
+ACCESS_LEVELS = {"open", "gated", "partial", "private", "not-applicable"}
+TEST_LABEL_ACCESS = {"public", "hidden", "mixed", "not-applicable", "unclear"}
+RUNNABILITY = {"yes", "partial", "no", "not-applicable", "unclear"}
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+PARTIAL_DATE_RE = re.compile(r"^\d{4}(?:-\d{2}(?:-\d{2})?)?$")
 
 
 def load_catalog(path: Path = CATALOG) -> dict:
@@ -55,12 +69,67 @@ def _check_url(url: object, label: str, errors: list[str]) -> None:
         errors.append(f"{label}: search-result URLs are not canonical resources: {url}")
 
 
+def _check_date_record(value: object, label: str, errors: list[str]) -> None:
+    if not isinstance(value, dict) or set(value) != DATE_KEYS:
+        errors.append(f"{label}: expected exactly {sorted(DATE_KEYS)}")
+        return
+    date = value.get("date")
+    precision = value.get("precision")
+    if not isinstance(date, str) or not PARTIAL_DATE_RE.fullmatch(date):
+        errors.append(f"{label}.date: expected YYYY, YYYY-MM, or YYYY-MM-DD")
+    if precision not in DATE_PRECISIONS:
+        errors.append(f"{label}.precision: invalid value {precision!r}")
+    elif isinstance(date, str):
+        expected_parts = {"year": 1, "month": 2, "day": 3}[precision]
+        if len(date.split("-")) != expected_parts:
+            errors.append(f"{label}: date {date!r} does not match {precision!r} precision")
+        elif _date_bounds(value) is None:
+            errors.append(f"{label}.date: invalid calendar date {date!r}")
+    if not _nonempty_text(value.get("basis")):
+        errors.append(f"{label}.basis: must be non-empty")
+    _check_url(value.get("source"), f"{label}.source", errors)
+
+
+def _date_bounds(value: object) -> tuple[calendar_date, calendar_date] | None:
+    if not isinstance(value, dict):
+        return None
+    text = value.get("date")
+    precision = value.get("precision")
+    if not isinstance(text, str) or precision not in DATE_PRECISIONS:
+        return None
+    try:
+        parts = [int(part) for part in text.split("-")]
+        if precision == "year" and len(parts) == 1:
+            year = parts[0]
+            return calendar_date(year, 1, 1), calendar_date(year, 12, 31)
+        if precision == "month" and len(parts) == 2:
+            year, month = parts
+            return (
+                calendar_date(year, month, 1),
+                calendar_date(year, month, monthrange(year, month)[1]),
+            )
+        if precision == "day" and len(parts) == 3:
+            day = calendar_date(*parts)
+            return day, day
+    except (TypeError, ValueError):
+        return None
+    return None
+
+
 def validate(catalog: dict) -> list[str]:
     errors: list[str] = []
-    if catalog.get("schema_version") != 1:
-        errors.append("schema_version must equal 1")
-    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(catalog.get("as_of", ""))):
+    if catalog.get("schema_version") != 2:
+        errors.append("schema_version must equal 2")
+    as_of_text = str(catalog.get("as_of", ""))
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", as_of_text):
         errors.append("as_of must be YYYY-MM-DD")
+        as_of_date = None
+    else:
+        try:
+            as_of_date = calendar_date.fromisoformat(as_of_text)
+        except ValueError:
+            errors.append("as_of must be a valid calendar date")
+            as_of_date = None
     if not _nonempty_text(catalog.get("selection_policy")):
         errors.append("selection_policy must be non-empty")
     entries = catalog.get("entries")
@@ -99,6 +168,55 @@ def validate(catalog: dict) -> list[str]:
             errors.append(f"{entry_id}.tier: invalid value {entry.get('tier')!r}")
         if entry.get("status") not in STATUSES:
             errors.append(f"{entry_id}.status: invalid value {entry.get('status')!r}")
+        owner = entry.get("owner")
+        if not isinstance(owner, dict) or set(owner) != OWNER_KEYS:
+            errors.append(f"{entry_id}.owner: expected exactly {sorted(OWNER_KEYS)}")
+        else:
+            if not _nonempty_text(owner.get("name")):
+                errors.append(f"{entry_id}.owner.name: must be non-empty")
+            if owner.get("type") not in OWNER_TYPES:
+                errors.append(f"{entry_id}.owner.type: invalid value {owner.get('type')!r}")
+            if owner.get("commercial_interest") not in COMMERCIAL_INTEREST:
+                errors.append(f"{entry_id}.owner.commercial_interest: invalid value {owner.get('commercial_interest')!r}")
+
+        dates = entry.get("dates")
+        if not isinstance(dates, dict) or set(dates) != DATES_KEYS:
+            errors.append(f"{entry_id}.dates: expected exactly {sorted(DATES_KEYS)}")
+        else:
+            _check_date_record(dates.get("created"), f"{entry_id}.dates.created", errors)
+            if dates.get("last_updated") is not None:
+                _check_date_record(dates.get("last_updated"), f"{entry_id}.dates.last_updated", errors)
+            created_bounds = _date_bounds(dates.get("created"))
+            updated_bounds = _date_bounds(dates.get("last_updated"))
+            if as_of_date is not None and created_bounds is not None and created_bounds[0] > as_of_date:
+                errors.append(f"{entry_id}.dates.created: date begins after catalog as_of")
+            if as_of_date is not None and updated_bounds is not None and updated_bounds[0] > as_of_date:
+                errors.append(f"{entry_id}.dates.last_updated: date begins after catalog as_of")
+            if created_bounds is not None and updated_bounds is not None and updated_bounds[1] < created_bounds[0]:
+                errors.append(f"{entry_id}.dates.last_updated: date is before creation")
+
+        access_profile = entry.get("access_profile")
+        if not isinstance(access_profile, dict) or set(access_profile) != ACCESS_PROFILE_KEYS:
+            errors.append(f"{entry_id}.access_profile: expected exactly {sorted(ACCESS_PROFILE_KEYS)}")
+        else:
+            if access_profile.get("level") not in ACCESS_LEVELS:
+                errors.append(f"{entry_id}.access_profile.level: invalid value {access_profile.get('level')!r}")
+            if access_profile.get("test_labels") not in TEST_LABEL_ACCESS:
+                errors.append(f"{entry_id}.access_profile.test_labels: invalid value {access_profile.get('test_labels')!r}")
+            if access_profile.get("runnable") not in RUNNABILITY:
+                errors.append(f"{entry_id}.access_profile.runnable: invalid value {access_profile.get('runnable')!r}")
+
+        possible_uses = entry.get("possible_uses")
+        if not isinstance(possible_uses, list) or not 1 <= len(possible_uses) <= 3:
+            errors.append(f"{entry_id}.possible_uses: requires one to three items")
+        elif any(not _nonempty_text(item) for item in possible_uses):
+            errors.append(f"{entry_id}.possible_uses: every item must be non-empty")
+
+        related = entry.get("related")
+        if not isinstance(related, list):
+            errors.append(f"{entry_id}.related: must be a list")
+        elif len(related) != len(set(map(str, related))):
+            errors.append(f"{entry_id}.related: contains duplicates")
         for field in ("capability", "construct", "baselines", "maintenance", "reproducibility"):
             if not _nonempty_text(entry.get(field)):
                 errors.append(f"{entry_id}.{field}: must be non-empty")
@@ -186,6 +304,20 @@ def validate(catalog: dict) -> list[str]:
         errors.append(f"source README bullets assigned to multiple identities: {repeated_bullets}")
     if bullet_owners.get(3) != ["mleb"] or bullet_owners.get(20) != ["mleb"]:
         errors.append("README bullets 3 and 20 must both map to canonical identity mleb")
+
+    known_ids = set(ids)
+    entries_by_id = {
+        entry["id"]: entry for entry in entries
+        if isinstance(entry, dict) and isinstance(entry.get("id"), str)
+    }
+    for entry_id, entry in entries_by_id.items():
+        for related_id in entry.get("related", []):
+            if related_id == entry_id:
+                errors.append(f"{entry_id}.related: cannot reference itself")
+            elif related_id not in known_ids:
+                errors.append(f"{entry_id}.related: unknown identity {related_id!r}")
+            elif entry_id not in entries_by_id[related_id].get("related", []):
+                errors.append(f"{entry_id}.related: relationship with {related_id!r} must be bidirectional")
 
     # Shared URLs are valid for component suites; flag only surprising cross-identity reuse.
     permitted_shared = {

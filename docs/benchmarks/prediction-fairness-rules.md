@@ -4,9 +4,9 @@
 
 Outcome prediction, subgroup performance, holding selection, deontic rules, and structured legal analysis.
 
-Snapshot: **2026-08-03** · 7 entries
+Snapshot: **2026-08-04** · 7 entries
 
-[Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
+[Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
 ## On this page
 
@@ -14,9 +14,9 @@ Snapshot: **2026-08-03** · 7 entries
 - [FairLex](#fairlex)
 - [CaseHOLD](#casehold)
 - [DeonticBench](#deonticbench)
-- [ALARB](#alarb)
 - [MSLR-Bench](#mslr)
 - [MASLegalBench](#maslegalbench)
+- [OpenExempt](#openexempt)
 
 <a id="ecthr"></a>
 ## ECtHR Tasks A/B
@@ -24,6 +24,24 @@ Snapshot: **2026-08-03** · 7 entries
 `ecthr` · **benchmark** · **recommended** · fixed-release
 
 Predict European Convention articles alleged (Task A) or found violated (Task B) from case facts.
+
+**Also known as:** ECtHR Task
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | ECtHR task authors / LexGLUE (academic) |
+| First documented | [2019-06-05](https://arxiv.org/abs/1906.02059) — arXiv v1 submission |
+| Latest verified update | [2022-11-08](https://arxiv.org/abs/2110.00976) — LexGLUE arXiv revision |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Research fact-to-doctrine mapping: predict alleged (Task A) or violated (Task B) Convention articles from ECtHR case facts.
+- Compare long-document classification architectures on multi-label legal prediction with fixed splits.
 
 ### Evaluation contract
 
@@ -34,7 +52,7 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 | Languages | English |
 | Size | Roughly 11,000 cases per LexGLUE Task A/B configuration |
 | Splits | Commonly 9,000 train / 1,000 validation / 1,000 test |
-| Source | Public ECtHR judgments and case facts |
+| Source material | Public ECtHR judgments and case facts |
 | Input | Case-fact section |
 | Output | Multi-label Convention article IDs |
 | Baselines / leaderboard context | Original Chalkidis et al. work and LexGLUE report transformer and long-document baselines. |
@@ -55,8 +73,6 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 | GitHub | [https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://arxiv.org/abs/1906.02059](https://arxiv.org/abs/1906.02059)<br>[https://arxiv.org/abs/2110.00976](https://arxiv.org/abs/2110.00976) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -67,11 +83,12 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 **Verified facts**
 - LexGLUE is the current canonical distribution path.
 
-**Inference**
-- None recorded.
-
 **Unresolved ambiguity**
 - Counts vary slightly across original and standardized releases.
+
+**Related entries**
+
+- [LexGLUE](reasoning-education.md#lexglue)
 
 Original source bullet(s): #6
 
@@ -84,6 +101,23 @@ Original source bullet(s): #6
 
 Evaluate legal prediction performance and group robustness across sensitive or legally salient subpopulations.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | FairLex authors (academic) |
+| First documented | [2022-05](https://aclanthology.org/2022.acl-long.301/) — ACL Anthology publication month |
+| Latest verified update | [2023-07-27](https://huggingface.co/datasets/coastalcph/fairlex) — Hugging Face dataset update |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Measure per-group, worst-group, and gap performance on legal prediction tasks across gender, age, region, language, and legal-area attributes.
+- Test whether robustness interventions improve worst-group scores on legal tasks.
+- Produce subgroup-performance documentation as one input to a product evaluation.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -93,7 +127,7 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 | Languages | English, German, French, Italian, Chinese |
 | Size | Four legal datasets |
 | Splits | WILDS-style distribution and group-aware splits/configs |
-| Source | Court decisions with gender, age, region, language, and legal-area attributes where available |
+| Source material | Court decisions with gender, age, region, language, and legal-area attributes where available |
 | Input | Case/document text |
 | Output | Outcome or legal label |
 | Baselines / leaderboard context | Official code evaluates standard, reweighting, and robustness/fairness methods. |
@@ -115,8 +149,6 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 | GitHub | [https://github.com/coastalcph/fairlex](https://github.com/coastalcph/fairlex) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/fairlex](https://huggingface.co/datasets/coastalcph/fairlex) |
 | Paper / arXiv | [https://aclanthology.org/2022.acl-long.301/](https://aclanthology.org/2022.acl-long.301/) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -127,14 +159,6 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 **Verified facts**
 - Official paper/repository cover four jurisdictions and five languages with group-robustness metrics.
 
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- None recorded.
-
-Original source bullet(s): Curated addition.
-
 [Back to page index](#on-this-page)
 
 <a id="casehold"></a>
@@ -143,6 +167,23 @@ Original source bullet(s): Curated addition.
 `casehold` · **benchmark** · **specialist** · fixed-release
 
 Select the correct holding that completes an excerpt from a US judicial opinion.
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | CaseHOLD authors (academic) |
+| First documented | [2021-04-18](https://arxiv.org/abs/2104.08671) — arXiv v1 submission |
+| Latest verified update | [2021-07-06](https://arxiv.org/abs/2104.08671) — arXiv revision |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Test discrimination of the correct case holding from hard distractors on US judicial opinion excerpts.
+- Research the benefit of legal-domain pretraining on case-law reading.
+- Quick screen of US case-law comprehension before deeper task-specific evaluation.
 
 ### Evaluation contract
 
@@ -153,7 +194,7 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 | Languages | English |
 | Size | More than 53,000 five-choice questions |
 | Splits | Official train/dev/test files; also standardized in LexGLUE |
-| Source | US case law and extracted holdings |
+| Source material | US case law and extracted holdings |
 | Input | Opinion excerpt plus five candidate holdings |
 | Output | Correct option |
 | Baselines / leaderboard context | Legal-BERT and other pretrained language models in the original paper; further baselines in LexGLUE. |
@@ -174,8 +215,6 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 | GitHub | [https://github.com/neelguha/legal-ml-datasets](https://github.com/neelguha/legal-ml-datasets)<br>[https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://arxiv.org/abs/2104.08671](https://arxiv.org/abs/2104.08671) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -186,13 +225,12 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 **Verified facts**
 - Original dataset repo/paper and LexGLUE establish the canonical task.
 
-**Inference**
-- None recorded.
-
 **Unresolved ambiguity**
 - A separate current author-owned HF dataset was not located outside LexGLUE.
 
-Original source bullet(s): Curated addition.
+**Related entries**
+
+- [LexGLUE](reasoning-education.md#lexglue)
 
 [Back to page index](#on-this-page)
 
@@ -203,6 +241,23 @@ Original source bullet(s): Curated addition.
 
 Reason about obligations, permissions, prohibitions, eligibility, and amounts under long legal/policy rules, directly or through executable Prolog.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | DeonticBench authors (academic) |
+| First documented | [2026-04-06](https://arxiv.org/abs/2604.04443) — arXiv v1 submission |
+| Latest verified update | [2026-06-04](https://huggingface.co/datasets/gydou/DeonticBench) — Hugging Face dataset update |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Test rule application over US tax, immigration, housing, and airline-policy rules with exact outcomes and executable Prolog references.
+- Diagnose whether failures come from wrong formalization, solver execution, abstention, or wrong final answers.
+- Regression-test reasoning changes using the bootstrap confidence-interval protocol on a pinned post-audit revision.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -212,7 +267,7 @@ Reason about obligations, permissions, prohibitions, eligibility, and amounts un
 | Languages | English, Prolog |
 | Size | 6,232 whole-set tasks: SARA Numeric 100, SARA Binary 276, Airline 300, Housing 5,314, USCIS-AAO 242 |
 | Splits | Whole plus curated hard subsets (35/30/80/78/28) and derived five-case smoke splits |
-| Source | US tax statutes, airline policies, state housing law, and USCIS AAO decisions with audited reference Prolog |
+| Source material | US tax statutes, airline policies, state housing law, and USCIS AAO decisions with audited reference Prolog |
 | Input | Rules/statutes, case facts, and a question |
 | Output | Typed answer directly or generated Prolog program and solver result |
 | Baselines / leaderboard context | Paper/repository evaluate direct, zero-shot Prolog, and few-shot Prolog across frontier/coding models and training methods. |
@@ -234,7 +289,6 @@ Reason about obligations, permissions, prohibitions, eligibility, and amounts un
 | GitHub | [https://github.com/guangyaodou/DeonticBench](https://github.com/guangyaodou/DeonticBench) |
 | Hugging Face | [https://huggingface.co/datasets/gydou/DeonticBench](https://huggingface.co/datasets/gydou/DeonticBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2604.04443](https://arxiv.org/abs/2604.04443) |
-| Leaderboard / competition | None |
 | Project | [https://guangyaodou.github.io/DeonticBench/](https://guangyaodou.github.io/DeonticBench/) |
 
 ### Validity and evidence
@@ -249,71 +303,6 @@ Reason about obligations, permissions, prohibitions, eligibility, and amounts un
 **Inference**
 - Executable traces improve diagnosability but do not guarantee the formalization captures every legally relevant ambiguity.
 
-**Unresolved ambiguity**
-- None recorded.
-
-Original source bullet(s): Curated addition.
-
-[Back to page index](#on-this-page)
-
-<a id="alarb"></a>
-## ALARB
-
-`alarb` · **dataset** · **check before use** · fixed-release
-
-Reason over Saudi commercial-law cases, complete arguments, and identify governing statutory articles.
-
-### Evaluation contract
-
-| Field | Detail |
-|---|---|
-| Construct / theory | Verdict/argument generation is judged for correctness and partial correctness, while article selection uses MCQ accuracy; the protocol mixes open and closed-form constructs. |
-| Jurisdiction | Saudi Arabia |
-| Languages | Arabic |
-| Size | 13,344 cases linked to eight statutes; reported experiments use 1,329 cases and 1,159 MCQs per article task |
-| Splits | HF exposes a release without a clearly isolated hidden test |
-| Source | Saudi commercial cases and statutes, restructured with LLM assistance |
-| Input | Case facts/reasoning context or article question |
-| Output | Verdict/reasoning text or selected article |
-| Baselines / leaderboard context | Paper evaluates multiple Arabic/general LLMs. |
-| Dataset access | Public HF release |
-| License | HF metadata: Apache-2.0 |
-| Gating | None observed |
-| Maintenance | Fixed research release; no canonical GitHub repository located. |
-| Reproducibility | Data are inspectable, but hosted-judge drift and absence of a hidden split limit strict reproduction. |
-
-### Metrics
-
-- **Correct / partial / incorrect judge score:** GPT-4o categorizes generated legal outputs against references. Judge: GPT-4o. **Primary.**
-- **MCQ accuracy:** Exact statutory-article choice. **Primary.**
-
-### Resources
-
-| Resource | Direct URL |
-|---|---|
-| GitHub | None |
-| Hugging Face | [https://huggingface.co/datasets/THIQAH-RD/ALARB](https://huggingface.co/datasets/THIQAH-RD/ALARB) |
-| Paper / arXiv | [https://arxiv.org/abs/2510.00694](https://arxiv.org/abs/2510.00694) |
-| Leaderboard / competition | None |
-| Project | None |
-
-### Validity and evidence
-
-**Risks / caveats**
-- LLM-assisted restructuring and mapping can propagate annotation errors.
-- Public cases, labels, and references permit contamination and evaluation-set training.
-
-**Verified facts**
-- Paper and THIQAH-RD HF release identify the dataset.
-
-**Inference**
-- None recorded.
-
-**Unresolved ambiguity**
-- No canonical GitHub or independent leaderboard was found.
-
-Original source bullet(s): #14
-
 [Back to page index](#on-this-page)
 
 <a id="mslr"></a>
@@ -322,6 +311,25 @@ Original source bullet(s): #14
 `mslr` · **benchmark** · **check before use** · active
 
 Extract structured facts and produce IRAC-style reasoning for Chinese insider-trading cases.
+
+**Also known as:** MSLR
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | MSLR-Bench authors (academic) |
+| First documented | [2025-11-11](https://arxiv.org/abs/2511.07979) — arXiv v1 submission |
+| Latest verified update | [2026-06-29](https://github.com/yuwenhan07/MSLR-Bench) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Test structured field extraction from Chinese insider-trading decisions against 59,771 labeled fields.
+- Test whether generated case analysis covers the expected IRAC components via IRAC recall.
+- Research corpus for Chinese financial-enforcement reasoning tasks.
 
 ### Evaluation contract
 
@@ -332,7 +340,7 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 | Languages | Chinese |
 | Size | 1,389 cases from 2005–2024 with 59,771 fields |
 | Splits | HF visibly exposes one train split |
-| Source | Public Chinese insider-trading enforcement/case materials |
+| Source material | Public Chinese insider-trading enforcement/case materials |
 | Input | Case documents |
 | Output | Structured JSON fields and free-text IRAC analysis |
 | Baselines / leaderboard context | Official paper compares general and legal LLMs; headline percentages must be tied to a named metric. |
@@ -354,8 +362,6 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 | GitHub | [https://github.com/yuwenhan07/MSLR-Bench](https://github.com/yuwenhan07/MSLR-Bench) |
 | Hugging Face | [https://huggingface.co/datasets/Yuwh07/MSLR-Bench](https://huggingface.co/datasets/Yuwh07/MSLR-Bench) |
 | Paper / arXiv | [https://arxiv.org/abs/2511.07979](https://arxiv.org/abs/2511.07979) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -365,9 +371,6 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 
 **Verified facts**
 - Official GitHub/HF/paper agree on the case/field scale.
-
-**Inference**
-- None recorded.
 
 **Unresolved ambiguity**
 - Repository and HF licenses conflict; no hidden held-out split was verified.
@@ -383,6 +386,23 @@ Original source bullet(s): #16
 
 Multi-agent deductive reasoning about GDPR enforcement facts, rules, application, common sense, and conclusions.
 
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | HKUST KnowComp (academic) |
+| First documented | [2025-09-29](https://arxiv.org/abs/2509.24922) — arXiv v1 submission |
+| Latest verified update | [2025-09-30](https://arxiv.org/abs/2509.24922) — arXiv revision |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Compare single-agent versus multi-agent architectures on GDPR-enforcement questions with retrievable report evidence.
+- Test retrieval-at-k of supporting enforcement-report passages inside an agent pipeline.
+- Research agent-coordination diagnostics (refusal, agreement statistics) in a legal setting.
+
 ### Evaluation contract
 
 | Field | Detail |
@@ -392,7 +412,7 @@ Multi-agent deductive reasoning about GDPR enforcement facts, rules, application
 | Languages | English |
 | Size | 950 MCQs from 15 UK enforcement reports: 647 yes/no and 303 four-choice |
 | Splits | Public evaluation collection |
-| Source | Fifteen UK regulatory enforcement reports; questions generated with DeepSeek and reviewed |
+| Source material | Fifteen UK regulatory enforcement reports; questions generated with DeepSeek and reviewed |
 | Input | Question plus retrievable report chunks |
 | Output | Choice/yes-no answer and multi-agent traces |
 | Baselines / leaderboard context | Paper compares single- and multi-agent configurations. |
@@ -412,10 +432,7 @@ Multi-agent deductive reasoning about GDPR enforcement facts, rules, application
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/HKUST-KnowComp/MASLegalBench](https://github.com/HKUST-KnowComp/MASLegalBench) |
-| Hugging Face | None |
 | Paper / arXiv | [https://arxiv.org/abs/2509.24922](https://arxiv.org/abs/2509.24922) |
-| Leaderboard / competition | None |
-| Project | None |
 
 ### Validity and evidence
 
@@ -426,12 +443,76 @@ Multi-agent deductive reasoning about GDPR enforcement facts, rules, application
 **Verified facts**
 - Official paper/repository define 950 questions and the 647/303 split.
 
-**Inference**
-- None recorded.
+Original source bullet(s): #17
+
+[Back to page index](#on-this-page)
+
+<a id="openexempt"></a>
+## OpenExempt
+
+`openexempt` · **benchmark-suite** · **specialist** · active
+
+Apply structured US bankruptcy exemption rules and remain robust under controlled perturbations.
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | OpenExempt authors (academic) |
+| First documented | [2026-01-11](https://huggingface.co/datasets/SergioServantez/OpenExempt) — Hugging Face dataset creation |
+| Latest verified update | [2026-01-21](https://huggingface.co/datasets/SergioServantez/OpenExempt) — Hugging Face dataset update |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Test symbolic statutory reasoning under US Bankruptcy Code exemption rules.
+- Stress-test robustness to temporal changes, decomposition, scale, distractors, sycophancy, and obfuscation.
+- Use deterministic gold solutions to separate rule-reasoning failures from LLM-judge noise.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Programmatically generated cases with deterministic symbolic solutions test rule application and targeted robustness properties without an LLM judge. |
+| Jurisdiction | United States federal bankruptcy law |
+| Languages | English |
+| Size | 9,765 samples across nine competency and robustness suites |
+| Splits | Nine suites covering competency, intermediate/advanced reasoning, temporal, decomposition, scaling, distractor, sycophancy, and obfuscation conditions |
+| Source material | US Bankruptcy Code exemption rules and generated fact patterns |
+| Input | Facts and applicable statutory rules |
+| Output | Structured exemption determination or solution |
+| Baselines / leaderboard context | Paper reports model performance across competency and robustness suites. |
+| Dataset access | Public Hugging Face and GitHub release |
+| License | CC BY 4.0 data |
+| Gating | None; Hugging Face viewer may fail because the release uses a legacy dataset script |
+| Maintenance | Fixed 2026 research release. |
+| Reproducibility | Strong for the deterministic solver when code/data revisions are pinned. |
+
+### Metrics
+
+- **Deterministic suite accuracy:** Compare the model's structured answer with the symbolic solver's gold result; report each suite separately before any aggregate. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/servantez/OpenExempt](https://github.com/servantez/OpenExempt) |
+| Hugging Face | [https://huggingface.co/datasets/SergioServantez/OpenExempt](https://huggingface.co/datasets/SergioServantez/OpenExempt) |
+| Paper / arXiv | [https://arxiv.org/abs/2601.13183](https://arxiv.org/abs/2601.13183)<br>[https://aclanthology.org/2026.findings-acl.1328/](https://aclanthology.org/2026.findings-acl.1328/) |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Generated symbolic cases may not capture ambiguity, evidence, or procedure in real bankruptcy practice.
+- Public generator and answers permit targeted optimization.
+- A failing dataset viewer can be mistaken for unavailable data.
+
+**Verified facts**
+- Official GitHub, Hugging Face, arXiv, and ACL artifacts establish 9,765 samples and nine suites.
 
 **Unresolved ambiguity**
-- None recorded.
-
-Original source bullet(s): #17
+- The preferred cross-suite aggregate is less important than, and should not replace, per-suite reporting.
 
 [Back to page index](#on-this-page)
