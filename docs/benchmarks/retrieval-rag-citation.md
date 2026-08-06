@@ -48,14 +48,13 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 
 **Also known as:** MLEB
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Isaacus (company; commercial interest) |
 | Catalog geography | Multi-jurisdiction and supranational |
-| First recorded public event | [2025-10-22](https://arxiv.org/abs/2510.19365) — arXiv v1 submission |
-| Latest verified event | [2026-02-24](https://github.com/isaacus-dev/mleb) — GitHub repository push |
+| Last verified update | [2026-02-24](https://github.com/isaacus-dev/mleb)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -69,7 +68,7 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | MTEB-compatible task configurations treat rank quality—usually nDCG@10—as the main proxy for useful legal representations, supplemented by QA and classification task scores. |
 | Jurisdiction | United States, United Kingdom, European Union, Australia, Ireland, Singapore |
 | Languages | English |
@@ -92,7 +91,7 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/isaacus-dev/mleb](https://github.com/isaacus-dev/mleb) |
 | Hugging Face | [https://huggingface.co/isaacus/datasets](https://huggingface.co/isaacus/datasets) |
 | Paper / arXiv | [https://arxiv.org/abs/2510.19365](https://arxiv.org/abs/2510.19365) |
@@ -127,14 +126,13 @@ Original source bullet(s): #3, #20
 
 Retrieve exact supporting spans from long legal and policy documents.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | ZeroEntropy (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2024-08-19](https://arxiv.org/abs/2408.10343) — arXiv v1 submission |
-| Latest verified event | [2025-05-30](https://github.com/zeroentropy-ai/legalbenchrag) — GitHub repository push |
+| Last verified update | [2025-05-30](https://github.com/zeroentropy-ai/legalbenchrag)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -148,7 +146,7 @@ Retrieve exact supporting spans from long legal and policy documents.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Character-level precision and recall directly measure whether retrieved text covers gold support while limiting extra context; this isolates retrieval from answer generation. |
 | Jurisdiction | United States, mixed contracts and policies |
 | Languages | English |
@@ -171,7 +169,7 @@ Retrieve exact supporting spans from long legal and policy documents.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/zeroentropy-ai/legalbenchrag](https://github.com/zeroentropy-ai/legalbenchrag) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2408.10343](https://arxiv.org/abs/2408.10343) |
@@ -207,14 +205,13 @@ Retrieve Belgian statutory articles relevant to a legal question.
 
 **Also known as:** BSARD
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Maastricht Law & Tech Lab (academic) |
 | Catalog geography | Belgium |
-| First recorded public event | [2021-08-26](https://arxiv.org/abs/2108.11792) — arXiv v1 submission |
-| Latest verified event | [2024-05-31](https://huggingface.co/datasets/maastrichtlawtech/bsard) — Hugging Face dataset update |
+| Last verified update | [2024-05-31](https://huggingface.co/datasets/maastrichtlawtech/bsard)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -228,7 +225,7 @@ Retrieve Belgian statutory articles relevant to a legal question.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Recall@k tests whether needed authority appears in the candidate set; MRR/MAP reward placing one or all relevant provisions early. |
 | Jurisdiction | Belgium |
 | Languages | French |
@@ -252,7 +249,7 @@ Retrieve Belgian statutory articles relevant to a legal question.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/maastrichtlawtech/bsard](https://github.com/maastrichtlawtech/bsard) |
 | Hugging Face | [https://huggingface.co/datasets/maastrichtlawtech/bsard](https://huggingface.co/datasets/maastrichtlawtech/bsard) |
 | Paper / arXiv | [https://arxiv.org/abs/2108.11792](https://arxiv.org/abs/2108.11792)<br>[https://aclanthology.org/2022.acl-long.468/](https://aclanthology.org/2022.acl-long.468/) |
@@ -277,14 +274,13 @@ Retrieve Belgian statutory articles relevant to a legal question.
 
 Retrieve Belgian legal authorities and generate long-form answers to practitioner-style questions.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Maastricht Law & Tech Lab (academic) |
 | Catalog geography | Belgium |
-| First recorded public event | [2023-09-29](https://arxiv.org/abs/2309.17050) — arXiv v1 submission |
-| Latest verified event | [2024-09-03](https://huggingface.co/datasets/maastrichtlawtech/lleqa) — Hugging Face dataset update |
+| Last verified update | [2024-09-03](https://huggingface.co/datasets/maastrichtlawtech/lleqa)<br>*Hugging Face dataset update* |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -298,7 +294,7 @@ Retrieve Belgian legal authorities and generate long-form answers to practitione
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | The benchmark joins retrieval coverage with answer similarity/grounding, allowing diagnosis of whether failure came from authority retrieval or answer synthesis. |
 | Jurisdiction | Belgium |
 | Languages | French |
@@ -322,7 +318,7 @@ Retrieve Belgian legal authorities and generate long-form answers to practitione
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/maastrichtlawtech/lleqa](https://github.com/maastrichtlawtech/lleqa) |
 | Hugging Face | [https://huggingface.co/datasets/maastrichtlawtech/lleqa](https://huggingface.co/datasets/maastrichtlawtech/lleqa) |
 | Paper / arXiv | [https://arxiv.org/abs/2309.17050](https://arxiv.org/abs/2309.17050) |
@@ -351,14 +347,13 @@ Retrieve Belgian legal authorities and generate long-form answers to practitione
 
 Retrieve Belgian statutory support and answer grounded legal questions in French and Dutch, including refusal when evidence is insufficient.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | University of Antwerp bLLeQA authors (academic) |
 | Catalog geography | Belgium |
-| First recorded public event | [2025-08-20](https://huggingface.co/datasets/clips/bLLeQA) — Hugging Face dataset creation |
-| Latest verified event | [2026-07-03](https://aclanthology.org/2026.knowfm-1.4.pdf) — KnowFM 2026 publication date |
+| Last verified update | [2026-07-03](https://aclanthology.org/2026.knowfm-1.4.pdf)<br>*KnowFM 2026 publication date* |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -372,7 +367,7 @@ Retrieve Belgian statutory support and answer grounded legal questions in French
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | A bilingual parallel extension of LLeQA decomposes end-to-end RAG into retrieval, citation, refusal, faithfulness, and answer-quality components. |
 | Jurisdiction | Belgium, France and Netherlands source alignment described by the release |
 | Languages | French, Dutch |
@@ -396,7 +391,7 @@ Retrieve Belgian statutory support and answer grounded legal questions in French
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/nikolay-banar/blleqa](https://github.com/nikolay-banar/blleqa) |
 | Hugging Face | [https://huggingface.co/datasets/clips/bLLeQA](https://huggingface.co/datasets/clips/bLLeQA) |
 | Paper / arXiv | [https://aclanthology.org/2026.knowfm-1.4.pdf](https://aclanthology.org/2026.knowfm-1.4.pdf) |
@@ -429,14 +424,13 @@ Retrieve Belgian statutory support and answer grounded legal questions in French
 
 Retrieve US case-law evidence and generate citation-grounded legal text.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Johns Hopkins CLSP (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2024-06-24](https://arxiv.org/abs/2406.17186) — arXiv v1 submission |
-| Latest verified event | [2025-01-28](https://github.com/bohanhou14/CLERC) — GitHub repository push |
+| Last verified update | [2025-01-28](https://github.com/bohanhou14/CLERC)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -450,7 +444,7 @@ Retrieve US case-law evidence and generate citation-grounded legal text.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Large-corpus recall measures whether cited support is retrieved; generation metrics and citation/hallucination analysis assess whether answers use that evidence faithfully. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -474,7 +468,7 @@ Retrieve US case-law evidence and generate citation-grounded legal text.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/bohanhou14/CLERC](https://github.com/bohanhou14/CLERC) |
 | Hugging Face | [https://huggingface.co/datasets/jhu-clsp/CLERC](https://huggingface.co/datasets/jhu-clsp/CLERC) |
 | Paper / arXiv | [https://arxiv.org/abs/2406.17186](https://arxiv.org/abs/2406.17186) |
@@ -504,14 +498,13 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 
 **Also known as:** Reasoning-Focused Legal Retrieval Benchmark, RegLab Legal RAG Benchmarks
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Stanford RegLab (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2025-05-06](https://arxiv.org/abs/2505.03970) — arXiv v1 submission |
-| Latest verified event | None later verified |
+| Last verified update | — |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -525,7 +518,7 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | The suite intentionally stresses semantic/legal reasoning in retrieval; Recall@k/MRR measure evidence ranking and downstream QA accuracy tests whether the retrieved authority is usable. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -549,7 +542,7 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | [https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5](https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5)<br>[https://huggingface.co/datasets/reglab/barexam_qa](https://huggingface.co/datasets/reglab/barexam_qa)<br>[https://huggingface.co/datasets/reglab/housing_qa](https://huggingface.co/datasets/reglab/housing_qa) |
 | Paper / arXiv | [https://arxiv.org/abs/2505.03970](https://arxiv.org/abs/2505.03970) |
@@ -581,14 +574,13 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 
 Retrieve legally similar Chinese criminal cases using graded relevance across characterization, penalty, and procedure.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | THUIR (academic) |
 | Catalog geography | China |
-| First recorded public event | [2023-10-26](https://arxiv.org/abs/2310.17609) — arXiv v1 submission |
-| Latest verified event | [2024-12-29](https://github.com/THUIR/LeCaRDv2) — GitHub repository push |
+| Last verified update | [2024-12-29](https://github.com/THUIR/LeCaRDv2)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -602,7 +594,7 @@ Retrieve legally similar Chinese criminal cases using graded relevance across ch
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Expert multi-aspect relevance separates factual/legal similarity from mere lexical overlap; recall at large k tests first-stage retrieval and nDCG/precision support reranking analysis. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -626,7 +618,7 @@ Retrieve legally similar Chinese criminal cases using graded relevance across ch
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/THUIR/LeCaRDv2](https://github.com/THUIR/LeCaRDv2) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2310.17609](https://arxiv.org/abs/2310.17609) |
@@ -658,14 +650,13 @@ Retrieve all Chinese statutory articles relevant to an informal real-world legal
 
 **Also known as:** STAtute Retrieval Dataset
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | STARD authors / Tsinghua University (academic) |
 | Catalog geography | China |
-| First recorded public event | [2024-03-17](https://github.com/oneal2000/STARD) — GitHub repository creation |
-| Latest verified event | [2025-04-24](https://github.com/oneal2000/STARD) — Last verified GitHub repository push affecting the benchmark artifact |
+| Last verified update | [2025-04-24](https://github.com/oneal2000/STARD)<br>*Last verified GitHub repository push affecting the benchmark artifact* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -679,7 +670,7 @@ Retrieve all Chinese statutory articles relevant to an informal real-world legal
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Recall at several cutoffs measures whether a retriever finds the full set of annotated statutes, while reciprocal rank measures how early the first relevant statute appears; the labels operationalize legal relevance through a three-step lawyer annotation process. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -703,7 +694,7 @@ Retrieve all Chinese statutory articles relevant to an informal real-world legal
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/oneal2000/STARD](https://github.com/oneal2000/STARD) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2406.15313](https://arxiv.org/abs/2406.15313) |
@@ -745,14 +736,13 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 
 **Also known as:** COLIEE
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | COLIEE organizers (competition) |
 | Catalog geography | Multi-jurisdiction and supranational |
-| First recorded public event | [2014](https://coliee.org/COLIEE2025/overview) — Official COLIEE history; COLIEE 2025 is identified as the 12th competition |
-| Latest verified event | [2026-06](https://coliee.org/COLIEE2026/program) — COLIEE 2026 workshop program |
+| Last verified update | [2026-06](https://coliee.org/COLIEE2026/program)<br>*COLIEE 2026 workshop program* |
 | Access level | gated |
 | Test labels | hidden |
 | Independently runnable | partial |
@@ -766,7 +756,7 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Four annual tasks separate first-stage authority retrieval from textual entailment; official hidden tests reduce direct leakage, while task-specific precision/recall/F1 and accuracy measure different stages. |
 | Jurisdiction | Canada, Japan |
 | Languages | English, Japanese |
@@ -790,7 +780,7 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -825,14 +815,13 @@ Rank relevant Indian Supreme Court precedents and statutory sections for a factu
 
 **Also known as:** FIRE 2019 Artificial Intelligence for Legal Assistance Track
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | FIRE 2019 AILA organizers (competition) |
 | Catalog geography | India |
-| First recorded public event | [2019](https://ceur-ws.org/Vol-2517/T1-1.pdf) — FIRE 2019 shared-task edition; exact first public data-release date was not located |
-| Latest verified event | [2020-10-03](https://zenodo.org/records/4063986) — Zenodo dataset record modification |
+| Last verified update | [2020-10-03](https://zenodo.org/records/4063986)<br>*Zenodo dataset record modification* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -846,7 +835,7 @@ Rank relevant Indian Supreme Court precedents and statutory sections for a factu
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | MAP rewards repeated early precision across all known relevant authorities, while P@10, BPREF, and reciprocal rank separately expose top-ten concentration, robustness to incomplete judgments, and first-hit rank. |
 | Jurisdiction | India |
 | Languages | English |
@@ -870,7 +859,7 @@ Rank relevant Indian Supreme Court precedents and statutory sections for a factu
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Law-AI/aila-2019-dataset](https://github.com/Law-AI/aila-2019-dataset) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://ceur-ws.org/Vol-2517/T1-1.pdf](https://ceur-ws.org/Vol-2517/T1-1.pdf) |
@@ -912,14 +901,13 @@ Retrieve German case decisions cited by a passage expressing a legal statement o
 
 **Also known as:** German Dataset for Legal Information Retrieval
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LAVIS NLP / GerDaLIR authors (academic) |
 | Catalog geography | Germany |
-| First recorded public event | [2021-09-28](https://github.com/lavis-nlp/GerDaLIR) — GitHub repository creation |
-| Latest verified event | [2024-02-26](https://github.com/lavis-nlp/GerDaLIR) — Last verified GitHub repository push affecting the benchmark artifact |
+| Last verified update | [2024-02-26](https://github.com/lavis-nlp/GerDaLIR)<br>*Last verified GitHub repository push affecting the benchmark artifact* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -933,7 +921,7 @@ Retrieve German case decisions cited by a passage expressing a legal statement o
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Top-rank quality is measured by MRR@10 and nDCG@20, while Recall@100/1000 measures corpus coverage; relevance is operationalized by parsed case citations rather than independent expert judgments. |
 | Jurisdiction | Germany |
 | Languages | German |
@@ -957,7 +945,7 @@ Retrieve German case decisions cited by a passage expressing a legal statement o
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/lavis-nlp/GerDaLIR](https://github.com/lavis-nlp/GerDaLIR) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://aclanthology.org/2021.nllp-1.13/](https://aclanthology.org/2021.nllp-1.13/) |
@@ -999,14 +987,13 @@ Find documents responsive to civil-litigation production requests while minimizi
 
 **Also known as:** TREC Legal
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | NIST TREC Legal Track organizers (mixed) |
 | Catalog geography | United States |
-| First recorded public event | [2006](https://trec.nist.gov/data/legal06.html) — First official TREC Legal Track edition |
-| Latest verified event | [2011](https://trec.nist.gov/data/legal11.html) — Final official TREC Legal Track edition |
+| Last verified update | [2011](https://trec.nist.gov/data/legal11.html)<br>*Final official TREC Legal Track edition* |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | partial |
@@ -1020,7 +1007,7 @@ Find documents responsive to civil-litigation production requests while minimizi
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | The series operationalizes e-discovery retrieval through attorney-authored production requests, pooled or sampled responsiveness judgments, and review-effort tradeoffs; later learning tasks jointly evaluate ranking and estimated probabilities of responsiveness. |
 | Jurisdiction | United States civil litigation / e-discovery |
 | Languages | English |
@@ -1045,7 +1032,7 @@ Find documents responsive to civil-litigation production requests while minimizi
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | [https://trec.nist.gov/pubs/trec15/papers/LEGAL06.OVERVIEW.pdf](https://trec.nist.gov/pubs/trec15/papers/LEGAL06.OVERVIEW.pdf)<br>[https://trec.nist.gov/pubs/trec20/papers/LEGAL.OVERVIEW.2011.pdf](https://trec.nist.gov/pubs/trec20/papers/LEGAL.OVERVIEW.2011.pdf) |
@@ -1079,14 +1066,13 @@ Find documents responsive to civil-litigation production requests while minimizi
 
 Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval versus generation.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Isaacus / Umar Butler (mixed; commercial interest) |
 | Catalog geography | Australia |
-| First recorded public event | [2026-03-02](https://arxiv.org/abs/2603.01710) — arXiv v1 submission |
-| Latest verified event | [2026-03-08](https://huggingface.co/datasets/isaacus/legal-rag-bench) — Hugging Face dataset update |
+| Last verified update | [2026-03-08](https://huggingface.co/datasets/isaacus/legal-rag-bench)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1100,7 +1086,7 @@ Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval vers
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | A full factorial retriever×generator design plus hierarchical error decomposition tests whether gold support was retrieved, whether an answer is correct against expert reference, and whether its claims are grounded in supplied context. |
 | Jurisdiction | Victoria, Australia / criminal law and procedure |
 | Languages | English |
@@ -1124,7 +1110,7 @@ Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval vers
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/isaacus-dev/legal-rag-bench](https://github.com/isaacus-dev/legal-rag-bench) |
 | Hugging Face | [https://huggingface.co/datasets/isaacus/legal-rag-bench](https://huggingface.co/datasets/isaacus/legal-rag-bench) |
 | Paper / arXiv | [https://arxiv.org/abs/2603.01710](https://arxiv.org/abs/2603.01710) |
@@ -1153,14 +1139,13 @@ Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval vers
 
 Retrieve Canadian case law for realistic layperson and legal-professional queries and generate grounded answers.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | UBC NLP (academic) |
 | Catalog geography | Canada |
-| First recorded public event | [2026-05-28](https://arxiv.org/abs/2605.30497) — arXiv v1 submission |
-| Latest verified event | [2026-07-20](https://github.com/NLP-UBC/CanLegalRAGBench) — GitHub repository push |
+| Last verified update | [2026-07-20](https://github.com/NLP-UBC/CanLegalRAGBench)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1174,7 +1159,7 @@ Retrieve Canadian case law for realistic layperson and legal-professional querie
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Macro retrieval metrics score authority coverage/ranking; claim-level factuality compares generated atomic claims to expert answers and retrieved documents, separating answer agreement from grounding. |
 | Jurisdiction | Canada, Ontario, British Columbia, Alberta, other Canadian provinces/federal courts |
 | Languages | English, some French passages |
@@ -1198,7 +1183,7 @@ Retrieve Canadian case law for realistic layperson and legal-professional querie
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/NLP-UBC/CanLegalRAGBench](https://github.com/NLP-UBC/CanLegalRAGBench) |
 | Hugging Face | [https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench](https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2605.30497](https://arxiv.org/abs/2605.30497) |
@@ -1226,14 +1211,13 @@ Retrieve Canadian case law for realistic layperson and legal-professional querie
 
 Retrieve Italian statutory articles relevant to natural-language legal questions.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | JuriFindIT authors (academic) |
 | Catalog geography | Italy |
-| First recorded public event | [2025-09-29](https://huggingface.co/datasets/jurifindit/JuriFindIT) — Hugging Face dataset creation |
-| Latest verified event | [2026-03](https://aclanthology.org/2026.findings-eacl.221/) — Findings of EACL 2026 publication |
+| Last verified update | [2026-03](https://aclanthology.org/2026.findings-eacl.221/)<br>*Findings of EACL 2026 publication* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1247,7 +1231,7 @@ Retrieve Italian statutory articles relevant to natural-language legal questions
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Expert question-to-article relevance judgments test the lexical and conceptual gap between ordinary questions and statute text; graph experiments test cross-article structure. |
 | Jurisdiction | Italy, European Union materials within the corpus |
 | Languages | Italian |
@@ -1270,7 +1254,7 @@ Retrieve Italian statutory articles relevant to natural-language legal questions
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/jurifindit/JuriFindIT](https://huggingface.co/datasets/jurifindit/JuriFindIT) |
 | Paper / arXiv | [https://aclanthology.org/2026.findings-eacl.221/](https://aclanthology.org/2026.findings-eacl.221/) |
@@ -1301,14 +1285,13 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 
 **Also known as:** Corpora for Identifying Indian Legal Statutes from Queries by Laypeople
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Law-AI / ILSIC authors (academic) |
 | Catalog geography | India |
-| First recorded public event | [2026-01-23](https://github.com/Law-AI/ilsic) — GitHub repository creation |
-| Latest verified event | [2026-02-03](https://github.com/Law-AI/ilsic) — GitHub repository push |
+| Last verified update | [2026-02-03](https://github.com/Law-AI/ilsic)<br>*GitHub repository push* |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | partial |
@@ -1322,7 +1305,7 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Parallel query populations test whether statute identification trained on formal court language transfers to informal questions from non-professionals. |
 | Jurisdiction | India |
 | Languages | English, Indian legal-query language |
@@ -1345,7 +1328,7 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Law-AI/ilsic](https://github.com/Law-AI/ilsic) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2602.00881](https://arxiv.org/abs/2602.00881) |
@@ -1378,14 +1361,13 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 
 Answer Romanian driving-law questions and retrieve governing law or traffic signs from text and images.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | GRAI-UNSTPB / RoD-TAL authors (academic) |
 | Catalog geography | Romania |
-| First recorded public event | [2025-07-25](https://arxiv.org/abs/2507.19666) — arXiv v1 submission |
-| Latest verified event | [2026-04-30](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL) — Hugging Face dataset update |
+| Last verified update | [2026-04-30](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL)<br>*Hugging Face dataset update* |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1399,7 +1381,7 @@ Answer Romanian driving-law questions and retrieve governing law or traffic sign
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Four text/vision task families test whether systems connect driving-exam questions and images to legal articles, signs, explanations, and correct answers. |
 | Jurisdiction | Romania |
 | Languages | Romanian |
@@ -1423,7 +1405,7 @@ Answer Romanian driving-law questions and retrieve governing law or traffic sign
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/vladman-25/RoD-TAL](https://github.com/vladman-25/RoD-TAL) |
 | Hugging Face | [https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL) |
 | Paper / arXiv | [https://arxiv.org/abs/2507.19666](https://arxiv.org/abs/2507.19666)<br>[https://aclanthology.org/2026.findings-eacl.295/](https://aclanthology.org/2026.findings-eacl.295/) |
@@ -1454,14 +1436,13 @@ Produce current US legal answers with relevant, supported, and correctly ranged 
 
 **Also known as:** Open Legal-Answer Benchmark
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Vaquill AI (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-07-09](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository creation |
-| Latest verified event | [2026-07-18](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository push |
+| Last verified update | [2026-07-18](https://github.com/Vaquill-AI/open-legal-answer-benchmark)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1475,7 +1456,7 @@ Produce current US legal answers with relevant, supported, and correctly ranged 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Checklist and citation metrics separate substantive required points, forbidden claims, authority retrieval, and citation entailment/range instead of collapsing answer quality into one judge score. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -1499,7 +1480,7 @@ Produce current US legal answers with relevant, supported, and correctly ranged 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Vaquill-AI/open-legal-answer-benchmark](https://github.com/Vaquill-AI/open-legal-answer-benchmark) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -1529,14 +1510,13 @@ Original source bullet(s): #22
 
 Retrieve, complete, verify, and abstain on legal citations in US appellate text.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LegalCiteBench authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2026-05-06](https://huggingface.co/datasets/legalcitebench/LegalCiteBench) — Hugging Face dataset creation |
-| Latest verified event | [2026-05-11](https://arxiv.org/abs/2605.10186) — arXiv v1 submission |
+| Last verified update | [2026-05-11](https://arxiv.org/abs/2605.10186)<br>*arXiv v1 submission* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1550,7 +1530,7 @@ Retrieve, complete, verify, and abstain on legal citations in US appellate text.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Five citation tasks separate finding authority, producing citation text, checking validity, and declining unsupported requests. |
 | Jurisdiction | United States federal appellate courts |
 | Languages | English |
@@ -1573,7 +1553,7 @@ Retrieve, complete, verify, and abstain on legal citations in US appellate text.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Sijia711/LegalCiteBench](https://github.com/Sijia711/LegalCiteBench) |
 | Hugging Face | [https://huggingface.co/datasets/legalcitebench/LegalCiteBench](https://huggingface.co/datasets/legalcitebench/LegalCiteBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2605.10186](https://arxiv.org/abs/2605.10186) |
@@ -1604,14 +1584,13 @@ Identify hallucinated legal citations and affected spans in federal appellate br
 
 **Also known as:** LePhantomCite
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Princeton Polaris Lab / AI, Law & Society Lab (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2026-04-07](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset creation |
-| Latest verified event | [2026-07-06](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset update |
+| Last verified update | [2026-07-06](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1625,7 +1604,7 @@ Identify hallucinated legal citations and affected spans in federal appellate br
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Expert-verified real and phantom citation examples turn citation safety into span detection rather than open-ended answer judging. |
 | Jurisdiction | United States federal appellate courts, 13 circuits |
 | Languages | English |
@@ -1648,7 +1627,7 @@ Identify hallucinated legal citations and affected spans in federal appellate br
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/princeton-polaris-lab/legal-hallucination-agent](https://github.com/princeton-polaris-lab/legal-hallucination-agent) |
 | Hugging Face | [https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) |
 | Paper / arXiv | [https://arxiv.org/abs/2606.21155](https://arxiv.org/abs/2606.21155) |
@@ -1676,14 +1655,13 @@ Answer verifiable closed-form questions about US federal cases without inventing
 
 **Also known as:** RegLab Legal Hallucinations
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Stanford RegLab / Yale authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2024-01-02](https://arxiv.org/abs/2401.01301) — arXiv v1 submission |
-| Latest verified event | [2024-06-26](https://github.com/reglab/legal_hallucinations) — GitHub repository push |
+| Last verified update | [2024-06-26](https://github.com/reglab/legal_hallucinations)<br>*GitHub repository push* |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1697,7 +1675,7 @@ Answer verifiable closed-form questions about US federal cases without inventing
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Questions tied to case metadata and holdings make hallucination observable through correctness, contradiction, and consistency labels. |
 | Jurisdiction | United States federal courts |
 | Languages | English |
@@ -1720,7 +1698,7 @@ Answer verifiable closed-form questions about US federal cases without inventing
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/reglab/legal_hallucinations](https://github.com/reglab/legal_hallucinations) |
 | Hugging Face | [https://huggingface.co/datasets/reglab/legal_hallucinations](https://huggingface.co/datasets/reglab/legal_hallucinations) |
 | Paper / arXiv | [https://arxiv.org/abs/2401.01301](https://arxiv.org/abs/2401.01301) |
@@ -1751,14 +1729,13 @@ Return correct, grounded, responsive legal research answers without false author
 
 **Also known as:** RegLab Legal RAG Hallucinations
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Stanford RegLab (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2024-05-30](https://arxiv.org/abs/2405.20362) — arXiv v1 submission |
-| Latest verified event | [2024-11-14](https://huggingface.co/datasets/reglab/legal_rag_hallucinations) — Hugging Face dataset update |
+| Last verified update | [2024-11-14](https://huggingface.co/datasets/reglab/legal_rag_hallucinations)<br>*Hugging Face dataset update* |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -1772,7 +1749,7 @@ Return correct, grounded, responsive legal research answers without false author
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | A preregistered human-coding protocol separates correctness, completeness/relevance, grounding, and distinct hallucination mechanisms in product answers. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -1795,7 +1772,7 @@ Return correct, grounded, responsive legal research answers without false author
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/reglab/legal_rag_hallucinations](https://huggingface.co/datasets/reglab/legal_rag_hallucinations) |
 | Paper / arXiv | [https://arxiv.org/abs/2405.20362](https://arxiv.org/abs/2405.20362) |
@@ -1829,14 +1806,13 @@ Research US legal questions and produce answers satisfying lawyer-authored subst
 
 **Also known as:** Vals Legal Research Bench
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Vals AI (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2025-10](https://www.vals.ai/benchmarks/legal_research) — Earliest first-party release period located in Vals' benchmark timeline |
-| Latest verified event | [2026-08-03](https://www.vals.ai/benchmarks/legal_research) — Official benchmark page update date |
+| Last verified update | [2026-08-03](https://www.vals.ai/benchmarks/legal_research)<br>*Official benchmark page update date* |
 | Access level | partial |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -1850,7 +1826,7 @@ Research US legal questions and produce answers satisfying lawyer-authored subst
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Peer-reviewed questions and 1–31 weighted rubric items measure both complete matter-level success and partial coverage across eight practice areas. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -1874,7 +1850,7 @@ Research US legal questions and produce answers satisfying lawyer-authored subst
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -1905,14 +1881,13 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 
 **Also known as:** CaseLaw v2
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Vals AI (company; commercial interest) |
 | Catalog geography | Canada |
-| First recorded public event | [2026-02-05](https://www.vals.ai/benchmarks/case_law_v2) — Earliest dated first-party page located with CaseLaw v2 present |
-| Latest verified event | [2026-05-04](https://www.vals.ai/benchmarks/case_law_v2) — Official benchmark page update date |
+| Last verified update | [2026-05-04](https://www.vals.ai/benchmarks/case_law_v2)<br>*Official benchmark page update date* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -1926,7 +1901,7 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Seven judge dimensions assess case-law answer quality, but the private benchmark is now archived after reported saturation. |
 | Jurisdiction | Canada |
 | Languages | English |
@@ -1949,7 +1924,7 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -1981,14 +1956,13 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 
 Extract and answer state-specific unemployment-insurance law questions from statutes and regulations.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Stanford Regulation, Evaluation, and Governance Lab (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2025-05-02](https://huggingface.co/datasets/reglab/laborbench) — Hugging Face dataset creation |
-| Latest verified event | [2025-08-26](https://arxiv.org/abs/2508.19365) — arXiv v1 submission after the dataset release |
+| Last verified update | [2025-08-26](https://arxiv.org/abs/2508.19365)<br>*arXiv v1 submission after the dataset release* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | partial |
@@ -2002,7 +1976,7 @@ Extract and answer state-specific unemployment-insurance law questions from stat
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | LaborBench converts an annually lawyer-maintained Department of Labor comparison into structured questions; the paper's scored experiment tests Boolean legal QA with and without retrieval from StateCodes. |
 | Jurisdiction | United States: 50 states, District of Columbia, Puerto Rico, and U.S. Virgin Islands |
 | Languages | English |
@@ -2026,7 +2000,7 @@ Extract and answer state-specific unemployment-insurance law questions from stat
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/reglab/laborbench](https://huggingface.co/datasets/reglab/laborbench) |
 | Paper / arXiv | [https://arxiv.org/abs/2508.19365](https://arxiv.org/abs/2508.19365) |
@@ -2066,14 +2040,13 @@ Retrieve relevant Chinese legal articles and answer five-turn legal consultation
 
 **Also known as:** LexiT
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LexRAG authors (academic) |
 | Catalog geography | China |
-| First recorded public event | [2025-02-10](https://github.com/CSHaitao/LexRAG) — GitHub repository creation |
-| Latest verified event | [2025-03-03](https://github.com/CSHaitao/LexRAG) — GitHub repository push |
+| Last verified update | [2025-03-03](https://github.com/CSHaitao/LexRAG)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -2087,7 +2060,7 @@ Retrieve relevant Chinese legal articles and answer five-turn legal consultation
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Rank metrics measure article retrieval at each turn, while keyword coverage and a disclosed LLM judge score answer factuality, satisfaction, clarity, coherence, and completeness. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -2111,7 +2084,7 @@ Retrieve relevant Chinese legal articles and answer five-turn legal consultation
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/CSHaitao/LexRAG](https://github.com/CSHaitao/LexRAG) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2502.20640](https://arxiv.org/abs/2502.20640) |
@@ -2146,14 +2119,13 @@ Retrieve similar Chinese civil cases using multiple legally relevant views of ca
 
 **Also known as:** Multi-view Similar Case Retrieval
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Tsinghua University LawTech / MUSER authors (academic) |
 | Catalog geography | China |
-| First recorded public event | [2023-06-16](https://github.com/THUlawtech/MUSER) — GitHub repository creation |
-| Latest verified event | [2025-07-25](https://github.com/THUlawtech/MUSER) — GitHub repository push |
+| Last verified update | [2025-07-25](https://github.com/THUlawtech/MUSER)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | partial |
@@ -2167,7 +2139,7 @@ Retrieve similar Chinese civil cases using multiple legally relevant views of ca
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Top-rank and average-precision metrics score retrieval against multi-view qrels, while element-prediction F1 tests an intermediate structured representation of facts, disputes, and law. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -2192,7 +2164,7 @@ Retrieve similar Chinese civil cases using multiple legally relevant views of ca
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/THUlawtech/MUSER](https://github.com/THUlawtech/MUSER) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2310.15602](https://arxiv.org/abs/2310.15602) |

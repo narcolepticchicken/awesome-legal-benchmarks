@@ -262,7 +262,7 @@ Legal RAG Bench uses binary `correct` and `grounded` verdicts per question under
 LawBench does **not** use one common scoring rule. Its official task map is ([README task table](https://github.com/open-compass/LawBench/blob/main/README_EN.md#task-list), [evaluator directory](https://github.com/open-compass/LawBench/tree/main/evaluation/evaluation_functions)):
 
 | Cognitive level | Task IDs and official metrics |
-|---|---|
+| --- | --- |
 | Memorization | 1-1 Article Recitation — ROUGE-L; 1-2 Knowledge QA — accuracy |
 | Understanding | 2-1 Document Proofread — F0.5; 2-2 Dispute Focus — F1; 2-3 Marital Disputes — F1; 2-4 Issue Topic — accuracy; 2-5 Reading Comprehension — rc-F1; 2-6 Named Entity Recognition — soft-F1; 2-7 Opinion Summarization — ROUGE-L; 2-8 Argument Mining — accuracy; 2-9 Event Detection — F1; 2-10 Trigger Extraction — soft-F1 |
 | Application | 3-1 Fact-based Article Prediction — F1; 3-2 Scene-based Article Prediction — ROUGE-L; 3-3 Charge Prediction — F1; 3-4/3-5 Prison Term Prediction without/with article — normalized log-distance; 3-6 Case Analysis — accuracy; 3-7 Criminal Damages — accuracy; 3-8 Consultation — ROUGE-L |

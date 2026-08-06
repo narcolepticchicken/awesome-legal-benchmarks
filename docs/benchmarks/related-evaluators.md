@@ -22,14 +22,13 @@ Snapshot: **2026-08-05** · 4 entries
 
 Predict the quality of Chinese LLM-generated legal answers.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LegalEval-Q authors (academic) |
 | Catalog geography | China |
-| First recorded public event | [2025-05-30](https://arxiv.org/abs/2505.24826) — arXiv v1 submission |
-| Latest verified event | [2026-02-26](https://github.com/lyxx3rd/LegalEval-Q) — GitHub repository push |
+| Last verified update | [2026-02-26](https://github.com/lyxx3rd/LegalEval-Q)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -42,7 +41,7 @@ Predict the quality of Chinese LLM-generated legal answers.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | A learned five-dimension regressor and adjusted aggregate score approximate human quality labels; it evaluates outputs, not legal tasks against authoritative answers. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -65,7 +64,7 @@ Predict the quality of Chinese LLM-generated legal answers.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/lyxx3rd/LegalEval-Q](https://github.com/lyxx3rd/LegalEval-Q) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2505.24826](https://arxiv.org/abs/2505.24826) |
@@ -95,14 +94,13 @@ Original source bullet(s): #18
 
 Configure legal RAG evaluations across retrievers, rerankers, agents, judges, and custom corpora.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LRAGE authors (academic) |
 | Catalog geography | No fixed evaluation population |
-| First recorded public event | [2025-04-02](https://arxiv.org/abs/2504.01840) — arXiv v1 submission |
-| Latest verified event | [2026-07-03](https://github.com/hoorangyee/LRAGE) — GitHub repository push |
+| Last verified update | [2026-07-03](https://github.com/hoorangyee/LRAGE)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | not-applicable |
 | Independently runnable | yes |
@@ -116,7 +114,7 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | LRAGE supplies orchestration rather than one fixed construct; validity is inherited from the selected corpus, task, judge, and metric configuration. |
 | Jurisdiction | Global / configuration-dependent |
 | Languages | Multiple / configuration-dependent |
@@ -139,7 +137,7 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/hoorangyee/LRAGE](https://github.com/hoorangyee/LRAGE) |
 | Hugging Face | [https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25](https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25) |
 | Paper / arXiv | [https://arxiv.org/abs/2504.01840](https://arxiv.org/abs/2504.01840) |
@@ -170,14 +168,13 @@ Original source bullet(s): #19
 
 Answer obscure US legal-research and general information-search questions.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | prinz.ai (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-01-19](https://github.com/prinz-ai/prinzbench) — GitHub repository creation |
-| Latest verified event | [2026-07-18](https://github.com/prinz-ai/prinzbench) — GitHub repository push |
+| Last verified update | [2026-07-18](https://github.com/prinz-ai/prinzbench)<br>*GitHub repository push* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -190,7 +187,7 @@ Answer obscure US legal-research and general information-search questions.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Single-author human pass/fail attempts to measure research usefulness, but withheld items and non-blind grading prevent independent construct validation. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -213,7 +210,7 @@ Answer obscure US legal-research and general information-search questions.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/prinz-ai/prinzbench](https://github.com/prinz-ai/prinzbench) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -243,14 +240,13 @@ Original source bullet(s): #21
 
 Discovery index for legal NLP datasets, models, papers, surveys, books, and events.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Maastricht Law & Tech Lab (community) |
 | Catalog geography | No fixed evaluation population |
-| First recorded public event | [2020-09-16](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository creation |
-| Latest verified event | [2025-10-14](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository push |
+| Last verified update | [2025-10-14](https://github.com/maastrichtlawtech/awesome-legal-nlp)<br>*GitHub repository push* |
 | Access level | not-applicable |
 | Test labels | not-applicable |
 | Independently runnable | not-applicable |
@@ -262,7 +258,7 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | No evaluation construct is defined; this is a curated bibliography/resource list, not an instrument for measuring model capability. |
 | Jurisdiction | Global / mixed |
 | Languages | Multiple |
@@ -285,7 +281,7 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/maastrichtlawtech/awesome-legal-nlp](https://github.com/maastrichtlawtech/awesome-legal-nlp) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |

@@ -5,7 +5,7 @@ These legal-evaluation projects were plausible but not ready for the canonical c
 [Catalog index](catalog.md) · [Methodology](methodology.md) · [Contributing](../CONTRIBUTING.md) · [Back to README](../README.md)
 
 | Candidate | Why it matters | Why it remains on the watchlist | Primary artifacts |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | AR-BENCH | Chinese appellate-review error detection, classification, and correction. The [arXiv record and v1 preprint](https://arxiv.org/abs/2601.22742) are verified at 2026-01-30. The paper claims 8,700 annotated decisions and 34,617 supplementary documents. | No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches as of 2026-08-05. That negative search is not proof that no release exists. The paper says it reannotates JuDGE material; [JuDGE](https://github.com/oneal2000/JuDGE) is a different judgment-generation benchmark and is not an AR-BENCH release. | [paper](https://arxiv.org/abs/2601.22742) · [author page](https://zhangrichong.github.io/) · [GitHub exact-name/appellate search](https://github.com/search?q=%22AR-BENCH%22+appellate&type=repositories) · [HF exact-name search](https://huggingface.co/datasets?search=AR-BENCH) · [Zenodo exact-name API search](https://zenodo.org/api/records?q=%22AR-BENCH%22&size=25) · [upstream JuDGE](https://github.com/oneal2000/JuDGE) |
 | BenGER | German legal benchmark platform | A platform can change independently of the paper; a fixed, versioned task/data/scorer release and durable result protocol are needed. | [GitHub](https://github.com/SebastianNagl/benger-platform) · [paper](https://arxiv.org/abs/2605.28183) · [platform](https://what-a-benger.net/) |
 | UA-Legal-Bench | Ukrainian legal evaluation | The HF card identifies v1 while the paper describes v2; the canonical version relationship must be resolved. | [HF](https://huggingface.co/datasets/overthelex/ua-legal-bench) · [paper](https://arxiv.org/abs/2605.29170) · [paper code collection](https://github.com/overthelex/secondlayer-papers) |
@@ -36,7 +36,7 @@ The following discovery leads were not promoted because this audit did not locat
 These are known resources. They are not counted as additional canonical benchmarks in this snapshot.
 
 | Resource | Decision | Direct sources |
-|---|---|---|
+| --- | --- | --- |
 | ILDC / CJPE | Covered as an IL-TUR constituent task. A separate row would double-count the same Indian judgment-prediction evidence unless the catalog adds a constituent hierarchy. | [GitHub](https://github.com/Exploration-Lab/CJPE) · [paper](https://arxiv.org/abs/2105.13562) |
 | CAIL2018 and later CAIL releases | Source datasets and shared tasks already feed LawBench and FairLex. Add a separate identity only with edition-specific access, scorer, and current license provenance. | [GitHub organization](https://github.com/china-ai-law-challenge) · [CAIL2018 paper](https://arxiv.org/abs/1807.02478) |
 | SCOTUS, EUR-LEX, and UNFAIR-ToS within LexGLUE | Kept inside the LexGLUE suite instead of turning every constituent dataset into a top-level benchmark. ECtHR, LEDGAR, and CaseHOLD remain separate because the original README already treated them as identities with substantial independent use. | [LexGLUE](https://github.com/coastalcph/lex-glue) |

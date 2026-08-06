@@ -23,14 +23,13 @@ Translate legal text from English to Hindi.
 
 **Also known as:** LegalLens Shared Task
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | JUST-NLP shared-task organizers (competition) |
 | Catalog geography | India |
-| First recorded public event | [2025-12](https://aclanthology.org/2025.justnlp-main.3/) — ACL Anthology publication month |
-| Latest verified event | None later verified |
+| Last verified update | — |
 | Access level | gated |
 | Test labels | hidden |
 | Independently runnable | partial |
@@ -44,7 +43,7 @@ Translate legal text from English to Hindi.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Reference-based machine-translation metrics reward n-gram or character overlap; the shared task complements them with semantic metrics but still cannot alone establish legal fidelity. |
 | Jurisdiction | India |
 | Languages | English, Hindi |
@@ -68,7 +67,7 @@ Translate legal text from English to Hindi.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | [https://aclanthology.org/2025.justnlp-main.3/](https://aclanthology.org/2025.justnlp-main.3/) |
@@ -99,14 +98,13 @@ Original source bullet(s): #8
 
 Translate Swiss laws, court headnotes, and press releases among official Swiss languages and English.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | SwiLTra authors (academic) |
 | Catalog geography | Switzerland |
-| First recorded public event | [2025-03-03](https://arxiv.org/abs/2503.01372) — arXiv v1 submission |
-| Latest verified event | [2025-05-30](https://arxiv.org/abs/2503.01372) — arXiv revision |
+| Last verified update | [2025-05-30](https://arxiv.org/abs/2503.01372)<br>*arXiv revision* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -120,7 +118,7 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Reference-based and learned semantic metrics compare translation fidelity; SwiLTra-Judge is calibrated against legal experts to better capture specialized legal adequacy than lexical overlap alone. |
 | Jurisdiction | Switzerland |
 | Languages | German, French, Italian, Romansh, English |
@@ -144,7 +142,7 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/JoelNiklaus/SwissLegalTranslations](https://github.com/JoelNiklaus/SwissLegalTranslations) |
 | Hugging Face | [https://huggingface.co/collections/joelniklaus/swiltra-bench](https://huggingface.co/collections/joelniklaus/swiltra-bench)<br>[https://huggingface.co/datasets/joelniklaus/SwissLawTranslations](https://huggingface.co/datasets/joelniklaus/SwissLawTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations](https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations](https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations) |
 | Paper / arXiv | [https://arxiv.org/abs/2503.01372](https://arxiv.org/abs/2503.01372)<br>[https://aclanthology.org/2025.acl-long.725/](https://aclanthology.org/2025.acl-long.725/) |
@@ -174,14 +172,13 @@ Translate verified Indian legal text from English into nine Indian languages.
 
 **Also known as:** MILPaC
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Law-AI (academic) |
 | Catalog geography | India |
-| First recorded public event | [2023-10-15](https://arxiv.org/abs/2310.09765) — arXiv v1 submission |
-| Latest verified event | [2025-07-13](https://github.com/Law-AI/MILPaC) — GitHub repository push |
+| Last verified update | [2025-07-13](https://github.com/Law-AI/MILPaC)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -195,7 +192,7 @@ Translate verified Indian legal text from English into nine Indian languages.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | BLEU/GLEU/chrF++ measure reference overlap at word/character levels, while law-practitioner ratings test preservation of meaning, suitability for legal use, and fluency—the intended high-stakes construct. |
 | Jurisdiction | India |
 | Languages | English, Hindi, Bengali, Marathi, Tamil, Gujarati, Telugu, Malayalam, Punjabi, Odia |
@@ -219,7 +216,7 @@ Translate verified Indian legal text from English into nine Indian languages.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Law-AI/MILPaC](https://github.com/Law-AI/MILPaC) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2310.09765](https://arxiv.org/abs/2310.09765)<br>[https://doi.org/10.1145/3748313](https://doi.org/10.1145/3748313) |

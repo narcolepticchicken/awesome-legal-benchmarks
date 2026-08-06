@@ -9,7 +9,7 @@ Start with the legal job, not the benchmark name. Match the jurisdiction, source
 Open artifacts support independent runs. Private and partial artifacts are included because they shape legal-AI claims and can supply useful protocol ideas, but their headline scores are not interchangeable with public results.
 
 | Legal work | Open starting point | Private or partial signal | Lead evidence | Possible decision |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Broad English legal reasoning | [LegalBench](https://github.com/HazyResearch/legalbench), [LexGLUE](https://github.com/coastalcph/lex-glue), [PRBench legal](https://www.justicebench.org/dataset/prbench) | — | Per-task task scorers; PRBench weighted criteria | Which model families merit testing on a fresh matter-specific set. |
 | Chinese legal reasoning, drafting, and judgment generation | [LawBench](https://github.com/open-compass/LawBench), [LexEval](https://github.com/CSHaitao/LexEval), [JuDGE](https://github.com/oneal2000/JuDGE), [LexGenius](https://github.com/QwenQKing/LexGenius), [PLawBench](https://github.com/SKYLENAGE-AI/PLawBench) | — | Accuracy/F1 by task; JuDGE's twelve penalty, charge, statute, and text-similarity metrics; open-response rubric coverage | Which model to carry into a time-held-out Chinese-law evaluation while keeping judgment generation distinct from appellate error review. |
 | Chinese statute and case retrieval | [STARD](https://github.com/oneal2000/STARD), [LeCaRDv2](https://github.com/THUIR/LeCaRDv2) | — | Recall@k and MRR for lay-query statutes; nDCG/MAP/recall for expert-graded case similarity | Which Chinese retrieval stack to test while keeping statute and case constructs separate. |

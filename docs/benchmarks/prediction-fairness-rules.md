@@ -30,14 +30,13 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 
 **Also known as:** ECtHR Task
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | ECtHR task authors / LexGLUE (academic) |
 | Catalog geography | Council of Europe |
-| First recorded public event | [2019-06-05](https://arxiv.org/abs/1906.02059) — arXiv v1 submission |
-| Latest verified event | [2025-07-23](https://github.com/coastalcph/lex-glue) — Canonical LexGLUE repository push |
+| Last verified update | [2025-07-23](https://github.com/coastalcph/lex-glue)<br>*Canonical LexGLUE repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -50,7 +49,7 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Multi-label outcome prediction tests fact-to-doctrine mapping; macro-F1 emphasizes less frequent Convention articles and micro-F1 the total decision mass. |
 | Jurisdiction | European Court of Human Rights / Council of Europe |
 | Languages | English |
@@ -73,7 +72,7 @@ Predict European Convention articles alleged (Task A) or found violated (Task B)
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://arxiv.org/abs/1906.02059](https://arxiv.org/abs/1906.02059)<br>[https://arxiv.org/abs/2110.00976](https://arxiv.org/abs/2110.00976) |
@@ -107,14 +106,13 @@ Original source bullet(s): #6
 
 Evaluate legal prediction performance and group robustness across sensitive or legally salient subpopulations.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | FairLex authors (academic) |
 | Catalog geography | Multi-jurisdiction and supranational |
-| First recorded public event | [2022-05](https://aclanthology.org/2022.acl-long.301/) — ACL Anthology publication month |
-| Latest verified event | [2023-07-27](https://huggingface.co/datasets/coastalcph/fairlex) — Hugging Face dataset update |
+| Last verified update | [2023-07-27](https://huggingface.co/datasets/coastalcph/fairlex)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -128,7 +126,7 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | FairLex pairs overall macro-F1 with worst-group and disparity views; fairness is operationalized as performance robustness across observed demographic/geographic/legal groups, not demographic parity of decisions. |
 | Jurisdiction | Council of Europe, United States, Switzerland, China |
 | Languages | English, German, French, Italian, Chinese |
@@ -152,7 +150,7 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/coastalcph/fairlex](https://github.com/coastalcph/fairlex) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/fairlex](https://huggingface.co/datasets/coastalcph/fairlex) |
 | Paper / arXiv | [https://aclanthology.org/2022.acl-long.301/](https://aclanthology.org/2022.acl-long.301/) |
@@ -177,14 +175,13 @@ Evaluate legal prediction performance and group robustness across sensitive or l
 
 Select the correct holding that completes an excerpt from a US judicial opinion.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | CaseHOLD authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2021-04-18](https://arxiv.org/abs/2104.08671) — arXiv v1 submission |
-| Latest verified event | [2021-07-06](https://arxiv.org/abs/2104.08671) — arXiv revision |
+| Last verified update | [2021-07-06](https://arxiv.org/abs/2104.08671)<br>*arXiv revision* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -198,7 +195,7 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Five-choice accuracy measures discrimination of the true legal holding from hard negatives generated/retrieved to resemble plausible case law. |
 | Jurisdiction | United States |
 | Languages | English |
@@ -221,7 +218,7 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/reglab/casehold](https://github.com/reglab/casehold)<br>[https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://arxiv.org/abs/2104.08671](https://arxiv.org/abs/2104.08671) |
@@ -253,14 +250,13 @@ Select the correct holding that completes an excerpt from a US judicial opinion.
 
 Reason about obligations, permissions, prohibitions, eligibility, and amounts under long legal/policy rules, directly or through executable Prolog.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | DeonticBench authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2026-04-06](https://arxiv.org/abs/2604.04443) — arXiv v1 submission |
-| Latest verified event | [2026-06-04](https://huggingface.co/datasets/gydou/DeonticBench) — Hugging Face dataset update |
+| Last verified update | [2026-06-04](https://huggingface.co/datasets/gydou/DeonticBench)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -274,7 +270,7 @@ Reason about obligations, permissions, prohibitions, eligibility, and amounts un
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Exact outcomes test rule application; executable reference programs expose a symbolic proof path and distinguish wrong legal formalization, solver failure, abstention, and wrong final answer. |
 | Jurisdiction | United States federal tax, United States immigration, United States state housing, Airline policies |
 | Languages | English, Prolog |
@@ -298,7 +294,7 @@ Reason about obligations, permissions, prohibitions, eligibility, and amounts un
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/guangyaodou/DeonticBench](https://github.com/guangyaodou/DeonticBench) |
 | Hugging Face | [https://huggingface.co/datasets/gydou/DeonticBench](https://huggingface.co/datasets/gydou/DeonticBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2604.04443](https://arxiv.org/abs/2604.04443) |
@@ -328,14 +324,13 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 
 **Also known as:** MSLR
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | MSLR-Bench authors (academic) |
 | Catalog geography | China |
-| First recorded public event | [2025-11-11](https://arxiv.org/abs/2511.07979) — arXiv v1 submission |
-| Latest verified event | [2026-06-29](https://github.com/yuwenhan07/MSLR-Bench) — GitHub repository push |
+| Last verified update | [2026-06-29](https://github.com/yuwenhan07/MSLR-Bench)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -349,7 +344,7 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Field-level extraction metrics test factual structure; IRAC recall and an LLM judge test whether generated analysis covers expected legal reasoning components. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -373,7 +368,7 @@ Extract structured facts and produce IRAC-style reasoning for Chinese insider-tr
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/yuwenhan07/MSLR-Bench](https://github.com/yuwenhan07/MSLR-Bench) |
 | Hugging Face | [https://huggingface.co/datasets/Yuwh07/MSLR-Bench](https://huggingface.co/datasets/Yuwh07/MSLR-Bench) |
 | Paper / arXiv | [https://arxiv.org/abs/2511.07979](https://arxiv.org/abs/2511.07979) |
@@ -403,14 +398,13 @@ Original source bullet(s): #16
 
 Multi-agent deductive reasoning about GDPR enforcement facts, rules, application, common sense, and conclusions.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | HKUST KnowComp (academic) |
 | Catalog geography | United Kingdom |
-| First recorded public event | [2025-09-29](https://arxiv.org/abs/2509.24922) — arXiv v1 submission |
-| Latest verified event | [2025-09-30](https://arxiv.org/abs/2509.24922) — arXiv revision |
+| Last verified update | [2025-09-30](https://arxiv.org/abs/2509.24922)<br>*arXiv revision* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -424,7 +418,7 @@ Multi-agent deductive reasoning about GDPR enforcement facts, rules, application
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Accuracy measures final MCQ correctness; retrieval-at-k tests evidence acquisition; refusal and agreement statistics diagnose coordination rather than legal validity directly. |
 | Jurisdiction | United Kingdom / GDPR enforcement |
 | Languages | English |
@@ -448,7 +442,7 @@ Multi-agent deductive reasoning about GDPR enforcement facts, rules, application
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/HKUST-KnowComp/MASLegalBench](https://github.com/HKUST-KnowComp/MASLegalBench) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2509.24922](https://arxiv.org/abs/2509.24922) |
@@ -475,14 +469,13 @@ Original source bullet(s): #17
 
 Apply structured US bankruptcy exemption rules and remain robust under controlled perturbations.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | OpenExempt authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2026-01-11](https://huggingface.co/datasets/SergioServantez/OpenExempt) — Hugging Face dataset creation |
-| Latest verified event | [2026-01-21](https://huggingface.co/datasets/SergioServantez/OpenExempt) — Hugging Face dataset update |
+| Last verified update | [2026-01-21](https://huggingface.co/datasets/SergioServantez/OpenExempt)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -496,7 +489,7 @@ Apply structured US bankruptcy exemption rules and remain robust under controlle
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Programmatically generated cases with deterministic symbolic solutions test rule application and targeted robustness properties without an LLM judge. |
 | Jurisdiction | United States federal bankruptcy law |
 | Languages | English |
@@ -519,7 +512,7 @@ Apply structured US bankruptcy exemption rules and remain robust under controlle
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/servantez/OpenExempt](https://github.com/servantez/OpenExempt) |
 | Hugging Face | [https://huggingface.co/datasets/SergioServantez/OpenExempt](https://huggingface.co/datasets/SergioServantez/OpenExempt) |
 | Paper / arXiv | [https://arxiv.org/abs/2601.13183](https://arxiv.org/abs/2601.13183)<br>[https://aclanthology.org/2026.findings-acl.1328/](https://aclanthology.org/2026.findings-acl.1328/) |
@@ -550,14 +543,13 @@ Predict whether an Indian Supreme Court appeal or petition is accepted or reject
 
 **Also known as:** Prediction with Explanation
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | L-NLProc / PredEx authors (academic) |
 | Catalog geography | India |
-| First recorded public event | [2024-02-15](https://github.com/ShubhamKumarNigam/PredEx) — GitHub repository creation |
-| Latest verified event | [2026-06-03](https://github.com/ShubhamKumarNigam/PredEx) — GitHub repository push; latest change was citation metadata rather than benchmark data |
+| Last verified update | [2026-06-03](https://github.com/ShubhamKumarNigam/PredEx)<br>*GitHub repository push; latest change was citation metadata rather than benchmark data* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -571,7 +563,7 @@ Predict whether an Indian Supreme Court appeal or petition is accepted or reject
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Classification metrics score the binary outcome; overlap, semantic, and small-sample expert ratings separately score whether the extracted rationale resembles the annotated explanation. |
 | Jurisdiction | India |
 | Languages | English |
@@ -596,7 +588,7 @@ Predict whether an Indian Supreme Court appeal or petition is accepted or reject
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/ShubhamKumarNigam/PredEx](https://github.com/ShubhamKumarNigam/PredEx) |
 | Hugging Face | [https://huggingface.co/datasets/L-NLProc/PredEx](https://huggingface.co/datasets/L-NLProc/PredEx) |
 | Paper / arXiv | [https://arxiv.org/abs/2406.04136](https://arxiv.org/abs/2406.04136)<br>[https://aclanthology.org/2024.findings-acl.255/](https://aclanthology.org/2024.findings-acl.255/) |
@@ -631,14 +623,13 @@ Extract potential legal-violation entities from non-legal text and infer whether
 
 **Also known as:** NLLP 2024 Shared Task on Legal Violation Identification
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Darrow / LegalLens authors (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2024-01-23](https://huggingface.co/datasets/darrow-ai/LegalLensNER) — LegalLensNER Hugging Face dataset creation |
-| Latest verified event | [2024-10-15](https://arxiv.org/abs/2410.12064) — NLLP shared-task paper arXiv v1 submission |
+| Last verified update | [2024-10-15](https://arxiv.org/abs/2410.12064)<br>*NLLP shared-task paper arXiv v1 submission* |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -652,7 +643,7 @@ Extract potential legal-violation entities from non-legal text and infer whether
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Exact-span F1 scores legal-violation extraction, while macro-F1 scores three-way entailment; the original datasets and later shared task have related but not identical public split boundaries. |
 | Jurisdiction | United States / common-law class-action context |
 | Languages | English |
@@ -676,7 +667,7 @@ Extract potential legal-violation entities from non-legal text and infer whether
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/darrow-labs/LegalLens](https://github.com/darrow-labs/LegalLens) |
 | Hugging Face | [https://huggingface.co/datasets/darrow-ai/LegalLensNER](https://huggingface.co/datasets/darrow-ai/LegalLensNER)<br>[https://huggingface.co/datasets/darrow-ai/LegalLensNLI](https://huggingface.co/datasets/darrow-ai/LegalLensNLI)<br>[https://huggingface.co/datasets/darrow-ai/LegalLensNER-SharedTask](https://huggingface.co/datasets/darrow-ai/LegalLensNER-SharedTask)<br>[https://huggingface.co/datasets/darrow-ai/LegalLensNLI-SharedTask](https://huggingface.co/datasets/darrow-ai/LegalLensNLI-SharedTask) |
 | Paper / arXiv | [https://arxiv.org/abs/2402.04335](https://arxiv.org/abs/2402.04335)<br>[https://arxiv.org/abs/2410.12064](https://arxiv.org/abs/2410.12064) |
@@ -715,14 +706,13 @@ Predict whether a United States federal class-action complaint will produce a pl
 
 **Also known as:** USClassActions
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Darrow / ClassActionPrediction authors (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2022-10-24](https://github.com/darrow-labs/ClassActionPrediction) — GitHub repository and Hugging Face dataset creation |
-| Latest verified event | [2024-01-24](https://huggingface.co/datasets/darrow-ai/USClassActions) — Hugging Face dataset update |
+| Last verified update | [2024-01-24](https://huggingface.co/datasets/darrow-ai/USClassActions)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | partial |
@@ -736,7 +726,7 @@ Predict whether a United States federal class-action complaint will produce a pl
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Accuracy measures binary outcome classification on balanced data, while expected calibration error tests probability reliability; the paper's shortcut analysis questions whether the model learns legally valid signals. |
 | Jurisdiction | United States federal class actions |
 | Languages | English |
@@ -760,7 +750,7 @@ Predict whether a United States federal class-action complaint will produce a pl
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/darrow-labs/ClassActionPrediction](https://github.com/darrow-labs/ClassActionPrediction) |
 | Hugging Face | [https://huggingface.co/datasets/darrow-ai/USClassActions](https://huggingface.co/datasets/darrow-ai/USClassActions) |
 | Paper / arXiv | [https://arxiv.org/abs/2211.00582](https://arxiv.org/abs/2211.00582) |

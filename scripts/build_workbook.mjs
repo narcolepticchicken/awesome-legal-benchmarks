@@ -20,7 +20,7 @@ const resource = (entry, key) => join(entry.resources[key], "\n");
 const statusLabel = (entry) => `${entry.tier} / ${entry.status}`;
 const datedSource = (date) => date
   ? `${date.date} (${date.precision})\n${date.basis}\n${date.source}`
-  : "No verified date located";
+  : "No verified update located";
 const numbered = (items) => (items ?? []).map((item, index) => `${index + 1}. ${item}`).join("\n");
 const evidence = (entry) => [
   `VERIFIED: ${join(entry.evidence.verified) || "None recorded"}`,
@@ -37,7 +37,7 @@ const orderedCatalogEntries = catalog.geography_groups.flatMap((group) =>
     .map((entryId) => entryById.get(entryId))
     .sort(
       (left, right) =>
-        right.dates.created.date.localeCompare(left.dates.created.date)
+        (right.dates.last_updated?.date ?? "").localeCompare(left.dates.last_updated?.date ?? "")
         || left.name.localeCompare(right.name),
     ),
 );
@@ -53,10 +53,8 @@ const catalogHeaders = [
   "Artifact Type",
   "Tier",
   "Status",
-  "First Public Event",
-  "First Event Basis / Source",
-  "Latest Verified Event",
-  "Latest Event Basis / Source",
+  "Last Verified Update",
+  "Update Basis / Source",
   "Access Level",
   "Test Labels / Runnable",
   "Possible Use Cases",
@@ -94,8 +92,6 @@ const catalogRows = orderedCatalogEntries.map((entry) => [
   entry.kind,
   entry.tier,
   entry.status,
-  entry.dates.created?.date ?? "No verified date located",
-  datedSource(entry.dates.created),
   entry.dates.last_updated?.date ?? "No verified update located",
   datedSource(entry.dates.last_updated),
   entry.access_profile.level,
@@ -287,7 +283,7 @@ const resourceRows = resourceSnapshot.resources.map((item) => {
 
 const watchlistHeaders = ["Candidate", "Why It Matters", "Why Not Yet Promoted", "Primary URLs"];
 const watchlistRows = [
-  ["AR-BENCH", "China; first recorded public event 2026-01-30 (arXiv v1). Appellate error detection, classification, and correction; the paper claims 8,700 annotated decisions plus 34,617 supplementary documents.", "The arXiv record and v1 preprint are verified. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches by 2026-08-05. This negative search is not proof that no release exists. The paper says it reannotates JuDGE material; JuDGE is a different benchmark and not an AR-BENCH release.", "https://arxiv.org/abs/2601.22742\nhttps://zhangrichong.github.io/\nhttps://github.com/search?q=%22AR-BENCH%22+appellate&type=repositories\nhttps://github.com/oneal2000/JuDGE\nhttps://huggingface.co/datasets?search=AR-BENCH\nhttps://zenodo.org/api/records?q=%22AR-BENCH%22&size=25"],
+  ["AR-BENCH", "China; the arXiv v1 preprint is dated 2026-01-30. Appellate error detection, classification, and correction; the paper claims 8,700 annotated decisions plus 34,617 supplementary documents.", "The arXiv record and v1 preprint are verified. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches by 2026-08-05. This negative search is not proof that no release exists. The paper says it reannotates JuDGE material; JuDGE is a different benchmark and not an AR-BENCH release.", "https://arxiv.org/abs/2601.22742\nhttps://zhangrichong.github.io/\nhttps://github.com/search?q=%22AR-BENCH%22+appellate&type=repositories\nhttps://github.com/oneal2000/JuDGE\nhttps://huggingface.co/datasets?search=AR-BENCH\nhttps://zenodo.org/api/records?q=%22AR-BENCH%22&size=25"],
   ["BenGER", "German legal benchmark platform", "Need a fixed, versioned task/data/scorer release separate from the mutable platform.", "https://github.com/SebastianNagl/benger-platform\nhttps://arxiv.org/abs/2605.28183\nhttps://what-a-benger.net/"],
   ["UA-Legal-Bench", "Ukrainian legal evaluation", "HF identifies v1 while the paper describes v2; canonical version relationship unresolved.", "https://huggingface.co/datasets/overthelex/ua-legal-bench\nhttps://arxiv.org/abs/2605.29170\nhttps://github.com/overthelex/secondlayer-papers"],
   ["Multi-Legal-Bench", "Large multilingual legal collection", "Public descriptions conflict at roughly 134M vs 122M records; scoring/reproducibility unclear.", "https://huggingface.co/datasets/overthelex/multi-legal-bench\nhttps://arxiv.org/abs/2605.29738"],
@@ -418,9 +414,9 @@ summary.getRange("A4:A11").values = [
 summary.getRange("B4").formulas = [[`=COUNTA(Catalog!$B$5:$B$${catalogEndRow})`]];
 summary.getRange("B5").values = [[22]];
 summary.getRange("B6").values = [[21]];
-summary.getRange("B7").formulas = [[`=COUNTIF(Catalog!$AL$5:$AL$${catalogEndRow},\"Curated addition\")`]];
+summary.getRange("B7").formulas = [[`=COUNTIF(Catalog!$AJ$5:$AJ$${catalogEndRow},\"Curated addition\")`]];
 summary.getRange("B8").formulas = [[`=COUNTIF(Catalog!$I$5:$I$${catalogEndRow},\"recommended\")`]];
-summary.getRange("B9").formulas = [[`=COUNTIF(Catalog!$O$5:$O$${catalogEndRow},\"open\")`]];
+summary.getRange("B9").formulas = [[`=COUNTIF(Catalog!$M$5:$M$${catalogEndRow},\"open\")`]];
 summary.getRange("B10").formulas = [[`=COUNTIF(Catalog!$G$5:$G$${catalogEndRow},\"yes\")`]];
 summary.getRange("B11").formulas = [[`=COUNTIF('Resource Check'!$A$5:$A$${resourceEndRow},\"OK\")`]];
 summary.getRange("A4:B11").format = {
@@ -438,7 +434,7 @@ summary.mergeCells("D4:H4");
 summary.getRange("D4").values = [["How to use this workbook"]];
 summary.getRange("D4:H4").format = { fill: colors.teal, font: { bold: true, color: colors.white } };
 summary.mergeCells("D5:H8");
-summary.getRange("D5").values = [["The Catalog is ordered United States first, then multi-jurisdiction, then international by country and first-event year, newest first. Start with the legal job, jurisdiction, source material, interface, and failure cost. A first public event is not necessarily a benchmark release. Resource Check verifies identity and availability—not scientific validity."]];
+summary.getRange("D5").values = [["The Catalog is ordered United States first, then multi-jurisdiction, then international by country and latest-update year, newest first. Start with the legal job, jurisdiction, source material, interface, and failure cost. A repository or dataset update does not necessarily change the benchmark. Resource Check verifies identity and availability—not scientific validity."]];
 summary.getRange("D5:H8").format = { fill: colors.tealLight, font: { color: "#194B4D", size: 11 }, wrapText: true, verticalAlignment: "center", borders: { preset: "outside", style: "thin", color: "#8EC1BE" } };
 summary.mergeCells("D9:H9");
 summary.getRange("D9").values = [["Identity and reproducibility warnings"]];
@@ -454,25 +450,24 @@ summary.freezePanes.freezeRows(2);
 addTableSheet({
   sheet: catalogSheet,
   title: "Canonical Catalog — Benchmarks, Datasets, Frameworks, and Related Resources",
-  subtitle: "United States first; multi-jurisdiction separate; international grouped by country and first-event year, newest first. Every date states its event basis. Verified facts, inference, and unresolved ambiguity remain separate.",
+  subtitle: "United States first; multi-jurisdiction separate; international grouped by country and latest-update year, newest first. Every update states its event basis. Verified facts, inference, and unresolved ambiguity remain separate.",
   headers: catalogHeaders,
   rows: catalogRows,
-  lastColumn: "AL",
+  lastColumn: "AJ",
   tableName: "CanonicalCatalogTable",
-  widths: [30, 20, 30, 28, 28, 16, 16, 22, 18, 18, 14, 48, 14, 48, 16, 24, 58, 44, 50, 28, 18, 42, 40, 38, 38, 60, 30, 40, 46, 46, 46, 48, 52, 52, 52, 58, 26, 18],
+  widths: [30, 20, 30, 28, 28, 16, 16, 22, 18, 18, 14, 48, 16, 24, 58, 44, 50, 28, 18, 42, 40, 38, 38, 60, 30, 40, 46, 46, 46, 48, 52, 52, 52, 58, 26, 18],
   rowHeight: 116,
 });
 catalogSheet.freezePanes.freezeColumns(3);
 catalogSheet.getRange(`A5:A${catalogEndRow}`).format.font = { bold: true, color: colors.navy, size: 8 };
 catalogSheet.getRange(`C5:C${catalogEndRow}`).format.font = { bold: true, color: colors.navy, size: 9 };
 catalogSheet.getRange(`K5:K${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
-catalogSheet.getRange(`M5:M${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
-catalogSheet.getRange(`L5:N${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
-catalogSheet.getRange(`AC5:AF${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
+catalogSheet.getRange(`K5:L${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
+catalogSheet.getRange(`AA5:AD${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
 catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "recommended", format: { fill: "#DDF3E5", font: { bold: true, color: "#17643A" } } });
 catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "evaluate-carefully", format: { fill: "#FFF0D5", font: { bold: true, color: "#8A4E00" } } });
 catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "related", format: { fill: "#EFE7F8", font: { bold: true, color: "#68418A" } } });
-catalogSheet.getRange(`O5:O${catalogEndRow}`).conditionalFormats.add("containsText", { text: "private", format: { fill: "#FDE2E2", font: { bold: true, color: "#9B1C1C" } } });
+catalogSheet.getRange(`M5:M${catalogEndRow}`).conditionalFormats.add("containsText", { text: "private", format: { fill: "#FDE2E2", font: { bold: true, color: "#9B1C1C" } } });
 
 addTableSheet({
   sheet: selectionSheet,
@@ -588,7 +583,7 @@ console.log(errors.ndjson);
 const renderSpecs = [
   ["Summary", "A1:H12", "summary.png", 1.15],
   ["Catalog", "A1:O14", "catalog-identity-dates-access.png", 0.46],
-  ["Catalog", "P1:AL12", "catalog-task-metrics-sources.png", 0.34],
+  ["Catalog", "P1:AJ12", "catalog-task-metrics-sources.png", 0.34],
   ["Selection Guide", `A1:F${4 + selectionRows.length}`, "selection-guide.png", 0.58],
   ["Metric Theory", "A1:E31", "metric-theory-core.png", 0.72],
   ["Metric Theory", `A28:E${4 + metricRows.length}`, "metric-theory-legal-benchmarks.png", 0.72],

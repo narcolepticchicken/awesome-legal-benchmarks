@@ -7,7 +7,7 @@ The source README had 22 bullets and 21 canonical identities. Bullets 3 and 20 b
 [Catalog index](catalog.md) · [Methodology](methodology.md) · [Back to README](../README.md)
 
 | # | README identity | Canonical classification and status | Audit correction / key caveat | Primary artifacts |
-|---:|---|---|---|---|
+| ---: | --- | --- | --- | --- |
 | 1 | LegalBench | Benchmark suite · active · verified | 162 heterogeneous tasks; disclose the task subset and aggregation. The Vals page is external, not the canonical paper leaderboard. | [GitHub](https://github.com/HazyResearch/legalbench) · [HF](https://huggingface.co/datasets/nguha/legalbench) · [paper](https://arxiv.org/abs/2308.11462) |
 | 2 | LawBench | Benchmark suite · active · verified | 20 × 500 Chinese items. The HF dataset is a third-party mirror; public exams/CAIL data are leakage-prone. | [GitHub](https://github.com/open-compass/LawBench) · [HF mirror](https://huggingface.co/datasets/doolayer/LawBench) · [paper](https://arxiv.org/abs/2309.16289) · [leaderboard](https://lawbench.opencompass.org.cn/) |
 | 3 | MLEB | Benchmark/data suite · active · verified | Use Isaacus's official repository, dataset namespace, paper, and leaderboard. The prior Kanon/MLEB URL was not verified. | [GitHub](https://github.com/isaacus-dev/mleb) · [HF namespace](https://huggingface.co/isaacus/datasets) · [paper](https://arxiv.org/abs/2510.19365) · [leaderboard](https://isaacus.com/mleb) |

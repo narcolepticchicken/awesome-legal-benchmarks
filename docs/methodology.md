@@ -17,7 +17,7 @@ Every canonical record answers the same questions:
 7. Can an independent user access the data, code, dependencies, and license terms?
 8. How could contamination, near-duplicates, temporal leakage, judge dependence, or benchmark-specific tuning inflate the result?
 9. Is the artifact maintained, fixed, annual, private, stale, or unclear?
-10. Who owns the instrument, do they sell a system it evaluates, when was it first documented, and what is the latest verified update?
+10. Who owns the instrument, do they sell a system it evaluates, and what is the latest verified update?
 
 The machine-readable contract lives in [`catalog/schema.json`](../catalog/schema.json). The records live in [`catalog/benchmarks.json`](../catalog/benchmarks.json).
 
@@ -26,7 +26,7 @@ The machine-readable contract lives in [`catalog/schema.json`](../catalog/schema
 The repo does not treat every legal-data project as a benchmark.
 
 | Kind | Meaning in this catalog |
-|---|---|
+| --- | --- |
 | `benchmark` | A fixed task, item set, interface, and scoring protocol intended for model or system comparison. |
 | `benchmark-suite` | Multiple tasks or datasets evaluated under a named suite. |
 | `shared-task` | A time-bounded competition with an official task package and scoring process. |
@@ -48,14 +48,13 @@ Each profile separates three kinds of statements:
 
 An HTTP success in [`catalog/resource-snapshot.json`](../catalog/resource-snapshot.json) establishes that a URL was reachable on the snapshot date. It does not establish ownership, scientific validity, licensing, or reproducibility. Those require the linked primary materials.
 
-## Date provenance
+## Update provenance
 
-Every entry has two separate date records:
+The public index, category pages, and workbook use one date for browsing: **latest verified update**. It is the newest benchmark-relevant first-party event found by the research cutoff—a repository push, dataset modification, paper revision, competition cycle, or official displayed update date. It is left blank in the source record when no later update was verified.
 
-- **First recorded public event** is the earliest verified first-party date located for that identity, or the earliest first-party-dated event when no public launch is exposed. The basis can be an official launch, benchmark-data commit, repository creation, dataset creation, paper submission, competition year, owner-reported evaluation date, or—when nothing stronger exists—the earliest dated first-party page. It is not silently upgraded to a claimed release date.
-- **Latest verified event** is the newest benchmark-relevant first-party event found by the research cutoff: a repository push, dataset modification, paper revision, competition cycle, or an official displayed update date. It is left blank when no later event was verified.
+Each update stores precision (`year`, `month`, or `day`), basis, and a direct source URL. A repository push is evidence that the repository changed, not proof that the benchmark data or scoring protocol changed. Likewise, a paper revision may be newer than the released code without superseding it. Profiles preserve those distinctions and flag conflicting official dates or counts.
 
-Each date stores precision (`year`, `month`, or `day`), basis, and a direct source URL. A repository push is evidence that the repository changed, not proof that the benchmark data or scoring protocol changed. Likewise, a paper revision may be newer than the released code without superseding it. Profiles preserve those distinctions and flag conflicting official dates or counts.
+The machine-readable source retains its historical `dates.created` field for audit traceability, but the generated GitHub tables and workbook do not display it and do not use it for sorting or country grouping.
 
 Owner and access are recorded separately from quality. A vendor can publish a strong open benchmark; an academic artifact can have an unclear license or weak scorer. The `commercial_interest` field only marks whether the owner sells a system or service materially connected to the evaluation.
 
@@ -64,7 +63,7 @@ Owner and access are recorded separately from quality. A vendor can publish a st
 The label is a decision aid. It is not a model rank or a claim that one legal domain matters more than another.
 
 | Label | Rule |
-|---|---|
+| --- | --- |
 | `recommended` | The public task contract is clear, the primary artifacts are available, and reproduction is comparatively strong for that class of evaluation. |
 | `specialist` | The artifact is useful within a narrower jurisdiction, language, task, or protocol. |
 | `evaluate-carefully` | The artifact is real, but a judge, vendor relationship, split, license, access condition, size, or validity issue needs attention before use. |

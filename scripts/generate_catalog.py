@@ -131,8 +131,13 @@ def table_text(value: object) -> str:
 
 def date_link(record: dict | None) -> str:
     if record is None:
-        return "None later verified"
-    return f"[{record['date']}]({record['source']}) — {table_text(record['basis'])}"
+        return "—"
+    return f"[{record['date']}]({record['source']})<br>*{table_text(record['basis'])}*"
+
+
+def latest_update_year(entry: dict) -> str:
+    record = entry["dates"]["last_updated"]
+    return record["date"][:4] if record else "No verified update"
 
 
 def entries_for_group(catalog: dict, group: dict) -> list[dict]:
@@ -140,7 +145,10 @@ def entries_for_group(catalog: dict, group: dict) -> list[dict]:
     entries = {entry["id"]: entry for entry in catalog["entries"]}
     selected = [entries[entry_id] for entry_id in group["entries"]]
     selected.sort(key=lambda entry: entry["name"].casefold())
-    selected.sort(key=lambda entry: entry["dates"]["created"]["date"], reverse=True)
+    selected.sort(
+        key=lambda entry: (entry["dates"]["last_updated"] or {}).get("date", ""),
+        reverse=True,
+    )
     return selected
 
 
@@ -156,21 +164,19 @@ def append_entry_table(
     lines: list[str], catalog: dict, group: dict, *, from_root: bool
 ) -> None:
     lines += [
-        "| Entry | First recorded public event | Latest verified event | Kind / access / label | Jurisdiction / language | What it measures |",
-        "|---|---|---|---|---|---|",
+        "| Benchmark | Last verified update | Coverage | What it measures |",
+        "| --- | --- | --- | --- |",
     ]
     for entry in entries_for_group(catalog, group):
         href = profile_href(entry["id"], from_root=from_root)
         coverage = f"{', '.join(entry['jurisdictions'])}; {', '.join(entry['languages'])}"
         identity = (
-            f"{entry['kind']} / {entry['access_profile']['level']} / "
+            f"{entry['kind']} · {entry['access_profile']['level']} · "
             f"{TIER_LABELS[entry['tier']]}"
         )
         lines.append(
-            f"| [{table_text(entry['name'])}]({href}) | "
-            f"{date_link(entry['dates']['created'])} | "
-            f"{date_link(entry['dates']['last_updated'])} | "
-            f"{table_text(identity)} | {table_text(coverage)} | "
+            f"| [{table_text(entry['name'])}]({href})<br>*{table_text(identity)}* | "
+            f"{date_link(entry['dates']['last_updated'])} | {table_text(coverage)} | "
             f"{table_text(entry['capability'])} |"
         )
 
@@ -178,13 +184,20 @@ def append_entry_table(
 def append_recency_tables(
     lines: list[str], catalog: dict, group: dict, *, from_root: bool
 ) -> None:
-    """Render a country as explicit first-event year bands, newest band first."""
+    """Render a country as explicit latest-update year bands, newest band first."""
     by_year: dict[str, list[str]] = {}
     for entry in entries_for_group(catalog, group):
-        year = entry["dates"]["created"]["date"][:4]
+        year = latest_update_year(entry)
         by_year.setdefault(year, []).append(entry["id"])
-    for year in sorted(by_year, reverse=True):
-        lines += [f"#### First recorded event in {year}", ""]
+    years = sorted(
+        (year for year in by_year if year != "No verified update"),
+        reverse=True,
+    )
+    if "No verified update" in by_year:
+        years.append("No verified update")
+    for year in years:
+        heading = "No verified update" if year == "No verified update" else f"Updated in {year}"
+        lines += [f"#### {heading}", ""]
         append_entry_table(
             lines,
             catalog,
@@ -242,7 +255,7 @@ def generate_readme(catalog: dict) -> str:
         "",
         "> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.",
         "",
-        "**Date rule.** The first date is the **first recorded public event**, or the earliest first-party-dated event when no public launch is exposed; it is not a generic claim that a downloadable benchmark was released that day. Every date cell names its basis: dataset creation, data commit, repository creation, paper submission, competition year, owner-reported evaluation date, or another first-party event. The latest event can likewise be a repository push, dataset update, paper revision, or official page update; it does not by itself prove that the data or scorer changed.",
+        "**Update rule.** The tables show only the **last verified first-party update** located by the research cutoff. It can be a repository push, dataset update, paper revision, competition cycle, official page update, or owner-reported evaluation date; it does not by itself prove that the data or scorer changed. A dash means no later update was verified.",
         "",
         "> **AR-BENCH status:** its [arXiv record and v1 preprint](https://arxiv.org/abs/2601.22742) are verified at 2026-01-30. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches as of 2026-08-05. That bounded negative finding is not proof that no release exists. The paper says it reannotates JuDGE material, but [JuDGE](https://github.com/oneal2000/JuDGE) is a different benchmark and not an AR-BENCH release. See the [search record and exact caveat](docs/watchlist.md#watchlist).",
         "",
@@ -263,7 +276,7 @@ def generate_readme(catalog: dict) -> str:
         "",
         groups["united-states"]["description"],
         "",
-        "Entries are ordered newest-first by first recorded public event. Contract and workflow evaluations are described as United States legal practice rather than as jurisprudence.",
+        "Entries are ordered newest-first by last verified update. Each row shows kind, access, and curation tier beneath the benchmark name. Contract and workflow evaluations are described as United States legal practice rather than as jurisprudence.",
         "",
     ]
     append_entry_table(lines, catalog, groups["united-states"], from_root=True)
@@ -273,8 +286,8 @@ def generate_readme(catalog: dict) -> str:
         "",
         "These are starting points, not interchangeable leaderboards. Each use case names the legal work, the artifact to start with, and the decision its score can inform.",
         "",
-        "| Legal work | Start with | Possible use cases |",
-        "|---|---|---|",
+        "| Legal work | Start with | What the scores can inform |",
+        "| --- | --- | --- |",
     ]
     for legal_work, picks, uses in USE_CASES:
         lines.append(f"| {legal_work} | {quick_pick_links(picks)} | {uses} |")
@@ -284,10 +297,10 @@ def generate_readme(catalog: dict) -> str:
         "",
         "## Browse by area",
         "",
-        "Each category page contains full profiles with owner, first recorded public event, latest verified event, access boundary, metrics, direct official sources, possible uses, and unresolved facts.",
+        "Each category page contains full profiles with owner, last verified update, access boundary, metrics, direct official sources, possible uses, and unresolved facts.",
         "",
-        "| Area | What is inside | Entries |",
-        "|---|---|---:|",
+        "| Area | What is inside | Count |",
+        "| --- | --- | ---: |",
     ]
     for slug, title, description, section_ids in SECTIONS:
         lines.append(f"| [{title}](docs/benchmarks/{slug}.md) | {description} | {len(section_ids)} |")
@@ -307,7 +320,7 @@ def generate_readme(catalog: dict) -> str:
         "",
         "## International by country",
         "",
-        "Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Within each country they are grouped by the calendar year of the first recorded public event, newest year first, then ordered newest-first inside that year. These are date-provenance bands, not claims that downloadable data were released in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.",
+        "Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Within each country they are grouped by the calendar year of the last verified update, newest year first, then ordered newest-first inside that year. These are update-provenance bands, not claims that the data or scorer changed in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.",
         "",
     ]
     for group in sorted(
@@ -333,7 +346,7 @@ def generate_readme(catalog: dict) -> str:
         "Artifact type and catalog label answer different questions. Public datasets may omit a fixed scorer. Frameworks supply evaluation runners or judge logic without fixed tests. Private vendor studies report evidence from owner-controlled instruments rather than public leaderboards.",
         "",
         "| Type | Meaning |",
-        "|---|---|",
+        "| --- | --- |",
         "| **benchmark / benchmark suite** | Defines tasks, inputs, expected outputs, and scoring. A suite contains materially different tasks or datasets. |",
         "| **dataset** | Supplies evaluation material but may not fix a complete scoring protocol. |",
         "| **shared task** | Time-bounded competition with organizer-defined data, rules, and scoring. |",
@@ -344,7 +357,7 @@ def generate_readme(catalog: dict) -> str:
         "A label is a curation judgment, not a model rank:",
         "",
         "| Label | Meaning |",
-        "|---|---|",
+        "| --- | --- |",
         "| **recommended** | Clear task contract, primary artifacts, and comparatively strong reproducibility for its class. |",
         "| **specialist** | Useful within a narrower task, jurisdiction, language, or protocol. |",
         "| **check before use** | Real artifact with a material judge, vendor, split, license, access, or validity issue. |",
@@ -367,7 +380,7 @@ def generate_readme(catalog: dict) -> str:
         "## Files and methodology",
         "",
         "| Need | File |",
-        "|---|---|",
+        "| --- | --- |",
         "| Canonical source of truth | [`catalog/benchmarks.json`](catalog/benchmarks.json) |",
         "| Flat spreadsheet view | [`catalog/benchmarks.csv`](catalog/benchmarks.csv) |",
         "| Every GitHub, Hugging Face, paper, project, and leaderboard URL | [`catalog/resources.csv`](catalog/resources.csv) |",
@@ -409,12 +422,12 @@ def generate_catalog_doc(catalog: dict) -> str:
         "",
         "[Choose a benchmark](selection-guide.md) · [Read the methodology](methodology.md) · [Understand the metrics](metric-theory.md) · [Back to README](../README.md)",
         "",
-        "The first date is the **first recorded public event**, or the earliest first-party-dated event when no public launch is exposed, and every cell states its basis. It is not necessarily a data or code release. The latest verified event can be a repository push, dataset update, paper revision, competition cycle, or official page update.",
+        "The index is ordered by **last verified update**, with the update basis shown below each linked date. A repository push, dataset update, paper revision, competition cycle, or official page update does not by itself prove that the benchmark data or scorer changed. A dash means no later update was verified.",
         "",
         "## Areas",
         "",
-        "| Area | Scope | Entries |",
-        "|---|---|---:|",
+        "| Area | Scope | Count |",
+        "| --- | --- | ---: |",
     ]
     for slug, title, description, section_ids in SECTIONS:
         lines.append(f"| [{title}](benchmarks/{slug}.md) | {description} | {len(section_ids)} |")
@@ -438,7 +451,7 @@ def generate_catalog_doc(catalog: dict) -> str:
         "",
         "## International by country",
         "",
-        "Countries are alphabetical; entries within each country are grouped by first-recorded-event year, newest year first, and then newest-first within that year.",
+        "Countries are alphabetical; entries within each country are grouped by last-verified-update year, newest year first, and then newest-first within that year.",
         "",
     ]
     for group in sorted(
@@ -498,14 +511,13 @@ def generate_category_doc(
         if aliases:
             lines += [f"**Also known as:** {aliases}", ""]
         lines += [
-            "### Identity, dates, and access",
+            "### Identity, update, and access",
             "",
             "| Field | Detail |",
-            "|---|---|",
+            "| --- | --- |",
             f"| Owner | {owner_text(entry)} |",
             f"| Catalog geography | {table_text(geography['name'])} |",
-            f"| First recorded public event | {date_link(entry['dates']['created'])} |",
-            f"| Latest verified event | {date_link(entry['dates']['last_updated'])} |",
+            f"| Last verified update | {date_link(entry['dates']['last_updated'])} |",
             f"| Access level | {entry['access_profile']['level']} |",
             f"| Test labels | {entry['access_profile']['test_labels']} |",
             f"| Independently runnable | {entry['access_profile']['runnable']} |",
@@ -519,7 +531,7 @@ def generate_category_doc(
             "### Evaluation contract",
             "",
             "| Field | Detail |",
-            "|---|---|",
+            "| --- | --- |",
             f"| Construct / theory | {table_text(entry['construct'])} |",
             f"| Jurisdiction | {table_text(', '.join(entry['jurisdictions']))} |",
             f"| Languages | {table_text(', '.join(entry['languages']))} |",
@@ -540,7 +552,7 @@ def generate_category_doc(
             judge = f" Judge: {metric['judge']}." if metric.get("judge") else ""
             primary = " **Primary.**" if metric.get("primary") else ""
             lines.append(f"- **{metric['name']}:** {metric['protocol']}{judge}{primary}")
-        lines += ["", "### Resources", "", "| Resource | Direct URL |", "|---|---|"]
+        lines += ["", "### Resources", "", "| Resource | Direct URL |", "| --- | --- |"]
         lines += resource_lines(entry["resources"])
         lines += ["", "### Validity and evidence", ""]
         lines.append("**Risks / caveats**")

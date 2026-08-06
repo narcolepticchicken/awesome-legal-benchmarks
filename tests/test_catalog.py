@@ -55,7 +55,9 @@ class CatalogTests(unittest.TestCase):
         for entry in self.catalog["entries"]:
             self.assertRegex(entry["dates"]["created"]["date"], r"^\d{4}")
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertIn("#### First recorded event in 2026", readme)
+        self.assertIn("#### Updated in 2026", readme)
+        self.assertIn("| Benchmark | Last verified update | Coverage | What it measures |", readme)
+        self.assertNotIn("First recorded event", readme)
         self.assertLess(readme.index("## United States"), readme.index("## International by country"))
 
     def test_opus_candidates_were_independently_promoted_with_caveats(self):

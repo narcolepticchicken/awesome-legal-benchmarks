@@ -29,14 +29,13 @@ Snapshot: **2026-08-05** · 11 entries
 
 Chinese legal tool use, multi-hop information gathering, and legal writing.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LegalAgentBench authors (academic) |
 | Catalog geography | China |
-| First recorded public event | [2024-12-23](https://arxiv.org/abs/2412.17259) — arXiv v1 submission |
-| Latest verified event | [2026-04-10](https://github.com/CSHaitao/LegalAgentBench) — GitHub repository push |
+| Last verified update | [2026-04-10](https://github.com/CSHaitao/LegalAgentBench)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -50,7 +49,7 @@ Chinese legal tool use, multi-hop information gathering, and legal writing.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Success and progress scores estimate whether an agent selects and sequences tools toward a task; BERTScore assesses writing similarity, but neither alone proves legal correctness. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -74,7 +73,7 @@ Chinese legal tool use, multi-hop information gathering, and legal writing.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/CSHaitao/LegalAgentBench](https://github.com/CSHaitao/LegalAgentBench) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2412.17259](https://arxiv.org/abs/2412.17259) |
@@ -106,14 +105,13 @@ Operate interactively in Chinese legal consultation, drafting, civil-court, and 
 
 **Also known as:** Ready Jurist One, J1Bench, J1-ENVS, J1-EVAL
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | FudanDISC (academic) |
 | Catalog geography | China |
-| First recorded public event | [2025-07-05](https://arxiv.org/abs/2507.04037) — arXiv v1 submission |
-| Latest verified event | [2026-04-07](https://github.com/FudanDISC/J1Bench) — GitHub repository push |
+| Last verified update | [2026-04-07](https://github.com/FudanDISC/J1Bench)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -127,7 +125,7 @@ Operate interactively in Chinese legal consultation, drafting, civil-court, and 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | J1-EVAL uses dual outcome- and process-oriented scoring so an agent must reach the right result and follow required procedural steps, formats, reasoning, and citation constraints. |
 | Jurisdiction | China |
 | Languages | Chinese |
@@ -151,7 +149,7 @@ Operate interactively in Chinese legal consultation, drafting, civil-court, and 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/FudanDISC/J1Bench](https://github.com/FudanDISC/J1Bench) |
 | Hugging Face | [https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset](https://huggingface.co/datasets/CimoInkPool/J1-Eval_Dataset) |
 | Paper / arXiv | [https://arxiv.org/abs/2507.04037](https://arxiv.org/abs/2507.04037)<br>[https://aclanthology.org/2026.acl-long.471/](https://aclanthology.org/2026.acl-long.471/) |
@@ -185,14 +183,13 @@ Complete long-horizon legal matters using files, research, analysis, drafting, a
 
 **Also known as:** Legal Agent Benchmark, LAB, Harvey LAB
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Harvey (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-05-06](https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark) — Official launch post |
-| Latest verified event | [2026-08-03](https://github.com/harveyai/harvey-labs) — GitHub repository push |
+| Last verified update | [2026-08-03](https://github.com/harveyai/harvey-labs)<br>*GitHub repository push* |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -206,7 +203,7 @@ Complete long-horizon legal matters using files, research, analysis, drafting, a
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | All-pass treats legal work as conjunctive reliability: a task passes only if every required expert rubric criterion passes; rubric pass rate exposes partial completion but is not the headline autonomy threshold. |
 | Jurisdiction | United States / commercial legal practice, mixed practice areas |
 | Languages | English |
@@ -230,7 +227,7 @@ Complete long-horizon legal matters using files, research, analysis, drafting, a
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/harveyai/harvey-labs](https://github.com/harveyai/harvey-labs) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -266,14 +263,13 @@ Complete realistic long-horizon corporate-law tasks across applications, files, 
 
 **Also known as:** APEX-Agents — Corporate Lawyer, APEX Corporate Lawyer Agent
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Mercor (company; commercial interest) |
 | Catalog geography | Evaluation population not published |
-| First recorded public event | [2026-01-20](https://arxiv.org/abs/2601.14242) — arXiv v1 submission |
-| Latest verified event | [2026-08-04](https://github.com/Mercor-Intelligence/archipelago) — GitHub repository push |
+| Last verified update | [2026-08-04](https://github.com/Mercor-Intelligence/archipelago)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -287,7 +283,7 @@ Complete realistic long-horizon corporate-law tasks across applications, files, 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Pass@1 measures single-run task completion against multiple criteria; the legal slice tests workflow execution, not legal knowledge in isolation. |
 | Jurisdiction | Corporate-law practice / mixed |
 | Languages | English |
@@ -310,7 +306,7 @@ Complete realistic long-horizon corporate-law tasks across applications, files, 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/Mercor-Intelligence/archipelago](https://github.com/Mercor-Intelligence/archipelago) |
 | Hugging Face | [https://huggingface.co/datasets/mercor/apex-agents](https://huggingface.co/datasets/mercor/apex-agents) |
 | Paper / arXiv | [https://arxiv.org/abs/2601.14242](https://arxiv.org/abs/2601.14242) |
@@ -338,14 +334,13 @@ Complete realistic long-horizon corporate-law tasks across applications, files, 
 
 Conduct multi-turn legal consultations and turn elicited facts into a reasoned legal memorandum.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | DLawBench authors / SKYLENAGE-AI (mixed; commercial interest unclear) |
 | Catalog geography | Multi-jurisdiction and supranational |
-| First recorded public event | [2026-06-09](https://github.com/SKYLENAGE-AI/DLawBench) — GitHub repository creation |
-| Latest verified event | [2026-06-11](https://arxiv.org/abs/2606.13931) — arXiv v1 submission |
+| Last verified update | [2026-06-11](https://arxiv.org/abs/2606.13931)<br>*arXiv v1 submission* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -359,7 +354,7 @@ Conduct multi-turn legal consultations and turn elicited facts into a reasoned l
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Separate fact, inquiry, resolution, and fidelity rubrics test whether an agent discovers legally material facts and resolves issues across a dialogue. |
 | Jurisdiction | China, United States |
 | Languages | Chinese, English |
@@ -382,7 +377,7 @@ Conduct multi-turn legal consultations and turn elicited facts into a reasoned l
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/SKYLENAGE-AI/DLawBench](https://github.com/SKYLENAGE-AI/DLawBench) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2606.13931](https://arxiv.org/abs/2606.13931) |
@@ -420,14 +415,13 @@ Complete transactional and litigation research, drafting, retrieval, and long-do
 
 **Also known as:** BigLaw Bench, BLB
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Harvey (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2024-08-29](https://www.harvey.ai/blog/introducing-biglaw-bench) — Official launch post |
-| Latest verified event | [2026-03-17](https://github.com/harveyai/biglaw-bench) — GitHub repository push |
+| Last verified update | [2026-03-17](https://github.com/harveyai/biglaw-bench)<br>*GitHub repository push* |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -441,7 +435,7 @@ Complete transactional and litigation research, drafting, retrieval, and long-do
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Positive and negative weighted rubric criteria measure expected answer content and prohibited failure modes; a separate source score measures evidentiary support. |
 | Jurisdiction | Primarily United States; later extensions described broader coverage |
 | Languages | English |
@@ -465,7 +459,7 @@ Complete transactional and litigation research, drafting, retrieval, and long-do
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/harveyai/biglaw-bench](https://github.com/harveyai/biglaw-bench) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -496,14 +490,13 @@ Complete multi-step legal matters using source documents and produce professiona
 
 **Also known as:** Legora BAR, Benchmark for Agentic Reasoning
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Legora (company; commercial interest) |
 | Catalog geography | Evaluation population not published |
-| First recorded public event | [2025-09-09](https://legora.com/bar) — Official page's displayed original publication date |
-| Latest verified event | [2026-07-28](https://legora.com/bar) — Official page's displayed updated date |
+| Last verified update | [2026-07-28](https://legora.com/bar)<br>*Official page's displayed updated date* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -517,7 +510,7 @@ Complete multi-step legal matters using source documents and produce professiona
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Partner- and engineer-authored matter cases use weighted binary criteria for factual coverage, analysis, citations, and recommendations across repeated agent runs. |
 | Jurisdiction | Multiple; exact distribution not publicly enumerated |
 | Languages | English |
@@ -540,7 +533,7 @@ Complete multi-step legal matters using source documents and produce professiona
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/legora-oss/legora-bar-tax-case](https://github.com/legora-oss/legora-bar-tax-case) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -576,14 +569,13 @@ Complete common in-house legal drafting, analysis, research, strategy, extractio
 
 **Also known as:** In-House Legal Bench
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | GC AI (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-05-15](https://gc.ai/blog/in-house-legal-bench-evaluating-ai-assistants-for-in-house-legal-work) — Official publication date |
-| Latest verified event | [2026-06-05](https://gc.ai/blog/in-house-legal-bench-evaluating-ai-assistants-for-in-house-legal-work) — Official displayed update date |
+| Last verified update | [2026-06-05](https://gc.ai/blog/in-house-legal-bench-evaluating-ai-assistants-for-in-house-legal-work)<br>*Official displayed update date* |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -597,7 +589,7 @@ Complete common in-house legal drafting, analysis, research, strategy, extractio
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Attorney-authored binary criteria measure whether each response includes required substantive and work-product elements across ten task categories. |
 | Jurisdiction | Primarily United States; exact distribution not fully published |
 | Languages | English |
@@ -620,7 +612,7 @@ Complete common in-house legal drafting, analysis, research, strategy, extractio
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/GC-AI-Inc/in-house-legal-bench](https://github.com/GC-AI-Inc/in-house-legal-bench) |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -655,14 +647,13 @@ Complete attorney-authored legal research, drafting, review, and multi-step reas
 
 **Also known as:** CoCoBench
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Thomson Reuters (company; commercial interest) |
 | Catalog geography | Evaluation population not published |
-| First recorded public event | [2026-05-04](https://www.thomsonreuters.com/en-us/posts/innovation/why-legal-ai-needs-a-new-standard-inside-thomson-reuters-cocobench/) — Official methodology post |
-| Latest verified event | [2026-06-22](https://www.thomsonreuters.com/en-us/posts/innovation/the-next-phase-of-professional-ai-is-here/) — Official expansion post |
+| Last verified update | [2026-06-22](https://www.thomsonreuters.com/en-us/posts/innovation/the-next-phase-of-professional-ai-is-here/)<br>*Official expansion post* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -676,7 +667,7 @@ Complete attorney-authored legal research, drafting, review, and multi-step reas
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Attorney-authored tasks and gold responses aim to test complete professional outputs rather than isolated legal knowledge questions. |
 | Jurisdiction | Not fully disclosed |
 | Languages | English |
@@ -699,7 +690,7 @@ Complete attorney-authored legal research, drafting, review, and multi-step reas
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -730,14 +721,13 @@ Produce and revise United States litigation, transactional, and compliance work 
 
 **Also known as:** Realm: Legal reasoning benchmark, Warren
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | micro1 Realm (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-04-10](https://www.micro1.ai/benchmark/realm-legal) — Date of the original evaluations stated on the official benchmark page; public launch date is not separately exposed |
-| Latest verified event | [2026-08-05](https://www.micro1.ai/benchmark/realm-legal) — Official page HTML last-published timestamp and expanded model-evaluation notice |
+| Last verified update | [2026-08-05](https://www.micro1.ai/benchmark/realm-legal)<br>*Official page HTML last-published timestamp and expanded model-evaluation notice* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -751,7 +741,7 @@ Produce and revise United States litigation, transactional, and compliance work 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Weighted atomic criteria decompose the final work product into issue, rule, application, conclusion, and task-specific requirements; later-stage criteria test whether earlier analysis is correctly revised as the record changes. |
 | Jurisdiction | United States federal and state law |
 | Languages | English |
@@ -775,7 +765,7 @@ Produce and revise United States litigation, transactional, and compliance work 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -816,14 +806,13 @@ Produce and revise United States litigation, transactional, and compliance work 
 
 Generate appellate-style judicial reasoning that identifies constraints, uses relevant authorities, and supports a valid argument under controlled factual changes.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Yale NLP / CourtReasoner authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2025-10-29](https://github.com/yale-nlp/CourtReasoner) — GitHub repository creation |
-| Latest verified event | [2025-11](https://aclanthology.org/2025.emnlp-main.1787/) — EMNLP 2025 publication |
+| Last verified update | [2025-11](https://aclanthology.org/2025.emnlp-main.1787/)<br>*EMNLP 2025 publication* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | partial |
@@ -837,7 +826,7 @@ Generate appellate-style judicial reasoning that identifies constraints, uses re
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Three 0–4 expert dimensions score citation relevance, constraint extraction, and argument validity; a separate meta-evaluation measures how well LLM graders correlate with human judgments. |
 | Jurisdiction | United States appellate law |
 | Languages | English |
@@ -861,7 +850,7 @@ Generate appellate-style judicial reasoning that identifies constraints, uses re
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/yale-nlp/CourtReasoner](https://github.com/yale-nlp/CourtReasoner) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://aclanthology.org/2025.emnlp-main.1787/](https://aclanthology.org/2025.emnlp-main.1787/) |

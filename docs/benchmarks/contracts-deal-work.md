@@ -31,14 +31,13 @@ Locate 41 categories of commercially important clauses in long contracts.
 
 **Also known as:** CUAD
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | The Atticus Project (nonprofit) |
 | Catalog geography | United States |
-| First recorded public event | [2021-03-10](https://arxiv.org/abs/2103.06268) — arXiv v1 submission |
-| Latest verified event | [2024-05-23](https://huggingface.co/datasets/theatticusproject/cuad-qa) — Hugging Face dataset update |
+| Last verified update | [2024-05-23](https://huggingface.co/datasets/theatticusproject/cuad-qa)<br>*Hugging Face dataset update* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -52,7 +51,7 @@ Locate 41 categories of commercially important clauses in long contracts.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Extractive QA turns issue spotting into span retrieval: a model should find every relevant token while avoiding unrelated language and correctly abstain when a clause is absent. |
 | Jurisdiction | United States / SEC filings |
 | Languages | English |
@@ -76,7 +75,7 @@ Locate 41 categories of commercially important clauses in long contracts.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/The-Atticus-Project/cuad](https://github.com/The-Atticus-Project/cuad) |
 | Hugging Face | [https://huggingface.co/datasets/theatticusproject/cuad-qa](https://huggingface.co/datasets/theatticusproject/cuad-qa) |
 | Paper / arXiv | [https://arxiv.org/abs/2103.06268](https://arxiv.org/abs/2103.06268) |
@@ -110,14 +109,13 @@ Original source bullet(s): #4
 
 Classify contract provisions into clause/topic labels.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LEDGAR authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2020-05](https://aclanthology.org/2020.lrec-1.155/) — ACL Anthology publication month |
-| Latest verified event | [2020-10-19](https://github.com/dtuggener/LEDGAR_provision_classification) — Original GitHub repository push |
+| Last verified update | [2020-10-19](https://github.com/dtuggener/LEDGAR_provision_classification)<br>*Original GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -131,7 +129,7 @@ Classify contract provisions into clause/topic labels.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Provision classification measures whether representations separate contract-language topics; macro-F1 exposes rare-label performance while micro-F1 emphasizes the frequent-label mass. |
 | Jurisdiction | United States / SEC filings |
 | Languages | English |
@@ -154,7 +152,7 @@ Classify contract provisions into clause/topic labels.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/dtuggener/LEDGAR_provision_classification](https://github.com/dtuggener/LEDGAR_provision_classification)<br>[https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://aclanthology.org/2020.lrec-1.155/](https://aclanthology.org/2020.lrec-1.155/) |
@@ -188,14 +186,13 @@ Original source bullet(s): #5
 
 Determine whether a non-disclosure agreement entails, contradicts, or does not mention a fixed legal hypothesis and identify supporting evidence.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Stanford NLP (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2021-10-05](https://arxiv.org/abs/2110.01799) — arXiv v1 submission |
-| Latest verified event | [2022-02-11](https://github.com/stanfordnlp/contract-nli) — GitHub repository push |
+| Last verified update | [2022-02-11](https://github.com/stanfordnlp/contract-nli)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -209,7 +206,7 @@ Determine whether a non-disclosure agreement entails, contradicts, or does not m
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Three-way document NLI tests semantic/legal relation to 17 hypotheses; evidence identification tests whether the decision is grounded in the right spans. |
 | Jurisdiction | Commercial NDAs / primarily United States practice |
 | Languages | English |
@@ -233,7 +230,7 @@ Determine whether a non-disclosure agreement entails, contradicts, or does not m
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/stanfordnlp/contract-nli](https://github.com/stanfordnlp/contract-nli) |
 | Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2110.01799](https://arxiv.org/abs/2110.01799) |
@@ -263,14 +260,13 @@ Answer fine-grained questions about merger-agreement provisions.
 
 **Also known as:** MAUD
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | The Atticus Project (nonprofit) |
 | Catalog geography | United States |
-| First recorded public event | [2023-01-02](https://arxiv.org/abs/2301.00876) — arXiv v1 submission |
-| Latest verified event | [2023-11-24](https://arxiv.org/abs/2301.00876) — arXiv revision |
+| Last verified update | [2023-11-24](https://arxiv.org/abs/2301.00876)<br>*arXiv revision* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -284,7 +280,7 @@ Answer fine-grained questions about merger-agreement provisions.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Question-conditioned provision classification tests whether models can identify deal terms and exceptions across complex acquisition agreements. |
 | Jurisdiction | United States / public-company M&A |
 | Languages | English |
@@ -307,7 +303,7 @@ Answer fine-grained questions about merger-agreement provisions.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/TheAtticusProject/maud](https://github.com/TheAtticusProject/maud) |
 | Hugging Face | [https://huggingface.co/datasets/theatticusproject/maud](https://huggingface.co/datasets/theatticusproject/maud) |
 | Paper / arXiv | [https://arxiv.org/abs/2301.00876](https://arxiv.org/abs/2301.00876)<br>[https://aclanthology.org/2023.emnlp-main.1019/](https://aclanthology.org/2023.emnlp-main.1019/) |
@@ -337,14 +333,13 @@ Rank precedent contract clauses for an attorney-written drafting need.
 
 **Also known as:** ACORD
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | The Atticus Project (nonprofit) |
 | Catalog geography | United States |
-| First recorded public event | [2025-01-11](https://arxiv.org/abs/2501.06582) — arXiv v1 submission |
-| Latest verified event | [2025-09-21](https://arxiv.org/abs/2501.06582) — arXiv revision |
+| Last verified update | [2025-09-21](https://arxiv.org/abs/2501.06582)<br>*arXiv revision* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -358,7 +353,7 @@ Rank precedent contract clauses for an attorney-written drafting need.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Graded expert relevance (1–5 stars, encoded 0–4) supports nDCG, while star-threshold precision@5 asks whether the top drafting candidates meet stricter usefulness levels. |
 | Jurisdiction | United States / commercial contracts |
 | Languages | English |
@@ -382,7 +377,7 @@ Rank precedent contract clauses for an attorney-written drafting need.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/TheAtticusProject/acord](https://github.com/TheAtticusProject/acord) |
 | Hugging Face | [https://huggingface.co/datasets/theatticusproject/acord](https://huggingface.co/datasets/theatticusproject/acord) |
 | Paper / arXiv | [https://arxiv.org/abs/2501.06582](https://arxiv.org/abs/2501.06582)<br>[https://aclanthology.org/2025.acl-long.1206/](https://aclanthology.org/2025.acl-long.1206/) |
@@ -410,14 +405,13 @@ Rank precedent contract clauses for an attorney-written drafting need.
 
 Evaluate long-context LLM clause-risk extraction on the public CUAD test set.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | ContractEval authors (academic) |
 | Catalog geography | United States |
-| First recorded public event | [2025-08-05](https://arxiv.org/abs/2508.03080) — arXiv v1 submission |
-| Latest verified event | None later verified |
+| Last verified update | — |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -430,7 +424,7 @@ Evaluate long-context LLM clause-risk extraction on the public CUAD test set.
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | F1/F2 and Jaccard trade off overlap precision and recall, while false-no-related-clause rate isolates abstention failures; the protocol reuses CUAD rather than defining new ground truth. |
 | Jurisdiction | United States / SEC filings |
 | Languages | English |
@@ -454,7 +448,7 @@ Evaluate long-context LLM clause-risk extraction on the public CUAD test set.
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/theatticusproject/cuad-qa](https://huggingface.co/datasets/theatticusproject/cuad-qa) |
 | Paper / arXiv | [https://arxiv.org/abs/2508.03080](https://arxiv.org/abs/2508.03080) |
@@ -490,14 +484,13 @@ Negotiate commercial contracts over four turns by producing native Word tracked 
 
 **Also known as:** Crosby RedlineBench
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Crosby (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-06-15](https://github.com/crosbylegal/redline-bench) — GitHub repository creation |
-| Latest verified event | [2026-06-26](https://github.com/crosbylegal/redline-bench) — GitHub repository push |
+| Last verified update | [2026-06-26](https://github.com/crosbylegal/redline-bench)<br>*GitHub repository push* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -511,7 +504,7 @@ Negotiate commercial contracts over four turns by producing native Word tracked 
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Weighted expert rubrics model five dimensions of good deal work; turn-weighted scoring balances all scenario×turn cells and penalizes edits that are legally wrong, commercially misaligned, or unlikely to close. |
 | Jurisdiction | United States / commercial contracting |
 | Languages | English |
@@ -535,7 +528,7 @@ Negotiate commercial contracts over four turns by producing native Word tracked 
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/crosbylegal/redline-bench](https://github.com/crosbylegal/redline-bench) |
 | Hugging Face | [https://huggingface.co/datasets/crosbylegal/RedlineBench](https://huggingface.co/datasets/crosbylegal/RedlineBench) |
 | Paper / arXiv | None located |
@@ -563,14 +556,13 @@ Negotiate commercial contracts over four turns by producing native Word tracked 
 
 Review contracts against precision-critical guidelines and identify or explain material issues.
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | LegalOn Technologies (company; commercial interest) |
 | Catalog geography | Evaluation population not published |
-| First recorded public event | [2026-06-03](https://www.legalontech.com/post/the-contract-review-benchmark-2026) — Earliest verified first-party dated page; displayed as Last updated, not as launch |
-| Latest verified event | [2026-06-03](https://www.legalontech.com/post/the-contract-review-benchmark-2026) — Official displayed Last updated date |
+| Last verified update | [2026-06-03](https://www.legalontech.com/post/the-contract-review-benchmark-2026)<br>*Official displayed Last updated date* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -584,7 +576,7 @@ Review contracts against precision-critical guidelines and identify or explain m
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Blind pairwise preference across concrete review guidelines estimates comparative usefulness while reversed ordering attempts to control positional bias. |
 | Jurisdiction | Not fully disclosed |
 | Languages | English |
@@ -607,7 +599,7 @@ Review contracts against precision-critical guidelines and identify or explain m
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -638,14 +630,13 @@ Review and redline real contracts while preserving formatting and exercising law
 
 **Also known as:** Ivo vs. Claude for Word Contract Review Benchmark
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | Ivo (company; commercial interest) |
 | Catalog geography | United States |
-| First recorded public event | [2026-04](https://www.ivo.ai/news/ivo-outperforms-claude-for-word-in-independent-contract-review-benchmark) — Study month stated on the official results page |
-| Latest verified event | None later verified |
+| Last verified update | — |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -659,7 +650,7 @@ Review and redline real contracts while preserving formatting and exercising law
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Blind lawyer ratings across issue spotting, surgical redlining, formatting retention, judgment, and comments measure substantive and document-fidelity quality together. |
 | Jurisdiction | United States commercial contracting |
 | Languages | English |
@@ -682,7 +673,7 @@ Review and redline real contracts while preserving formatting and exercising law
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -716,14 +707,13 @@ Draft contract work products and extract information from native legal documents
 
 **Also known as:** Legal Benchmarks AI
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | legalbenchmarks.ai (company; commercial interest) |
 | Catalog geography | Multi-jurisdiction and supranational |
-| First recorded public event | [2025-04](https://www.legalbenchmarks.ai/leaderboard) — Benchmark series start stated on the official leaderboard |
-| Latest verified event | [2026-07](https://www.legalbenchmarks.ai/leaderboard) — Official leaderboard's displayed update month |
+| Last verified update | [2026-07](https://www.legalbenchmarks.ai/leaderboard)<br>*Official leaderboard's displayed update month* |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -737,7 +727,7 @@ Draft contract work products and extract information from native legal documents
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Reliability requires every criterion on a task to pass, while usefulness separately rates clarity, length, and structure on a three-point scale. |
 | Jurisdiction | United States, United Kingdom, English-language commercial practice |
 | Languages | English |
@@ -761,7 +751,7 @@ Draft contract work products and extract information from native legal documents
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | None located |
 | Hugging Face | None located |
 | Paper / arXiv | None located |
@@ -792,14 +782,13 @@ Detect potentially void clauses in German consumer standard terms and conditions
 
 **Also known as:** AGB-DE German consumer-clause benchmark
 
-### Identity, dates, and access
+### Identity, update, and access
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Owner | AGB-DE authors (academic) |
 | Catalog geography | Germany |
-| First recorded public event | [2024-05-28](https://github.com/DaBr01/AGB-DE) — GitHub repository creation |
-| Latest verified event | [2026-07-02](https://github.com/DaBr01/AGB-DE) — GitHub repository push; latest change was citation metadata rather than benchmark data |
+| Last verified update | [2026-07-02](https://github.com/DaBr01/AGB-DE)<br>*GitHub repository push; latest change was citation metadata rather than benchmark data* |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -813,7 +802,7 @@ Detect potentially void clauses in German consumer standard terms and conditions
 ### Evaluation contract
 
 | Field | Detail |
-|---|---|
+| --- | --- |
 | Construct / theory | Binary precision, recall, and F1 measure clause-level detection of potentially void terms; topic labels support analysis but do not replace substantive validity review. |
 | Jurisdiction | Germany |
 | Languages | German |
@@ -836,7 +825,7 @@ Detect potentially void clauses in German consumer standard terms and conditions
 ### Resources
 
 | Resource | Direct URL |
-|---|---|
+| --- | --- |
 | GitHub | [https://github.com/DaBr01/AGB-DE](https://github.com/DaBr01/AGB-DE) |
 | Hugging Face | [https://huggingface.co/datasets/d4br4/agb-de](https://huggingface.co/datasets/d4br4/agb-de) |
 | Paper / arXiv | [https://arxiv.org/abs/2406.06809](https://arxiv.org/abs/2406.06809)<br>[https://aclanthology.org/2024.acl-long.559/](https://aclanthology.org/2024.acl-long.559/) |
