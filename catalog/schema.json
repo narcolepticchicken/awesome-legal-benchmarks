@@ -4,11 +4,16 @@
   "title": "Awesome Legal Benchmarks catalog",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "as_of", "selection_policy", "entries"],
+  "required": ["schema_version", "as_of", "selection_policy", "geography_groups", "entries"],
   "properties": {
-    "schema_version": {"const": 2},
+    "schema_version": {"const": 3},
     "as_of": {"type": "string", "format": "date"},
     "selection_policy": {"type": "string", "minLength": 20},
+    "geography_groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/geographyGroup"}
+    },
     "entries": {
       "type": "array",
       "minItems": 1,
@@ -61,6 +66,23 @@
         "level": {"enum": ["open", "gated", "partial", "private", "not-applicable"]},
         "test_labels": {"enum": ["public", "hidden", "mixed", "not-applicable", "unclear"]},
         "runnable": {"enum": ["yes", "partial", "no", "not-applicable", "unclear"]}
+      }
+    },
+    "geographyGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "scope", "description", "entries"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "name": {"type": "string", "minLength": 2},
+        "scope": {"enum": ["united-states", "multi-jurisdiction", "international", "undisclosed", "no-fixed-population"]},
+        "description": {"type": "string", "minLength": 20},
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "uniqueItems": true
+        }
       }
     },
     "entry": {

@@ -4,7 +4,7 @@
 
 Authority retrieval, exact-support retrieval, case similarity, citation grounding, and end-to-end legal RAG.
 
-Snapshot: **2026-08-04** · 21 entries
+Snapshot: **2026-08-05** · 28 entries
 
 [Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
@@ -18,7 +18,11 @@ Snapshot: **2026-08-04** · 21 entries
 - [CLERC](#clerc)
 - [RegLab Reasoning-Focused Legal Retrieval Benchmark](#reglab-reasoning-focused-retrieval)
 - [LeCaRDv2](#lecardv2)
+- [STARD](#stard)
 - [Competition on Legal Information Extraction/Entailment](#coliee)
+- [AILA 2019](#aila-2019)
+- [GerDaLIR](#gerdalir)
+- [TREC Legal Track](#trec-legal-track)
 - [Legal RAG Bench](#legal-rag-bench)
 - [CanLegalRAGBench](#canlegalragbench)
 - [JuriFindIT](#jurifindit)
@@ -31,6 +35,9 @@ Snapshot: **2026-08-04** · 21 entries
 - [Hallucination-Free? Legal Research Tool Study](#reglab-legal-rag-hallucinations)
 - [Vals Legal Research Benchmark](#vals-legal-research-bench)
 - [Vals CaseLaw v2](#vals-caselaw-v2)
+- [LaborBench](#laborbench)
+- [LexRAG](#lexrag)
+- [MUSER](#muser)
 
 <a id="mleb"></a>
 ## Massive Legal Embedding Benchmark
@@ -46,8 +53,9 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 | Field | Detail |
 |---|---|
 | Owner | Isaacus (company; commercial interest) |
-| First documented | [2025-10-22](https://arxiv.org/abs/2510.19365) — arXiv v1 submission |
-| Latest verified update | [2026-02-24](https://github.com/isaacus-dev/mleb) — GitHub repository push |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2025-10-22](https://arxiv.org/abs/2510.19365) — arXiv v1 submission |
+| Latest verified event | [2026-02-24](https://github.com/isaacus-dev/mleb) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -89,6 +97,7 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 | Hugging Face | [https://huggingface.co/isaacus/datasets](https://huggingface.co/isaacus/datasets) |
 | Paper / arXiv | [https://arxiv.org/abs/2510.19365](https://arxiv.org/abs/2510.19365) |
 | Leaderboard / competition | [https://isaacus.com/mleb](https://isaacus.com/mleb) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -105,6 +114,7 @@ Legal embedding quality across retrieval, retrieval-augmented QA, and zero-shot 
 **Related entries**
 
 - [Legal RAG Bench](retrieval-rag-citation.md#legal-rag-bench)
+- [GerDaLIR](retrieval-rag-citation.md#gerdalir)
 
 Original source bullet(s): #3, #20
 
@@ -122,8 +132,9 @@ Retrieve exact supporting spans from long legal and policy documents.
 | Field | Detail |
 |---|---|
 | Owner | ZeroEntropy (company; commercial interest) |
-| First documented | [2024-08-19](https://arxiv.org/abs/2408.10343) — arXiv v1 submission |
-| Latest verified update | [2025-05-30](https://github.com/zeroentropy-ai/legalbenchrag) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2024-08-19](https://arxiv.org/abs/2408.10343) — arXiv v1 submission |
+| Latest verified event | [2025-05-30](https://github.com/zeroentropy-ai/legalbenchrag) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -162,7 +173,9 @@ Retrieve exact supporting spans from long legal and policy documents.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/zeroentropy-ai/legalbenchrag](https://github.com/zeroentropy-ai/legalbenchrag) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2408.10343](https://arxiv.org/abs/2408.10343) |
+| Leaderboard / competition | None located |
 | Project | [https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0](https://www.dropbox.com/scl/fo/r7xfa5i3hdsbxex1w6amw/AID389Olvtm-ZLTKAPrw6k4?rlkey=5n8zrbk4c08lbit3iiexofmwg&st=0hu354cq&dl=0) |
 
 ### Validity and evidence
@@ -176,6 +189,10 @@ Retrieve exact supporting spans from long legal and policy documents.
 
 **Unresolved ambiguity**
 - 6,858 versus 6,889 query count remains unresolved.
+
+**Related entries**
+
+- [LaborBench](retrieval-rag-citation.md#laborbench)
 
 Original source bullet(s): #9
 
@@ -195,8 +212,9 @@ Retrieve Belgian statutory articles relevant to a legal question.
 | Field | Detail |
 |---|---|
 | Owner | Maastricht Law & Tech Lab (academic) |
-| First documented | [2021-08-26](https://arxiv.org/abs/2108.11792) — arXiv v1 submission |
-| Latest verified update | [2024-05-31](https://huggingface.co/datasets/maastrichtlawtech/bsard) — Hugging Face dataset update |
+| Catalog geography | Belgium |
+| First recorded public event | [2021-08-26](https://arxiv.org/abs/2108.11792) — arXiv v1 submission |
+| Latest verified event | [2024-05-31](https://huggingface.co/datasets/maastrichtlawtech/bsard) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -238,6 +256,8 @@ Retrieve Belgian statutory articles relevant to a legal question.
 | GitHub | [https://github.com/maastrichtlawtech/bsard](https://github.com/maastrichtlawtech/bsard) |
 | Hugging Face | [https://huggingface.co/datasets/maastrichtlawtech/bsard](https://huggingface.co/datasets/maastrichtlawtech/bsard) |
 | Paper / arXiv | [https://arxiv.org/abs/2108.11792](https://arxiv.org/abs/2108.11792)<br>[https://aclanthology.org/2022.acl-long.468/](https://aclanthology.org/2022.acl-long.468/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -262,8 +282,9 @@ Retrieve Belgian legal authorities and generate long-form answers to practitione
 | Field | Detail |
 |---|---|
 | Owner | Maastricht Law & Tech Lab (academic) |
-| First documented | [2023-09-29](https://arxiv.org/abs/2309.17050) — arXiv v1 submission |
-| Latest verified update | [2024-09-03](https://huggingface.co/datasets/maastrichtlawtech/lleqa) — Hugging Face dataset update |
+| Catalog geography | Belgium |
+| First recorded public event | [2023-09-29](https://arxiv.org/abs/2309.17050) — arXiv v1 submission |
+| Latest verified event | [2024-09-03](https://huggingface.co/datasets/maastrichtlawtech/lleqa) — Hugging Face dataset update |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -305,6 +326,8 @@ Retrieve Belgian legal authorities and generate long-form answers to practitione
 | GitHub | [https://github.com/maastrichtlawtech/lleqa](https://github.com/maastrichtlawtech/lleqa) |
 | Hugging Face | [https://huggingface.co/datasets/maastrichtlawtech/lleqa](https://huggingface.co/datasets/maastrichtlawtech/lleqa) |
 | Paper / arXiv | [https://arxiv.org/abs/2309.17050](https://arxiv.org/abs/2309.17050) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -333,8 +356,9 @@ Retrieve Belgian statutory support and answer grounded legal questions in French
 | Field | Detail |
 |---|---|
 | Owner | University of Antwerp bLLeQA authors (academic) |
-| First documented | [2025-08-20](https://huggingface.co/datasets/clips/bLLeQA) — Hugging Face dataset creation |
-| Latest verified update | [2026-07-03](https://aclanthology.org/2026.knowfm-1.4.pdf) — KnowFM 2026 publication date |
+| Catalog geography | Belgium |
+| First recorded public event | [2025-08-20](https://huggingface.co/datasets/clips/bLLeQA) — Hugging Face dataset creation |
+| Latest verified event | [2026-07-03](https://aclanthology.org/2026.knowfm-1.4.pdf) — KnowFM 2026 publication date |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -376,6 +400,8 @@ Retrieve Belgian statutory support and answer grounded legal questions in French
 | GitHub | [https://github.com/nikolay-banar/blleqa](https://github.com/nikolay-banar/blleqa) |
 | Hugging Face | [https://huggingface.co/datasets/clips/bLLeQA](https://huggingface.co/datasets/clips/bLLeQA) |
 | Paper / arXiv | [https://aclanthology.org/2026.knowfm-1.4.pdf](https://aclanthology.org/2026.knowfm-1.4.pdf) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -408,8 +434,9 @@ Retrieve US case-law evidence and generate citation-grounded legal text.
 | Field | Detail |
 |---|---|
 | Owner | Johns Hopkins CLSP (academic) |
-| First documented | [2024-06-24](https://arxiv.org/abs/2406.17186) — arXiv v1 submission |
-| Latest verified update | [2025-01-28](https://github.com/bohanhou14/CLERC) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2024-06-24](https://arxiv.org/abs/2406.17186) — arXiv v1 submission |
+| Latest verified event | [2025-01-28](https://github.com/bohanhou14/CLERC) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -451,6 +478,8 @@ Retrieve US case-law evidence and generate citation-grounded legal text.
 | GitHub | [https://github.com/bohanhou14/CLERC](https://github.com/bohanhou14/CLERC) |
 | Hugging Face | [https://huggingface.co/datasets/jhu-clsp/CLERC](https://huggingface.co/datasets/jhu-clsp/CLERC) |
 | Paper / arXiv | [https://arxiv.org/abs/2406.17186](https://arxiv.org/abs/2406.17186) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -480,8 +509,9 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 | Field | Detail |
 |---|---|
 | Owner | Stanford RegLab (academic) |
-| First documented | [2025-05-06](https://arxiv.org/abs/2505.03970) — arXiv v1 submission |
-| Latest verified update | No later update verified |
+| Catalog geography | United States |
+| First recorded public event | [2025-05-06](https://arxiv.org/abs/2505.03970) — arXiv v1 submission |
+| Latest verified event | None later verified |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -520,8 +550,10 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
 | Hugging Face | [https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5](https://huggingface.co/collections/reglab/a-reasoning-focused-legal-retrieval-benchmark-67a00c363f7e0d14619e95c5)<br>[https://huggingface.co/datasets/reglab/barexam_qa](https://huggingface.co/datasets/reglab/barexam_qa)<br>[https://huggingface.co/datasets/reglab/housing_qa](https://huggingface.co/datasets/reglab/housing_qa) |
 | Paper / arXiv | [https://arxiv.org/abs/2505.03970](https://arxiv.org/abs/2505.03970) |
+| Leaderboard / competition | None located |
 | Project | [https://reglab.github.io/legal-rag-benchmarks/](https://reglab.github.io/legal-rag-benchmarks/) |
 
 ### Validity and evidence
@@ -535,6 +567,10 @@ Retrieve controlling text for legal questions whose answer has low lexical overl
 
 **Unresolved ambiguity**
 - No canonical GitHub URL was found.
+
+**Related entries**
+
+- [LaborBench](retrieval-rag-citation.md#laborbench)
 
 [Back to page index](#on-this-page)
 
@@ -550,8 +586,9 @@ Retrieve legally similar Chinese criminal cases using graded relevance across ch
 | Field | Detail |
 |---|---|
 | Owner | THUIR (academic) |
-| First documented | [2023-10-26](https://arxiv.org/abs/2310.17609) — arXiv v1 submission |
-| Latest verified update | [2024-12-29](https://github.com/THUIR/LeCaRDv2) — GitHub repository push |
+| Catalog geography | China |
+| First recorded public event | [2023-10-26](https://arxiv.org/abs/2310.17609) — arXiv v1 submission |
+| Latest verified event | [2024-12-29](https://github.com/THUIR/LeCaRDv2) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -591,7 +628,10 @@ Retrieve legally similar Chinese criminal cases using graded relevance across ch
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/THUIR/LeCaRDv2](https://github.com/THUIR/LeCaRDv2) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2310.17609](https://arxiv.org/abs/2310.17609) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -601,6 +641,98 @@ Retrieve legally similar Chinese criminal cases using graded relevance across ch
 
 **Verified facts**
 - Official repository/paper establish 800 queries, 55,192 candidates, and 4.3M source cases.
+
+**Related entries**
+
+- [STARD](retrieval-rag-citation.md#stard)
+- [GerDaLIR](retrieval-rag-citation.md#gerdalir)
+
+[Back to page index](#on-this-page)
+
+<a id="stard"></a>
+## STARD
+
+`stard` · **benchmark** · **specialist** · fixed-release
+
+Retrieve all Chinese statutory articles relevant to an informal real-world legal consultation query.
+
+**Also known as:** STAtute Retrieval Dataset
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | STARD authors / Tsinghua University (academic) |
+| Catalog geography | China |
+| First recorded public event | [2024-03-17](https://github.com/oneal2000/STARD) — GitHub repository creation |
+| Latest verified event | [2025-04-24](https://github.com/oneal2000/STARD) — Last verified GitHub repository push affecting the benchmark artifact |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Benchmark Chinese statute retrieval for informal questions from non-lawyers against a 55,348-article corpus.
+- Compare lexical, dense, legal-domain, and task-fine-tuned retrievers with recall and reciprocal-rank curves.
+- Use the released annotation design as a template for building jurisdiction-specific lay-query retrieval tests.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Recall at several cutoffs measures whether a retriever finds the full set of annotated statutes, while reciprocal rank measures how early the first relevant statute appears; the labels operationalize legal relevance through a three-step lawyer annotation process. |
+| Jurisdiction | China |
+| Languages | Chinese |
+| Size | 1,543 anonymized consultation queries, 55,348 candidate statutory articles, 1,445 unique relevant articles, and 2,717 relevance occurrences |
+| Splits | The repository provides query/corpus files and a random 4:1 train/development partition; the paper evaluates supervised retrievers with five-fold cross-validation |
+| Source material | Questions derived from the official 12348 China Legal Service website; current national laws, regulations, and judicial interpretations downloaded by the legal team |
+| Input | Informal Chinese legal question and a corpus of article-level statutes |
+| Output | Ranked statutory-article identifiers |
+| Baselines / leaderboard context | The paper compares QL, BM25, Chinese RoBERTa, SEED, coCondenser, SAILER, Lawformer, Dense-CAIL, Dense-GPT4, LSI-STARD, and five-fold Dense-STARD; Dense-STARD reports the best Recall@100 at 0.9065. |
+| Dataset access | Public GitHub data and code with public qrels |
+| License | MIT according to the paper and repository |
+| Gating | None observed |
+| Maintenance | The repository remains public but has no tagged benchmark releases; pin a commit and legal-source snapshot. |
+| Reproducibility | High for the published retrieval experiment because queries, corpus, labels, splits, and code are public; exact reproduction still requires the pinned preprocessing and model checkpoints. |
+
+### Metrics
+
+- **Recall@5/10/20/30/50/100/200:** For each query, measure the fraction of annotated relevant statutory articles appearing in the top-k ranking; aggregate across queries. **Primary.**
+- **MRR@3/5/10:** Average the reciprocal rank of the first relevant statutory article, truncated at the named cutoff. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/oneal2000/STARD](https://github.com/oneal2000/STARD) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://arxiv.org/abs/2406.15313](https://arxiv.org/abs/2406.15313) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- All queries and qrels are public, so direct contamination and benchmark-specific tuning are easy.
+- The statutory corpus is time-sensitive and can become legally stale even if retrieval scores remain reproducible.
+- Cohen's kappa of 0.5312 indicates only moderate pre-filter annotation agreement, and disagreement cases were excluded from the final set.
+- Citation-derived or consultation-derived relevance does not prove that the retrieved set is legally complete for every valid interpretation.
+
+**Verified facts**
+- The official paper and repository agree on 1,543 queries, 55,348 candidate articles, the annotation process, retrieval metrics, baseline family, public artifacts, and MIT terms.
+- Official GitHub API metadata records repository creation on 2024-03-17 and the last benchmark push on 2025-04-24.
+
+**Inference**
+- STARD is best treated as a specialist retrieval benchmark, not as evidence of end-to-end legal-advice quality.
+
+**Unresolved ambiguity**
+- No canonical Hugging Face dataset or maintained leaderboard was located.
+
+**Related entries**
+
+- [LeCaRDv2](retrieval-rag-citation.md#lecardv2)
+- [JuDGE](reasoning-education.md#judge)
+- [LawBench](reasoning-education.md#lawbench)
 
 [Back to page index](#on-this-page)
 
@@ -618,8 +750,9 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 | Field | Detail |
 |---|---|
 | Owner | COLIEE organizers (competition) |
-| First documented | [2014](https://coliee.org/COLIEE2025/overview) — Official COLIEE history; COLIEE 2025 is identified as the 12th competition |
-| Latest verified update | [2026-06](https://coliee.org/COLIEE2026/program) — COLIEE 2026 workshop program |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2014](https://coliee.org/COLIEE2025/overview) — Official COLIEE history; COLIEE 2025 is identified as the 12th competition |
+| Latest verified event | [2026-06](https://coliee.org/COLIEE2026/program) — COLIEE 2026 workshop program |
 | Access level | gated |
 | Test labels | hidden |
 | Independently runnable | partial |
@@ -658,6 +791,9 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
 | Leaderboard / competition | [https://coliee.org/COLIEE2025/submission](https://coliee.org/COLIEE2025/submission) |
 | Project | [https://coliee.org/COLIEE2025/overview](https://coliee.org/COLIEE2025/overview) |
 
@@ -673,6 +809,267 @@ Retrieve and recognize entailment among Canadian cases and Japanese civil-code p
 **Unresolved ambiguity**
 - There is intentionally no single edition-independent dataset size or metric.
 
+**Related entries**
+
+- [AILA 2019](retrieval-rag-citation.md#aila-2019)
+- [GerDaLIR](retrieval-rag-citation.md#gerdalir)
+
+[Back to page index](#on-this-page)
+
+<a id="aila-2019"></a>
+## AILA 2019
+
+`aila-2019` · **shared-task** · **specialist** · completed
+
+Rank relevant Indian Supreme Court precedents and statutory sections for a factual legal scenario.
+
+**Also known as:** FIRE 2019 Artificial Intelligence for Legal Assistance Track
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | FIRE 2019 AILA organizers (competition) |
+| Catalog geography | India |
+| First recorded public event | [2019](https://ceur-ws.org/Vol-2517/T1-1.pdf) — FIRE 2019 shared-task edition; exact first public data-release date was not located |
+| Latest verified event | [2020-10-03](https://zenodo.org/records/4063986) — Zenodo dataset record modification |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Benchmark Indian Supreme Court precedent retrieval and Indian statute retrieval from anonymized factual scenarios.
+- Compare modern retrievers with the original FIRE submissions using the same trec_eval measures.
+- Use the explicit 10/40 query split as a small historical diagnostic, not as a comprehensive Indian-law score.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | MAP rewards repeated early precision across all known relevant authorities, while P@10, BPREF, and reciprocal rank separately expose top-ten concentration, robustness to incomplete judgments, and first-hit rank. |
+| Jurisdiction | India |
+| Languages | English |
+| Size | 50 anonymized factual queries, 2,914 candidate Supreme Court case documents, and 197 candidate statutory sections |
+| Splits | 10 training queries and 40 test queries with relevance judgments; all are now public |
+| Source material | Indian Supreme Court judgments from 1952 through February 2018 and statutory material; queries were manually extracted and anonymized from case facts |
+| Input | Natural-language factual scenario |
+| Output | Ranked precedent identifiers for Task 1 or ranked statute identifiers for Task 2 |
+| Baselines / leaderboard context | The official overview reports 22 Task 1 and 18 Task 2 runs using BM25, TF-IDF, language models, vector models, and embeddings; best MAP was 0.1492 for precedent retrieval and 0.1566 for statute retrieval. |
+| Dataset access | Public Zenodo archive and GitHub pointer with queries, documents, and qrels |
+| License | CC BY 4.0 in the Zenodo record; the overview paper is also CC BY 4.0 |
+| Gating | None observed for the archived release |
+| Maintenance | Completed 2019 shared task; the archived Zenodo record is stable, while later AILA editions are separate versioned competitions. |
+| Reproducibility | Good for the archived 2019 task because the collection, qrels, metric definitions, trec_eval protocol, and official results are public. |
+
+### Metrics
+
+- **Mean Average Precision (primary):** Compute average precision per test query and average over the 40 queries using trec_eval; rank submitted runs by MAP. **Primary.**
+- **P@10 / BPREF / reciprocal rank:** Report top-ten precision, binary preference under potentially incomplete qrels, and mean reciprocal rank of the first relevant item.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/Law-AI/aila-2019-dataset](https://github.com/Law-AI/aila-2019-dataset) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://ceur-ws.org/Vol-2517/T1-1.pdf](https://ceur-ws.org/Vol-2517/T1-1.pdf) |
+| Leaderboard / competition | None located |
+| Project | [https://zenodo.org/records/4063986](https://zenodo.org/records/4063986)<br>[https://sites.google.com/view/fire-2019-aila/](https://sites.google.com/view/fire-2019-aila/) |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Only 40 test queries make the aggregate unstable and narrow relative to Indian legal practice.
+- The overview warns that some genuinely relevant statutes or precedents may be absent from the judgments and therefore from the qrels.
+- All data and qrels are public and old enough to appear in training corpora.
+- Source collection through Westlaw India requires careful downstream provenance review even though the released archive is CC BY 4.0.
+
+**Verified facts**
+- The official FIRE overview, GitHub repository, and Zenodo record agree on the two tasks, 50 queries, 2,914 cases, 197 statutes, 10/40 split, metrics, and archived data identity.
+- Zenodo reports publication on 2020-10-02, modification on 2020-10-03, and CC BY 4.0 metadata.
+
+**Inference**
+- AILA is best preserved as a completed shared-task identity rather than merged into the later IL-TUR suite that reuses related Indian tasks.
+
+**Unresolved ambiguity**
+- No Hugging Face release or continuously maintained leaderboard was located.
+
+**Related entries**
+
+- [ILSIC](retrieval-rag-citation.md#ilsic)
+- [IL-TUR](reasoning-education.md#il-tur)
+- [Competition on Legal Information Extraction/Entailment](retrieval-rag-citation.md#coliee)
+
+[Back to page index](#on-this-page)
+
+<a id="gerdalir"></a>
+## GerDaLIR
+
+`gerdalir` · **benchmark** · **specialist** · fixed-release
+
+Retrieve German case decisions cited by a passage expressing a legal statement or line of argument.
+
+**Also known as:** German Dataset for Legal Information Retrieval
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LAVIS NLP / GerDaLIR authors (academic) |
+| Catalog geography | Germany |
+| First recorded public event | [2021-09-28](https://github.com/lavis-nlp/GerDaLIR) — GitHub repository creation |
+| Latest verified event | [2024-02-26](https://github.com/lavis-nlp/GerDaLIR) — Last verified GitHub repository push affecting the benchmark artifact |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Benchmark full-ranking German case-law retrieval from passage-length legal arguments.
+- Train and compare sparse, embedding, and neural reranking systems on a large fixed German legal collection.
+- Diagnose citation-derived retrieval separately from expert-judged semantic relevance.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Top-rank quality is measured by MRR@10 and nDCG@20, while Recall@100/1000 measures corpus coverage; relevance is operationalized by parsed case citations rather than independent expert judgments. |
+| Jurisdiction | Germany |
+| Languages | German |
+| Size | 122,975 query passages, 131,446 collection case documents represented by 3,095,383 passages, and 144,324 positive labels |
+| Splits | 98,380 train / 12,297 development / 12,298 test queries; 115,360 / 14,570 / 14,394 positive labels |
+| Source material | 201,825 German case documents from Open Legal Data; passages citing known collection cases become queries |
+| Input | German case-law passage with citations sanitized to a [REF] token |
+| Output | Ranked collection case or passage identifiers |
+| Baselines / leaderboard context | The paper compares TF-IDF, default and tuned BM25, GloVe/fastText word-centroid similarity, and BERT/ELECTRA reranking; ELECTRA reports the best MRR@10 at 0.436 and nDCG@20 at 0.481, while tuned document-level BM25 reaches Recall@1000 of 0.829. |
+| Dataset access | Public compressed TSV downloads linked from GitHub, including collection, train/dev/test queries, qrels, and optional BM25 candidates |
+| License | MIT repository license; verify Open Legal Data source terms for downstream redistribution |
+| Gating | None observed, but the multi-gigabyte download and external host must remain available |
+| Maintenance | Fixed research release with nine repository commits; pin the February 2024 artifact revision and external download checksums. |
+| Reproducibility | High for fixed retrieval experiments because exact splits, qrels, download formats, baselines, and metric cutoffs are public. |
+
+### Metrics
+
+- **MRR@10 / nDCG@20:** Measure first-hit rank through position 10 and graded top-20 ranking quality over all positive citation labels. **Primary.**
+- **Recall@100 / Recall@1000:** Measure the fraction of known cited cases retrieved within broad candidate cutoffs. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/lavis-nlp/GerDaLIR](https://github.com/lavis-nlp/GerDaLIR) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://aclanthology.org/2021.nllp-1.13/](https://aclanthology.org/2021.nllp-1.13/) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- A citation is a noisy proxy for relevance: courts cite cases for many purposes, and uncited but useful authorities become false negatives.
+- Random query splitting can place closely related passages or matters across train and test and should be audited for document-family leakage.
+- All qrels are public, permitting direct overfitting.
+- External multi-gigabyte downloads are a durability risk even though the GitHub metadata remains available.
+
+**Verified facts**
+- The official ACL paper and repository agree on task identity, collection/query/label counts, the 80/10/10 split, metric cutoffs, public downloads, and baseline results.
+- The GitHub API records repository creation on 2021-09-28, benchmark push on 2024-02-26, and an MIT license.
+
+**Inference**
+- GerDaLIR is strong for German full-ranking research but should not be interpreted as expert validation of substantive case similarity.
+
+**Unresolved ambiguity**
+- No canonical Hugging Face release or maintained leaderboard was located.
+
+**Related entries**
+
+- [Competition on Legal Information Extraction/Entailment](retrieval-rag-citation.md#coliee)
+- [LeCaRDv2](retrieval-rag-citation.md#lecardv2)
+- [Massive Legal Embedding Benchmark](retrieval-rag-citation.md#mleb)
+
+[Back to page index](#on-this-page)
+
+<a id="trec-legal-track"></a>
+## TREC Legal Track
+
+`trec-legal-track` · **shared-task** · **specialist** · archived
+
+Find documents responsive to civil-litigation production requests while minimizing review burden.
+
+**Also known as:** TREC Legal
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | NIST TREC Legal Track organizers (mixed) |
+| Catalog geography | United States |
+| First recorded public event | [2006](https://trec.nist.gov/data/legal06.html) — First official TREC Legal Track edition |
+| Latest verified event | [2011](https://trec.nist.gov/data/legal11.html) — Final official TREC Legal Track edition |
+| Access level | partial |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Reproduce historical United States e-discovery and technology-assisted review experiments with official topics and qrels.
+- Compare ranking, recall-at-review-depth, and probability-calibration strategies on the 2010/2011 Enron collection.
+- Use the annual protocols as methodological precedent when designing a fresh private document-review benchmark.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | The series operationalizes e-discovery retrieval through attorney-authored production requests, pooled or sampled responsiveness judgments, and review-effort tradeoffs; later learning tasks jointly evaluate ranking and estimated probabilities of responsiveness. |
+| Jurisdiction | United States civil litigation / e-discovery |
+| Languages | English |
+| Size | Edition-specific; the 2011 learning task ranks 685,592 Enron messages and attachments for three production-request topics, with 16,999 sampled documents assessed for the gold standard |
+| Splits | Annual topics, qrels, reference runs, and interactive or learning phases rather than one conventional train/dev/test split |
+| Source material | 2006–2009 civil-discovery collections and 2010–2011 EDRM Enron Dataset v2, with attorney topic authorities and professional or legally trained assessors |
+| Input | Production request and coding guidelines, document corpus, seed assessments, and optional bounded feedback from a topic authority |
+| Output | Responsive-document set or full ranking with estimated probability of responsiveness |
+| Baselines / leaderboard context | NIST publishes annual participant runs and result appendices. In 2011, ten organizations submitted automatic or technology-assisted systems, including learning-to-rank, relevance-feedback, search, and review workflows. |
+| Dataset access | NIST still hosts annual topics, qrels, scripts, and results; source document collections are separate large archives and may be harder to obtain |
+| License | No single benchmark-wide license covers NIST artifacts and the underlying tobacco/Enron corpora; source-corpus terms must be checked separately |
+| Gating | Partial: metadata and judgments are public, but a complete rerun also requires the corresponding edition's source corpus |
+| Maintenance | Archived official series: six editions ran from 2006 through 2011, and NIST continues to host the data and proceedings pages. |
+| Reproducibility | Moderate for a pinned edition because qrels, scripts, papers, and results remain public; lower for end-to-end reruns when legacy corpus hosting, formats, or interactive feedback are unavailable. |
+
+### Metrics
+
+- **Recall / precision / F1 at review cutoffs:** Later editions estimate retrieval effectiveness at named production or review depths from stratified samples; report topic, cutoff, and confidence procedure. Judge: Human responsiveness assessments with topic-authority adjudication. **Primary.**
+- **Probability-estimate accuracy:** Compare submitted estimates of responsive-document counts with sampled post-hoc estimates; the 2010/2011 learning tasks evaluate calibration as well as ranking. Judge: Human responsiveness assessments with topic-authority adjudication.
+- **Edition-specific official measures:** Earlier ad hoc, relevance-feedback, batch, and interactive tasks use the evaluation scripts bundled with that year's qrels; never compare scores across editions without naming the task and script. Judge: Human relevance assessors.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | None located |
+| Hugging Face | None located |
+| Paper / arXiv | [https://trec.nist.gov/pubs/trec15/papers/LEGAL06.OVERVIEW.pdf](https://trec.nist.gov/pubs/trec15/papers/LEGAL06.OVERVIEW.pdf)<br>[https://trec.nist.gov/pubs/trec20/papers/LEGAL.OVERVIEW.2011.pdf](https://trec.nist.gov/pubs/trec20/papers/LEGAL.OVERVIEW.2011.pdf) |
+| Leaderboard / competition | [https://trec.nist.gov/pubs/trec20/appendices/legal.html](https://trec.nist.gov/pubs/trec20/appendices/legal.html) |
+| Project | [https://trec.nist.gov/data/legal.html](https://trec.nist.gov/data/legal.html) |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Pooling and stratified sampling leave unjudged documents and introduce estimator assumptions; qrels are not exhaustive truth.
+- The final 2011 task has only three topics, so system ranks are sensitive to topic choice.
+- Historical email and litigation collections may not represent current enterprise document formats or discovery practice.
+- Cross-year scores are not directly comparable because corpora, tasks, feedback budgets, and evaluation methods changed.
+
+**Verified facts**
+- NIST's official landing page enumerates annual Legal Track editions from 2006 through 2011 and hosts their qrels, scripts, results, and proceedings.
+- The official 2011 overview defines 685,592 documents, three topics, 16,999 assessed documents, full-corpus ranking/probability output, feedback budget, human adjudication, and recall/precision/F1 evaluation.
+
+**Inference**
+- TREC Legal remains methodologically important for e-discovery, but its archived scores should be used as historical baselines rather than current product ranks.
+
+**Unresolved ambiguity**
+- There is no canonical GitHub, Hugging Face dataset, arXiv record, or live leaderboard; source-corpus access varies by edition.
+
 [Back to page index](#on-this-page)
 
 <a id="legal-rag-bench"></a>
@@ -687,8 +1084,9 @@ Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval vers
 | Field | Detail |
 |---|---|
 | Owner | Isaacus / Umar Butler (mixed; commercial interest) |
-| First documented | [2026-03-02](https://arxiv.org/abs/2603.01710) — arXiv v1 submission |
-| Latest verified update | [2026-03-08](https://huggingface.co/datasets/isaacus/legal-rag-bench) — Hugging Face dataset update |
+| Catalog geography | Australia |
+| First recorded public event | [2026-03-02](https://arxiv.org/abs/2603.01710) — arXiv v1 submission |
+| Latest verified event | [2026-03-08](https://huggingface.co/datasets/isaacus/legal-rag-bench) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -730,6 +1128,7 @@ Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval vers
 | GitHub | [https://github.com/isaacus-dev/legal-rag-bench](https://github.com/isaacus-dev/legal-rag-bench) |
 | Hugging Face | [https://huggingface.co/datasets/isaacus/legal-rag-bench](https://huggingface.co/datasets/isaacus/legal-rag-bench) |
 | Paper / arXiv | [https://arxiv.org/abs/2603.01710](https://arxiv.org/abs/2603.01710) |
+| Leaderboard / competition | None located |
 | Project | [https://huggingface.co/blog/isaacus/legal-rag-bench](https://huggingface.co/blog/isaacus/legal-rag-bench) |
 
 ### Validity and evidence
@@ -759,8 +1158,9 @@ Retrieve Canadian case law for realistic layperson and legal-professional querie
 | Field | Detail |
 |---|---|
 | Owner | UBC NLP (academic) |
-| First documented | [2026-05-28](https://arxiv.org/abs/2605.30497) — arXiv v1 submission |
-| Latest verified update | [2026-07-20](https://github.com/NLP-UBC/CanLegalRAGBench) — GitHub repository push |
+| Catalog geography | Canada |
+| First recorded public event | [2026-05-28](https://arxiv.org/abs/2605.30497) — arXiv v1 submission |
+| Latest verified event | [2026-07-20](https://github.com/NLP-UBC/CanLegalRAGBench) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -802,6 +1202,8 @@ Retrieve Canadian case law for realistic layperson and legal-professional querie
 | GitHub | [https://github.com/NLP-UBC/CanLegalRAGBench](https://github.com/NLP-UBC/CanLegalRAGBench) |
 | Hugging Face | [https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench](https://huggingface.co/datasets/UBC-VL/CanLegalRAGBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2605.30497](https://arxiv.org/abs/2605.30497) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -829,8 +1231,9 @@ Retrieve Italian statutory articles relevant to natural-language legal questions
 | Field | Detail |
 |---|---|
 | Owner | JuriFindIT authors (academic) |
-| First documented | [2025-09-29](https://huggingface.co/datasets/jurifindit/JuriFindIT) — Hugging Face dataset creation |
-| Latest verified update | [2026-03](https://aclanthology.org/2026.findings-eacl.221/) — Findings of EACL 2026 publication |
+| Catalog geography | Italy |
+| First recorded public event | [2025-09-29](https://huggingface.co/datasets/jurifindit/JuriFindIT) — Hugging Face dataset creation |
+| Latest verified event | [2026-03](https://aclanthology.org/2026.findings-eacl.221/) — Findings of EACL 2026 publication |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -868,8 +1271,11 @@ Retrieve Italian statutory articles relevant to natural-language legal questions
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/jurifindit/JuriFindIT](https://huggingface.co/datasets/jurifindit/JuriFindIT) |
 | Paper / arXiv | [https://aclanthology.org/2026.findings-eacl.221/](https://aclanthology.org/2026.findings-eacl.221/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -900,8 +1306,9 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 | Field | Detail |
 |---|---|
 | Owner | Law-AI / ILSIC authors (academic) |
-| First documented | [2026-01-23](https://github.com/Law-AI/ilsic) — GitHub repository creation |
-| Latest verified update | [2026-02-03](https://github.com/Law-AI/ilsic) — GitHub repository push |
+| Catalog geography | India |
+| First recorded public event | [2026-01-23](https://github.com/Law-AI/ilsic) — GitHub repository creation |
+| Latest verified event | [2026-02-03](https://github.com/Law-AI/ilsic) — GitHub repository push |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | partial |
@@ -940,7 +1347,9 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/Law-AI/ilsic](https://github.com/Law-AI/ilsic) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2602.00881](https://arxiv.org/abs/2602.00881) |
+| Leaderboard / competition | None located |
 | Project | [https://drive.google.com/drive/folders/1m_tU6Cb55Q5mVQEImFUp-cUSVZzoHzfd](https://drive.google.com/drive/folders/1m_tU6Cb55Q5mVQEImFUp-cUSVZzoHzfd) |
 
 ### Validity and evidence
@@ -956,6 +1365,10 @@ Identify Indian statutes relevant to layperson and court-derived legal queries.
 **Unresolved ambiguity**
 - Exact data revision, split files, aggregate scorer, and dataset license need stronger first-party documentation.
 
+**Related entries**
+
+- [AILA 2019](retrieval-rag-citation.md#aila-2019)
+
 [Back to page index](#on-this-page)
 
 <a id="rod-tal"></a>
@@ -970,8 +1383,9 @@ Answer Romanian driving-law questions and retrieve governing law or traffic sign
 | Field | Detail |
 |---|---|
 | Owner | GRAI-UNSTPB / RoD-TAL authors (academic) |
-| First documented | [2025-07-25](https://arxiv.org/abs/2507.19666) — arXiv v1 submission |
-| Latest verified update | [2026-04-30](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL) — Hugging Face dataset update |
+| Catalog geography | Romania |
+| First recorded public event | [2025-07-25](https://arxiv.org/abs/2507.19666) — arXiv v1 submission |
+| Latest verified event | [2026-04-30](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL) — Hugging Face dataset update |
 | Access level | gated |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1013,6 +1427,8 @@ Answer Romanian driving-law questions and retrieve governing law or traffic sign
 | GitHub | [https://github.com/vladman-25/RoD-TAL](https://github.com/vladman-25/RoD-TAL) |
 | Hugging Face | [https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL) |
 | Paper / arXiv | [https://arxiv.org/abs/2507.19666](https://arxiv.org/abs/2507.19666)<br>[https://aclanthology.org/2026.findings-eacl.295/](https://aclanthology.org/2026.findings-eacl.295/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1043,8 +1459,9 @@ Produce current US legal answers with relevant, supported, and correctly ranged 
 | Field | Detail |
 |---|---|
 | Owner | Vaquill AI (company; commercial interest) |
-| First documented | [2026-07-09](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository creation |
-| Latest verified update | [2026-07-18](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2026-07-09](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository creation |
+| Latest verified event | [2026-07-18](https://github.com/Vaquill-AI/open-legal-answer-benchmark) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1084,7 +1501,10 @@ Produce current US legal answers with relevant, supported, and correctly ranged 
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/Vaquill-AI/open-legal-answer-benchmark](https://github.com/Vaquill-AI/open-legal-answer-benchmark) |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
 | Leaderboard / competition | [https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md](https://github.com/Vaquill-AI/open-legal-answer-benchmark/blob/main/LEADERBOARD.md) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1114,8 +1534,9 @@ Retrieve, complete, verify, and abstain on legal citations in US appellate text.
 | Field | Detail |
 |---|---|
 | Owner | LegalCiteBench authors (academic) |
-| First documented | [2026-05-06](https://huggingface.co/datasets/legalcitebench/LegalCiteBench) — Hugging Face dataset creation |
-| Latest verified update | [2026-05-11](https://arxiv.org/abs/2605.10186) — arXiv v1 submission |
+| Catalog geography | United States |
+| First recorded public event | [2026-05-06](https://huggingface.co/datasets/legalcitebench/LegalCiteBench) — Hugging Face dataset creation |
+| Latest verified event | [2026-05-11](https://arxiv.org/abs/2605.10186) — arXiv v1 submission |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1156,6 +1577,8 @@ Retrieve, complete, verify, and abstain on legal citations in US appellate text.
 | GitHub | [https://github.com/Sijia711/LegalCiteBench](https://github.com/Sijia711/LegalCiteBench) |
 | Hugging Face | [https://huggingface.co/datasets/legalcitebench/LegalCiteBench](https://huggingface.co/datasets/legalcitebench/LegalCiteBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2605.10186](https://arxiv.org/abs/2605.10186) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1186,8 +1609,9 @@ Identify hallucinated legal citations and affected spans in federal appellate br
 | Field | Detail |
 |---|---|
 | Owner | Princeton Polaris Lab / AI, Law & Society Lab (academic) |
-| First documented | [2026-04-07](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset creation |
-| Latest verified update | [2026-07-06](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset update |
+| Catalog geography | United States |
+| First recorded public event | [2026-04-07](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset creation |
+| Latest verified event | [2026-07-06](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1228,6 +1652,7 @@ Identify hallucinated legal citations and affected spans in federal appellate br
 | GitHub | [https://github.com/princeton-polaris-lab/legal-hallucination-agent](https://github.com/princeton-polaris-lab/legal-hallucination-agent) |
 | Hugging Face | [https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation](https://huggingface.co/datasets/ai-law-society-lab/Legal_Phantom_Citation) |
 | Paper / arXiv | [https://arxiv.org/abs/2606.21155](https://arxiv.org/abs/2606.21155) |
+| Leaderboard / competition | None located |
 | Project | [https://princeton-polaris-lab.github.io/legal-hallucination-webpage/](https://princeton-polaris-lab.github.io/legal-hallucination-webpage/) |
 
 ### Validity and evidence
@@ -1256,8 +1681,9 @@ Answer verifiable closed-form questions about US federal cases without inventing
 | Field | Detail |
 |---|---|
 | Owner | Stanford RegLab / Yale authors (academic) |
-| First documented | [2024-01-02](https://arxiv.org/abs/2401.01301) — arXiv v1 submission |
-| Latest verified update | [2024-06-26](https://github.com/reglab/legal_hallucinations) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2024-01-02](https://arxiv.org/abs/2401.01301) — arXiv v1 submission |
+| Latest verified event | [2024-06-26](https://github.com/reglab/legal_hallucinations) — GitHub repository push |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1298,6 +1724,8 @@ Answer verifiable closed-form questions about US federal cases without inventing
 | GitHub | [https://github.com/reglab/legal_hallucinations](https://github.com/reglab/legal_hallucinations) |
 | Hugging Face | [https://huggingface.co/datasets/reglab/legal_hallucinations](https://huggingface.co/datasets/reglab/legal_hallucinations) |
 | Paper / arXiv | [https://arxiv.org/abs/2401.01301](https://arxiv.org/abs/2401.01301) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1328,8 +1756,9 @@ Return correct, grounded, responsive legal research answers without false author
 | Field | Detail |
 |---|---|
 | Owner | Stanford RegLab (academic) |
-| First documented | [2024-05-30](https://arxiv.org/abs/2405.20362) — arXiv v1 submission |
-| Latest verified update | [2024-11-14](https://huggingface.co/datasets/reglab/legal_rag_hallucinations) — Hugging Face dataset update |
+| Catalog geography | United States |
+| First recorded public event | [2024-05-30](https://arxiv.org/abs/2405.20362) — arXiv v1 submission |
+| Latest verified event | [2024-11-14](https://huggingface.co/datasets/reglab/legal_rag_hallucinations) — Hugging Face dataset update |
 | Access level | partial |
 | Test labels | mixed |
 | Independently runnable | partial |
@@ -1367,8 +1796,10 @@ Return correct, grounded, responsive legal research answers without false author
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/reglab/legal_rag_hallucinations](https://huggingface.co/datasets/reglab/legal_rag_hallucinations) |
 | Paper / arXiv | [https://arxiv.org/abs/2405.20362](https://arxiv.org/abs/2405.20362) |
+| Leaderboard / competition | None located |
 | Project | [https://reglab.stanford.edu/publications/hallucination-free-assessing-the-reliability-of-leading-ai-legal-research-tools/](https://reglab.stanford.edu/publications/hallucination-free-assessing-the-reliability-of-leading-ai-legal-research-tools/) |
 
 ### Validity and evidence
@@ -1403,8 +1834,9 @@ Research US legal questions and produce answers satisfying lawyer-authored subst
 | Field | Detail |
 |---|---|
 | Owner | Vals AI (company; commercial interest) |
-| First documented | [2025-10](https://www.vals.ai/benchmarks/legal_research) — Earliest first-party release period located in Vals' benchmark timeline |
-| Latest verified update | [2026-08-03](https://www.vals.ai/benchmarks/legal_research) — Official benchmark page update date |
+| Catalog geography | United States |
+| First recorded public event | [2025-10](https://www.vals.ai/benchmarks/legal_research) — Earliest first-party release period located in Vals' benchmark timeline |
+| Latest verified event | [2026-08-03](https://www.vals.ai/benchmarks/legal_research) — Official benchmark page update date |
 | Access level | partial |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -1443,7 +1875,11 @@ Research US legal questions and produce answers satisfying lawyer-authored subst
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
 | Leaderboard / competition | [https://www.vals.ai/benchmarks/legal_research](https://www.vals.ai/benchmarks/legal_research) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1474,8 +1910,9 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 | Field | Detail |
 |---|---|
 | Owner | Vals AI (company; commercial interest) |
-| First documented | [2026-02-05](https://www.vals.ai/benchmarks/case_law_v2) — Earliest dated first-party page located with CaseLaw v2 present |
-| Latest verified update | [2026-05-04](https://www.vals.ai/benchmarks/case_law_v2) — Official benchmark page update date |
+| Catalog geography | Canada |
+| First recorded public event | [2026-02-05](https://www.vals.ai/benchmarks/case_law_v2) — Earliest dated first-party page located with CaseLaw v2 present |
+| Latest verified event | [2026-05-04](https://www.vals.ai/benchmarks/case_law_v2) — Official benchmark page update date |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -1513,7 +1950,11 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
 | Leaderboard / competition | [https://www.vals.ai/benchmarks/case_law_v2](https://www.vals.ai/benchmarks/case_law_v2) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1530,5 +1971,248 @@ Answer Canadian case-law questions with correct, relevant, well-supported legal 
 
 **Unresolved ambiguity**
 - February 5, 2026 is the earliest dated first-party documentation located, not necessarily the original launch date; exact seven-dimension judge details are incomplete.
+
+[Back to page index](#on-this-page)
+
+<a id="laborbench"></a>
+## LaborBench
+
+`laborbench` · **benchmark** · **specialist** · fixed-release
+
+Extract and answer state-specific unemployment-insurance law questions from statutes and regulations.
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | Stanford Regulation, Evaluation, and Governance Lab (academic) |
+| Catalog geography | United States |
+| First recorded public event | [2025-05-02](https://huggingface.co/datasets/reglab/laborbench) — Hugging Face dataset creation |
+| Latest verified event | [2025-08-26](https://arxiv.org/abs/2508.19365) — arXiv v1 submission after the dataset release |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Test state-by-state unemployment-insurance statutory and regulatory question answering on lawyer-maintained source material.
+- Compare no-retrieval and RAG systems on the released Boolean supplement using accuracy, precision, recall, and F1.
+- Use the jurisdiction field to diagnose state-level performance variation rather than relying only on one national average.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | LaborBench converts an annually lawyer-maintained Department of Labor comparison into structured questions; the paper's scored experiment tests Boolean legal QA with and without retrieval from StateCodes. |
+| Jurisdiction | United States: 50 states, District of Columbia, Puerto Rico, and U.S. Virgin Islands |
+| Languages | English |
+| Size | Hugging Face exposes 3,700 QA rows, a 3,015-row Boolean supplement, and 83 table records; the configs overlap by design and must not be summed as independent questions |
+| Splits | Each released configuration exposes one public train split; no hidden test split is published |
+| Source material | 2023 U.S. Department of Labor Comparison of State Unemployment Insurance Laws tables; the paper pairs the Boolean task with the 2023 StateCodes statute/regulation corpus |
+| Input | Jurisdiction-specific question, optional source-table context, and optionally top-five retrieved statutory or regulatory sections |
+| Output | Typed answer (Boolean, string, or integer); the paper's scored experiment emits a Boolean JSON field and optional citation URL |
+| Baselines / leaderboard context | The paper compares no-retrieval with E5-large, Gemini, Okapi BM25, and OpenAI retrieval across GPT-4o mini, Gemini 1.5 Flash, Claude 3.5 Haiku, Llama 3.1 70B Instruct, and DeepSeek V3; the best reported RAG F1 is 0.691. |
+| Dataset access | Public Hugging Face release with public labels |
+| License | MIT according to the Hugging Face dataset metadata |
+| Gating | None observed; no canonical benchmark repository or executable scorer was located |
+| Maintenance | The public dataset was created and last modified on May 2, 2025; the paper appeared on August 26, 2025. No later versioned LaborBench data release was verified by the 2026-08-05 cutoff. |
+| Reproducibility | The rows and labels are public, but the released hub artifact has no hidden split or canonical end-to-end harness; reproducing the paper also requires a pinned StateCodes crawl, retrievers, model versions, prompts, and output parser. |
+
+### Metrics
+
+- **Accuracy / precision / recall / F1:** The paper scores the Boolean supplement as binary classification and reports nonparametric-bootstrap standard errors from 1,000 resamples; report all four metrics because class behavior is asymmetric. **Primary.**
+- **Citation retrieval diagnostics:** The paper manually checks elicited citations and separately reports OpenAI retriever recall@5; these diagnostics are not a single canonical LaborBench score. Judge: Human review for the cited subset.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | None located |
+| Hugging Face | [https://huggingface.co/datasets/reglab/laborbench](https://huggingface.co/datasets/reglab/laborbench) |
+| Paper / arXiv | [https://arxiv.org/abs/2508.19365](https://arxiv.org/abs/2508.19365) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- All questions and labels are public and may be used for tuning or appear in model training.
+- The legal source snapshot is from 2023, so later statutory and regulatory changes can make answers temporally stale.
+- A single public split makes accidental evaluation-on-training easy, and the scored Boolean supplement does not represent every answer type in the main QA release.
+
+**Verified facts**
+- The official Hugging Face API exposes 3,700 QA rows, 3,015 Boolean-supplement rows, 83 tables, one train split per config, an MIT tag, and a May 2, 2025 creation date.
+- The official paper defines the Department of Labor source, StateCodes pairing, binary metrics, model/retriever baselines, and bootstrap protocol.
+
+**Inference**
+- A fresh held-out annual update would be more useful for current procurement than the fully public 2023-source release.
+
+**Unresolved ambiguity**
+- No canonical LaborBench GitHub scorer, hidden test set, leaderboard, or post-paper dataset revision was located.
+
+**Related entries**
+
+- [RegLab Reasoning-Focused Legal Retrieval Benchmark](retrieval-rag-citation.md#reglab-reasoning-focused-retrieval)
+- [LegalBench-RAG](retrieval-rag-citation.md#legalbench-rag)
+
+[Back to page index](#on-this-page)
+
+<a id="lexrag"></a>
+## LexRAG
+
+`lexrag` · **benchmark** · **check before use** · fixed-release
+
+Retrieve relevant Chinese legal articles and answer five-turn legal consultation dialogues with grounded responses.
+
+**Also known as:** LexiT
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LexRAG authors (academic) |
+| Catalog geography | China |
+| First recorded public event | [2025-02-10](https://github.com/CSHaitao/LexRAG) — GitHub repository creation |
+| Latest verified event | [2025-03-03](https://github.com/CSHaitao/LexRAG) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Evaluate multi-turn Chinese legal-article retrieval and grounded consultation response generation.
+- Compare retrieval quality at each dialogue turn before attributing generation failures to the answer model.
+- Reuse the public LexiT pipeline to build a private, time-held-out Chinese-law conversational RAG evaluation.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Rank metrics measure article retrieval at each turn, while keyword coverage and a disclosed LLM judge score answer factuality, satisfaction, clarity, coherence, and completeness. |
+| Jurisdiction | China |
+| Languages | Chinese |
+| Size | 1,013 five-turn dialogues (5,065 query turns) over 17,228 legal articles; average 1.09 relevant articles per query |
+| Splits | One fixed public evaluation collection with dialogue-level labels; no hidden test |
+| Source material | Chinese legal consultation dialogues and a statute/law library |
+| Input | Conversation history and current legal query, plus the retrievable law corpus |
+| Output | Ranked legal articles and a grounded consultation response |
+| Baselines / leaderboard context | The paper and LexiT toolkit compare sparse, dense, and hybrid retrievers plus generation models under conversational and single-turn settings. |
+| Dataset access | Public repository with full dialogue JSON, 17,228-article law library, prompts, and evaluation pipeline |
+| License | No repository-wide code or data license was located |
+| Gating | None observed; model/API access may be needed to reproduce judge scores |
+| Maintenance | Fixed 2025 research release; pin the repository because no versioned dataset package or maintained leaderboard was located. |
+| Reproducibility | Good for public retrieval reruns and partial for generation because the released prompt still depends on a model snapshot and no license is declared. |
+
+### Metrics
+
+- **Recall and nDCG @1/3/5/10:** Evaluate ranked relevant-article retrieval at the stated cutoffs; the toolkit also exposes MRR, precision, and F1 variants. **Primary.**
+- **Keyword accuracy and 1–10 response score:** Measure required-keyword coverage and ask the disclosed judge to rate factuality, satisfaction, clarity, coherence, and completeness using the released prompt. Judge: Qwen2.5-72B-Instruct. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/CSHaitao/LexRAG](https://github.com/CSHaitao/LexRAG) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://arxiv.org/abs/2502.20640](https://arxiv.org/abs/2502.20640) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- All dialogues, relevance labels, and legal articles are public, creating contamination and tuning risk.
+- One LLM judge can encode stylistic and model-family preferences.
+- The paper contains one 17,728-article typo; the repository and other tables consistently support 17,228.
+
+**Verified facts**
+- The official repository contains 1,013 complete five-turn dialogues, 17,228 law-library records, evaluation prompts, and runnable retrieval/generation code.
+- The arXiv paper defines the retrieval cutoffs and Qwen2.5-72B-Instruct generation judge.
+
+**Inference**
+- LexRAG tests a distinct conversational RAG construct but shares lab lineage with LexEval and should not be treated as independent institutional replication.
+
+**Unresolved ambiguity**
+- No license, Hugging Face release, hidden test, or maintained leaderboard was located.
+
+[Back to page index](#on-this-page)
+
+<a id="muser"></a>
+## MUSER
+
+`muser` · **benchmark** · **specialist** · fixed-release
+
+Retrieve similar Chinese civil cases using multiple legally relevant views of case similarity.
+
+**Also known as:** Multi-view Similar Case Retrieval
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | Tsinghua University LawTech / MUSER authors (academic) |
+| Catalog geography | China |
+| First recorded public event | [2023-06-16](https://github.com/THUlawtech/MUSER) — GitHub repository creation |
+| Latest verified event | [2025-07-25](https://github.com/THUlawtech/MUSER) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Evaluate Chinese civil similar-case retrieval under fact, dispute-focus, and statutory-law views of relevance.
+- Compare sparse, dense, and legal-element ranking systems on the public candidate pools and qrels.
+- Diagnose whether a retriever finds the same cases for the same reasons before building a private civil-law retrieval test.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Top-rank and average-precision metrics score retrieval against multi-view qrels, while element-prediction F1 tests an intermediate structured representation of facts, disputes, and law. |
+| Jurisdiction | China |
+| Languages | Chinese |
+| Size | 100 queries and 4,024 total case documents; 100 candidates per query and an average 10.38 relevant candidates per query |
+| Splits | Public qrels and score files; the deep model uses an 80/20 query split, while sparse/element baselines evaluate all queries |
+| Source material | Chinese civil cases annotated for legal fact, dispute focus, and statutory-law relevance |
+| Input | Chinese civil query case and candidate case pool |
+| Output | Ranked similar cases and optional predicted legal elements |
+| Baselines / leaderboard context | The paper compares BM25, TF-IDF, LMIR, Lawformer, and a legal-element retrieval model. |
+| Dataset access | Core cases, qrels, gold labels, and result files are public in GitHub; some deep-model train/test assets are linked through Google Drive |
+| License | MIT repository license |
+| Gating | Core benchmark is open; durability of external Drive assets is weaker |
+| Maintenance | Stable research release with later repository maintenance through July 2025. |
+| Reproducibility | Good for core sparse retrieval with pinned qrels; partial for deep-model reproduction that depends on externally hosted files. |
+
+### Metrics
+
+- **P@5 / P@10 / MAP:** Measure early precision and mean average precision over the public multi-view relevance judgments. **Primary.**
+- **nDCG@10 / @20 / @30:** Measure discounted graded ranking quality at the stated cutoffs. **Primary.**
+- **Element prediction precision / recall / F1:** Evaluate the intermediate legal-element predictions separately from case ranking.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/THUlawtech/MUSER](https://github.com/THUlawtech/MUSER) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://arxiv.org/abs/2310.15602](https://arxiv.org/abs/2310.15602) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Only 100 queries make aggregate results sensitive to query selection.
+- Public qrels and candidates permit direct tuning.
+- Candidate-pool overlap with LeCaRDv2 or other Chinese case corpora has not been ruled out at document level.
+
+**Verified facts**
+- The official arXiv paper and MIT-licensed repository establish 100 queries, 4,024 documents, public multi-view qrels, metric cutoffs, score files, and baselines.
+
+**Inference**
+- MUSER complements criminal-case LeCaRDv2 with a civil-law relevance construct but is weaker on query scale.
+
+**Unresolved ambiguity**
+- No canonical Hugging Face release, maintained leaderboard, or published corpus-overlap audit was located.
 
 [Back to page index](#on-this-page)

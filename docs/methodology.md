@@ -52,8 +52,8 @@ An HTTP success in [`catalog/resource-snapshot.json`](../catalog/resource-snapsh
 
 Every entry has two separate date records:
 
-- **First documented** is the earliest verified first-party date located for that identity. The basis can be an official launch, repository creation, dataset creation, paper submission, competition year, or—when nothing stronger exists—the earliest dated first-party page. It is not silently upgraded to a claimed launch date.
-- **Latest verified update** is the newest benchmark-relevant first-party change found by the research cutoff: a repository push, dataset modification, paper revision, competition cycle, or an official displayed update date. It is left blank when no later update was verified.
+- **First recorded public event** is the earliest verified first-party date located for that identity, or the earliest first-party-dated event when no public launch is exposed. The basis can be an official launch, benchmark-data commit, repository creation, dataset creation, paper submission, competition year, owner-reported evaluation date, or—when nothing stronger exists—the earliest dated first-party page. It is not silently upgraded to a claimed release date.
+- **Latest verified event** is the newest benchmark-relevant first-party event found by the research cutoff: a repository push, dataset modification, paper revision, competition cycle, or an official displayed update date. It is left blank when no later event was verified.
 
 Each date stores precision (`year`, `month`, or `day`), basis, and a direct source URL. A repository push is evidence that the repository changed, not proof that the benchmark data or scoring protocol changed. Likewise, a paper revision may be newer than the released code without superseding it. Profiles preserve those distinctions and flag conflicting official dates or counts.
 
@@ -88,7 +88,7 @@ Compare scores only after the benchmark version, dataset revision, task subset, 
 
 ## Why the repository is split this way
 
-The front page is short on purpose. It routes a reader by legal job and keeps the exhaustive evidence in category profiles. The compact index supports browsing; the JSON and CSV support filtering; the metric guide handles formulas; the source audit preserves corrections and duplicate identities.
+The front page presents United States entries first, keeps multi-jurisdiction artifacts separate, and groups international entries by country and recency. It also routes readers by legal job while keeping the exhaustive evaluation contracts in category profiles. The compact index supports browsing; the JSON and CSV support filtering; the metric guide handles formulas; the source audit preserves corrections and duplicate identities.
 
 That structure follows useful parts of several primary projects:
 

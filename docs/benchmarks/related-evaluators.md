@@ -4,7 +4,7 @@
 
 Artifacts worth tracking that are not comparable public benchmarks, including frameworks, private tests, and resource lists.
 
-Snapshot: **2026-08-04** · 4 entries
+Snapshot: **2026-08-05** · 4 entries
 
 [Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
@@ -27,8 +27,9 @@ Predict the quality of Chinese LLM-generated legal answers.
 | Field | Detail |
 |---|---|
 | Owner | LegalEval-Q authors (academic) |
-| First documented | [2025-05-30](https://arxiv.org/abs/2505.24826) — arXiv v1 submission |
-| Latest verified update | [2026-02-26](https://github.com/lyxx3rd/LegalEval-Q) — GitHub repository push |
+| Catalog geography | China |
+| First recorded public event | [2025-05-30](https://arxiv.org/abs/2505.24826) — arXiv v1 submission |
+| Latest verified event | [2026-02-26](https://github.com/lyxx3rd/LegalEval-Q) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -66,7 +67,10 @@ Predict the quality of Chinese LLM-generated legal answers.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/lyxx3rd/LegalEval-Q](https://github.com/lyxx3rd/LegalEval-Q) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2505.24826](https://arxiv.org/abs/2505.24826) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -96,8 +100,9 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 | Field | Detail |
 |---|---|
 | Owner | LRAGE authors (academic) |
-| First documented | [2025-04-02](https://arxiv.org/abs/2504.01840) — arXiv v1 submission |
-| Latest verified update | [2026-07-03](https://github.com/hoorangyee/LRAGE) — GitHub repository push |
+| Catalog geography | No fixed evaluation population |
+| First recorded public event | [2025-04-02](https://arxiv.org/abs/2504.01840) — arXiv v1 submission |
+| Latest verified event | [2026-07-03](https://github.com/hoorangyee/LRAGE) — GitHub repository push |
 | Access level | open |
 | Test labels | not-applicable |
 | Independently runnable | yes |
@@ -138,6 +143,8 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 | GitHub | [https://github.com/hoorangyee/LRAGE](https://github.com/hoorangyee/LRAGE) |
 | Hugging Face | [https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25](https://huggingface.co/datasets/hoorangyee/pile-of-law-bm25) |
 | Paper / arXiv | [https://arxiv.org/abs/2504.01840](https://arxiv.org/abs/2504.01840) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -147,6 +154,10 @@ Configure legal RAG evaluations across retrievers, rerankers, agents, judges, an
 
 **Verified facts**
 - Official paper/repository describe a configurable framework rather than a fixed benchmark.
+
+**Related entries**
+
+- [KBL](reasoning-education.md#kbl)
 
 Original source bullet(s): #19
 
@@ -164,8 +175,9 @@ Answer obscure US legal-research and general information-search questions.
 | Field | Detail |
 |---|---|
 | Owner | prinz.ai (company; commercial interest) |
-| First documented | [2026-01-19](https://github.com/prinz-ai/prinzbench) — GitHub repository creation |
-| Latest verified update | [2026-07-18](https://github.com/prinz-ai/prinzbench) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2026-01-19](https://github.com/prinz-ai/prinzbench) — GitHub repository creation |
+| Latest verified event | [2026-07-18](https://github.com/prinz-ai/prinzbench) — GitHub repository push |
 | Access level | private |
 | Test labels | hidden |
 | Independently runnable | no |
@@ -203,7 +215,10 @@ Answer obscure US legal-research and general information-search questions.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/prinz-ai/prinzbench](https://github.com/prinz-ai/prinzbench) |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
 | Leaderboard / competition | [https://github.com/prinz-ai/prinzbench](https://github.com/prinz-ai/prinzbench) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -233,8 +248,9 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 | Field | Detail |
 |---|---|
 | Owner | Maastricht Law & Tech Lab (community) |
-| First documented | [2020-09-16](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository creation |
-| Latest verified update | [2025-10-14](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository push |
+| Catalog geography | No fixed evaluation population |
+| First recorded public event | [2020-09-16](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository creation |
+| Latest verified event | [2025-10-14](https://github.com/maastrichtlawtech/awesome-legal-nlp) — GitHub repository push |
 | Access level | not-applicable |
 | Test labels | not-applicable |
 | Independently runnable | not-applicable |
@@ -271,6 +287,10 @@ Discovery index for legal NLP datasets, models, papers, surveys, books, and even
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/maastrichtlawtech/awesome-legal-nlp](https://github.com/maastrichtlawtech/awesome-legal-nlp) |
+| Hugging Face | None located |
+| Paper / arXiv | None located |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 

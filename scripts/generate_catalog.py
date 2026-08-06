@@ -16,31 +16,31 @@ SECTIONS = [
         "reasoning-education",
         "General legal reasoning and education",
         "Broad suites, legal language understanding, professional exams, and jurisdiction-specific knowledge tests.",
-        ["legalbench", "lawbench", "lexeval", "lexglue", "lextreme", "lexam", "arablegaleval", "alarb", "il-tur", "kcl", "prbench", "plawbench", "lexgenius", "pilot-bench", "mozip"],
+        ["legalbench", "lawbench", "lexeval", "lexglue", "lextreme", "lexam", "arablegaleval", "alarb", "il-tur", "kcl", "kbl", "legalbench-pt", "oab-bench", "prbench", "plawbench", "lexgenius", "pilot-bench", "mozip", "judge", "vlegal-bench", "mizanqa", "lexsumm"],
     ),
     (
         "retrieval-rag-citation",
         "Retrieval, RAG, and citation",
         "Authority retrieval, exact-support retrieval, case similarity, citation grounding, and end-to-end legal RAG.",
-        ["mleb", "legalbench-rag", "bsard", "lleqa", "blleqa", "clerc", "reglab-reasoning-focused-retrieval", "lecardv2", "coliee", "legal-rag-bench", "canlegalragbench", "jurifindit", "ilsic", "rod-tal", "open-legal-answer-benchmark", "legalcitebench", "legal-phantom-citation", "reglab-legal-hallucinations", "reglab-legal-rag-hallucinations", "vals-legal-research-bench", "vals-caselaw-v2"],
+        ["mleb", "legalbench-rag", "bsard", "lleqa", "blleqa", "clerc", "reglab-reasoning-focused-retrieval", "lecardv2", "stard", "coliee", "aila-2019", "gerdalir", "trec-legal-track", "legal-rag-bench", "canlegalragbench", "jurifindit", "ilsic", "rod-tal", "open-legal-answer-benchmark", "legalcitebench", "legal-phantom-citation", "reglab-legal-hallucinations", "reglab-legal-rag-hallucinations", "vals-legal-research-bench", "vals-caselaw-v2", "laborbench", "lexrag", "muser"],
     ),
     (
         "contracts-deal-work",
         "Contracts and deal work",
         "Clause extraction, provision classification, entailment, retrieval, merger agreements, and redlining.",
-        ["cuad", "ledgar", "contractnli", "maud", "acord", "contracteval", "redlinebench", "legalon-contract-review-2026", "ivo-contract-review-study", "legalbenchmarks-ai"],
+        ["cuad", "ledgar", "contractnli", "maud", "acord", "contracteval", "redlinebench", "legalon-contract-review-2026", "ivo-contract-review-study", "legalbenchmarks-ai", "agb-de"],
     ),
     (
         "prediction-fairness-rules",
         "Prediction, fairness, and structured reasoning",
         "Outcome prediction, subgroup performance, holding selection, deontic rules, and structured legal analysis.",
-        ["ecthr", "fairlex", "casehold", "deonticbench", "mslr", "maslegalbench", "openexempt"],
+        ["ecthr", "fairlex", "casehold", "deonticbench", "mslr", "maslegalbench", "openexempt", "predex", "legal-lens", "class-action-prediction"],
     ),
     (
         "agents-workflows",
         "Agents and legal workflows",
         "Tool use, process compliance, simulated legal work, and long-horizon professional tasks.",
-        ["legalagentbench", "ready-jurist-one", "harvey-lab", "apex-agents-corporate-law", "dlawbench", "harvey-biglaw-bench", "legora-bar", "gc-ai-in-house-legal-bench", "thomson-reuters-cocobench"],
+        ["legalagentbench", "ready-jurist-one", "harvey-lab", "apex-agents-corporate-law", "dlawbench", "harvey-biglaw-bench", "legora-bar", "gc-ai-in-house-legal-bench", "thomson-reuters-cocobench", "realm-legal-reasoning", "courtreasoner"],
     ),
     (
         "translation",
@@ -65,22 +65,39 @@ TIER_LABELS = {
 
 USE_CASES = [
     ("Broad English legal reasoning", [("LegalBench", "legalbench"), ("LexGLUE", "lexglue"), ("PRBench legal", "prbench")], "Compare per-task reasoning and language-understanding scores, then test open professional analysis against granular criteria."),
-    ("Chinese legal reasoning", [("LawBench", "lawbench"), ("LexEval", "lexeval"), ("LexGenius", "lexgenius"), ("PLawBench", "plawbench")], "Screen knowledge and reasoning broadly, then inspect open-ended consultation, case analysis, and drafting."),
+    ("Chinese legal reasoning and judgment generation", [("LawBench", "lawbench"), ("LexEval", "lexeval"), ("JuDGE", "judge"), ("LexGenius", "lexgenius"), ("PLawBench", "plawbench")], "Screen knowledge and reasoning broadly, then inspect judgment generation, open-ended consultation, case analysis, and drafting as separate constructs."),
+    ("Chinese statute and case retrieval", [("STARD", "stard"), ("LeCaRDv2", "lecardv2")], "Use STARD for lay-query statute retrieval and LeCaRDv2 for expert-graded criminal-case similarity; do not combine their scores."),
+    ("Korean legal knowledge, reasoning, and RAG", [("KBL", "kbl"), ("KCL", "kcl")], "Use KBL for public MCQ task cells and retrieval augmentation; use KCL separately for bar-exam MCQ and rubric-scored essays."),
     ("Arabic and Saudi legal work", [("ArabLegalEval", "arablegaleval"), ("ALARB", "alarb")], "Separate translated or synthetic tasks from Saudi case-based verdict, argument, and statutory-article tasks."),
-    ("Multilingual legal NLU", [("LEXTREME", "lextreme"), ("IL-TUR", "il-tur")], "Compare per-language and per-task behavior before relying on an aggregate multilingual score."),
-    ("Italian and Indian statutory retrieval", [("JuriFindIT", "jurifindit"), ("ILSIC", "ilsic")], "Test expert Italian article retrieval and Indian statute identification from layperson queries; keep synthetic and court-derived training sources separate."),
+    ("Multilingual legal NLU", [("LEXTREME", "lextreme")], "Compare per-language and per-task behavior before relying on its hierarchical aggregate."),
+    ("Indian legal NLU and authority retrieval", [("IL-TUR", "il-tur"), ("ILSIC", "ilsic"), ("AILA 2019", "aila-2019")], "Use IL-TUR for task/language breadth, ILSIC for lay-query statute identification, and AILA as a small historical precedent/statute retrieval diagnostic."),
+    ("Italian statutory retrieval", [("JuriFindIT", "jurifindit")], "Test article retrieval against expert Italian judgments while keeping synthetic-query results separate."),
+    ("German case-law retrieval", [("GerDaLIR", "gerdalir")], "Compare sparse and neural full-ranking systems, while treating parsed citations as proxy relevance rather than expert judgments."),
+    ("Portuguese legal education", [("LegalBench.PT", "legalbench-pt")], "Compare task and field cells on Portuguese law, then recheck synthetic labels before drawing capability conclusions."),
+    ("Brazilian legal drafting and bar-exam work", [("OAB-Bench", "oab-bench")], "Audit criterion-level judge outputs on Phase 2 writing tasks with the exam edition and judge version fixed."),
     ("Patent and intellectual-property work", [("PILOT-Bench", "pilot-bench"), ("MoZIP", "mozip")], "Compare US patent-appeal classification with multilingual IP knowledge, open QA, and patent-semantic matching; neither substitutes for a private drafting or validity-review holdout."),
     ("Multimodal legal education", [("RoD-TAL", "rod-tal")], "Test Romanian traffic-law retrieval and QA when images or signs are legally material."),
     ("Contract extraction and classification", [("CUAD", "cuad"), ("ContractNLI", "contractnli"), ("MAUD", "maud")], "Test clause finding, evidence entailment, and merger-agreement provision classification on document-family-held-out data."),
     ("Contract retrieval", [("ACORD", "acord")], "Rank clauses against attorney-authored requests using graded relevance judgments."),
     ("Redlining and contract review", [("RedlineBench", "redlinebench"), ("LegalOn 2026", "legalon-contract-review-2026"), ("Ivo study", "ivo-contract-review-study"), ("legalbenchmarks.ai", "legalbenchmarks-ai")], "Test native-file edits, issue spotting, formatting retention, and review usefulness; only RedlineBench is openly runnable."),
-    ("Legal retrieval and RAG", [("LegalBench-RAG", "legalbench-rag"), ("RegLab retrieval", "reglab-reasoning-focused-retrieval"), ("bLLeQA", "blleqa"), ("Legal RAG Bench", "legal-rag-bench"), ("CanLegalRAGBench", "canlegalragbench")], "Measure authority retrieval, answer correctness, citation extraction, refusal, and grounding separately on a jurisdiction-matched corpus."),
+    ("United States legal retrieval and RAG", [("LegalBench-RAG", "legalbench-rag"), ("LaborBench", "laborbench"), ("RegLab retrieval", "reglab-reasoning-focused-retrieval"), ("Legal RAG Bench", "legal-rag-bench")], "Measure authority retrieval, answer correctness, citation extraction, refusal, and grounding separately on a current United States corpus."),
+    ("Belgian legal retrieval and QA", [("BSARD", "bsard"), ("LLeQA", "lleqa"), ("bLLeQA", "blleqa")], "Compare article retrieval and downstream QA on Belgian law without folding the results into other jurisdictions."),
+    ("Canadian legal RAG", [("CanLegalRAGBench", "canlegalragbench")], "Measure retrieval, answer correctness, completeness, and citation grounding on the released Canadian legal corpus."),
+    ("United States e-discovery and technology-assisted review", [("TREC Legal", "trec-legal-track")], "Use the archived annual protocols as a historical retrieval and review-effort reference, not as a current production corpus."),
     ("Citation safety", [("LegalCiteBench", "legalcitebench"), ("Legal Phantom Citation", "legal-phantom-citation"), ("Large Legal Fictions", "reglab-legal-hallucinations"), ("Hallucination-Free?", "reglab-legal-rag-hallucinations")], "Test citation retrieval, abstention, phantom-citation detection, and human-coded research-tool hallucination as distinct failure modes."),
-    ("Long-horizon legal agents", [("DLawBench", "dlawbench"), ("Harvey LAB", "harvey-lab"), ("Legora BAR", "legora-bar"), ("Mercor APEX legal", "apex-agents-corporate-law")], "Evaluate consultation or matter completion with files, tools, rubrics, repeated runs, cost, and latency; BAR's full instrument is private."),
+    ("Long-horizon legal agents", [("DLawBench", "dlawbench"), ("Harvey LAB", "harvey-lab"), ("Realm Legal Reasoning", "realm-legal-reasoning"), ("Legora BAR", "legora-bar"), ("Mercor APEX legal", "apex-agents-corporate-law")], "Evaluate consultation or matter completion with files, tools, rubrics, repeated runs, cost, and latency; Realm and BAR remain owner-controlled instruments."),
     ("In-house legal work", [("GC AI In-House Legal Bench", "gc-ai-in-house-legal-bench"), ("CoCoBench", "thomson-reuters-cocobench"), ("Harvey BigLaw Bench", "harvey-biglaw-bench")], "Use their task taxonomies and published results as private-vendor evidence when designing an internal matter-level holdout."),
     ("Rule and robustness testing", [("DeonticBench", "deonticbench"), ("OpenExempt", "openexempt")], "Test deontic consistency and symbolic statutory reasoning under controlled perturbations."),
     ("Fairness and subgroup performance", [("FairLex", "fairlex")], "Compare overall, per-group, worst-group, and gap metrics with group sizes and uncertainty."),
     ("Legal translation", [("SwiLTra-Bench", "swiltra-bench"), ("MILPaC", "milpac"), ("JUST-NLP 2025", "just-nlp-2025-legal-mt")], "Compare automatic metrics with legal-expert ratings for terminology, omissions, and legal effect."),
+    ("Vietnamese legal reasoning", [("VLegal-Bench", "vlegal-bench")], "Run its task-specific metrics across Vietnamese legal knowledge, reasoning, drafting, and ethics; pin the exact release because the paper and repository counts disagree."),
+    ("Moroccan legal knowledge and calibration", [("MizanQA", "mizanqa")], "Measure strict answer accuracy and calibration-aware scores on Moroccan law while reporting the live 1,769-row release separately from the paper's 1,776-item claim."),
+    ("Legal summarization", [("LexSumm", "lexsumm")], "Compare models per constituent dataset with ROUGE and BERTScore; do not convert eight heterogeneous datasets into an unsupported single legal-fidelity score."),
+    ("Judicial reasoning generation", [("CourtReasoner", "courtreasoner")], "Test US appellate opinion reasoning and adversarial fact sensitivity, then separately audit how well each LLM grader agrees with human experts."),
+    ("Outcome prediction with explanations", [("PredEx", "predex"), ("ClassActionPrediction", "class-action-prediction")], "Keep Indian appeal prediction with extractive explanations separate from US class-action outcome prediction; both need leakage and shortcut audits."),
+    ("Chinese conversational and similar-case retrieval", [("LexRAG", "lexrag"), ("MUSER", "muser")], "Use LexRAG for multi-turn statute-grounded consultation and MUSER for civil similar-case retrieval; their corpora, judges, and relevance definitions are not interchangeable."),
+    ("German consumer-contract clause review", [("AGB-DE", "agb-de")], "Evaluate potentially void standard-form clauses in German, while disclosing the five-row difference between the paper and live Hub release."),
+    ("Legal violation detection", [("LegalLens", "legal-lens")], "Evaluate span extraction and entailment for potential legal violations in class-action source text, keeping the synthetic-then-reviewed provenance and shared-task split boundary visible."),
 ]
 
 
@@ -114,8 +131,67 @@ def table_text(value: object) -> str:
 
 def date_link(record: dict | None) -> str:
     if record is None:
-        return "No later update verified"
+        return "None later verified"
     return f"[{record['date']}]({record['source']}) — {table_text(record['basis'])}"
+
+
+def entries_for_group(catalog: dict, group: dict) -> list[dict]:
+    """Return one geography group newest-first, with names as a stable tie-breaker."""
+    entries = {entry["id"]: entry for entry in catalog["entries"]}
+    selected = [entries[entry_id] for entry_id in group["entries"]]
+    selected.sort(key=lambda entry: entry["name"].casefold())
+    selected.sort(key=lambda entry: entry["dates"]["created"]["date"], reverse=True)
+    return selected
+
+
+def geography_index(catalog: dict) -> dict[str, dict]:
+    return {
+        entry_id: group
+        for group in catalog["geography_groups"]
+        for entry_id in group["entries"]
+    }
+
+
+def append_entry_table(
+    lines: list[str], catalog: dict, group: dict, *, from_root: bool
+) -> None:
+    lines += [
+        "| Entry | First recorded public event | Latest verified event | Kind / access / label | Jurisdiction / language | What it measures |",
+        "|---|---|---|---|---|---|",
+    ]
+    for entry in entries_for_group(catalog, group):
+        href = profile_href(entry["id"], from_root=from_root)
+        coverage = f"{', '.join(entry['jurisdictions'])}; {', '.join(entry['languages'])}"
+        identity = (
+            f"{entry['kind']} / {entry['access_profile']['level']} / "
+            f"{TIER_LABELS[entry['tier']]}"
+        )
+        lines.append(
+            f"| [{table_text(entry['name'])}]({href}) | "
+            f"{date_link(entry['dates']['created'])} | "
+            f"{date_link(entry['dates']['last_updated'])} | "
+            f"{table_text(identity)} | {table_text(coverage)} | "
+            f"{table_text(entry['capability'])} |"
+        )
+
+
+def append_recency_tables(
+    lines: list[str], catalog: dict, group: dict, *, from_root: bool
+) -> None:
+    """Render a country as explicit first-event year bands, newest band first."""
+    by_year: dict[str, list[str]] = {}
+    for entry in entries_for_group(catalog, group):
+        year = entry["dates"]["created"]["date"][:4]
+        by_year.setdefault(year, []).append(entry["id"])
+    for year in sorted(by_year, reverse=True):
+        lines += [f"#### First recorded event in {year}", ""]
+        append_entry_table(
+            lines,
+            catalog,
+            {"entries": by_year[year]},
+            from_root=from_root,
+        )
+        lines.append("")
 
 
 def owner_text(entry: dict) -> str:
@@ -137,9 +213,8 @@ def resource_lines(resources: dict) -> list[str]:
     lines: list[str] = []
     for kind, label in labels.items():
         urls = resources[kind]
-        if urls:
-            value = "<br>".join(f"[{url}]({url})" for url in urls)
-            lines.append(f"| {label} | {value} |")
+        value = "<br>".join(f"[{url}]({url})" for url in urls) if urls else "None located"
+        lines.append(f"| {label} | {value} |")
     return lines
 
 
@@ -151,6 +226,8 @@ def generate_readme(catalog: dict) -> str:
     unknown = sorted(set(covered) - set(entries))
     if missing or duplicates or unknown:
         raise ValueError(f"section map invalid: missing={missing}, duplicates={duplicates}, unknown={unknown}")
+
+    groups = {group["id"]: group for group in catalog["geography_groups"]}
 
     lines = [
         "# Awesome Legal Benchmarks",
@@ -165,14 +242,32 @@ def generate_readme(catalog: dict) -> str:
         "",
         "> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.",
         "",
+        "**Date rule.** The first date is the **first recorded public event**, or the earliest first-party-dated event when no public launch is exposed; it is not a generic claim that a downloadable benchmark was released that day. Every date cell names its basis: dataset creation, data commit, repository creation, paper submission, competition year, owner-reported evaluation date, or another first-party event. The latest event can likewise be a repository push, dataset update, paper revision, or official page update; it does not by itself prove that the data or scorer changed.",
+        "",
+        "> **AR-BENCH status:** its [arXiv record and v1 preprint](https://arxiv.org/abs/2601.22742) are verified at 2026-01-30. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches as of 2026-08-05. That bounded negative finding is not proof that no release exists. The paper says it reannotates JuDGE material, but [JuDGE](https://github.com/oneal2000/JuDGE) is a different benchmark and not an AR-BENCH release. See the [search record and exact caveat](docs/watchlist.md#watchlist).",
+        "",
         "## Contents",
         "",
+        "- [United States](#united-states)",
         "- [Possible use cases](#possible-use-cases)",
         "- [Browse by area](#browse-by-area)",
+        "- [Multi-jurisdiction and supranational](#multi-jurisdiction-and-supranational)",
+        "- [International by country](#international-by-country)",
+        "- [Population not published or fixed](#population-not-published-or-fixed)",
         "- [What the labels mean](#what-the-labels-mean)",
         "- [Read a benchmark score](#read-a-benchmark-score)",
         "- [Files and methodology](#files-and-methodology)",
         "- [Contribute](#contribute)",
+        "",
+        "## United States",
+        "",
+        groups["united-states"]["description"],
+        "",
+        "Entries are ordered newest-first by first recorded public event. Contract and workflow evaluations are described as United States legal practice rather than as jurisprudence.",
+        "",
+    ]
+    append_entry_table(lines, catalog, groups["united-states"], from_root=True)
+    lines += [
         "",
         "## Possible use cases",
         "",
@@ -189,7 +284,7 @@ def generate_readme(catalog: dict) -> str:
         "",
         "## Browse by area",
         "",
-        "Each category page contains full profiles with owner, creation date, latest verified update, access boundary, metrics, direct official sources, possible uses, and unresolved facts.",
+        "Each category page contains full profiles with owner, first recorded public event, latest verified event, access boundary, metrics, direct official sources, possible uses, and unresolved facts.",
         "",
         "| Area | What is inside | Entries |",
         "|---|---|---:|",
@@ -200,6 +295,39 @@ def generate_readme(catalog: dict) -> str:
         "",
         f"See the [compact {len(entries)}-entry index](docs/catalog.md), or filter the machine-readable [JSON](catalog/benchmarks.json), [CSV](catalog/benchmarks.csv), and [workbook](outputs/awesome-legal-benchmarks.xlsx).",
         "",
+        "## Multi-jurisdiction and supranational",
+        "",
+        groups["multi-jurisdiction"]["description"],
+        "",
+        "This is a geography bucket, not an adoption or prestige rating. The catalog does not infer that a benchmark is ‘highly regarded’ from citations, a leaderboard, or its owner's claims.",
+        "",
+    ]
+    append_entry_table(lines, catalog, groups["multi-jurisdiction"], from_root=True)
+    lines += [
+        "",
+        "## International by country",
+        "",
+        "Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Within each country they are grouped by the calendar year of the first recorded public event, newest year first, then ordered newest-first inside that year. These are date-provenance bands, not claims that downloadable data were released in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.",
+        "",
+    ]
+    for group in sorted(
+        (group for group in catalog["geography_groups"] if group["scope"] == "international"),
+        key=lambda group: group["name"].casefold(),
+    ):
+        lines += [f"### {group['name']}", "", group["description"], ""]
+        append_recency_tables(lines, catalog, group, from_root=True)
+    lines += [
+        "## Population not published or fixed",
+        "",
+        "These entries cannot honestly be assigned to one country from the public evidence. They stay separate from both United States and international country lists.",
+        "",
+    ]
+    for group_id in ("population-not-published", "no-fixed-population"):
+        group = groups[group_id]
+        lines += [f"### {group['name']}", "", group["description"], ""]
+        append_entry_table(lines, catalog, group, from_root=True)
+        lines.append("")
+    lines += [
         "## What the labels mean",
         "",
         "Artifact type and catalog label answer different questions. Public datasets may omit a fixed scorer. Frameworks supply evaluation runners or judge logic without fixed tests. Private vendor studies report evidence from owner-controlled instruments rather than public leaderboards.",
@@ -271,6 +399,7 @@ def generate_readme(catalog: dict) -> str:
 
 def generate_catalog_doc(catalog: dict) -> str:
     entries = {entry["id"]: entry for entry in catalog["entries"]}
+    groups = {group["id"]: group for group in catalog["geography_groups"]}
     lines = [
         "# Legal benchmark catalog",
         "",
@@ -279,6 +408,8 @@ def generate_catalog_doc(catalog: dict) -> str:
         f"Snapshot: **{catalog['as_of']}**. This is the compact index for all {len(entries)} canonical entries. Each name links to a full profile with the evaluation contract, direct artifacts, reproducibility notes, verified facts, inference, and unresolved ambiguity.",
         "",
         "[Choose a benchmark](selection-guide.md) · [Read the methodology](methodology.md) · [Understand the metrics](metric-theory.md) · [Back to README](../README.md)",
+        "",
+        "The first date is the **first recorded public event**, or the earliest first-party-dated event when no public launch is exposed, and every cell states its basis. It is not necessarily a data or code release. The latest verified event can be a repository push, dataset update, paper revision, competition cycle, or official page update.",
         "",
         "## Areas",
         "",
@@ -289,30 +420,38 @@ def generate_catalog_doc(catalog: dict) -> str:
         lines.append(f"| [{title}](benchmarks/{slug}.md) | {description} | {len(section_ids)} |")
     lines += [
         "",
-        "## All entries",
+        "## United States",
         "",
-        "The `kind` field distinguishes benchmarks, datasets, shared tasks, frameworks, protocols, private tests, and resource lists. The `label` field is the catalog's reproducibility and usefulness judgment. They answer different questions.",
+        groups["united-states"]["description"],
         "",
     ]
-    for slug, title, description, section_ids in SECTIONS:
-        lines += [
-            f"### {title}",
-            "",
-            description,
-            "",
-            "| Entry | Owner | Kind / label | Access | Created | Latest update | Coverage | Measures |",
-            "|---|---|---|---|---|---|---|---|",
-        ]
-        for entry_id in section_ids:
-            entry = entries[entry_id]
-            coverage = f"{', '.join(entry['jurisdictions'])}; {', '.join(entry['languages'])}"
-            href = profile_href(entry_id, from_root=False)
-            lines.append(
-                f"| [{table_text(entry['name'])}]({href}) | {owner_text(entry)} | "
-                f"{entry['kind']} / {TIER_LABELS[entry['tier']]} | {entry['access_profile']['level']} | "
-                f"{date_link(entry['dates']['created'])} | {date_link(entry['dates']['last_updated'])} | "
-                f"{table_text(coverage)} | {table_text(entry['capability'])} |"
-            )
+    append_entry_table(lines, catalog, groups["united-states"], from_root=False)
+    lines += [
+        "",
+        "## Multi-jurisdiction and supranational",
+        "",
+        groups["multi-jurisdiction"]["description"],
+        "",
+    ]
+    append_entry_table(lines, catalog, groups["multi-jurisdiction"], from_root=False)
+    lines += [
+        "",
+        "## International by country",
+        "",
+        "Countries are alphabetical; entries within each country are grouped by first-recorded-event year, newest year first, and then newest-first within that year.",
+        "",
+    ]
+    for group in sorted(
+        (group for group in catalog["geography_groups"] if group["scope"] == "international"),
+        key=lambda group: group["name"].casefold(),
+    ):
+        lines += [f"### {group['name']}", "", group["description"], ""]
+        append_recency_tables(lines, catalog, group, from_root=False)
+    lines += ["## Population not published or fixed", ""]
+    for group_id in ("population-not-published", "no-fixed-population"):
+        group = groups[group_id]
+        lines += [f"### {group['name']}", "", group["description"], ""]
+        append_entry_table(lines, catalog, group, from_root=False)
         lines.append("")
     return "\n".join(lines)
 
@@ -325,6 +464,7 @@ def generate_category_doc(
     section_ids: list[str],
 ) -> str:
     entries = {entry["id"]: entry for entry in catalog["entries"]}
+    geographies = geography_index(catalog)
     lines = [
         f"# {title}",
         "",
@@ -344,6 +484,7 @@ def generate_category_doc(
 
     for entry_id in section_ids:
         entry = entries[entry_id]
+        geography = geographies[entry_id]
         aliases = ", ".join(entry["aliases"])
         lines += [
             f'<a id="{entry_id}"></a>',
@@ -362,8 +503,9 @@ def generate_category_doc(
             "| Field | Detail |",
             "|---|---|",
             f"| Owner | {owner_text(entry)} |",
-            f"| First documented | {date_link(entry['dates']['created'])} |",
-            f"| Latest verified update | {date_link(entry['dates']['last_updated'])} |",
+            f"| Catalog geography | {table_text(geography['name'])} |",
+            f"| First recorded public event | {date_link(entry['dates']['created'])} |",
+            f"| Latest verified event | {date_link(entry['dates']['last_updated'])} |",
             f"| Access level | {entry['access_profile']['level']} |",
             f"| Test labels | {entry['access_profile']['test_labels']} |",
             f"| Independently runnable | {entry['access_profile']['runnable']} |",
@@ -425,8 +567,9 @@ def generate_category_doc(
 
 
 def csv_rows(catalog: dict) -> tuple[list[str], list[list[str]]]:
+    geographies = geography_index(catalog)
     headers = [
-        "id", "name", "aliases", "owner", "owner_type", "commercial_interest",
+        "id", "name", "geography_group", "aliases", "owner", "owner_type", "commercial_interest",
         "created", "created_precision", "created_basis", "created_source",
         "last_updated", "last_updated_precision", "last_updated_basis", "last_updated_source",
         "kind", "tier", "status", "access_level", "test_labels", "runnable",
@@ -438,11 +581,16 @@ def csv_rows(catalog: dict) -> tuple[list[str], list[list[str]]]:
         "ambiguities", "source_readme_bullets", "curated_addition", "as_of",
     ]
     rows: list[list[str]] = []
-    for entry in catalog["entries"]:
+    ordered_entries = [
+        entry
+        for group in catalog["geography_groups"]
+        for entry in entries_for_group(catalog, group)
+    ]
+    for entry in ordered_entries:
         created = entry["dates"]["created"]
         updated = entry["dates"]["last_updated"] or {}
         rows.append([
-            entry["id"], entry["name"], " | ".join(entry["aliases"]),
+            entry["id"], entry["name"], geographies[entry["id"]]["name"], " | ".join(entry["aliases"]),
             entry["owner"]["name"], entry["owner"]["type"], entry["owner"]["commercial_interest"],
             created["date"], created["precision"], created["basis"], created["source"],
             updated.get("date", ""), updated.get("precision", ""), updated.get("basis", ""), updated.get("source", ""),

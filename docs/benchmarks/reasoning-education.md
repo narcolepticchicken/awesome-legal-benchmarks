@@ -4,7 +4,7 @@
 
 Broad suites, legal language understanding, professional exams, and jurisdiction-specific knowledge tests.
 
-Snapshot: **2026-08-04** · 15 entries
+Snapshot: **2026-08-05** · 22 entries
 
 [Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
@@ -20,11 +20,18 @@ Snapshot: **2026-08-04** · 15 entries
 - [Arabic Legal Argument Reasoning Benchmark (ALARB)](#alarb)
 - [IL-TUR](#il-tur)
 - [Korean Canonical Legal Benchmark](#kcl)
+- [KBL](#kbl)
+- [LegalBench.PT](#legalbench-pt)
+- [OAB-Bench](#oab-bench)
 - [Professional Reasoning Benchmark (PRBench)](#prbench)
 - [PLawBench](#plawbench)
 - [LexGenius](#lexgenius)
 - [PILOT-Bench](#pilot-bench)
 - [MoZIP](#mozip)
+- [JuDGE](#judge)
+- [VLegal-Bench](#vlegal-bench)
+- [MizanQA](#mizanqa)
+- [LexSumm](#lexsumm)
 
 <a id="legalbench"></a>
 ## LegalBench
@@ -38,8 +45,9 @@ Task-specific legal reasoning across classification, extraction, question answer
 | Field | Detail |
 |---|---|
 | Owner | LegalBench collaboration (mixed) |
-| First documented | [2023-08-20](https://arxiv.org/abs/2308.11462) — arXiv v1 submission |
-| Latest verified update | [2026-03-30](https://github.com/HazyResearch/legalbench) — GitHub repository push |
+| Catalog geography | United States |
+| First recorded public event | [2023-08-20](https://arxiv.org/abs/2308.11462) — arXiv v1 submission |
+| Latest verified event | [2026-03-30](https://github.com/HazyResearch/legalbench) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -98,6 +106,11 @@ Task-specific legal reasoning across classification, extraction, question answer
 **Unresolved ambiguity**
 - Constituent task licenses are not uniform.
 
+**Related entries**
+
+- [LegalBench.PT](reasoning-education.md#legalbench-pt)
+- [OAB-Bench](reasoning-education.md#oab-bench)
+
 Original source bullet(s): #1
 
 [Back to page index](#on-this-page)
@@ -114,8 +127,9 @@ Chinese legal memorization, understanding, and application across 20 tasks.
 | Field | Detail |
 |---|---|
 | Owner | OpenCompass / Shanghai AI Laboratory (mixed) |
-| First documented | [2023-09-28](https://arxiv.org/abs/2309.16289) — arXiv v1 submission |
-| Latest verified update | [2025-03-07](https://huggingface.co/datasets/doolayer/LawBench) — Hugging Face dataset update |
+| Catalog geography | China |
+| First recorded public event | [2023-09-28](https://arxiv.org/abs/2309.16289) — arXiv v1 submission |
+| Latest verified event | [2025-03-07](https://huggingface.co/datasets/doolayer/LawBench) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -159,6 +173,7 @@ Chinese legal memorization, understanding, and application across 20 tasks.
 | Hugging Face | [https://huggingface.co/datasets/doolayer/LawBench](https://huggingface.co/datasets/doolayer/LawBench) |
 | Paper / arXiv | [https://arxiv.org/abs/2309.16289](https://arxiv.org/abs/2309.16289) |
 | Leaderboard / competition | [https://lawbench.opencompass.org.cn/](https://lawbench.opencompass.org.cn/) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -178,6 +193,11 @@ Chinese legal memorization, understanding, and application across 20 tasks.
 - No official canonical HF release was located.
 - The official 2-6 evaluator returns the misspelled key 'anstention_rate', so the top-level evaluator silently writes zero abstention for that task.
 
+**Related entries**
+
+- [JuDGE](reasoning-education.md#judge)
+- [STARD](retrieval-rag-citation.md#stard)
+
 Original source bullet(s): #2
 
 [Back to page index](#on-this-page)
@@ -194,8 +214,9 @@ Chinese legal knowledge, inference, generation, discrimination, and ethics acros
 | Field | Detail |
 |---|---|
 | Owner | LexEval authors (academic) |
-| First documented | [2024-09-30](https://arxiv.org/abs/2409.20288) — arXiv v1 submission |
-| Latest verified update | [2024-11-26](https://arxiv.org/abs/2409.20288) — arXiv revision |
+| Catalog geography | China |
+| First recorded public event | [2024-09-30](https://arxiv.org/abs/2409.20288) — arXiv v1 submission |
+| Latest verified event | [2024-11-26](https://arxiv.org/abs/2409.20288) — arXiv revision |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -236,6 +257,8 @@ Chinese legal knowledge, inference, generation, discrimination, and ethics acros
 | GitHub | [https://github.com/CSHaitao/LexEval](https://github.com/CSHaitao/LexEval) |
 | Hugging Face | [https://huggingface.co/datasets/CSHaitao/LexEval](https://huggingface.co/datasets/CSHaitao/LexEval) |
 | Paper / arXiv | [https://arxiv.org/abs/2409.20288](https://arxiv.org/abs/2409.20288) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -265,8 +288,9 @@ Standardized English legal language understanding across seven classification an
 | Field | Detail |
 |---|---|
 | Owner | LexGLUE authors (academic) |
-| First documented | [2021-10-03](https://arxiv.org/abs/2110.00976) — arXiv v1 submission |
-| Latest verified update | [2025-07-23](https://github.com/coastalcph/lex-glue) — GitHub repository push |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2021-10-03](https://arxiv.org/abs/2110.00976) — arXiv v1 submission |
+| Latest verified event | [2025-07-23](https://github.com/coastalcph/lex-glue) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -307,6 +331,8 @@ Standardized English legal language understanding across seven classification an
 | GitHub | [https://github.com/coastalcph/lex-glue](https://github.com/coastalcph/lex-glue) |
 | Hugging Face | [https://huggingface.co/datasets/coastalcph/lex_glue](https://huggingface.co/datasets/coastalcph/lex_glue) |
 | Paper / arXiv | [https://arxiv.org/abs/2110.00976](https://arxiv.org/abs/2110.00976)<br>[https://aclanthology.org/2022.acl-long.297/](https://aclanthology.org/2022.acl-long.297/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -340,8 +366,9 @@ Multilingual European legal classification and named-entity recognition across 2
 | Field | Detail |
 |---|---|
 | Owner | LEXTREME authors (academic) |
-| First documented | [2023-01-30](https://arxiv.org/abs/2301.13126) — arXiv v1 submission |
-| Latest verified update | [2026-05-20](https://huggingface.co/datasets/joelniklaus/lextreme) — Hugging Face dataset update |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2023-01-30](https://arxiv.org/abs/2301.13126) — arXiv v1 submission |
+| Latest verified event | [2026-05-20](https://huggingface.co/datasets/joelniklaus/lextreme) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -384,6 +411,7 @@ Multilingual European legal classification and named-entity recognition across 2
 | Hugging Face | [https://huggingface.co/datasets/joelniklaus/lextreme](https://huggingface.co/datasets/joelniklaus/lextreme) |
 | Paper / arXiv | [https://arxiv.org/abs/2301.13126](https://arxiv.org/abs/2301.13126) |
 | Leaderboard / competition | [https://wandb.ai/lextreme/paper_results](https://wandb.ai/lextreme/paper_results) |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -408,8 +436,9 @@ Answer bilingual law-school multiple-choice and open-answer examination question
 | Field | Detail |
 |---|---|
 | Owner | LEXam team (academic) |
-| First documented | [2025-05-19](https://arxiv.org/abs/2505.12864) — arXiv v1 submission |
-| Latest verified update | [2026-05-21](https://huggingface.co/datasets/LEXam-Benchmark/LEXam) — Hugging Face dataset update |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2025-05-19](https://arxiv.org/abs/2505.12864) — arXiv v1 submission |
+| Latest verified event | [2026-05-21](https://huggingface.co/datasets/LEXam-Benchmark/LEXam) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -451,6 +480,7 @@ Answer bilingual law-school multiple-choice and open-answer examination question
 | GitHub | [https://github.com/LEXam-Benchmark/LEXam](https://github.com/LEXam-Benchmark/LEXam) |
 | Hugging Face | [https://huggingface.co/datasets/LEXam-Benchmark/LEXam](https://huggingface.co/datasets/LEXam-Benchmark/LEXam) |
 | Paper / arXiv | [https://arxiv.org/abs/2505.12864](https://arxiv.org/abs/2505.12864) |
+| Leaderboard / competition | None located |
 | Project | [https://lexam-benchmark.github.io/](https://lexam-benchmark.github.io/) |
 
 ### Validity and evidence
@@ -464,6 +494,10 @@ Answer bilingual law-school multiple-choice and open-answer examination question
 
 **Unresolved ambiguity**
 - Jurisdiction is course-dependent rather than a single national-law corpus.
+
+**Related entries**
+
+- [LegalBench.PT](reasoning-education.md#legalbench-pt)
 
 Original source bullet(s): #11
 
@@ -483,8 +517,9 @@ Arabic legal knowledge, classification, question answering, and translation, wit
 | Field | Detail |
 |---|---|
 | Owner | THIQAH R&D (company; commercial interest unclear) |
-| First documented | [2024-08-15](https://arxiv.org/abs/2408.07983) — arXiv v1 submission |
-| Latest verified update | [2025-05-21](https://github.com/Thiqah/ArabLegalEval) — GitHub repository push |
+| Catalog geography | Saudi Arabia |
+| First recorded public event | [2024-08-15](https://arxiv.org/abs/2408.07983) — arXiv v1 submission |
+| Latest verified event | [2025-05-21](https://github.com/Thiqah/ArabLegalEval) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -526,6 +561,8 @@ Arabic legal knowledge, classification, question answering, and translation, wit
 | GitHub | [https://github.com/Thiqah/ArabLegalEval](https://github.com/Thiqah/ArabLegalEval) |
 | Hugging Face | [https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval](https://huggingface.co/datasets/THIQAH-RD/ArabLegalEval) |
 | Paper / arXiv | [https://arxiv.org/abs/2408.07983](https://arxiv.org/abs/2408.07983) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -557,8 +594,9 @@ Reason over Saudi commercial-law cases, complete arguments, and identify governi
 | Field | Detail |
 |---|---|
 | Owner | THIQAH R&D (company; commercial interest unclear) |
-| First documented | [2025-10-01](https://arxiv.org/abs/2510.00694) — arXiv v1 submission |
-| Latest verified update | [2025-10-15](https://huggingface.co/datasets/THIQAH-RD/ALARB) — Hugging Face dataset update |
+| Catalog geography | Saudi Arabia |
+| First recorded public event | [2025-10-01](https://arxiv.org/abs/2510.00694) — arXiv v1 submission |
+| Latest verified event | [2025-10-15](https://huggingface.co/datasets/THIQAH-RD/ALARB) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -597,8 +635,11 @@ Reason over Saudi commercial-law cases, complete arguments, and identify governi
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
 | Hugging Face | [https://huggingface.co/datasets/THIQAH-RD/ALARB](https://huggingface.co/datasets/THIQAH-RD/ALARB) |
 | Paper / arXiv | [https://arxiv.org/abs/2510.00694](https://arxiv.org/abs/2510.00694) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -628,8 +669,9 @@ Indian legal named entities, rhetorical roles, judgment/explanation, bail, statu
 | Field | Detail |
 |---|---|
 | Owner | Exploration Lab (academic) |
-| First documented | [2024-07-07](https://arxiv.org/abs/2407.05399) — arXiv v1 submission |
-| Latest verified update | [2025-06-07](https://github.com/Exploration-Lab/IL-TUR) — GitHub repository push |
+| Catalog geography | India |
+| First recorded public event | [2024-07-07](https://arxiv.org/abs/2407.05399) — arXiv v1 submission |
+| Latest verified event | [2025-06-07](https://github.com/Exploration-Lab/IL-TUR) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -686,6 +728,10 @@ Indian legal named entities, rhetorical roles, judgment/explanation, bail, statu
 **Unresolved ambiguity**
 - HF metadata cites MILPaC arXiv alongside the IL-TUR paper; cite both appropriately.
 
+**Related entries**
+
+- [AILA 2019](retrieval-rag-citation.md#aila-2019)
+
 [Back to page index](#on-this-page)
 
 <a id="kcl"></a>
@@ -702,8 +748,9 @@ Answer Korean bar-exam MCQs and essays with question-aligned supporting preceden
 | Field | Detail |
 |---|---|
 | Owner | LBOX / KCL authors (mixed; commercial interest unclear) |
-| First documented | [2025-12-31](https://arxiv.org/abs/2512.24572) — arXiv v1 submission |
-| Latest verified update | [2026-01-23](https://github.com/lbox-kr/kcl) — GitHub repository push |
+| Catalog geography | South Korea |
+| First recorded public event | [2025-12-31](https://arxiv.org/abs/2512.24572) — arXiv v1 submission |
+| Latest verified event | [2026-01-23](https://github.com/lbox-kr/kcl) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -745,6 +792,8 @@ Answer Korean bar-exam MCQs and essays with question-aligned supporting preceden
 | GitHub | [https://github.com/lbox-kr/kcl](https://github.com/lbox-kr/kcl) |
 | Hugging Face | [https://huggingface.co/datasets/lbox/kcl](https://huggingface.co/datasets/lbox/kcl) |
 | Paper / arXiv | [https://arxiv.org/abs/2512.24572](https://arxiv.org/abs/2512.24572)<br>[https://aclanthology.org/2026.eacl-short.17/](https://aclanthology.org/2026.eacl-short.17/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -755,12 +804,277 @@ Answer Korean bar-exam MCQs and essays with question-aligned supporting preceden
 **Verified facts**
 - Official paper/GitHub/HF define counts, 2,905-point aggregation, and Gemini 2.5 Flash judge.
 
+**Related entries**
+
+- [KBL](reasoning-education.md#kbl)
+
+[Back to page index](#on-this-page)
+
+<a id="kbl"></a>
+## KBL
+
+`kbl` · **benchmark-suite** · **specialist** · active
+
+Answer Korean legal knowledge, legal reasoning, and bar-examination multiple-choice questions with or without retrieved statutes and precedents.
+
+**Also known as:** Korean Benchmark for Legal Language Understanding
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LBox / KBL authors (mixed; commercial interest unclear) |
+| Catalog geography | South Korea |
+| First recorded public event | [2024-10-02](https://github.com/lbox-kr/kbl) — GitHub repository creation |
+| Latest verified event | [2025-05-19](https://huggingface.co/datasets/lbox/kbl) — Hugging Face benchmark dataset update |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Compare Korean legal knowledge, reasoning, and bar-exam performance under one multiple-choice harness.
+- Measure the effect of statute and precedent retrieval by running the same tasks closed-book and with the released RAG corpus.
+- Diagnose Korean task-level failures rather than combining KBL with the distinct KCL or LBOX OPEN identities.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Per-task accuracy measures exact option selection across heterogeneous knowledge and reasoning tasks; closed-book versus BM25-RAG deltas isolate the practical value and failure modes of retrieved Korean legal sources. |
+| Jurisdiction | South Korea |
+| Languages | Korean |
+| Size | Paper release: 510 examples in seven knowledge tasks, 288 in four reasoning tasks, and 2,510 bar-exam examples (3,308 total); live Hugging Face release: 3,456 rows across 67 configs after adding 2025 bar exams |
+| Splits | Every Hugging Face task/config exposes a public test split; the live release has no hidden holdout |
+| Source material | Lawyer-designed and lawyer-verified tasks, Korean bar and professional-responsibility exams, active statutes, municipal rules, and Korean precedents |
+| Input | Korean question and A–E options, optionally augmented with BM25-retrieved statutes and/or precedents |
+| Output | One answer-option label |
+| Baselines / leaderboard context | The paper evaluates four open-source and five commercial model families, including EEVE, KULLM3, EXAONE, Qwen2, GPT-3.5/4/4o-mini, and Claude 3/3.5, plus a most-frequent-label baseline; GPT-4 averages 72.0 on the seven knowledge tasks and 48.1 on the 2024 bar-exam domains in the reported table. |
+| Dataset access | Public Hugging Face benchmark and companion RAG corpus |
+| License | CC BY-NC 4.0 for the released datasets according to the paper and Hugging Face metadata; the GitHub repository has no detected standalone license |
+| Gating | None observed, but noncommercial dataset terms apply |
+| Maintenance | The live Hub dataset added 2025 bar-exam configs after the paper; pin both the benchmark revision and the RAG corpus snapshot. |
+| Reproducibility | Good for public-label reruns through lm-eval-harness, but paper/live row counts differ and the companion RAG corpus viewer does not expose a stable aggregate size. |
+
+### Metrics
+
+- **Per-task accuracy:** Exact option correctness is reported for each knowledge, reasoning, and bar-exam config; suite summaries average named task accuracies rather than invoking an LLM judge. **Primary.**
+- **Closed-book versus RAG accuracy delta:** Compare the same model and task under no retrieval, precedent retrieval, statute retrieval, or both; report corpus and retrieved-document count.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/lbox-kr/kbl](https://github.com/lbox-kr/kbl) |
+| Hugging Face | [https://huggingface.co/datasets/lbox/kbl](https://huggingface.co/datasets/lbox/kbl)<br>[https://huggingface.co/datasets/lbox/kbl-rag](https://huggingface.co/datasets/lbox/kbl-rag) |
+| Paper / arXiv | [https://arxiv.org/abs/2410.08731](https://arxiv.org/abs/2410.08731)<br>[https://aclanthology.org/2024.findings-emnlp.319/](https://aclanthology.org/2024.findings-emnlp.319/) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Public exams, prompts, and answers are contamination-prone, especially for older annual exams.
+- The paper's 3,308-example release and the live 3,456-row release are not interchangeable; unpinned comparisons silently mix versions.
+- Accuracy collapses diverse legal constructs and does not assess the quality of generated legal analysis.
+- RAG results depend on mutable corpora, retrieval depth, and tokenizer/context limits.
+
+**Verified facts**
+- The ACL paper defines seven knowledge tasks, four reasoning tasks, four bar-exam domains, multiple-choice scoring, closed-book/RAG conditions, and the paper-release counts.
+- The official Hugging Face Dataset Viewer reports 3,456 rows across 67 public test configs and a 2025-05-19 update; the data metadata states CC BY-NC 4.0.
+
+**Inference**
+- KBL complements KCL: KBL mixes knowledge and reasoning, while KCL was designed to supply supporting precedents and reduce knowledge dependence.
+
+**Unresolved ambiguity**
+- No official leaderboard was located, and the GitHub code license is not declared separately from dataset terms.
+
+**Related entries**
+
+- [Korean Canonical Legal Benchmark](reasoning-education.md#kcl)
+- [LRAGE](related-evaluators.md#lrage)
+
+[Back to page index](#on-this-page)
+
+<a id="legalbench-pt"></a>
+## LegalBench.PT
+
+`legalbench-pt` · **benchmark** · **check before use** · active
+
+Answer European Portuguese questions testing knowledge and application of Portuguese law across 31 legal fields.
+
+**Also known as:** LegalBench PT
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LegalBench.PT authors (mixed; commercial interest unclear) |
+| Catalog geography | Portugal |
+| First recorded public event | [2024-10-28](https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT) — Hugging Face dataset creation |
+| Latest verified event | [2026-05-06](https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT) — Hugging Face dataset update |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Compare zero-shot model performance across 31 fields of Portuguese law and six closed-form question formats.
+- Identify Portuguese-law areas requiring a fresh expert-authored holdout instead of relying on a single overall score.
+- Study synthetic benchmark construction and label-quality failure modes using the paper's lawyer and participant audits.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Balanced accuracy scores single-answer formats under class imbalance, while F1 balances selected-pair precision and recall for multiple-selection and matching items; weighted aggregation preserves the released field/type distribution. |
+| Jurisdiction | Portugal |
+| Languages | Portuguese (European) |
+| Size | 4,723 generated questions from 626 distinct exam exercises across 31 legal fields: 1,099 multiple-choice, 983 cloze, 89 case-analysis, 1,309 true/false, 695 multiple-selection, and 548 matching questions |
+| Splits | Hugging Face exposes 31 field configs, each with one public test split; no hidden labels |
+| Source material | Solved 2021–2024 law-school exams from the University of Lisbon, transformed by GPT-4o and filtered for duplicates and explicit article-number prompts |
+| Input | Portuguese legal question with type-specific instructions, optional statement/assumptions, and choices or matching items |
+| Output | One option, true/false label, a set of options, or matching pairs |
+| Baselines / leaderboard context | The paper evaluates GPT-4o, GPT-4o-mini, Claude 3 Opus, Claude 3.5 Sonnet, Llama 3.1 8B/70B/405B, and Mixtral 8x7B zero-shot; reported overall scores range from 68.6 to 85.4, with GPT-4o at 85.4 and Claude 3.5 Sonnet at 85.1. |
+| Dataset access | Public Hugging Face dataset with public test labels |
+| License | No license was declared in the Hugging Face metadata or paper |
+| Gating | None observed; absence of a license is not permission to redistribute or use commercially |
+| Maintenance | The Hub artifact was updated in May 2026, but no semantic release notes or executable canonical scorer repository were located. |
+| Reproducibility | Moderate: rows and expected answers are public and the paper specifies parsing and metrics, but there is no official code repository or hidden test, and the exact live-versus-paper revision must be pinned. |
+
+### Metrics
+
+- **Balanced accuracy:** Score multiple-choice, cloze, case-analysis, and true/false items by class-balanced accuracy after parsing the required output form. **Primary.**
+- **F1 for multiple selection and matching:** Compute F1 from parsed predicted versus gold option sets or matching pairs, then combine question-type and field results by weighted average. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | None located |
+| Hugging Face | [https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT](https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT) |
+| Paper / arXiv | [https://arxiv.org/abs/2502.16357](https://arxiv.org/abs/2502.16357) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- GPT-4o generated every benchmark item from exam material, creating generator style artifacts and possible model-family advantage.
+- The paper's lawyer review and broader participant study found nontrivial incorrect and ambiguous gold answers; field-level scores can therefore reflect label noise.
+- Several legal fields contain very few questions, making their percentages unstable and unsuitable for strong claims.
+- All test labels are public, enabling contamination and direct prompt tuning.
+
+**Verified facts**
+- The paper and official Hugging Face release agree on 4,723 questions, 31 legal fields, six formats, zero-shot evaluation, and the public test-only organization.
+- The official Dataset Viewer reports exactly 4,723 rows; the Hub API records creation on 2024-10-28 and update on 2026-05-06.
+
+**Inference**
+- Because label quality is measured only on samples, a fresh expert-reviewed subset is necessary for any procurement claim.
+
+**Unresolved ambiguity**
+- No official GitHub repository, leaderboard, project site, or benchmark license was located.
+- The paper names balanced accuracy, F1, and weighted aggregation but no separately versioned scorer implementation was located.
+
+**Related entries**
+
+- [LegalBench](reasoning-education.md#legalbench)
+- [LEXam](reasoning-education.md#lexam)
+- [OAB-Bench](reasoning-education.md#oab-bench)
+
+[Back to page index](#on-this-page)
+
+<a id="oab-bench"></a>
+## OAB-Bench
+
+`oab-bench` · **benchmark** · **specialist** · active
+
+Draft Brazilian legal documents and answer discursive professional-exam questions under official examiner guidelines.
+
+**Also known as:** oab-bench
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | Maritaca AI / OAB-Bench authors (mixed; commercial interest) |
+| Catalog geography | Brazil |
+| First recorded public event | [2025-04-28](https://github.com/maritaca-ai/oab-bench) — GitHub repository creation |
+| Latest verified event | [2026-06-01](https://huggingface.co/datasets/maritaca-ai/oab-bench) — Hugging Face dataset update for the expanded release |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Evaluate Portuguese-language legal drafting and discursive answers against Brazilian Bar Examination Phase 2 grading criteria.
+- Audit criterion-level LLM-judge decisions through the structured JSON scorer instead of relying only on a total score.
+- Compare model passing rates across seven practice areas while keeping exam edition and judge version fixed.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Official grading-table items define atomic legal-writing requirements; an LLM judge scores each item, programmatic summation produces a 0–10 question score, and a six-point threshold operationalizes exam passing at the edition-by-area level. |
+| Jurisdiction | Brazil |
+| Languages | Portuguese (Brazilian) |
+| Size | Current v2 contains 210 unique questions across seven areas and six exam editions (39–44); Hugging Face exposes 420 rows because questions and matching guidelines are separate 210-row configs, not independent examples |
+| Splits | Two public train configs named questions and guidelines; no hidden test split |
+| Source material | Brazilian Bar Examination (OAB) Phase 2 legal-writing and discursive questions with the corresponding official examiner scoring guidelines |
+| Input | Open-ended legal-writing or discursive question, with reference materials and scoring table where supplied |
+| Output | A drafted legal document or prose legal answer |
+| Baselines / leaderboard context | The original paper evaluates four LLMs on 105 questions and validates automated judging against human scores; the current v2 repository reports 12 models on 210 questions, led by Gemini 3.1 Pro at 9.39 average and 42/42 exams passed under the GPT-5.2 structured judge. |
+| Dataset access | Public GitHub and Hugging Face release with questions, guidelines, outputs, and evaluation code |
+| License | Apache-2.0 for the repository and Hugging Face release |
+| Gating | None observed; model APIs are required to reproduce hosted-model and judge runs |
+| Maintenance | Active versioned benchmark: v1 had 105 questions from editions 39–41; the March 2026 v2 release added editions 42–44, structured judging, and a 12-model table. |
+| Reproducibility | Good for a pinned data, output, and judge configuration because the harness and structured judgments are public; headline scores remain dependent on a hosted proprietary judge and API snapshots. |
+
+### Metrics
+
+- **Criterion-summed score (0–10):** The recommended structured GPT-5.2 judge evaluates each guideline item independently and returns item scores; code sums the item scores into the question total. Judge: GPT-5.2 with high reasoning effort in the current v2 protocol. **Primary.**
+- **Average score and passing rate:** Average question scores and count edition-by-area exams scoring at least 6.0; v2 reports 42 exams from six editions times seven areas. Judge: GPT-5.2 for current reported results. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/maritaca-ai/oab-bench](https://github.com/maritaca-ai/oab-bench) |
+| Hugging Face | [https://huggingface.co/datasets/maritaca-ai/oab-bench](https://huggingface.co/datasets/maritaca-ai/oab-bench) |
+| Paper / arXiv | [https://arxiv.org/abs/2504.21202](https://arxiv.org/abs/2504.21202) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- Public exam questions, official guidelines, and reference outputs create contamination and targeted-optimization risk.
+- Judge upgrades can change scores even when candidate outputs are fixed; v1 and v2 results are not directly interchangeable.
+- The two Hub configs duplicate question identities and must not be counted as 420 benchmark questions.
+- Owner-reported model comparisons have a commercial-interest conflict and require independent reruns.
+
+**Verified facts**
+- The official repository and Hub release define the v1/v2 lineage, 210 current questions, seven areas, six editions, two overlapping configs, Apache-2.0 terms, structured scoring, and the 42-exam passing denominator.
+- Official GitHub and Hugging Face APIs record initial public creation on 2025-04-28/29 and the latest Hub update on 2026-06-01.
+
+**Inference**
+- OAB-Bench is more directly relevant to Brazilian legal writing than closed-form bar-exam accuracy, but it still does not simulate client files or iterative practice workflow.
+
+**Unresolved ambiguity**
+- No separately operated leaderboard was located; the result table lives in the mutable repository README.
+
+**Related entries**
+
+- [LegalBench.PT](reasoning-education.md#legalbench-pt)
+- [LegalBench](reasoning-education.md#legalbench)
+- [Harvey Legal Agent Benchmark (LAB)](agents-workflows.md#harvey-lab)
+
 [Back to page index](#on-this-page)
 
 <a id="prbench"></a>
 ## Professional Reasoning Benchmark (PRBench)
 
-`prbench` · **benchmark** · **recommended** · active
+`prbench` · **benchmark** · **check before use** · active
 
 Produce open-ended professional legal analysis that satisfies granular expert-authored criteria.
 
@@ -771,8 +1085,9 @@ Produce open-ended professional legal analysis that satisfies granular expert-au
 | Field | Detail |
 |---|---|
 | Owner | Scale AI / JusticeBench (company; commercial interest) |
-| First documented | [2025-11-13](https://github.com/scaleapi/PRBench) — GitHub and Hugging Face release |
-| Latest verified update | [2026-06-24](https://huggingface.co/datasets/ScaleAI/PRBench) — Hugging Face dataset update |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2025-11-13](https://github.com/scaleapi/PRBench) — GitHub and Hugging Face release |
+| Latest verified event | [2026-06-24](https://huggingface.co/datasets/ScaleAI/PRBench) — Hugging Face dataset update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -846,8 +1161,9 @@ Answer Chinese legal consultations, analyze practical cases, and draft legal doc
 | Field | Detail |
 |---|---|
 | Owner | PLawBench authors / SKYLENAGE-AI (mixed; commercial interest unclear) |
-| First documented | [2026-01-05](https://github.com/SKYLENAGE-AI/PLawBench) — GitHub repository creation |
-| Latest verified update | [2026-07](https://aclanthology.org/2026.acl-long.458/) — ACL 2026 publication |
+| Catalog geography | China |
+| First recorded public event | [2026-01-05](https://github.com/SKYLENAGE-AI/PLawBench) — GitHub repository creation |
+| Latest verified event | [2026-07](https://aclanthology.org/2026.acl-long.458/) — ACL 2026 publication |
 | Access level | partial |
 | Test labels | public |
 | Independently runnable | partial |
@@ -871,7 +1187,7 @@ Answer Chinese legal consultations, analyze practical cases, and draft legal doc
 | Input | Question, facts, or drafting instruction |
 | Output | Legal advice, case analysis, or drafted document |
 | Baselines / leaderboard context | ACL paper reports model comparisons across the three task families. |
-| Dataset access | Partial public repository and anonymous release |
+| Dataset access | Partial public repository |
 | License | No clear repository-wide license located |
 | Gating | No account gate observed; artifact appears incomplete relative to the paper |
 | Maintenance | Recent ACL 2026 release; no stable versioned complete package was verified. |
@@ -886,8 +1202,10 @@ Answer Chinese legal consultations, analyze practical cases, and draft legal doc
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/SKYLENAGE-AI/PLawBench](https://github.com/SKYLENAGE-AI/PLawBench) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://aclanthology.org/2026.acl-long.458/](https://aclanthology.org/2026.acl-long.458/) |
-| Project | [https://anonymous.4open.science/r/PLawbench-B524/](https://anonymous.4open.science/r/PLawbench-B524/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -916,8 +1234,9 @@ Answer broad Chinese legal knowledge and reasoning questions across seven dimens
 | Field | Detail |
 |---|---|
 | Owner | LexGenius authors (academic) |
-| First documented | [2025-10-27](https://github.com/QwenQKing/LexGenius) — GitHub repository creation |
-| Latest verified update | [2026-04-16](https://arxiv.org/abs/2512.04578) — arXiv v3 revision |
+| Catalog geography | China |
+| First recorded public event | [2025-10-27](https://github.com/QwenQKing/LexGenius) — GitHub repository creation |
+| Latest verified event | [2026-04-16](https://arxiv.org/abs/2512.04578) — arXiv v3 revision |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -956,7 +1275,10 @@ Answer broad Chinese legal knowledge and reasoning questions across seven dimens
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/QwenQKing/LexGenius](https://github.com/QwenQKing/LexGenius) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2512.04578](https://arxiv.org/abs/2512.04578)<br>[https://aclanthology.org/2026.findings-acl.926/](https://aclanthology.org/2026.findings-acl.926/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -985,8 +1307,9 @@ Classify contested issues, Board authorities, and outcomes in US patent appeals.
 | Field | Detail |
 |---|---|
 | Owner | PILOT-Bench authors / TeamLab (academic) |
-| First documented | [2025-10-08](https://huggingface.co/datasets/Yehoon/pilot-bench) — Hugging Face dataset creation |
-| Latest verified update | [2026-03-10](https://huggingface.co/datasets/Yehoon/pilot-bench) — Hugging Face dataset and GitHub repository update |
+| Catalog geography | United States |
+| First recorded public event | [2025-10-08](https://huggingface.co/datasets/Yehoon/pilot-bench) — Hugging Face dataset creation |
+| Latest verified event | [2026-03-10](https://huggingface.co/datasets/Yehoon/pilot-bench) — Hugging Face dataset and GitHub repository update |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -1028,6 +1351,8 @@ Classify contested issues, Board authorities, and outcomes in US patent appeals.
 | GitHub | [https://github.com/TeamLab/pilot-bench](https://github.com/TeamLab/pilot-bench) |
 | Hugging Face | [https://huggingface.co/datasets/Yehoon/pilot-bench](https://huggingface.co/datasets/Yehoon/pilot-bench) |
 | Paper / arXiv | [https://arxiv.org/abs/2601.04758](https://arxiv.org/abs/2601.04758)<br>[https://aclanthology.org/2025.nllp-1.17/](https://aclanthology.org/2025.nllp-1.17/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1062,8 +1387,9 @@ Answer multilingual intellectual-property questions and match patent abstracts t
 | Field | Detail |
 |---|---|
 | Owner | MoZIP authors / AI-for-Science (academic) |
-| First documented | [2023-05-19](https://huggingface.co/datasets/BNNT/IPQA) — Earliest constituent benchmark dataset creation on Hugging Face |
-| Latest verified update | [2024-08-20](https://github.com/AI-for-Science/MoZi) — Canonical GitHub repository push |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2024-02-26](https://arxiv.org/abs/2402.16389) — MoZIP paper arXiv v1 submission |
+| Latest verified event | [2024-08-20](https://github.com/AI-for-Science/MoZi) — Canonical GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | partial |
@@ -1106,6 +1432,8 @@ Answer multilingual intellectual-property questions and match patent abstracts t
 | GitHub | [https://github.com/AI-for-Science/MoZi](https://github.com/AI-for-Science/MoZi) |
 | Hugging Face | [https://huggingface.co/datasets/BNNT/IPQuiz](https://huggingface.co/datasets/BNNT/IPQuiz)<br>[https://huggingface.co/datasets/BNNT/IPQA](https://huggingface.co/datasets/BNNT/IPQA)<br>[https://huggingface.co/datasets/BNNT/PatentMatch](https://huggingface.co/datasets/BNNT/PatentMatch) |
 | Paper / arXiv | [https://arxiv.org/abs/2402.16389](https://arxiv.org/abs/2402.16389)<br>[https://aclanthology.org/2024.lrec-main.1018/](https://aclanthology.org/2024.lrec-main.1018/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -1128,5 +1456,333 @@ Answer multilingual intellectual-property questions and match patent abstracts t
 **Related entries**
 
 - [PILOT-Bench](reasoning-education.md#pilot-bench)
+
+[Back to page index](#on-this-page)
+
+<a id="judge"></a>
+## JuDGE
+
+`judge` · **benchmark** · **specialist** · fixed-release
+
+Generate a complete Chinese criminal judgment document from a factual description.
+
+**Also known as:** Judgment Document Generation Evaluation
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | JuDGE authors / Tsinghua University (academic) |
+| Catalog geography | China |
+| First recorded public event | [2025-02-24](https://github.com/oneal2000/JuDGE/commit/30c389ad9c506164f05f00c5e75c86bbdb8184de) — Benchmark data first committed to the official GitHub repository |
+| Latest verified event | [2025-08-07](https://github.com/oneal2000/JuDGE) — GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Evaluate Chinese criminal-judgment document generation from case facts with separate penalty, charge, statutory-reference, reasoning, and judgment-result metrics.
+- Compare direct generation, in-context learning, supervised fine-tuning, and multi-source RAG under the released 2,004/501 split.
+- Use the public evaluation scripts as a starting point for document-generation diagnostics while adding expert review for legal validity.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Twelve automatic measures compare a generated judgment with the authoritative reference across penalties, charges, cited statutes, reasoning text, and judgment-result text; this is document generation, not appellate error review. |
+| Jurisdiction | China |
+| Languages | Chinese |
+| Size | 2,505 expert-filtered fact–judgment pairs; 103,251 supplementary judgment documents and 55,348 statutory articles |
+| Splits | 2,004 train and 501 test pairs (4:1); public labels and reference judgments |
+| Source material | China Judgments Online criminal judgments, transformed into structured fact/reasoning/judgment/penalty/charge/statute fields and filtered by two law-student reviewers |
+| Input | Case factual description, optionally with retrieved statutes and precedent judgments |
+| Output | Full judgment document including judicial reasoning, result, sentence, fine, charges, and statutory references |
+| Baselines / leaderboard context | The paper compares Qwen2.5 3B/7B base and instruct models, HanFei-7B, and LexiLaw-6B using direct generation, in-context learning, supervised fine-tuning, and multi-source RAG where applicable. |
+| Dataset access | Public subset and test references in GitHub; the official README links a larger Google Drive corpus |
+| License | MIT repository and dataset according to the official paper and README |
+| Gating | None for GitHub; external Google Drive hosts the full supplementary corpus |
+| Maintenance | The repository was last pushed August 7, 2025 and has no tagged releases; pin a commit and the external corpus revision. |
+| Reproducibility | Public data, expected outputs, evaluation scripts, prompts, and baseline result files support reruns, but external corpus hosting and model-version drift still need pinning. |
+
+### Metrics
+
+- **Penalty accuracy:** Normalized similarity for predicted versus reference prison term and fine, implemented by the official evaluation scripts. **Primary.**
+- **Charge and statutory-reference precision / recall / F1:** Set-based classification scores separately evaluate convictions and cited criminal-law provisions. **Primary.**
+- **Reasoning and judgment METEOR / BERTScore:** Reference-based lexical/semantic similarity is reported separately for the judicial-reasoning and judgment-result sections. **Primary.**
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/oneal2000/JuDGE](https://github.com/oneal2000/JuDGE) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://arxiv.org/abs/2503.14258](https://arxiv.org/abs/2503.14258) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- The split and gold documents are public, creating contamination and direct overfitting risk.
+- METEOR and BERTScore reward reference similarity but do not establish that alternative legal reasoning is valid or that the generated judgment is lawful.
+- The paper reports anonymization and expert filtering, but downstream users still need their own privacy and source-rights review.
+
+**Verified facts**
+- The official repository contains the data, 4:1 preparation script, expected outputs, automated evaluators, baseline code/results, and MIT license.
+- The official SIGIR paper reports 2,505 pairs, the 2,004/501 split, 103,251 judgment corpus, 55,348 statutes, and all twelve automatic metrics.
+
+**Unresolved ambiguity**
+- No canonical Hugging Face dataset or maintained leaderboard was located.
+- The AR-BENCH paper says it reannotates JuDGE material for appellate review; JuDGE remains a separate judgment-generation benchmark and is not an AR-BENCH release.
+
+**Related entries**
+
+- [LawBench](reasoning-education.md#lawbench)
+- [Ready Jurist One (J1Bench)](agents-workflows.md#ready-jurist-one)
+- [STARD](retrieval-rag-citation.md#stard)
+
+[Back to page index](#on-this-page)
+
+<a id="vlegal-bench"></a>
+## VLegal-Bench
+
+`vlegal-bench` · **benchmark-suite** · **check before use** · active
+
+Evaluate Vietnamese legal recognition, understanding, reasoning, interpretation, generation, and professional ethics across 22 named tasks.
+
+**Also known as:** VietLegal
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | VLegal-Bench authors / CMC Institute of Science and Technology (mixed; commercial interest unclear) |
+| Catalog geography | Vietnam |
+| First recorded public event | [2025-12-16](https://arxiv.org/abs/2512.14554) — arXiv v1 submission |
+| Latest verified event | [2026-04-17](https://arxiv.org/abs/2512.14554) — arXiv v5 revision |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | yes |
+
+### Possible use cases
+
+- Evaluate Vietnamese legal knowledge, understanding, reasoning, drafting, and ethics with task-specific metrics.
+- Use the public prompts and evaluator code as a reproducible Vietnamese-law diagnostic after pinning the exact repository revision.
+- Design a private Vietnamese-law holdout using the released task taxonomy without reusing its public gold answers.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Bloom-inspired task levels separate recall and structuring from inference, generation, and ethics; task-specific scores should be reported rather than treated as one validated legal-capability scale. |
+| Jurisdiction | Vietnam |
+| Languages | Vietnamese |
+| Size | Paper reports 10,450 examples across 22 tasks; the verified repository contains 10,467 JSONL lines across 23 task/subtask files |
+| Splits | Public evaluation files with gold labels; no hidden test or unified train/development/test split |
+| Source material | Vietnamese statutes, legal questions, cases, documents, and authored or transformed task material |
+| Input | Task-dependent legal text, question, facts, choices, graph structure, or drafting instruction |
+| Output | Choice, label, span, graph, or generated Vietnamese legal text |
+| Baselines / leaderboard context | The paper evaluates Vietnamese-capable, open, and frontier language models across the five ability levels; no maintained leaderboard was located. |
+| Dataset access | Public GitHub task files, prompts, inference code, and evaluation code |
+| License | CC BY-NC-ND 4.0 in the repository license file |
+| Gating | None observed; no canonical Hugging Face dataset was located |
+| Maintenance | Active 2026 research release; pin a commit because the paper has multiple revisions and the project uses both VLegal-Bench and VietLegal names. |
+| Reproducibility | Good for rerunning the public task files, but the paper/repository count mismatch and NoDerivatives license constrain modification and redistribution of derived splits. |
+
+### Metrics
+
+- **Task-specific accuracy / exact match / F1:** Use the repository's evaluator for closed-form, classification, extraction, and structure tasks; report every task separately. **Primary.**
+- **ROUGE-L and structure F1:** Use ROUGE-L for designated generation tasks and node/edge F1 for designated structure tasks; do not average these as equivalent units without a disclosed rule.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/hieunguyen1053/vlegal-bench](https://github.com/hieunguyen1053/vlegal-bench) |
+| Hugging Face | None located |
+| Paper / arXiv | [https://arxiv.org/abs/2512.14554](https://arxiv.org/abs/2512.14554) |
+| Leaderboard / competition | None located |
+| Project | [https://vilegalbench.cmcai.vn/](https://vilegalbench.cmcai.vn/) |
+
+### Validity and evidence
+
+**Risks / caveats**
+- All gold labels are public, creating contamination and direct benchmark-targeting risk.
+- The paper's 10,450 total and repository's 10,467 JSONL lines do not reconcile.
+- CC BY-NC-ND 4.0 prohibits commercial use and distribution of adapted material.
+
+**Verified facts**
+- The official arXiv record, GitHub repository, and project page establish a Vietnamese-law suite with 22 named task directories, public data, prompts, evaluator code, and CC BY-NC-ND 4.0 terms.
+- A direct count of the released JSONL files produced 10,467 lines, while the paper's task table totals 10,450.
+
+**Inference**
+- The suite fills a jurisdiction gap but is not evidence of deployable end-to-end Vietnamese legal practice.
+
+**Unresolved ambiguity**
+- The paper uses VietLegal internally while the arXiv title and repository use VLegal-Bench; no canonical Hugging Face release was located.
+
+[Back to page index](#on-this-page)
+
+<a id="mizanqa"></a>
+## MizanQA
+
+`mizanqa` · **benchmark** · **check before use** · fixed-release
+
+Answer expert-verified multiple-choice questions about Moroccan law and associated legal traditions.
+
+**Also known as:** MizanQA-v0
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | MizanQA authors (academic) |
+| Catalog geography | Morocco |
+| First recorded public event | [2025-08-22](https://arxiv.org/abs/2508.16357) — arXiv v1 and Hugging Face dataset release |
+| Latest verified event | [2026-03](https://aclanthology.org/2026.eacl-industry.10/) — EACL 2026 Industry Track publication |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Evaluate Arabic multiple-choice knowledge of Moroccan law, legal institutions, Maliki jurisprudence, and customary-law context.
+- Compare strict correctness with partial-answer and calibration-aware measures on a pinned release.
+- Build a fresh Moroccan-law evaluation while using MizanQA only as a public development diagnostic.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | Strict accuracy tests exact answer-set correctness; F1-like alpha and PMPA beta add tunable penalties for wrong selections; option-level and set-level expected calibration error compare confidence with observed correctness. |
+| Jurisdiction | Morocco |
+| Languages | Arabic (Modern Standard Arabic with Moroccan legal usage) |
+| Size | Paper reports 1,776 expert-verified questions; the live Hugging Face release exposes 1,769 rows |
+| Splits | One public split named train; no hidden test |
+| Source material | Public Moroccan-law MCQ banks and exams, temporally curated by a legal expert, extracted with Gemini 2.0 Flash, then manually verified and categorized |
+| Input | Arabic legal question with a variable option set, including multi-answer questions |
+| Output | Selected answer option set with a confidence for each selected option |
+| Baselines / leaderboard context | The paper evaluates Allam-2, Gemini 1.5/2.0 Flash, Llama 3.3/4, and other Arabic-capable models. |
+| Dataset access | Public Hugging Face parquet and card |
+| License | No dataset license declared in the verified Hugging Face metadata |
+| Gating | None observed |
+| Maintenance | Fixed public v0 release followed by an EACL 2026 publication; no code repository or maintained leaderboard was located. |
+| Reproducibility | Partial: the rows are public and strict accuracy is simple, but the paper-only PMPA/calibration implementations, missing license, and count mismatch require local reconstruction. |
+
+### Metrics
+
+- **Strict accuracy:** Credit a question only when the predicted option set exactly equals the gold option set. **Primary.**
+- **F1-like alpha / PMPA beta:** The F1-like score uses precision/recall-style overlap and alpha to increase the penalty for wrong selections; PMPA uses beta as an incorrect-answer penalty and is intended for varying gold-set sizes. The Hub release does not include a standalone scorer.
+- **Option-level / set-level expected calibration error:** Bin confidence into equally spaced intervals. Option-level ECE treats option predictions separately; set-level ECE treats exact set match as correctness and multiplies selected-option confidences under an independence assumption.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | None located |
+| Hugging Face | [https://huggingface.co/datasets/adlbh/MizanQA-v0](https://huggingface.co/datasets/adlbh/MizanQA-v0) |
+| Paper / arXiv | [https://arxiv.org/abs/2508.16357](https://arxiv.org/abs/2508.16357)<br>[https://aclanthology.org/2026.eacl-industry.10/](https://aclanthology.org/2026.eacl-industry.10/) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- The public rows and labels permit direct tuning and contamination.
+- The paper and live release differ by seven questions.
+- The paper's metric section says option counts vary from 2 to 16, while its dataset table says 2 to 12.
+- One public split does not provide an independently held-out evaluation boundary.
+
+**Verified facts**
+- The arXiv paper, EACL record, and official Hugging Face release establish the Moroccan-law multi-answer task, construction pipeline, exact-set accuracy, alpha/beta partial-credit metrics, two ECE variants, and public artifact.
+- The Hugging Face Dataset Viewer exposes 1,769 rows, not the paper's 1,776.
+
+**Inference**
+- Calibration metrics make MizanQA useful for confidence analysis, but they do not establish professional legal competence.
+
+**Unresolved ambiguity**
+- No public scorer code, license declaration, GitHub repository, or hidden test was located.
+- The paper conflicts internally on whether the maximum option count is 12 or 16.
+
+[Back to page index](#on-this-page)
+
+<a id="lexsumm"></a>
+## LexSumm
+
+`lexsumm` · **benchmark-suite** · **check before use** · fixed-release
+
+Generate abstractive summaries of legislation, cases, and government/legal reports across eight public datasets.
+
+**Also known as:** LexSumm-LexT5
+
+### Identity, dates, and access
+
+| Field | Detail |
+|---|---|
+| Owner | LexSumm authors / TUM Legal Tech (academic) |
+| Catalog geography | Multi-jurisdiction and supranational |
+| First recorded public event | [2024-10-12](https://arxiv.org/abs/2410.09527) — arXiv v1 and GitHub repository creation |
+| Latest verified event | [2024-11-19](https://github.com/TUMLegalTech/LexSumm-LexT5) — Canonical GitHub repository push |
+| Access level | open |
+| Test labels | public |
+| Independently runnable | partial |
+
+### Possible use cases
+
+- Compare long-document legal summarization models across eight fixed public dataset configurations.
+- Analyze per-jurisdiction and per-document-type summarization performance without claiming a unified legal-fidelity score.
+- Use the LexT5 baselines as a reproducible starting point before adding expert factuality and legal-effect review.
+
+### Evaluation contract
+
+| Field | Detail |
+|---|---|
+| Construct / theory | ROUGE and BERTScore measure reference similarity per dataset; the suite does not implement a separate legal-faithfulness metric or validated cross-dataset aggregate. |
+| Jurisdiction | United States, United Kingdom, European Union, India, Multi-jurisdictional legal sources |
+| Languages | English |
+| Size | 60,386 rows across eight Hugging Face configurations: BillSum 22,218; EUR-Lex-Sum 1,504; GovReport 19,463; IN-Abs 7,128; Multi-LexSum long 4,539, short 3,138, tiny 1,603; UK-Abs 793 |
+| Splits | Every configuration exposes train, validation, and test splits |
+| Source material | Bills, EU legislation, government reports, Indian and UK case summaries, and Multi-LexSum legal documents |
+| Input | Long legal or government document |
+| Output | Reference-style abstractive summary |
+| Baselines / leaderboard context | The paper reports dataset-specific LED, PRIMERA, LongT5, SLED, Unlimiformer, and LexT5 baselines; it does not define one official aggregate rank. |
+| Dataset access | Public Hugging Face dataset with eight configurations |
+| License | No unified suite-wide license declaration was located; constituent dataset licenses and provenance differ |
+| Gating | None observed |
+| Maintenance | Fixed NLLP 2024 release; the Hub dataset was created and last updated in October 2024, and no maintained leaderboard was located. |
+| Reproducibility | Partial: fixed rows and splits are public, but the repository is baseline-oriented and does not ship a unified scorer or one license for all constituents. |
+
+### Metrics
+
+- **ROUGE-1 / ROUGE-2 / ROUGE-L:** Compute reference n-gram and longest-common-subsequence overlap per dataset; retain each constituent split and do not imply legal correctness. **Primary.**
+- **BERTScore:** Compute contextual embedding similarity against the reference summary per dataset.
+
+### Resources
+
+| Resource | Direct URL |
+|---|---|
+| GitHub | [https://github.com/TUMLegalTech/LexSumm-LexT5](https://github.com/TUMLegalTech/LexSumm-LexT5) |
+| Hugging Face | [https://huggingface.co/datasets/CJWeiss/LexSumm](https://huggingface.co/datasets/CJWeiss/LexSumm) |
+| Paper / arXiv | [https://arxiv.org/abs/2410.09527](https://arxiv.org/abs/2410.09527)<br>[https://aclanthology.org/2024.nllp-1.35/](https://aclanthology.org/2024.nllp-1.35/) |
+| Leaderboard / competition | None located |
+| Project | None located |
+
+### Validity and evidence
+
+**Risks / caveats**
+- ROUGE and BERTScore can reward fluent overlap while missing factual or legally consequential errors.
+- Constituent datasets differ in jurisdiction, document type, length, and source license, so aggregate comparisons are not construct-valid.
+- All reference summaries are public and contamination-prone.
+
+**Verified facts**
+- The official paper, repository, and Hugging Face release establish eight configurations, 60,386 live rows, train/validation/test splits, and ROUGE/BERTScore reporting.
+- The paper does not report the faithfulness metric attributed to it in a prior discovery pass; faithfulness appears only as a qualitative limitation.
+
+**Inference**
+- LexSumm qualifies as a fixed summarization suite, but its scores support reference-similarity claims rather than legal-fidelity claims.
+
+**Unresolved ambiguity**
+- No unified data license, official aggregate, hidden test, or maintained leaderboard was located.
 
 [Back to page index](#on-this-page)

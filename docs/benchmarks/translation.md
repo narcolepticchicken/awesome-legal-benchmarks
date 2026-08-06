@@ -4,7 +4,7 @@
 
 Shared tasks and multilingual corpora with automatic and legal-expert translation scoring.
 
-Snapshot: **2026-08-04** · 3 entries
+Snapshot: **2026-08-05** · 3 entries
 
 [Back to README](../../README.md) · [Catalog index](../catalog.md) · [Selection guide](../selection-guide.md) · [Metric field guide](../metric-theory.md) · [Methodology](../methodology.md)
 
@@ -28,8 +28,9 @@ Translate legal text from English to Hindi.
 | Field | Detail |
 |---|---|
 | Owner | JUST-NLP shared-task organizers (competition) |
-| First documented | [2025-12](https://aclanthology.org/2025.justnlp-main.3/) — ACL Anthology publication month |
-| Latest verified update | No later update verified |
+| Catalog geography | India |
+| First recorded public event | [2025-12](https://aclanthology.org/2025.justnlp-main.3/) — ACL Anthology publication month |
+| Latest verified event | None later verified |
 | Access level | gated |
 | Test labels | hidden |
 | Independently runnable | partial |
@@ -68,6 +69,8 @@ Translate legal text from English to Hindi.
 
 | Resource | Direct URL |
 |---|---|
+| GitHub | None located |
+| Hugging Face | None located |
 | Paper / arXiv | [https://aclanthology.org/2025.justnlp-main.3/](https://aclanthology.org/2025.justnlp-main.3/) |
 | Leaderboard / competition | [https://www.codabench.org/competitions/10351/](https://www.codabench.org/competitions/10351/)<br>[https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf](https://exploration-lab.github.io/JUST-NLP/JustNLP25_L-MT_Result.pdf) |
 | Project | [https://exploration-lab.github.io/JUST-NLP/](https://exploration-lab.github.io/JUST-NLP/) |
@@ -101,8 +104,9 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 | Field | Detail |
 |---|---|
 | Owner | SwiLTra authors (academic) |
-| First documented | [2025-03-03](https://arxiv.org/abs/2503.01372) — arXiv v1 submission |
-| Latest verified update | [2025-05-30](https://arxiv.org/abs/2503.01372) — arXiv revision |
+| Catalog geography | Switzerland |
+| First recorded public event | [2025-03-03](https://arxiv.org/abs/2503.01372) — arXiv v1 submission |
+| Latest verified event | [2025-05-30](https://arxiv.org/abs/2503.01372) — arXiv revision |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -144,6 +148,8 @@ Translate Swiss laws, court headnotes, and press releases among official Swiss l
 | GitHub | [https://github.com/JoelNiklaus/SwissLegalTranslations](https://github.com/JoelNiklaus/SwissLegalTranslations) |
 | Hugging Face | [https://huggingface.co/collections/joelniklaus/swiltra-bench](https://huggingface.co/collections/joelniklaus/swiltra-bench)<br>[https://huggingface.co/datasets/joelniklaus/SwissLawTranslations](https://huggingface.co/datasets/joelniklaus/SwissLawTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations](https://huggingface.co/datasets/joelniklaus/SwissDecisionSummaryTranslations)<br>[https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations](https://huggingface.co/datasets/joelniklaus/SwissSupremeCourtPressReleaseTranslations) |
 | Paper / arXiv | [https://arxiv.org/abs/2503.01372](https://arxiv.org/abs/2503.01372)<br>[https://aclanthology.org/2025.acl-long.725/](https://aclanthology.org/2025.acl-long.725/) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 
@@ -173,8 +179,9 @@ Translate verified Indian legal text from English into nine Indian languages.
 | Field | Detail |
 |---|---|
 | Owner | Law-AI (academic) |
-| First documented | [2023-10-15](https://arxiv.org/abs/2310.09765) — arXiv v1 submission |
-| Latest verified update | [2025-07-13](https://github.com/Law-AI/MILPaC) — GitHub repository push |
+| Catalog geography | India |
+| First recorded public event | [2023-10-15](https://arxiv.org/abs/2310.09765) — arXiv v1 submission |
+| Latest verified event | [2025-07-13](https://github.com/Law-AI/MILPaC) — GitHub repository push |
 | Access level | open |
 | Test labels | public |
 | Independently runnable | yes |
@@ -214,7 +221,10 @@ Translate verified Indian legal text from English into nine Indian languages.
 | Resource | Direct URL |
 |---|---|
 | GitHub | [https://github.com/Law-AI/MILPaC](https://github.com/Law-AI/MILPaC) |
+| Hugging Face | None located |
 | Paper / arXiv | [https://arxiv.org/abs/2310.09765](https://arxiv.org/abs/2310.09765)<br>[https://doi.org/10.1145/3748313](https://doi.org/10.1145/3748313) |
+| Leaderboard / competition | None located |
+| Project | None located |
 
 ### Validity and evidence
 

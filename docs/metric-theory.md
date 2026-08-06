@@ -184,6 +184,16 @@ ROUGE-L combines these with an F-measure. It rewards retained sequence structure
 
 BERTScore greedily aligns contextual token embeddings and aggregates cosine similarity into precision, recall, and F1 ([paper](https://arxiv.org/abs/1904.09675)). XCOMET and BLEURT learn quality estimators; GEMBA-MQM and SwiLTra-Judge use model judgment. SwiLTra-Bench compares these with legal experts ([paper](https://aclanthology.org/2025.acl-long.725/)). Their checkpoints, prompts, language coverage, and training overlap are part of the metric.
 
+### Expected calibration error
+
+For confidence bins \(B_1,\ldots,B_M\), expected calibration error is commonly estimated as
+
+\[
+\operatorname{ECE}=\sum_{m=1}^{M}\frac{|B_m|}{n}\left|\operatorname{acc}(B_m)-\operatorname{conf}(B_m)\right|.
+\]
+
+It measures how closely confidence tracks empirical correctness, not whether the answers are legally correct or useful. The estimate changes with bin count, bin edges, confidence definition, and sample size. [MizanQA](https://arxiv.org/abs/2508.16357) applies it twice to multi-answer MCQs: per option, and at answer-set level, where correctness requires an exact set match and set confidence is the product of selected-option confidences under an independence assumption. A low ECE can coexist with low accuracy, and multiplying option confidences can become overconfident or underconfident when the independence assumption fails.
+
 ## LLM judges and rubric scoring
 
 An LLM judge is not “the ground truth.” It is a measurement model. A reproducible judge protocol records:
@@ -355,6 +365,60 @@ Vals Legal Research similarly reports an all-pass task rate and a weighted parti
 ### LegalCiteBench citation metrics
 
 LegalCiteBench reports task-specific 0–100 scores built from mean average recall for ranked citation retrieval, citation precision/recall/F1 for generated citation components, and correct-response rate for response or abstention decisions ([paper](https://arxiv.org/abs/2605.10186), [repository](https://github.com/Sijia711/LegalCiteBench)). GPT-4o-mini is used for response scoring, while the paper separately analyzes abstention with Qwen3-32B. Citation-form correctness and retrieval do not establish that the cited case is controlling, current, or sufficient for the proposition; those require a legal relevance and support review.
+
+### LaborBench Boolean classification and bootstrap
+
+LaborBench's scored experiment treats the Boolean unemployment-insurance supplement as binary classification and reports accuracy, precision, recall, and F1. The paper estimates standard errors with 1,000 nonparametric bootstrap resamples of the evaluation rows ([paper](https://arxiv.org/abs/2508.19365), [dataset](https://huggingface.co/datasets/reglab/laborbench)). No one metric should replace the others: accuracy can hide class-specific failures, precision measures the false-positive burden, recall measures omissions, and F1 harmonically combines precision and recall without encoding their legal costs.
+
+The Hugging Face configurations are overlapping views, not independent question sets: the main QA release has 3,700 rows, the Boolean supplement has 3,015 rows, and the source-table configuration has 83 rows. All are exposed as public train splits. A paper result therefore needs the exact configuration, row revision, StateCodes corpus snapshot, retriever, prompt, parser, and model versions; summing the three row counts would overstate the independent evaluation population.
+
+### JuDGE twelve-component judgment-generation vector
+
+JuDGE reports twelve automatic values rather than one calibrated legal-quality score ([paper](https://arxiv.org/abs/2503.14258), [repository and evaluators](https://github.com/oneal2000/JuDGE)):
+
+- two normalized similarity scores for prison term and fine;
+- precision, recall, and F1 for charges;
+- precision, recall, and F1 for statutory references;
+- METEOR and BERTScore for the judicial-reasoning section; and
+- METEOR and BERTScore for the judgment-result section.
+
+The vector keeps penalties, legal labels, cited provisions, reasoning text, and final judgment text separate. Collapsing it into an unreported mean would impose an unsupported weighting theory. The charge/statute metrics depend on reference-set completeness, while METEOR and BERTScore measure similarity to one authoritative judgment and cannot establish that a differently worded analysis is legally sound. The [AR-BENCH paper](https://arxiv.org/abs/2601.22742) says it reannotates JuDGE-derived material for appellate error review, but that is a different task; no separate public AR-BENCH artifact was located in the documented searches by this catalog's cutoff.
+
+### Realm Legal Reasoning weighted criteria and paired bootstrap
+
+Realm Legal Reasoning uses an undisclosed LLM judge to check private atomic criteria and combines their weights into a reward from 0 to 1. The official page reports a criterion taxonomy of issue 4%, rule 33%, application 48%, conclusion 9%, and other 6%, then uses 10,000 paired task-level bootstrap resamples for 95% confidence intervals ([official benchmark page](https://www.micro1.ai/benchmark/realm-legal)). Pairing preserves the same resampled task set across the compared models; it does not correct judge bias or make the hidden population representative.
+
+The task set, exact task count, criterion weights, rubrics, judge identity, and judge prompt are not public. The reported reward is therefore an owner-controlled weighted-rubric score, not an independently reproducible general legal-reasoning scale. The public page's references to numbered tasks through 26 do not establish that the full set contains exactly 26 tasks.
+
+### STARD recall curves and truncated MRR
+
+STARD reports `Recall@5/10/20/30/50/100/200` and `MRR@3/5/10` for Chinese statute retrieval ([paper](https://arxiv.org/abs/2406.15313), [repository](https://github.com/oneal2000/STARD)). For query `q`, `Recall@k` is the fraction of its annotated relevant articles in the first `k` results. Truncated reciprocal rank is zero when no relevant article appears by the cutoff; otherwise it is the reciprocal of the first relevant rank. Recall therefore tests coverage of all annotated statutes, while MRR tests first-hit speed. The paper's five-fold protocol and the repository's documented 4:1 split are different experimental contracts and must not be merged into one result.
+
+### KBL per-task accuracy and retrieval delta
+
+KBL scores each Korean multiple-choice task by exact option accuracy and reports closed-book and BM25-RAG conditions using statutes, precedents, or both ([paper](https://aclanthology.org/2024.findings-emnlp.319/), [repository](https://github.com/lbox-kr/kbl), [dataset](https://huggingface.co/datasets/lbox/kbl)). The interpretable retrieval quantity is a paired accuracy difference on the same task and model, not a universal RAG score. Report every task/config independently before any average. The paper describes 3,308 examples; the later Hub release contains 3,456 public rows across 67 configurations after adding newer bar-exam material, so revision and task list are part of the score.
+
+### LegalBench.PT balanced accuracy, F1, and weighted aggregation
+
+LegalBench.PT uses balanced accuracy for multiple-choice, cloze, case-analysis, and true/false questions; it uses F1 for multiple-selection option sets and matching pairs, then combines question types and legal fields with a weighted average ([paper, §5](https://arxiv.org/html/2502.16357v1#S5), [dataset](https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT)). Balanced accuracy is the arithmetic mean of recall over answer classes, limiting dominance by a frequent option. Set/pair F1 harmonically balances omitted gold selections and extra predicted selections. The paper does not link a versioned scorer implementation, so a result must state its parser and exact aggregation weights rather than implying those details are independently executable.
+
+The score also inherits label quality. The paper reports that a lawyer found incorrect answers in 4 of 33 sampled questions and terminology or phrasing problems in another 5; the authors' participant study also surfaced ambiguity. A high automatic score is therefore evidence of agreement with the released labels, not proof of Portuguese legal correctness.
+
+### OAB-Bench criterion sums and passing rate
+
+OAB-Bench evaluates Brazilian Bar Examination Phase 2 writing against official score-distribution tables. Each atomic item receives either zero or its allocated points under the original paper protocol; question points are summed to the exam's 0–10 total, and 6.0 is the official passing threshold ([paper, methodology](https://arxiv.org/html/2504.21202v1#S3), [repository](https://github.com/maritaca-ai/oab-bench)). Report mean score and passed exams only with the exam editions, prompt, judge, and repository revision. The paper's v1 experiment uses 105 questions from editions 39–41 and `o1-2024-12-17`; the current repository's expanded v2 protocol contains 210 questions from editions 39–44 and recommends structured criterion-level judging with GPT-5.2. Those are different instruments, not directly interchangeable leaderboard rows.
+
+### AILA 2019 retrieval measures
+
+AILA 2019 ranks systems by mean average precision and also reports `P@10`, BPREF, and reciprocal rank through `trec_eval` for Indian precedent and statute retrieval ([official overview](https://ceur-ws.org/Vol-2517/T1-1.pdf), [dataset repository](https://github.com/Law-AI/aila-2019-dataset), [archived release](https://zenodo.org/records/4063986)). MAP rewards repeated early precision across all known relevant authorities; P@10 measures top-ten concentration; reciprocal rank isolates the first hit. BPREF counts whether judged relevant documents outrank judged nonrelevant documents, reducing—but not eliminating—the damage from incomplete pools. With only 40 test queries and pooled qrels, confidence intervals and fresh relevance judging are essential for modern systems.
+
+### GerDaLIR top-rank quality and candidate recall
+
+GerDaLIR reports `MRR@10` and `nDCG@20` for early German case ranking plus `Recall@100` and `Recall@1000` for candidate coverage ([paper](https://aclanthology.org/2021.nllp-1.13/), [repository](https://github.com/lavis-nlp/GerDaLIR)). This separates the reranker's first-page usefulness from the first-stage retriever's ability to preserve cited cases in a broad pool. The labels are parsed citations from source decisions, not independent expert relevance judgments: an uncited case can still be legally useful, and a cited case can play a role other than supporting the query passage's proposition.
+
+### TREC Legal edition-specific e-discovery scoring
+
+The TREC Legal Track ran annual, changing tasks from 2006 through 2011; there is no single timeless “TREC Legal score” ([official series](https://trec.nist.gov/data/legal.html), [2011 task](https://trec.nist.gov/data/legal11.html), [2011 overview](https://trec.nist.gov/pubs/trec20/papers/LEGAL.OVERVIEW.2011.pdf)). Later learning tasks evaluate recall, precision, and F1 at named review or production cutoffs and compare submitted estimates of responsive-document prevalence with sampled post-hoc estimates. That jointly measures responsiveness ranking, review burden, and calibration. Every result must name the edition, topic, corpus, assessment sample, cutoff, and official script; numbers from different editions are not comparable leaderboard entries.
 
 ## Contamination and leakage
 

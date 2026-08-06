@@ -45,6 +45,11 @@ ACCESS_PROFILE_KEYS = {"level", "test_labels", "runnable"}
 ACCESS_LEVELS = {"open", "gated", "partial", "private", "not-applicable"}
 TEST_LABEL_ACCESS = {"public", "hidden", "mixed", "not-applicable", "unclear"}
 RUNNABILITY = {"yes", "partial", "no", "not-applicable", "unclear"}
+GEOGRAPHY_GROUP_KEYS = {"id", "name", "scope", "description", "entries"}
+GEOGRAPHY_SCOPES = {
+    "united-states", "multi-jurisdiction", "international", "undisclosed",
+    "no-fixed-population",
+}
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 PARTIAL_DATE_RE = re.compile(r"^\d{4}(?:-\d{2}(?:-\d{2})?)?$")
 
@@ -118,8 +123,8 @@ def _date_bounds(value: object) -> tuple[calendar_date, calendar_date] | None:
 
 def validate(catalog: dict) -> list[str]:
     errors: list[str] = []
-    if catalog.get("schema_version") != 2:
-        errors.append("schema_version must equal 2")
+    if catalog.get("schema_version") != 3:
+        errors.append("schema_version must equal 3")
     as_of_text = str(catalog.get("as_of", ""))
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", as_of_text):
         errors.append("as_of must be YYYY-MM-DD")
@@ -306,6 +311,58 @@ def validate(catalog: dict) -> list[str]:
         errors.append("README bullets 3 and 20 must both map to canonical identity mleb")
 
     known_ids = set(ids)
+    geography_groups = catalog.get("geography_groups")
+    geography_ids: list[str] = []
+    geography_entries: list[str] = []
+    if not isinstance(geography_groups, list) or not geography_groups:
+        errors.append("geography_groups must be a non-empty list")
+    else:
+        for index, group in enumerate(geography_groups):
+            label = f"geography_groups[{index}]"
+            if not isinstance(group, dict) or set(group) != GEOGRAPHY_GROUP_KEYS:
+                errors.append(f"{label}: expected exactly {sorted(GEOGRAPHY_GROUP_KEYS)}")
+                continue
+            group_id = group.get("id")
+            if not isinstance(group_id, str) or not SLUG_RE.fullmatch(group_id):
+                errors.append(f"{label}.id: invalid slug {group_id!r}")
+            else:
+                geography_ids.append(group_id)
+            if not _nonempty_text(group.get("name")):
+                errors.append(f"{label}.name: must be non-empty")
+            if not _nonempty_text(group.get("description")):
+                errors.append(f"{label}.description: must be non-empty")
+            if group.get("scope") not in GEOGRAPHY_SCOPES:
+                errors.append(f"{label}.scope: invalid value {group.get('scope')!r}")
+            group_entries = group.get("entries")
+            if not isinstance(group_entries, list) or not group_entries:
+                errors.append(f"{label}.entries: must be a non-empty list")
+                continue
+            if len(group_entries) != len(set(map(str, group_entries))):
+                errors.append(f"{label}.entries: contains duplicates")
+            for entry_id in group_entries:
+                if not isinstance(entry_id, str) or not SLUG_RE.fullmatch(entry_id):
+                    errors.append(f"{label}.entries: invalid identity {entry_id!r}")
+                geography_entries.append(entry_id)
+        duplicate_groups = sorted(
+            group_id for group_id, count in Counter(geography_ids).items() if count > 1
+        )
+        if duplicate_groups:
+            errors.append(f"duplicate geography group ids: {duplicate_groups}")
+        geography_counts = Counter(geography_entries)
+        duplicate_assignments = {
+            entry_id: count for entry_id, count in geography_counts.items() if count > 1
+        }
+        if duplicate_assignments:
+            errors.append(
+                f"entries assigned to multiple geography groups: {duplicate_assignments}"
+            )
+        missing_geography = sorted(known_ids - set(geography_entries))
+        unknown_geography = sorted(set(geography_entries) - known_ids)
+        if missing_geography:
+            errors.append(f"entries missing geography assignment: {missing_geography}")
+        if unknown_geography:
+            errors.append(f"geography groups contain unknown identities: {unknown_geography}")
+
     entries_by_id = {
         entry["id"]: entry for entry in entries
         if isinstance(entry, dict) and isinstance(entry.get("id"), str)

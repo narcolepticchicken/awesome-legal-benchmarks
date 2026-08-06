@@ -25,7 +25,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual([], VALIDATOR.validate(self.catalog))
 
     def test_snapshot_size_and_identity_count(self):
-        self.assertEqual(69, len(self.catalog["entries"]))
+        self.assertEqual(89, len(self.catalog["entries"]))
         originals = [
             entry for entry in self.catalog["entries"] if entry["source_readme_bullets"]
         ]
@@ -43,6 +43,49 @@ class CatalogTests(unittest.TestCase):
         matches = [entry for entry in self.catalog["entries"] if entry["id"] == "mleb"]
         self.assertEqual(1, len(matches))
         self.assertEqual([3, 20], matches[0]["source_readme_bullets"])
+
+    def test_requested_geography_and_date_structure(self):
+        groups = {group["id"]: group for group in self.catalog["geography_groups"]}
+        self.assertNotIn("dlawbench", groups["china"]["entries"])
+        self.assertNotIn("legalbenchmarks-ai", groups["united-states"]["entries"])
+        self.assertIn("dlawbench", groups["multi-jurisdiction"]["entries"])
+        self.assertIn("legalbenchmarks-ai", groups["multi-jurisdiction"]["entries"])
+        self.assertIn("vlegal-bench", groups["vietnam"]["entries"])
+        self.assertIn("mizanqa", groups["morocco"]["entries"])
+        for entry in self.catalog["entries"]:
+            self.assertRegex(entry["dates"]["created"]["date"], r"^\d{4}")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("#### First recorded event in 2026", readme)
+        self.assertLess(readme.index("## United States"), readme.index("## International by country"))
+
+    def test_opus_candidates_were_independently_promoted_with_caveats(self):
+        entries = {entry["id"]: entry for entry in self.catalog["entries"]}
+        promoted = {
+            "vlegal-bench", "mizanqa", "agb-de", "lexsumm", "courtreasoner",
+            "lexrag", "predex", "legal-lens", "muser", "class-action-prediction",
+        }
+        self.assertTrue(promoted.issubset(entries))
+        self.assertTrue(all(entries[entry_id]["risks"] for entry_id in promoted))
+        self.assertEqual("evaluate-carefully", entries["prbench"]["tier"])
+        self.assertEqual(
+            ["https://github.com/reglab/casehold", "https://github.com/coastalcph/lex-glue"],
+            entries["casehold"]["resources"]["github"],
+        )
+
+    def test_ar_bench_and_judge_are_not_conflated(self):
+        entries = {entry["id"]: entry for entry in self.catalog["entries"]}
+        self.assertNotIn("ar-bench", entries)
+        self.assertIn("judge", entries)
+        self.assertEqual(
+            ["https://github.com/oneal2000/JuDGE"],
+            entries["judge"]["resources"]["github"],
+        )
+        self.assertNotIn(
+            "https://arxiv.org/abs/2601.22742",
+            entries["judge"]["resources"]["papers"],
+        )
+        watchlist = (ROOT / "docs" / "watchlist.md").read_text(encoding="utf-8")
+        self.assertIn("That negative search is not proof that no release exists.", watchlist)
 
     def test_every_material_entry_has_primary_source(self):
         for entry in self.catalog["entries"]:
@@ -185,11 +228,11 @@ class CatalogTests(unittest.TestCase):
 
             expected_last_rows = {
                 "xl/worksheets/sheet2.xml": 4 + len(self.catalog["entries"]),
-                "xl/worksheets/sheet3.xml": 21,
-                "xl/worksheets/sheet4.xml": 41,
+                "xl/worksheets/sheet3.xml": 41,
+                "xl/worksheets/sheet4.xml": 52,
                 "xl/worksheets/sheet5.xml": 26,
                 "xl/worksheets/sheet6.xml": 4 + len(snapshot["resources"]),
-                "xl/worksheets/sheet7.xml": 23,
+                "xl/worksheets/sheet7.xml": 24,
                 "xl/worksheets/sheet8.xml": 11,
             }
             for sheet_path, expected_last_row in expected_last_rows.items():

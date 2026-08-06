@@ -27,8 +27,23 @@ const evidence = (entry) => [
   `INFERENCE: ${join(entry.evidence.inference) || "None recorded"}`,
   `AMBIGUITY: ${join(entry.evidence.ambiguities) || "None recorded"}`,
 ].join("\n");
+const entryById = new Map(catalog.entries.map((entry) => [entry.id, entry]));
+const geographyById = new Map();
+for (const group of catalog.geography_groups) {
+  for (const entryId of group.entries) geographyById.set(entryId, group);
+}
+const orderedCatalogEntries = catalog.geography_groups.flatMap((group) =>
+  group.entries
+    .map((entryId) => entryById.get(entryId))
+    .sort(
+      (left, right) =>
+        right.dates.created.date.localeCompare(left.dates.created.date)
+        || left.name.localeCompare(right.name),
+    ),
+);
 
 const catalogHeaders = [
+  "Catalog Geography",
   "ID",
   "Canonical Name",
   "Aliases",
@@ -38,10 +53,10 @@ const catalogHeaders = [
   "Artifact Type",
   "Tier",
   "Status",
-  "First Documented",
-  "Creation Basis / Source",
-  "Latest Verified Update",
-  "Update Basis / Source",
+  "First Public Event",
+  "First Event Basis / Source",
+  "Latest Verified Event",
+  "Latest Event Basis / Source",
   "Access Level",
   "Test Labels / Runnable",
   "Possible Use Cases",
@@ -68,7 +83,8 @@ const catalogHeaders = [
   "Original README Bullet(s)",
 ];
 
-const catalogRows = catalog.entries.map((entry) => [
+const catalogRows = orderedCatalogEntries.map((entry) => [
+  geographyById.get(entry.id).name,
   entry.id,
   entry.name,
   join(entry.aliases),
@@ -127,22 +143,42 @@ const selectionHeaders = [
 ];
 const selectionRows = [
   ["Broad English legal reasoning", "LegalBench; LexGLUE; PRBench legal", "—", "Per-task scorers; PRBench weighted criteria", "Choose model families for a fresh matter-specific set.", "https://github.com/HazyResearch/legalbench\nhttps://github.com/coastalcph/lex-glue\nhttps://www.justicebench.org/dataset/prbench"],
-  ["Chinese legal reasoning and drafting", "LawBench; LexEval; LexGenius; PLawBench", "—", "Accuracy/F1 by task; open-response rubric coverage", "Choose models for a time-held-out Chinese-law evaluation.", "https://github.com/open-compass/LawBench\nhttps://github.com/CSHaitao/LexEval\nhttps://github.com/QwenQKing/LexGenius\nhttps://github.com/SKYLENAGE-AI/PLawBench"],
+  ["Chinese legal reasoning, drafting, and judgment generation", "LawBench; LexEval; JuDGE; LexGenius; PLawBench", "—", "Accuracy/F1 by task; JuDGE's twelve penalty, charge, statute, and text-similarity metrics; open-response rubric coverage", "Choose models for a time-held-out Chinese-law evaluation while keeping judgment generation distinct from appellate error review.", "https://github.com/open-compass/LawBench\nhttps://github.com/CSHaitao/LexEval\nhttps://github.com/oneal2000/JuDGE\nhttps://github.com/QwenQKing/LexGenius\nhttps://github.com/SKYLENAGE-AI/PLawBench"],
+  ["Chinese statute and case retrieval", "STARD; LeCaRDv2", "—", "Recall@k and MRR for lay-query statutes; nDCG/MAP/recall for expert-graded case similarity", "Choose and diagnose a Chinese retriever while keeping statute and case tasks separate.", "https://github.com/oneal2000/STARD\nhttps://github.com/THUIR/LeCaRDv2"],
+  ["Korean legal knowledge, reasoning, and RAG", "KBL; KCL", "—", "Per-task MCQ accuracy; closed-book/RAG deltas; official point-weighted essay rubrics", "Choose Korean-law model families, then create a current counsel-reviewed holdout.", "https://github.com/lbox-kr/kbl\nhttps://github.com/lbox-kr/kcl"],
   ["Arabic and Saudi legal work", "ArabLegalEval; ALARB", "—", "Accuracy/F1 split by natural, translated, and synthetic source", "Test whether Arabic results survive a locally authored Saudi-law holdout.", "https://github.com/Thiqah/ArabLegalEval\nhttps://huggingface.co/datasets/THIQAH-RD/ALARB"],
-  ["Multilingual legal NLU", "LEXTREME; IL-TUR", "—", "Per-language/task metrics plus named aggregate", "Identify language-task cells needing targeted evaluation or data work.", "https://github.com/JoelNiklaus/LEXTREME\nhttps://github.com/Exploration-Lab/IL-TUR"],
+  ["Multilingual legal NLU", "LEXTREME", "—", "Per-language/task metrics plus hierarchical harmonic aggregate", "Identify language-task cells needing targeted evaluation or data work.", "https://github.com/JoelNiklaus/LEXTREME"],
+  ["Indian legal NLU and authority retrieval", "IL-TUR; ILSIC; AILA 2019", "—", "Task/language metrics; MAP, P@10, BPREF, and reciprocal rank", "Use AILA as a small historical retrieval diagnostic and design a larger current Indian-law holdout.", "https://github.com/Exploration-Lab/IL-TUR\nhttps://github.com/Law-AI/ilsic\nhttps://github.com/Law-AI/aila-2019-dataset"],
+  ["Italian statutory retrieval", "JuriFindIT", "—", "MRR, Recall@k, and nDCG on expert and synthetic query sets", "Choose a retriever for Italian statutory search while reporting query-source strata separately.", "https://huggingface.co/datasets/jurifindit/JuriFindIT"],
+  ["German case-law retrieval", "GerDaLIR", "—", "MRR@10, nDCG@20, Recall@100, and Recall@1000", "Compare full-ranking systems, then validate citation-derived relevance with practitioner judgments.", "https://github.com/lavis-nlp/GerDaLIR"],
+  ["Portuguese legal education", "LegalBench.PT", "—", "Balanced accuracy for single-answer formats; F1 for multiple selection and matching; weighted aggregation", "Find Portuguese-law fields needing a fresh expert-authored and label-audited test.", "https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT"],
+  ["Brazilian legal drafting and bar-exam work", "OAB-Bench", "—", "Criterion-summed 0–10 score and passing rate under a pinned judge", "Audit criterion-level scoring before comparing model writing on current Brazilian professional tasks.", "https://github.com/maritaca-ai/oab-bench"],
   ["Patent and intellectual-property work", "PILOT-Bench; MoZIP", "—", "PTAB classification; multilingual IPQuiz accuracy; IPQA human preference; PatentMatch accuracy", "Choose model families for a fresh, jurisdiction-specific patent drafting, prosecution, or validity-review holdout.", "https://github.com/TeamLab/pilot-bench\nhttps://github.com/AI-for-Science/MoZi"],
   ["Contract extraction and classification", "CUAD; ContractNLI; MAUD", "—", "AUPR/Jaccard; NLI/evidence F1; macro/micro-F1", "Choose a model and parser for document-family-held-out contracts.", "https://github.com/The-Atticus-Project/cuad\nhttps://github.com/stanfordnlp/contract-nli\nhttps://github.com/TheAtticusProject/maud"],
   ["Contract clause retrieval", "ACORD", "—", "nDCG@5/10 and graded precision@5", "Choose a retriever for a private clause-search pilot.", "https://github.com/TheAtticusProject/acord"],
   ["Redlining and contract review", "RedlineBench", "LegalOn 2026; Ivo study; legalbenchmarks.ai", "Weighted rubric; blind-lawyer dimensions; formatting retention; all-pass", "Choose systems for blind attorney review on unseen playbooks and native files.", "https://github.com/crosbylegal/redline-bench\nhttps://www.legalontech.com/post/the-contract-review-benchmark-2026\nhttps://www.ivo.ai/news/ivo-outperforms-claude-for-word-in-independent-contract-review-benchmark\nhttps://www.legalbenchmarks.ai/leaderboard"],
   ["Exact-support retrieval", "LegalBench-RAG", "—", "Character precision/recall plus document Recall@k", "Choose a retriever that supplies compact, sufficient evidence.", "https://github.com/zeroentropy-ai/legalbenchrag"],
-  ["Statutory and case retrieval", "BSARD; RegLab retrieval; LeCaRDv2; COLIEE", "—", "Recall@k, MRR/MAP, nDCG, and expert rejudging", "Choose a stack for current, jurisdiction-matched authority.", "https://github.com/maastrichtlawtech/bsard\nhttps://reglab.github.io/legal-rag-benchmarks/\nhttps://github.com/THUIR/LeCaRDv2\nhttps://coliee.org/COLIEE2026/"],
-  ["End-to-end legal RAG", "Legal RAG Bench; CanLegalRAGBench; LLeQA", "Vals Legal Research", "Retrieval, claim correctness, grounding, completeness, cost, latency", "Decide readiness for independent legal review on fresh questions.", "https://github.com/isaacus-dev/legal-rag-bench\nhttps://github.com/NLP-UBC/CanLegalRAGBench\nhttps://github.com/maastrichtlawtech/lleqa\nhttps://www.vals.ai/benchmarks/legal_research"],
+  ["United States statutory retrieval", "RegLab reasoning-focused retrieval", "—", "Recall@k, MRR, answer accuracy, and expert rejudging", "Choose a United States authority retriever for reasoning-heavy questions.", "https://reglab.github.io/legal-rag-benchmarks/"],
+  ["Belgian statutory retrieval and QA", "BSARD; LLeQA; bLLeQA", "—", "Recall@k, MAP/MRR, and downstream answer accuracy", "Choose a Belgian-law retriever and measure whether its evidence improves answers.", "https://github.com/maastrichtlawtech/bsard\nhttps://github.com/maastrichtlawtech/lleqa\nhttps://github.com/nikolay-banar/blleqa"],
+  ["Canada/Japan annual retrieval and entailment", "COLIEE", "—", "Task/year-specific precision, recall, F1, and accuracy", "Enter or reproduce one pinned edition; never merge Canadian case and Japanese statute scores.", "https://coliee.org/COLIEE2026/"],
+  ["United States end-to-end legal RAG", "Legal RAG Bench; LaborBench", "Vals Legal Research", "Retrieval, claim correctness, grounding, completeness, cost, latency; Boolean unemployment-insurance QA", "Decide readiness for independent review on fresh United States questions.", "https://github.com/isaacus-dev/legal-rag-bench\nhttps://huggingface.co/datasets/reglab/laborbench\nhttps://www.vals.ai/benchmarks/legal_research"],
+  ["Canadian legal RAG", "CanLegalRAGBench", "—", "Retrieval and generation correctness, completeness, grounding, and citation metrics", "Compare systems on Canadian law without carrying the rank into another jurisdiction.", "https://github.com/NLP-UBC/CanLegalRAGBench"],
+  ["United States e-discovery and technology-assisted review", "TREC Legal Track", "—", "Recall, precision, F1 at review cutoffs; probability-estimate accuracy; edition-specific measures", "Use the archived series as a methodological and historical baseline, not a current production corpus.", "https://trec.nist.gov/data/legal.html"],
   ["Citation verification and hallucination", "LegalCiteBench; Legal Phantom Citation; Large Legal Fictions; Hallucination-Free?", "—", "Citation retrieval/F1, span F1, groundedness, human-coded hallucination", "Set citation safety gates and human-review requirements.", "https://github.com/Sijia711/LegalCiteBench\nhttps://github.com/princeton-polaris-lab/legal-hallucination-agent\nhttps://github.com/reglab/legal_hallucinations\nhttps://reglab.stanford.edu/publications/hallucination-free-assessing-the-reliability-of-leading-ai-legal-research-tools/"],
-  ["Long-horizon legal agents", "DLawBench; J1Bench; Mercor APEX legal; Harvey LAB public tasks", "Legora BAR; Harvey LAB private holdout", "Process/outcome, all-pass, criterion pass, repeated runs, cost, latency", "Choose architectures for an unseen environment and human work-product review.", "https://github.com/SKYLENAGE-AI/DLawBench\nhttps://github.com/FudanDISC/J1Bench\nhttps://github.com/Mercor-Intelligence/archipelago\nhttps://github.com/harveyai/harvey-labs\nhttps://legora.com/bar"],
+  ["Long-horizon legal agents", "DLawBench; J1Bench; Mercor APEX legal; Harvey LAB public tasks", "Realm Legal Reasoning; Legora BAR; Harvey LAB private holdout", "Process/outcome, all-pass, criterion pass, weighted IRAC criteria, repeated runs, cost, latency", "Choose architectures for an unseen environment and human work-product review.", "https://github.com/SKYLENAGE-AI/DLawBench\nhttps://github.com/FudanDISC/J1Bench\nhttps://github.com/Mercor-Intelligence/archipelago\nhttps://github.com/harveyai/harvey-labs\nhttps://www.micro1.ai/benchmark/realm-legal\nhttps://legora.com/bar"],
   ["In-house and BigLaw workflows", "—", "GC AI In-House Legal Bench; CoCoBench; Harvey BigLaw Bench", "Task taxonomy, atomic criteria, source score, attorney gold responses", "Scope an internal benchmark; do not use vendor ranks alone for procurement.", "https://gc.ai/blog/in-house-legal-bench-evaluating-ai-assistants-for-in-house-legal-work\nhttps://www.thomsonreuters.com/en-us/posts/innovation/why-legal-ai-needs-a-new-standard-inside-thomson-reuters-cocobench/\nhttps://www.harvey.ai/blog/introducing-biglaw-bench"],
   ["Deontic and statutory robustness", "DeonticBench; OpenExempt", "—", "Accuracy, abstention, bootstrap intervals, perturbation-suite scores", "Test whether explicit rules are applied consistently under controlled changes.", "https://github.com/guangyaodou/DeonticBench\nhttps://github.com/servantez/OpenExempt"],
   ["Fairness and subgroup robustness", "FairLex", "—", "Overall, per-group, worst-group, gap, support, confidence interval", "Identify where targeted error analysis is needed; parity is not a legal rule.", "https://github.com/coastalcph/fairlex"],
   ["Legal translation", "SwiLTra-Bench; MILPaC; JUST-NLP 2025", "—", "Named automatic metrics plus legal-expert ratings", "Choose systems for terminology, omission, and legal-effect review.", "https://github.com/JoelNiklaus/SwissLegalTranslations\nhttps://github.com/Law-AI/MILPaC\nhttps://www.codabench.org/competitions/10351/"],
+  ["Vietnamese legal reasoning", "VLegal-Bench", "—", "Task-specific accuracy, exact match, F1, ROUGE-L, and structure F1", "Use as a public diagnostic, then build a private Vietnamese-law holdout; pin the release because paper and repository counts differ.", "https://github.com/hieunguyen1053/vlegal-bench\nhttps://arxiv.org/abs/2512.14554"],
+  ["Moroccan legal knowledge and calibration", "MizanQA", "—", "Strict accuracy, partial-credit scores, and expected calibration error", "Test Moroccan legal knowledge while separating the 1,769-row release from the paper's 1,776-item claim.", "https://huggingface.co/datasets/adlbh/MizanQA-v0\nhttps://aclanthology.org/2026.eacl-industry.10/"],
+  ["Legal summarization", "LexSumm", "—", "Per-dataset ROUGE-1/2/L and BERTScore; no legal-faithfulness metric", "Compare reference similarity by constituent dataset, then add expert factuality and legal-effect review.", "https://huggingface.co/datasets/CJWeiss/LexSumm\nhttps://github.com/TUMLegalTech/LexSumm-LexT5"],
+  ["Judicial reasoning generation", "CourtReasoner", "—", "0–4 citation relevance, constraint extraction, and argument validity; grader-human correlation", "Audit reasoning sensitivity and grader validity on US appellate cases without treating 50 seeds as broad practice coverage.", "https://github.com/yale-nlp/CourtReasoner\nhttps://aclanthology.org/2025.emnlp-main.1787/"],
+  ["Chinese conversational and civil-case retrieval", "LexRAG; MUSER", "—", "Recall/nDCG for statute retrieval; P@k/MAP/nDCG for multi-view similar-case retrieval", "Choose a Chinese RAG/retrieval architecture while keeping conversational statutes and civil-case similarity separate.", "https://github.com/CSHaitao/LexRAG\nhttps://github.com/THUlawtech/MUSER"],
+  ["Indian prediction with explanations", "PredEx", "—", "Macro-F1/accuracy plus ROUGE, BLEU, METEOR, BERTScore, BLANC, and small expert review", "Audit outcome and explanation shortcuts before using a prediction system; check case overlap with ILDC/CJPE.", "https://github.com/ShubhamKumarNigam/PredEx\nhttps://huggingface.co/datasets/L-NLProc/PredEx"],
+  ["German consumer-contract clauses", "AGB-DE", "—", "Binary precision, recall, and F1", "Screen German standard-form clauses while disclosing class imbalance and the paper/Hub five-row difference.", "https://github.com/DaBr01/AGB-DE\nhttps://huggingface.co/datasets/d4br4/agb-de"],
+  ["Legal violation detection", "LegalLens", "—", "Weighted exact-span F1 and NLI macro-F1", "Evaluate class-action-related violation extraction and entailment while preserving the synthetic provenance and hidden-test boundary.", "https://github.com/darrow-labs/LegalLens\nhttps://arxiv.org/abs/2410.12064"],
+  ["US class-action outcome prediction", "ClassActionPrediction", "—", "Accuracy and expected calibration error", "Use mainly as a shortcut-audit case; build matter- and time-held-out data before relying on outcome predictions.", "https://github.com/darrow-labs/ClassActionPrediction\nhttps://huggingface.co/datasets/darrow-ai/USClassActions"],
 ];
 
 const metricHeaders = ["Family", "Metric / Formula", "What It Measures", "Theory / Interpretation", "Legal-Evaluation Caveat"];
@@ -164,6 +200,7 @@ const metricRows = [
   ["JUST-NLP 2025", "AutoRank = (1/6) × Σ six normalized metrics", "Equal-weight aggregate of BLEU, METEOR, inverted TER, chrF++, BERTScore, and COMET", "All components are mapped to a 0–100 higher-is-better scale before averaging.", "The findings abstract says 72.1 while Table 2 and the official result sheet report a winning 61.62."],
   ["Generation", "ROUGE-L = F-measure over longest common subsequence", "Reference sequence overlap", "Rewards retained ordering and phrasing.", "Does not establish entailment, authority, or completeness."],
   ["Generation", "BERTScore = contextual-token alignment P/R/F1", "Semantic embedding similarity", "Soft alignment captures more paraphrase than n-gram overlap.", "Encoder training overlap and domain mismatch affect scores."],
+  ["Calibration", "ECE = Σₘ (|Bₘ|/n) × |acc(Bₘ) − conf(Bₘ)|", "Agreement between confidence and empirical correctness", "A weighted absolute calibration gap over confidence bins; MizanQA reports per-option and exact-answer-set variants.", "Bin choice and sample size matter. MizanQA multiplies selected-option confidences for set confidence, which assumes independence; low ECE does not imply high accuracy."],
   ["Rubric judge", "WeightedPass = Σwᵢvᵢ / Σwᵢ", "Weighted rubric satisfaction", "Weights encode the benchmark author's loss function.", "Judge model, prompt, repeats, parser, and human agreement must be disclosed."],
   ["RedlineBench", "clamp((earned positive weight − penalties)/total positive weight, 0, 1)", "Scenario-specific drafting quality", "Variants average within input groups, then 12 scenario×turn cells are equally averaged.", "Do not recreate the headline with a simple mean of raw rubric rows."],
   ["Agent", "AllPass(task) = product of required criterion passes", "Conjunctive matter reliability", "One failed required criterion fails the task; Harvey LAB also reports rubric pass rate.", "Highly sensitive to rubric count and judge false negatives."],
@@ -184,6 +221,16 @@ const metricRows = [
   ["LegalOn 2026", "Reversed-order pairwise preference; only consistent preferences count as wins; Elo with 95% CI", "Relative contract-review preference within a fixed system pool", "Order reversal turns inconsistent judgments into ties before Elo aggregation.", "Exact K-factor, pairing schedule, private items, and judge details are not all public."],
   ["legalbenchmarks.ai / Vals", "All-pass reliability plus separate usefulness or weighted partial credit", "Complete rubric satisfaction versus diagnostic partial completion", "A task passes only when every required criterion passes; partial scores reveal near misses.", "Private tasks and owner-controlled judges prevent a fully independent audit; rubric length changes all-pass difficulty."],
   ["LegalCiteBench", "Mean average recall, citation precision/recall/F1, and correct-response rate", "Citation retrieval, production, verification, and abstention", "Task-specific 0–100 scores keep different citation failure modes separate.", "Citation form and retrieval do not establish that authority is controlling, current, or supports the proposition."],
+  ["LaborBench", "Boolean accuracy, precision, recall, and F1; 1,000 nonparametric bootstrap resamples", "State-specific US unemployment-insurance QA with and without retrieval", "All four classification metrics are needed because false-positive and false-negative behavior can differ; the paper bootstraps the evaluation rows for standard errors.", "Only public train splits are released, the 2023 legal source can become stale, and the configs overlap rather than forming one additive question count."],
+  ["JuDGE", "12 values: normalized prison/fine similarity; charge P/R/F1; statute P/R/F1; reasoning METEOR/BERTScore; judgment METEOR/BERTScore", "Chinese criminal-judgment document generation from case facts", "The metric vector separates penalties, legal labels, cited provisions, reasoning text, and judgment-result text instead of forcing one scalar rank.", "Reference overlap does not establish legal validity, and the public gold judgments and split permit contamination or direct tuning."],
+  ["Realm Legal Reasoning", "Weighted criterion reward on 0–1 scale; paired 95% CI from 10,000 task-level bootstrap resamples", "Revision-sensitive long-horizon US legal work products", "The public criterion taxonomy allocates issue 4%, rule 33%, application 48%, conclusion 9%, and other 6%; paired resampling preserves task alignment across models.", "The task set, rubrics, criterion weights, judge identity, and judge prompt are private, so the score is owner-controlled and not independently reproducible."],
+  ["STARD", "R@k=|top-k∩gold|/|gold| at k=5…200; MRR@k=mean(1/first relevant rank), truncated at k=3,5,10", "Chinese lay-query statute retrieval", "Recall curves measure coverage of every annotated article; truncated MRR measures how quickly the first relevant article appears.", "The paper uses five-fold evaluation while the repository documents a 4:1 split; citation/source exposure and incomplete relevance labels remain risks."],
+  ["KBL", "Per-task accuracy = exact option correctness/N; closed-book versus BM25-RAG accuracy delta", "Korean legal knowledge, reasoning, and bar-exam MCQs", "Task cells stay separate; paired conditions attribute gains or losses to retrieved statutes and precedents under the same item set.", "All labels are public, and the live 3,456-row/67-config release is larger than the paper's 3,308-example snapshot."],
+  ["LegalBench.PT", "Balanced accuracy = mean per-class recall for single-answer formats; F1 for predicted/gold option sets or matching pairs; weighted aggregate", "Portuguese-law knowledge and application across six generated formats", "Balanced accuracy limits majority-option dominance; F1 balances omissions and extra selections; weighted aggregation preserves the released type/field mix.", "GPT-4o generated the items; sampled review found incorrect or ambiguous golds, and no versioned scorer implementation was located."],
+  ["OAB-Bench", "Question score = sum of independently judged official criterion points (0–10 exam total); pass if exam ≥6; report average and passed exams", "Brazilian Phase 2 legal writing and discursive answers", "Atomic official grading items preserve partial credit; the pass threshold converts scores into the professional-exam outcome.", "Results depend on the pinned exam release and LLM judge; v1 used o1 and 105 questions, while current v2 uses a structured GPT-5.2 protocol on 210 questions."],
+  ["AILA 2019", "MAP primary; P@10, BPREF, and mean reciprocal rank secondary via trec_eval", "Indian Supreme Court precedent and statute retrieval", "MAP rewards repeated early precision; BPREF is less brittle under incomplete qrels; reciprocal rank isolates the first useful authority.", "Only 40 test queries and incomplete pooled relevance judgments make scores high-variance and hostile to unpooled new systems."],
+  ["GerDaLIR", "MRR@10 and nDCG@20; Recall@100 and Recall@1000", "German case retrieval from legal-argument passages", "Top-rank metrics test early usefulness, while broad recall tests candidate-generation coverage for reranking.", "A parsed citation is the relevance label; it is not an independent expert judgment that another case is legally irrelevant."],
+  ["TREC Legal Track", "Edition-specific recall, precision, F1 at review/production cutoffs; probability-estimate accuracy; official annual scripts", "US e-discovery responsiveness retrieval and review effort", "Later learning tasks jointly test rank quality, review-depth tradeoffs, and calibration of estimated responsive-document counts.", "Tasks, corpora, sampling, qrels, and measures changed by edition; the archived Enron-era results are not one comparable current leaderboard."],
 ];
 
 const entryByBullet = new Map();
@@ -240,6 +287,7 @@ const resourceRows = resourceSnapshot.resources.map((item) => {
 
 const watchlistHeaders = ["Candidate", "Why It Matters", "Why Not Yet Promoted", "Primary URLs"];
 const watchlistRows = [
+  ["AR-BENCH", "China; first recorded public event 2026-01-30 (arXiv v1). Appellate error detection, classification, and correction; the paper claims 8,700 annotated decisions plus 34,617 supplementary documents.", "The arXiv record and v1 preprint are verified. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches by 2026-08-05. This negative search is not proof that no release exists. The paper says it reannotates JuDGE material; JuDGE is a different benchmark and not an AR-BENCH release.", "https://arxiv.org/abs/2601.22742\nhttps://zhangrichong.github.io/\nhttps://github.com/search?q=%22AR-BENCH%22+appellate&type=repositories\nhttps://github.com/oneal2000/JuDGE\nhttps://huggingface.co/datasets?search=AR-BENCH\nhttps://zenodo.org/api/records?q=%22AR-BENCH%22&size=25"],
   ["BenGER", "German legal benchmark platform", "Need a fixed, versioned task/data/scorer release separate from the mutable platform.", "https://github.com/SebastianNagl/benger-platform\nhttps://arxiv.org/abs/2605.28183\nhttps://what-a-benger.net/"],
   ["UA-Legal-Bench", "Ukrainian legal evaluation", "HF identifies v1 while the paper describes v2; canonical version relationship unresolved.", "https://huggingface.co/datasets/overthelex/ua-legal-bench\nhttps://arxiv.org/abs/2605.29170\nhttps://github.com/overthelex/secondlayer-papers"],
   ["Multi-Legal-Bench", "Large multilingual legal collection", "Public descriptions conflict at roughly 134M vs 122M records; scoring/reproducibility unclear.", "https://huggingface.co/datasets/overthelex/multi-legal-bench\nhttps://arxiv.org/abs/2605.29738"],
@@ -266,7 +314,7 @@ const notSeparateRows = [
   ["ILDC / CJPE", "Covered as an IL-TUR constituent task; a separate row would double-count the same Indian judgment-prediction evidence without a constituent hierarchy.", "https://github.com/Exploration-Lab/CJPE\nhttps://arxiv.org/abs/2105.13562"],
   ["CAIL2018 and later CAIL releases", "Source datasets and shared tasks already feed LawBench and FairLex; any future row must pin an edition, access, scorer, and license.", "https://github.com/china-ai-law-challenge\nhttps://arxiv.org/abs/1807.02478"],
   ["SCOTUS, EUR-LEX, and UNFAIR-ToS", "Kept inside LexGLUE instead of turning every constituent dataset into a top-level benchmark.", "https://github.com/coastalcph/lex-glue"],
-  ["BillSum, Multi-LexSum, and CaseSumm", "Useful summarization datasets without one pinned evaluation contract for legal fidelity beyond reference-overlap baselines.", "https://huggingface.co/datasets/FiscalNote/billsum\nhttps://huggingface.co/datasets/allenai/multi_lexsum\nhttps://arxiv.org/abs/2501.00097"],
+  ["BillSum, Multi-LexSum, and CaseSumm", "BillSum and Multi-LexSum are LexSumm constituents rather than separate identities. LexSumm pins reference-similarity evaluation, but no overlap metric establishes legal fidelity; CaseSumm remains dataset-only here.", "https://huggingface.co/datasets/CJWeiss/LexSumm\nhttps://huggingface.co/datasets/FiscalNote/billsum\nhttps://huggingface.co/datasets/allenai/multi_lexsum\nhttps://arxiv.org/abs/2501.00097"],
   ["legal-eval and MLEB bridge", "Mirrors or aggregations of existing benchmark identities, not new constructs.", "https://huggingface.co/datasets/nguha/legal-eval\nhttps://huggingface.co/datasets/isaacus/mleb-legal-rag-bench"],
   ["QwenClawBench, FormatBench, and HalluHard", "General agent, document-format, or hallucination benchmarks with legal examples or slices, not legal-specific evaluation populations.", "https://huggingface.co/datasets/skylenage-ai/QwenClawBench\nhttps://typeos.com/research/formatbench\nhttps://arxiv.org/abs/2602.01031"],
   ["PatentGPT and HUPD", "PatentGPT reports results on MoZIP rather than defining a separate PatentBench. HUPD is a large source dataset with benchmark tasks, but it is not the same multilingual IP instrument.", "https://arxiv.org/abs/2404.18255\nhttps://arxiv.org/abs/2207.04043\nhttps://arxiv.org/abs/2402.16389"],
@@ -367,13 +415,13 @@ summary.getRange("A4:A11").values = [
   ["Curated additions"], ["Recommended"], ["Open access profiles"],
   ["Commercial-owner entries"], ["Verified canonical resource URLs"],
 ];
-summary.getRange("B4").formulas = [[`=COUNTA(Catalog!$A$5:$A$${catalogEndRow})`]];
+summary.getRange("B4").formulas = [[`=COUNTA(Catalog!$B$5:$B$${catalogEndRow})`]];
 summary.getRange("B5").values = [[22]];
 summary.getRange("B6").values = [[21]];
-summary.getRange("B7").formulas = [[`=COUNTIF(Catalog!$AK$5:$AK$${catalogEndRow},\"Curated addition\")`]];
-summary.getRange("B8").formulas = [[`=COUNTIF(Catalog!$H$5:$H$${catalogEndRow},\"recommended\")`]];
-summary.getRange("B9").formulas = [[`=COUNTIF(Catalog!$N$5:$N$${catalogEndRow},\"open\")`]];
-summary.getRange("B10").formulas = [[`=COUNTIF(Catalog!$F$5:$F$${catalogEndRow},\"yes\")`]];
+summary.getRange("B7").formulas = [[`=COUNTIF(Catalog!$AL$5:$AL$${catalogEndRow},\"Curated addition\")`]];
+summary.getRange("B8").formulas = [[`=COUNTIF(Catalog!$I$5:$I$${catalogEndRow},\"recommended\")`]];
+summary.getRange("B9").formulas = [[`=COUNTIF(Catalog!$O$5:$O$${catalogEndRow},\"open\")`]];
+summary.getRange("B10").formulas = [[`=COUNTIF(Catalog!$G$5:$G$${catalogEndRow},\"yes\")`]];
 summary.getRange("B11").formulas = [[`=COUNTIF('Resource Check'!$A$5:$A$${resourceEndRow},\"OK\")`]];
 summary.getRange("A4:B11").format = {
   fill: colors.grayLight,
@@ -390,13 +438,13 @@ summary.mergeCells("D4:H4");
 summary.getRange("D4").values = [["How to use this workbook"]];
 summary.getRange("D4:H4").format = { fill: colors.teal, font: { bold: true, color: colors.white } };
 summary.mergeCells("D5:H8");
-summary.getRange("D5").values = [["Start with the legal job, jurisdiction, source material, interface, and failure cost. Pair one public comparison set with a task-matched benchmark, a fresh private holdout, and human review of legally material failures. Resource Check verifies identity and availability—not scientific validity."]];
+summary.getRange("D5").values = [["The Catalog is ordered United States first, then multi-jurisdiction, then international by country and first-event year, newest first. Start with the legal job, jurisdiction, source material, interface, and failure cost. A first public event is not necessarily a benchmark release. Resource Check verifies identity and availability—not scientific validity."]];
 summary.getRange("D5:H8").format = { fill: colors.tealLight, font: { color: "#194B4D", size: 11 }, wrapText: true, verticalAlignment: "center", borders: { preset: "outside", style: "thin", color: "#8EC1BE" } };
 summary.mergeCells("D9:H9");
 summary.getRange("D9").values = [["Identity and reproducibility warnings"]];
 summary.getRange("D9:H9").format = { fill: colors.amber, font: { bold: true, color: colors.white } };
 summary.mergeCells("D10:H12");
-summary.getRange("D10").values = [["MLEB bullets #3 and #20 are one identity. Harvey's current public files disagree at 1,671 versus 1,660 tasks. J1's paper says 508 tasks while its level counts total 538. Harvey, Legora, CoCoBench, GC AI, LegalOn, Ivo, legalbenchmarks.ai, and Vals use different private instruments and should not be merged into one vendor ranking."]];
+summary.getRange("D10").values = [["MLEB bullets #3 and #20 are one identity. AR-BENCH's arXiv record and v1 preprint are public, but no separate artifact was located in the documented searches; this does not prove nonexistence. The paper says it reannotates JuDGE material, but JuDGE is a different benchmark. Harvey's public files disagree at 1,671 versus 1,660 tasks, and J1's paper says 508 while its level counts total 538."]];
 summary.getRange("D10:H12").format = { fill: colors.amberLight, font: { color: "#5B3A05", size: 10 }, wrapText: true, verticalAlignment: "center", borders: { preset: "outside", style: "thin", color: "#E8C98F" } };
 summary.getRange("D1:H12").format.columnWidth = 18;
 summary.getRange("D5:H8").format.rowHeight = 25;
@@ -406,23 +454,25 @@ summary.freezePanes.freezeRows(2);
 addTableSheet({
   sheet: catalogSheet,
   title: "Canonical Catalog — Benchmarks, Datasets, Frameworks, and Related Resources",
-  subtitle: "One row per canonical identity. Verified facts, inference, and unresolved ambiguity are kept separate; URLs are primary/official where located.",
+  subtitle: "United States first; multi-jurisdiction separate; international grouped by country and first-event year, newest first. Every date states its event basis. Verified facts, inference, and unresolved ambiguity remain separate.",
   headers: catalogHeaders,
   rows: catalogRows,
-  lastColumn: "AK",
+  lastColumn: "AL",
   tableName: "CanonicalCatalogTable",
-  widths: [20, 30, 28, 28, 16, 16, 22, 18, 18, 14, 48, 14, 48, 16, 24, 58, 44, 50, 28, 18, 42, 40, 38, 38, 60, 30, 40, 46, 46, 46, 48, 52, 52, 52, 58, 26, 18],
+  widths: [30, 20, 30, 28, 28, 16, 16, 22, 18, 18, 14, 48, 14, 48, 16, 24, 58, 44, 50, 28, 18, 42, 40, 38, 38, 60, 30, 40, 46, 46, 46, 48, 52, 52, 52, 58, 26, 18],
   rowHeight: 116,
 });
-catalogSheet.getRange(`B5:B${catalogEndRow}`).format.font = { bold: true, color: colors.navy, size: 9 };
-catalogSheet.getRange(`J5:J${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
-catalogSheet.getRange(`L5:L${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
-catalogSheet.getRange(`K5:M${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
-catalogSheet.getRange(`AB5:AE${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
-catalogSheet.getRange(`H5:H${catalogEndRow}`).conditionalFormats.add("containsText", { text: "recommended", format: { fill: "#DDF3E5", font: { bold: true, color: "#17643A" } } });
-catalogSheet.getRange(`H5:H${catalogEndRow}`).conditionalFormats.add("containsText", { text: "evaluate-carefully", format: { fill: "#FFF0D5", font: { bold: true, color: "#8A4E00" } } });
-catalogSheet.getRange(`H5:H${catalogEndRow}`).conditionalFormats.add("containsText", { text: "related", format: { fill: "#EFE7F8", font: { bold: true, color: "#68418A" } } });
-catalogSheet.getRange(`N5:N${catalogEndRow}`).conditionalFormats.add("containsText", { text: "private", format: { fill: "#FDE2E2", font: { bold: true, color: "#9B1C1C" } } });
+catalogSheet.freezePanes.freezeColumns(3);
+catalogSheet.getRange(`A5:A${catalogEndRow}`).format.font = { bold: true, color: colors.navy, size: 8 };
+catalogSheet.getRange(`C5:C${catalogEndRow}`).format.font = { bold: true, color: colors.navy, size: 9 };
+catalogSheet.getRange(`K5:K${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
+catalogSheet.getRange(`M5:M${catalogEndRow}`).format.font = { bold: true, color: colors.teal, size: 8 };
+catalogSheet.getRange(`L5:N${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
+catalogSheet.getRange(`AC5:AF${catalogEndRow}`).format.font = { color: colors.link, size: 8 };
+catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "recommended", format: { fill: "#DDF3E5", font: { bold: true, color: "#17643A" } } });
+catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "evaluate-carefully", format: { fill: "#FFF0D5", font: { bold: true, color: "#8A4E00" } } });
+catalogSheet.getRange(`I5:I${catalogEndRow}`).conditionalFormats.add("containsText", { text: "related", format: { fill: "#EFE7F8", font: { bold: true, color: "#68418A" } } });
+catalogSheet.getRange(`O5:O${catalogEndRow}`).conditionalFormats.add("containsText", { text: "private", format: { fill: "#FDE2E2", font: { bold: true, color: "#9B1C1C" } } });
 
 addTableSheet({
   sheet: selectionSheet,
@@ -484,8 +534,8 @@ resourceSheet.getRange(`J5:J${4 + resourceRows.length}`).format.numberFormat = "
 
 addTableSheet({
   sheet: watchlistSheet,
-  title: "Watchlist — Promising but Not Yet Promoted",
-  subtitle: "PLawBench and LegalCiteBench were promoted after primary artifacts were verified. These remaining candidates still lack a stable identity, release, scorer, license, or access boundary.",
+  title: "Watchlist — Evidence or Release Boundary Not Yet Cleared",
+  subtitle: "AR-BENCH's arXiv record and v1 preprint are public; no separate artifact was located in the documented searches, which does not prove nonexistence. Catalog promotions require independent primary-source verification.",
   headers: watchlistHeaders,
   rows: watchlistRows,
   lastColumn: "D",
@@ -538,7 +588,7 @@ console.log(errors.ndjson);
 const renderSpecs = [
   ["Summary", "A1:H12", "summary.png", 1.15],
   ["Catalog", "A1:O14", "catalog-identity-dates-access.png", 0.46],
-  ["Catalog", "P1:AK12", "catalog-task-metrics-sources.png", 0.34],
+  ["Catalog", "P1:AL12", "catalog-task-metrics-sources.png", 0.34],
   ["Selection Guide", `A1:F${4 + selectionRows.length}`, "selection-guide.png", 0.58],
   ["Metric Theory", "A1:E31", "metric-theory-core.png", 0.72],
   ["Metric Theory", `A28:E${4 + metricRows.length}`, "metric-theory-legal-benchmarks.png", 0.72],
