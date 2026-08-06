@@ -233,6 +233,17 @@ def resource_lines(resources: dict) -> list[str]:
 
 def generate_readme(catalog: dict) -> str:
     entries = {entry["id"]: entry for entry in catalog["entries"]}
+    resource_urls = {
+        url
+        for entry in entries.values()
+        for urls in entry["resources"].values()
+        for url in urls
+    }
+    source_bullets = {
+        bullet
+        for entry in entries.values()
+        for bullet in entry["source_readme_bullets"]
+    }
     covered = [entry_id for _, _, _, section_ids in SECTIONS for entry_id in section_ids]
     missing = sorted(set(entries) - set(covered))
     duplicates = sorted({entry_id for entry_id in covered if covered.count(entry_id) > 1})
@@ -247,20 +258,49 @@ def generate_readme(catalog: dict) -> str:
         "",
         "<!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->",
         "",
-        "[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Validate catalog](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg)](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml)",
+        '<p align="center">',
+        "  <strong>Evidence-first legal AI evaluation, organized for real decisions.</strong><br>",
+        "  A source-backed catalog of benchmarks, datasets, evaluation frameworks, protocols, and related resources.",
+        "</p>",
+        "",
+        '<p align="center">',
+        '  <a href="#start-here">Start here</a> · <a href="#united-states">United States</a> · <a href="#international-by-country">International</a> · <a href="docs/selection-guide.md">Selection guide</a> · <a href="docs/metric-theory.md">Metric field guide</a>',
+        "</p>",
+        "",
+        '<p align="center">',
+        '  <a href="https://awesome.re"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome list"></a> <a href="https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml"><img src="https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg" alt="Catalog validation"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY%204.0-0b7285.svg" alt="CC BY 4.0 license"></a>',
+        "</p>",
         "",
         "Use this catalog to pick a legal benchmark and see what its score can actually support. Each entry records the task, jurisdiction, language, data, input/output contract, scorer, access terms, primary sources, and the biggest validity problem.",
         "",
         f"**Research snapshot: {catalog['as_of']}.** {len(entries)} canonical identities, including public benchmarks, private vendor benchmarks, datasets, shared tasks, evaluation frameworks, protocols, and one resource list.",
         "",
-        "> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.",
+        "## At a glance",
+        "",
+        f"| {len(entries)} | {len(resource_urls)} | {len(source_bullets)} | {catalog['as_of']} |",
+        "| ---: | ---: | ---: | :---: |",
+        "| canonical entries | resource URLs checked | source bullets mapped | research snapshot |",
+        "",
+        "## Start here",
+        "",
+        "| If you want to… | Begin with |",
+        "| --- | --- |",
+        "| Pick an evaluation for a legal job | [Possible use cases](#possible-use-cases) · [Selection guide](docs/selection-guide.md) |",
+        "| Compare United States work | [United States](#united-states) · [Browse by area](#browse-by-area) |",
+        "| Find international coverage | [International by country](#international-by-country) — newest update bands first |",
+        "| Audit a reported score | [Read a benchmark score](#read-a-benchmark-score) · [Metric field guide](docs/metric-theory.md) |",
+        "| Download or reuse the data | [CSV](catalog/benchmarks.csv) · [JSON](catalog/benchmarks.json) · [Workbook](outputs/awesome-legal-benchmarks.xlsx) |",
+        "",
+        "> **Use the catalog carefully.** Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.",
         "",
         "**Update rule.** The tables show only the **last verified first-party update** located by the research cutoff. It can be a repository push, dataset update, paper revision, competition cycle, official page update, or owner-reported evaluation date; it does not by itself prove that the data or scorer changed. A dash means no later update was verified.",
         "",
-        "> **AR-BENCH status:** its [arXiv record and v1 preprint](https://arxiv.org/abs/2601.22742) are verified at 2026-01-30. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches as of 2026-08-05. That bounded negative finding is not proof that no release exists. The paper says it reannotates JuDGE material, but [JuDGE](https://github.com/oneal2000/JuDGE) is a different benchmark and not an AR-BENCH release. See the [search record and exact caveat](docs/watchlist.md#watchlist).",
+        "> **Research note:** Public benchmarks, private vendor studies, datasets, frameworks, protocols, and resource lists are deliberately separated. The [watchlist](docs/watchlist.md) records bounded negative searches and unresolved release questions, including AR-BENCH.",
         "",
         "## Contents",
         "",
+        "- [At a glance](#at-a-glance)",
+        "- [Start here](#start-here)",
         "- [United States](#united-states)",
         "- [Possible use cases](#possible-use-cases)",
         "- [Browse by area](#browse-by-area)",
@@ -320,15 +360,20 @@ def generate_readme(catalog: dict) -> str:
         "",
         "## International by country",
         "",
-        "Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Within each country they are grouped by the calendar year of the last verified update, newest year first, then ordered newest-first inside that year. These are update-provenance bands, not claims that the data or scorer changed in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.",
+        "Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Open a country to view its table. Within each country, entries are grouped by the calendar year of the last verified update, newest year first, then ordered newest-first inside that year. These are update-provenance bands, not claims that the data or scorer changed in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.",
         "",
     ]
     for group in sorted(
         (group for group in catalog["geography_groups"] if group["scope"] == "international"),
         key=lambda group: group["name"].casefold(),
     ):
-        lines += [f"### {group['name']}", "", group["description"], ""]
+        lines += [
+            "<details>",
+            f"<summary><strong>{table_text(group['name'])}</strong> — {table_text(group['description'])}</summary>",
+            "",
+        ]
         append_recency_tables(lines, catalog, group, from_root=True)
+        lines += ["</details>", ""]
     lines += [
         "## Population not published or fixed",
         "",

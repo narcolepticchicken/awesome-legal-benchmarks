@@ -2,20 +2,49 @@
 
 <!-- Generated from catalog/benchmarks.json. Edit the source record or scripts/generate_catalog.py. -->
 
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Validate catalog](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg)](https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml)
+<p align="center">
+  <strong>Evidence-first legal AI evaluation, organized for real decisions.</strong><br>
+  A source-backed catalog of benchmarks, datasets, evaluation frameworks, protocols, and related resources.
+</p>
+
+<p align="center">
+  <a href="#start-here">Start here</a> · <a href="#united-states">United States</a> · <a href="#international-by-country">International</a> · <a href="docs/selection-guide.md">Selection guide</a> · <a href="docs/metric-theory.md">Metric field guide</a>
+</p>
+
+<p align="center">
+  <a href="https://awesome.re"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome list"></a> <a href="https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml"><img src="https://github.com/narcolepticchicken/awesome-legal-benchmarks/actions/workflows/validate.yml/badge.svg" alt="Catalog validation"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY%204.0-0b7285.svg" alt="CC BY 4.0 license"></a>
+</p>
 
 Use this catalog to pick a legal benchmark and see what its score can actually support. Each entry records the task, jurisdiction, language, data, input/output contract, scorer, access terms, primary sources, and the biggest validity problem.
 
 **Research snapshot: 2026-08-05.** 89 canonical identities, including public benchmarks, private vendor benchmarks, datasets, shared tasks, evaluation frameworks, protocols, and one resource list.
 
-> Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.
+## At a glance
+
+| 89 | 280 | 22 | 2026-08-05 |
+| ---: | ---: | ---: | :---: |
+| canonical entries | resource URLs checked | source bullets mapped | research snapshot |
+
+## Start here
+
+| If you want to… | Begin with |
+| --- | --- |
+| Pick an evaluation for a legal job | [Possible use cases](#possible-use-cases) · [Selection guide](docs/selection-guide.md) |
+| Compare United States work | [United States](#united-states) · [Browse by area](#browse-by-area) |
+| Find international coverage | [International by country](#international-by-country) — newest update bands first |
+| Audit a reported score | [Read a benchmark score](#read-a-benchmark-score) · [Metric field guide](docs/metric-theory.md) |
+| Download or reuse the data | [CSV](catalog/benchmarks.csv) · [JSON](catalog/benchmarks.json) · [Workbook](outputs/awesome-legal-benchmarks.xlsx) |
+
+> **Use the catalog carefully.** Start with the legal job. Then check jurisdiction, source material, interface, scorer, and prior exposure. If those do not match the system you care about, the score is weak evidence.
 
 **Update rule.** The tables show only the **last verified first-party update** located by the research cutoff. It can be a repository push, dataset update, paper revision, competition cycle, official page update, or owner-reported evaluation date; it does not by itself prove that the data or scorer changed. A dash means no later update was verified.
 
-> **AR-BENCH status:** its [arXiv record and v1 preprint](https://arxiv.org/abs/2601.22742) are verified at 2026-01-30. No separate public AR-BENCH data, code, scorer, dataset card, project page, or leaderboard was located in the documented host searches as of 2026-08-05. That bounded negative finding is not proof that no release exists. The paper says it reannotates JuDGE material, but [JuDGE](https://github.com/oneal2000/JuDGE) is a different benchmark and not an AR-BENCH release. See the [search record and exact caveat](docs/watchlist.md#watchlist).
+> **Research note:** Public benchmarks, private vendor studies, datasets, frameworks, protocols, and resource lists are deliberately separated. The [watchlist](docs/watchlist.md) records bounded negative searches and unresolved release questions, including AR-BENCH.
 
 ## Contents
 
+- [At a glance](#at-a-glance)
+- [Start here](#start-here)
 - [United States](#united-states)
 - [Possible use cases](#possible-use-cases)
 - [Browse by area](#browse-by-area)
@@ -149,11 +178,10 @@ This is a geography bucket, not an adoption or prestige rating. The catalog does
 
 ## International by country
 
-Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Within each country they are grouped by the calendar year of the last verified update, newest year first, then ordered newest-first inside that year. These are update-provenance bands, not claims that the data or scorer changed in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.
+Country-specific entries are kept out of the United States list and grouped alphabetically by jurisdiction. Open a country to view its table. Within each country, entries are grouped by the calendar year of the last verified update, newest year first, then ordered newest-first inside that year. These are update-provenance bands, not claims that the data or scorer changed in that year. Mixed populations remain explicit in the row instead of being silently treated as single-country evidence.
 
-### Australia
-
-Australian law; the full evaluation population remains visible in each row.
+<details>
+<summary><strong>Australia</strong> — Australian law; the full evaluation population remains visible in each row.</summary>
 
 #### Updated in 2026
 
@@ -161,9 +189,10 @@ Australian law; the full evaluation population remains visible in each row.
 | --- | --- | --- | --- |
 | [Legal RAG Bench](docs/benchmarks/retrieval-rag-citation.md#legal-rag-bench)<br>*benchmark · open · check before use* | [2026-03-08](https://huggingface.co/datasets/isaacus/legal-rag-bench)<br>*Hugging Face dataset update* | Victoria, Australia / criminal law and procedure; English | Evaluate an end-to-end legal RAG pipeline and attribute errors to retrieval versus generation. |
 
-### Belgium
+</details>
 
-Belgian law and Belgian legal-language evaluation.
+<details>
+<summary><strong>Belgium</strong> — Belgian law and Belgian legal-language evaluation.</summary>
 
 #### Updated in 2026
 
@@ -178,9 +207,10 @@ Belgian law and Belgian legal-language evaluation.
 | [LLeQA](docs/benchmarks/retrieval-rag-citation.md#lleqa)<br>*benchmark · gated · specialist* | [2024-09-03](https://huggingface.co/datasets/maastrichtlawtech/lleqa)<br>*Hugging Face dataset update* | Belgium; French | Retrieve Belgian legal authorities and generate long-form answers to practitioner-style questions. |
 | [Belgian Statutory Article Retrieval Dataset](docs/benchmarks/retrieval-rag-citation.md#bsard)<br>*benchmark · open · recommended* | [2024-05-31](https://huggingface.co/datasets/maastrichtlawtech/bsard)<br>*Hugging Face dataset update* | Belgium; French | Retrieve Belgian statutory articles relevant to a legal question. |
 
-### Brazil
+</details>
 
-Brazilian law and Brazilian professional legal-writing evaluation.
+<details>
+<summary><strong>Brazil</strong> — Brazilian law and Brazilian professional legal-writing evaluation.</summary>
 
 #### Updated in 2026
 
@@ -188,9 +218,10 @@ Brazilian law and Brazilian professional legal-writing evaluation.
 | --- | --- | --- | --- |
 | [OAB-Bench](docs/benchmarks/reasoning-education.md#oab-bench)<br>*benchmark · open · specialist* | [2026-06-01](https://huggingface.co/datasets/maritaca-ai/oab-bench)<br>*Hugging Face dataset update for the expanded release* | Brazil; Portuguese (Brazilian) | Draft Brazilian legal documents and answer discursive professional-exam questions under official examiner guidelines. |
 
-### Canada
+</details>
 
-Canadian law; COLIEE is listed separately as a Canada/Japan competition identity.
+<details>
+<summary><strong>Canada</strong> — Canadian law; COLIEE is listed separately as a Canada/Japan competition identity.</summary>
 
 #### Updated in 2026
 
@@ -199,9 +230,10 @@ Canadian law; COLIEE is listed separately as a Canada/Japan competition identity
 | [CanLegalRAGBench](docs/benchmarks/retrieval-rag-citation.md#canlegalragbench)<br>*benchmark · open · specialist* | [2026-07-20](https://github.com/NLP-UBC/CanLegalRAGBench)<br>*GitHub repository push* | Canada, Ontario, British Columbia, Alberta, other Canadian provinces/federal courts; English, some French passages | Retrieve Canadian case law for realistic layperson and legal-professional queries and generate grounded answers. |
 | [Vals CaseLaw v2](docs/benchmarks/retrieval-rag-citation.md#vals-caselaw-v2)<br>*private-benchmark · private · related artifact* | [2026-05-04](https://www.vals.ai/benchmarks/case_law_v2)<br>*Official benchmark page update date* | Canada; English | Answer Canadian case-law questions with correct, relevant, well-supported legal analysis. |
 
-### China
+</details>
 
-Chinese law and Chinese-language legal evaluation; artifacts designed around China and another national legal system are listed in the multi-jurisdiction section.
+<details>
+<summary><strong>China</strong> — Chinese law and Chinese-language legal evaluation; artifacts designed around China and another national legal system are listed in the multi-jurisdiction section.</summary>
 
 #### Updated in 2026
 
@@ -231,9 +263,10 @@ Chinese law and Chinese-language legal evaluation; artifacts designed around Chi
 | [LeCaRDv2](docs/benchmarks/retrieval-rag-citation.md#lecardv2)<br>*benchmark · open · recommended* | [2024-12-29](https://github.com/THUIR/LeCaRDv2)<br>*GitHub repository push* | China; Chinese | Retrieve legally similar Chinese criminal cases using graded relevance across characterization, penalty, and procedure. |
 | [LexEval](docs/benchmarks/reasoning-education.md#lexeval)<br>*benchmark-suite · open · specialist* | [2024-11-26](https://arxiv.org/abs/2409.20288)<br>*arXiv revision* | China; Chinese | Chinese legal knowledge, inference, generation, discrimination, and ethics across 23 tasks. |
 
-### Council of Europe
+</details>
 
-Evaluation tied to the European Convention system rather than one national jurisdiction.
+<details>
+<summary><strong>Council of Europe</strong> — Evaluation tied to the European Convention system rather than one national jurisdiction.</summary>
 
 #### Updated in 2025
 
@@ -241,9 +274,10 @@ Evaluation tied to the European Convention system rather than one national juris
 | --- | --- | --- | --- |
 | [ECtHR Tasks A/B](docs/benchmarks/prediction-fairness-rules.md#ecthr)<br>*benchmark · open · recommended* | [2025-07-23](https://github.com/coastalcph/lex-glue)<br>*Canonical LexGLUE repository push* | European Court of Human Rights / Council of Europe; English | Predict European Convention articles alleged (Task A) or found violated (Task B) from case facts. |
 
-### Germany
+</details>
 
-German law and German-language legal evaluation.
+<details>
+<summary><strong>Germany</strong> — German law and German-language legal evaluation.</summary>
 
 #### Updated in 2026
 
@@ -257,9 +291,10 @@ German law and German-language legal evaluation.
 | --- | --- | --- | --- |
 | [GerDaLIR](docs/benchmarks/retrieval-rag-citation.md#gerdalir)<br>*benchmark · open · specialist* | [2024-02-26](https://github.com/lavis-nlp/GerDaLIR)<br>*Last verified GitHub repository push affecting the benchmark artifact* | Germany; German | Retrieve German case decisions cited by a passage expressing a legal statement or line of argument. |
 
-### India
+</details>
 
-Indian law and Indian legal-language evaluation.
+<details>
+<summary><strong>India</strong> — Indian law and Indian legal-language evaluation.</summary>
 
 #### Updated in 2026
 
@@ -287,9 +322,10 @@ Indian law and Indian legal-language evaluation.
 | --- | --- | --- | --- |
 | [JUST-NLP 2025 Legal MT Shared Task](docs/benchmarks/translation.md#just-nlp-2025-legal-mt)<br>*shared-task · gated · specialist* | — | India; English, Hindi | Translate legal text from English to Hindi. |
 
-### Italy
+</details>
 
-Italian law.
+<details>
+<summary><strong>Italy</strong> — Italian law.</summary>
 
 #### Updated in 2026
 
@@ -297,9 +333,10 @@ Italian law.
 | --- | --- | --- | --- |
 | [JuriFindIT](docs/benchmarks/retrieval-rag-citation.md#jurifindit)<br>*benchmark · open · specialist* | [2026-03](https://aclanthology.org/2026.findings-eacl.221/)<br>*Findings of EACL 2026 publication* | Italy, European Union materials within the corpus; Italian | Retrieve Italian statutory articles relevant to natural-language legal questions. |
 
-### Morocco
+</details>
 
-Moroccan law and Moroccan Arabic legal evaluation.
+<details>
+<summary><strong>Morocco</strong> — Moroccan law and Moroccan Arabic legal evaluation.</summary>
 
 #### Updated in 2026
 
@@ -307,9 +344,10 @@ Moroccan law and Moroccan Arabic legal evaluation.
 | --- | --- | --- | --- |
 | [MizanQA](docs/benchmarks/reasoning-education.md#mizanqa)<br>*benchmark · open · check before use* | [2026-03](https://aclanthology.org/2026.eacl-industry.10/)<br>*EACL 2026 Industry Track publication* | Morocco; Arabic (Modern Standard Arabic with Moroccan legal usage) | Answer expert-verified multiple-choice questions about Moroccan law and associated legal traditions. |
 
-### Portugal
+</details>
 
-Portuguese law and European Portuguese legal evaluation.
+<details>
+<summary><strong>Portugal</strong> — Portuguese law and European Portuguese legal evaluation.</summary>
 
 #### Updated in 2026
 
@@ -317,9 +355,10 @@ Portuguese law and European Portuguese legal evaluation.
 | --- | --- | --- | --- |
 | [LegalBench.PT](docs/benchmarks/reasoning-education.md#legalbench-pt)<br>*benchmark · open · check before use* | [2026-05-06](https://huggingface.co/datasets/BeatrizCanaverde/LegalBench.PT)<br>*Hugging Face dataset update* | Portugal; Portuguese (European) | Answer European Portuguese questions testing knowledge and application of Portuguese law across 31 legal fields. |
 
-### Romania
+</details>
 
-Romanian law.
+<details>
+<summary><strong>Romania</strong> — Romanian law.</summary>
 
 #### Updated in 2026
 
@@ -327,9 +366,10 @@ Romanian law.
 | --- | --- | --- | --- |
 | [RoD-TAL](docs/benchmarks/retrieval-rag-citation.md#rod-tal)<br>*benchmark-suite · gated · specialist* | [2026-04-30](https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL)<br>*Hugging Face dataset update* | Romania; Romanian | Answer Romanian driving-law questions and retrieve governing law or traffic signs from text and images. |
 
-### Saudi Arabia
+</details>
 
-Saudi law; translated or broader Arab-jurisdiction material remains disclosed in the row.
+<details>
+<summary><strong>Saudi Arabia</strong> — Saudi law; translated or broader Arab-jurisdiction material remains disclosed in the row.</summary>
 
 #### Updated in 2025
 
@@ -338,9 +378,10 @@ Saudi law; translated or broader Arab-jurisdiction material remains disclosed in
 | [Arabic Legal Argument Reasoning Benchmark (ALARB)](docs/benchmarks/reasoning-education.md#alarb)<br>*dataset · open · check before use* | [2025-10-15](https://huggingface.co/datasets/THIQAH-RD/ALARB)<br>*Hugging Face dataset update* | Saudi Arabia; Arabic | Reason over Saudi commercial-law cases, complete arguments, and identify governing statutory articles. |
 | [ArabLegalEval](docs/benchmarks/reasoning-education.md#arablegaleval)<br>*benchmark-suite · open · check before use* | [2025-05-21](https://github.com/Thiqah/ArabLegalEval)<br>*GitHub repository push* | Saudi Arabia, Arab jurisdictions / translated sources; Arabic, English | Arabic legal knowledge, classification, question answering, and translation, with substantial Saudi-law coverage. |
 
-### South Korea
+</details>
 
-South Korean law.
+<details>
+<summary><strong>South Korea</strong> — South Korean law.</summary>
 
 #### Updated in 2026
 
@@ -354,9 +395,10 @@ South Korean law.
 | --- | --- | --- | --- |
 | [KBL](docs/benchmarks/reasoning-education.md#kbl)<br>*benchmark-suite · open · specialist* | [2025-05-19](https://huggingface.co/datasets/lbox/kbl)<br>*Hugging Face benchmark dataset update* | South Korea; Korean | Answer Korean legal knowledge, legal reasoning, and bar-examination multiple-choice questions with or without retrieved statutes and precedents. |
 
-### Switzerland
+</details>
 
-Swiss law and Swiss legal languages.
+<details>
+<summary><strong>Switzerland</strong> — Swiss law and Swiss legal languages.</summary>
 
 #### Updated in 2025
 
@@ -364,9 +406,10 @@ Swiss law and Swiss legal languages.
 | --- | --- | --- | --- |
 | [SwiLTra-Bench](docs/benchmarks/translation.md#swiltra-bench)<br>*benchmark-suite · open · recommended* | [2025-05-30](https://arxiv.org/abs/2503.01372)<br>*arXiv revision* | Switzerland; German, French, Italian, Romansh, English | Translate Swiss laws, court headnotes, and press releases among official Swiss languages and English. |
 
-### United Kingdom
+</details>
 
-United Kingdom law and regulatory enforcement.
+<details>
+<summary><strong>United Kingdom</strong> — United Kingdom law and regulatory enforcement.</summary>
 
 #### Updated in 2025
 
@@ -374,15 +417,18 @@ United Kingdom law and regulatory enforcement.
 | --- | --- | --- | --- |
 | [MASLegalBench](docs/benchmarks/prediction-fairness-rules.md#maslegalbench)<br>*benchmark · open · check before use* | [2025-09-30](https://arxiv.org/abs/2509.24922)<br>*arXiv revision* | United Kingdom / GDPR enforcement; English | Multi-agent deductive reasoning about GDPR enforcement facts, rules, application, common sense, and conclusions. |
 
-### Vietnam
+</details>
 
-Vietnamese law and Vietnamese-language legal evaluation.
+<details>
+<summary><strong>Vietnam</strong> — Vietnamese law and Vietnamese-language legal evaluation.</summary>
 
 #### Updated in 2026
 
 | Benchmark | Last verified update | Coverage | What it measures |
 | --- | --- | --- | --- |
 | [VLegal-Bench](docs/benchmarks/reasoning-education.md#vlegal-bench)<br>*benchmark-suite · open · check before use* | [2026-04-17](https://arxiv.org/abs/2512.14554)<br>*arXiv v5 revision* | Vietnam; Vietnamese | Evaluate Vietnamese legal recognition, understanding, reasoning, interpretation, generation, and professional ethics across 22 named tasks. |
+
+</details>
 
 ## Population not published or fixed
 
